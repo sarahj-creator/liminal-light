@@ -1,38 +1,468 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Liminal Light — A Mood Piece</title>
+  <title>Liminal Light — A Mood Piece</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
 
-<style>
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    :root {
+      --stone: #c8b89a;
+      --warm-white: #f5f0e8;
+      --deep-amber: #8b6914;
+      --limestone: #e8dcc8;
+      --shadow: #1a1408;
+      --light-gold: #d4a843;
+    }
 
-:root {
-  --stone: #c8b89a;
-  --warm-white: #f5f0e8;
-  --deep-amber: #8b6914;
-  --limestone: #e8dcc8;
-  --shadow: #1a1408;
-  --light-gold: #d4a843;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-html {
-  scroll-behavior: smooth;
-}
+    body {
+      background: var(--shadow);
+      color: var(--warm-white);
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      overflow-x: hidden;
+    }
 
-body {
-  background: var(--shadow);
-  color: var(--warm-white);
-  font-family: 'Jost', sans-serif;
-  font
+    /* OPENING */
+
+    .opening {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: #080601;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .opening::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(
+          ellipse at center,
+          rgba(139,105,20,0.08) 0%,
+          transparent 70%
+        );
+      animation: breathe 6s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+      0%, 100% {
+        opacity: 0.4;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+    }
+
+    .opening-text {
+      position: relative;
+      z-index: 2;
+      animation: fadeIn 3s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .welcome-line {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1rem;
+      letter-spacing: 0.4em;
+      color: var(--stone);
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeIn 2s ease 1s forwards;
+    }
+
+    .brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeIn 2s ease 2s forwards;
+    }
+
+    .opening-sub {
+      font-size: 0.7rem;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: var(--deep-amber);
+      opacity: 0;
+      animation: fadeIn 2s ease 3s forwards;
+    }
+
+    /* LETTER INTRO */
+
+    .letter-intro {
+      min-height: 100vh;
+      background: #050402;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      padding: 4rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .letter-intro::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(
+          ellipse at center,
+          rgba(139,105,20,0.08) 0%,
+          transparent 70%
+        );
+      animation: breathe 6s ease-in-out infinite;
+    }
+
+    .letter-fade {
+      opacity: 0;
+      animation: slowReveal 3s ease forwards;
+      animation-delay: 1s;
+      max-width: 650px;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .letter-fade img {
+      width: 100%;
+      display: block;
+      box-shadow:
+        0 30px 80px rgba(0,0,0,0.55),
+        0 0 50px rgba(139,105,20,0.08);
+    }
+
+    @keyframes slowReveal {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .enter-button {
+      opacity: 0;
+      animation: fadeButton 2s ease forwards;
+      animation-delay: 3.5s;
+
+      background: transparent;
+      border: 1px solid rgba(200,184,154,0.3);
+      color: var(--stone);
+
+      padding: 1rem 2.5rem;
+
+      font-family: 'Jost', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+
+      cursor: pointer;
+
+      transition:
+        background 0.4s ease,
+        color 0.4s ease,
+        border-color 0.4s ease;
+
+      position: relative;
+      z-index: 2;
+    }
+
+    .enter-button:hover {
+      background: rgba(200,184,154,0.08);
+      border-color: rgba(200,184,154,0.5);
+      color: var(--warm-white);
+    }
+
+    @keyframes fadeButton {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* SECTIONS */
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .corridor {
+      background:
+        linear-gradient(
+          160deg,
+          #0f0c06 0%,
+          #1e1608 40%,
+          #2a1e0a 100%
+        );
+
+      padding: 8vw;
+    }
+
+    .section-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .section-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: var(--deep-amber);
+      margin-bottom: 3rem;
+    }
+
+    .section-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.2;
+      margin-bottom: 2.5rem;
+      color: var(--warm-white);
+    }
+
+    .section-heading em {
+      font-style: italic;
+      color: var(--limestone);
+    }
+
+    .body-text {
+      font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+      line-height: 2;
+      color: rgba(245,240,232,0.75);
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* CLOSING */
+
+    .closing {
+      background: #080601;
+      padding: 8vw;
+      text-align: center;
+      min-height: 80vh;
+    }
+
+    .closing-statement {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.5;
+      max-width: 680px;
+      margin: 0 auto 4rem;
+    }
+
+    .closing-statement em {
+      color: var(--stone);
+    }
+
+    .closing-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.4em;
+      color: var(--deep-amber);
+      text-transform: uppercase;
+    }
+
+    .closing-tagline {
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(200,184,154,0.4);
+      margin-top: 1rem;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- OPENING -->
+
+  <section class="opening">
+
+    <div class="opening-text">
+      <p class="welcome-line">Welcome to</p>
+
+      <h1 class="brand-name">
+        Liminal Light
+      </h1>
+
+      <p class="opening-sub">
+        St. James, Barbados
+      </p>
+    </div>
+
+  </section>
+
+  <!-- LETTER INTRO -->
+
+  <section class="letter-intro">
+
+    <div class="letter-fade">
+      <img src="letter.png" alt="Liminal Light Invitation Letter">
+    </div>
+
+    <button class="enter-button" onclick="enterExperience()">
+      Enter Liminal Light
+    </button>
+
+  </section>
+
+  <!-- EXPERIENCE -->
+
+  <section class="corridor" id="experience">
+
+    <div class="section-inner">
+
+      <div class="section-label fade-up">
+        I — The Threshold
+      </div>
+
+      <h2 class="section-heading fade-up">
+        The treatment begins<br>
+        <em>before you lie down.</em>
+      </h2>
+
+      <p class="body-text fade-up">
+        As soon as you enter this space, you are transported.
+      </p>
+
+      <p class="body-text fade-up">
+        Before you see anything, you hear it.
+        A voice — calm — speaks four words into the corridor.
+        <em>Welcome to Liminal Light.</em>
+      </p>
+
+      <p class="body-text fade-up">
+        The corridor opens around you in limestone and amber.
+        Peaceful music moves softly through the air.
+        A signature scent drifts through it all.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- CLOSING -->
+
+  <section class="closing">
+
+    <div class="section-inner">
+
+      <p class="closing-statement fade-up">
+        This is not a massage business with beautiful interiors.
+        <br>
+        <em>This is a designed state change.</em>
+      </p>
+
+      <p class="closing-brand fade-up">
+        Liminal Light
+      </p>
+
+      <p class="closing-tagline fade-up">
+        Where the crossing is the healing
+      </p>
+
+    </div>
+
+  </section>
+
+  <script>
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+
+        if (entry.isIntersecting) {
+
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, 100);
+
+          observer.unobserve(entry.target);
+
+        }
+
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    document.querySelectorAll('.fade-up')
+      .forEach(el => observer.observe(el));
+
+    function enterExperience() {
+
+      document.getElementById('experience')
+        .scrollIntoView({
+          behavior: 'smooth'
+        });
+
+    }
+
+  </script>
+
+</body>
+</html>
