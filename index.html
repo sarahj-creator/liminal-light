@@ -4,9 +4,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Liminal Light — mobile massage and wellness therapy, brought to you anywhere in Barbados. Relaxation, deep tissue and lymphatic drainage massage, island-wide.">
+<meta name="description" content="Liminal Light — mobile and studio massage and wellness in Barbados. Brought to you anywhere on the island, or held at a private home studio in St James. Relaxation, deep tissue and lymphatic drainage massage.">
 
-<title>Liminal Light — Mobile Massage &amp; Wellness, Barbados</title>
+<title>Liminal Light — Mobile and Studio Massage &amp; Wellness, Barbados</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
 
@@ -248,6 +248,11 @@ body {
   z-index: 2;
 }
 
+.intro-fade.second {
+  animation-delay: 2s;
+  margin-top: 0.5rem;
+}
+
 .intro-fade p {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
@@ -314,6 +319,10 @@ body {
   background: var(--light-gold);
   border-color: var(--light-gold);
   color: var(--shadow);
+}
+
+.enter-button.delayed {
+  animation-delay: 3.4s;
 }
 
 @keyframes fadeButton {
@@ -508,6 +517,88 @@ hr.divider {
   white-space: nowrap;
 }
 
+/* SETTING CHOICE CARDS */
+
+.setting-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+
+.setting-card {
+  border: 1px solid rgba(200,184,154,0.15);
+  padding: 2.5rem;
+  background: rgba(245,240,232,0.02);
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.setting-card:hover {
+  border-color: rgba(200,184,154,0.35);
+  background: rgba(139,105,20,0.04);
+}
+
+.setting-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--deep-amber);
+  margin-bottom: 1.2rem;
+}
+
+.setting-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--warm-white);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.setting-desc {
+  font-size: 0.85rem;
+  line-height: 1.9;
+  color: rgba(245,240,232,0.65);
+  font-weight: 300;
+}
+
+/* PRICING TOGGLE */
+
+.pricing-toggle {
+  display: flex;
+  gap: 0.8rem;
+  margin: 2.5rem 0 0;
+}
+
+.toggle-btn {
+  background: transparent;
+  border: 1px solid rgba(200,184,154,0.3);
+  color: var(--stone);
+  padding: 0.75rem 1.8rem;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+  border-color: rgba(200,184,154,0.6);
+  color: var(--warm-white);
+}
+
+.toggle-btn.is-active {
+  background: var(--deep-amber);
+  border-color: var(--deep-amber);
+  color: var(--shadow);
+}
+
+.price-panel {
+  margin-top: 2rem;
+}
+
 /* MOBILE SERVICE NOTE */
 
 .mobile-note {
@@ -667,7 +758,8 @@ hr.divider {
 }
 
 .form-field input,
-.form-field textarea {
+.form-field textarea,
+.form-field select {
   background: rgba(245,240,232,0.03);
   border: 1px solid rgba(200,184,154,0.2);
   color: var(--warm-white);
@@ -677,8 +769,17 @@ hr.divider {
   font-size: 0.9rem;
 }
 
+.form-field select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23c8b89a'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+}
+
 .form-field input:focus,
-.form-field textarea:focus {
+.form-field textarea:focus,
+.form-field select:focus {
   outline: none;
   border-color: var(--deep-amber);
 }
@@ -919,7 +1020,7 @@ hr.divider {
     </h1>
 
     <p class="opening-sub">
-      Mobile Massage &amp; Wellness — Island-Wide, Barbados
+      Mobile &amp; Studio Massage Wellness — Barbados
     </p>
 
     <div class="opening-cta">
@@ -940,7 +1041,11 @@ hr.divider {
     <p>No clinic. No waiting room. Just skilled, attentive touch — brought into the comfort of your own space, wherever you are in Barbados.</p>
   </div>
 
-  <a href="#philosophy" class="enter-button">Learn More</a>
+  <div class="intro-fade second">
+    <p>Or step away. A private studio in St James, held quietly for you — for the days when leaving your own four walls is part of the reset.</p>
+  </div>
+
+  <a href="#philosophy" class="enter-button delayed">Learn More</a>
 
 </section>
 
@@ -962,17 +1067,22 @@ hr.divider {
     </h2>
 
     <p class="body-text fade-up">
-      Liminal Light is a mobile massage and wellness practice. Rather than travelling to a clinic, you're met in the comfort of your own home — with the same care, presence and quality of treatment you'd expect from a dedicated wellness space.
+      Mobile brings the practice to you — no commute, no gap between work and your session, no need to leave a space you already feel at ease in. It's built for convenience: the treatment folds into your day exactly where you already are.
     </p>
 
     <p class="body-text fade-up">
-      Every session is approached with a human-centred philosophy: your body, your context, and what you actually need in that moment shape the treatment — not a fixed script.
+      Home Studio offers the opposite gift: distance. A private, dedicated room in St James, set apart from your inbox, your kitchen, your to-do list — for the days when a change of scene is as restorative as the massage itself.
+    </p>
+
+    <p class="body-text fade-up">
+      However you choose to receive it, every session is approached with a human-centred philosophy: your body, your context, and what you actually need in that moment shape the treatment — not a fixed script.
     </p>
 
     <div class="tag-strip fade-up">
+      <span class="tag">Mobile</span>
+      <span class="tag">Home Studio</span>
       <span class="tag">Relaxation</span>
       <span class="tag">Deep Tissue</span>
-      <span class="tag">Lymphatic Drainage</span>
       <span class="tag">Couples — Coming Soon</span>
     </div>
 
@@ -1005,34 +1115,98 @@ hr.divider {
       Every treatment is fully customisable to your needs. All prices in BBD.
     </p>
 
-    <p class="area-note fade-up">Service Area — Island Wide, Barbados</p>
+    <p class="area-note fade-up">Choose Your Setting</p>
 
-    <div class="price-groups fade-up">
+    <div class="setting-grid fade-up">
 
-      <div class="price-group">
-        <h3 class="price-group-title">Solo Massage</h3>
-        <ul class="price-list">
-          <li class="price-row"><span>30 min</span><span>$239 BBD</span></li>
-          <li class="price-row"><span>45 min</span><span>$279 BBD</span></li>
-          <li class="price-row"><span>60 min</span><span>$309 BBD</span></li>
-          <li class="price-row"><span>90 min</span><span>$389 BBD</span></li>
-          <li class="price-row"><span>120 min</span><span>$509 BBD</span></li>
-        </ul>
+      <div class="setting-card">
+        <p class="setting-label">Mobile Service</p>
+        <h3 class="setting-title">The sanctuary comes to you.</h3>
+        <p class="setting-desc">
+          Your own space, held for an hour as a place of stillness. No travel, no waiting room — just skilled, attentive touch, brought directly to you, wherever you are in Barbados.
+        </p>
       </div>
 
-      <div class="price-group pending">
-        <h3 class="price-group-title">Couples Massage <span class="coming-soon-badge">Coming Soon</span></h3>
-        <ul class="price-list">
-          <li class="price-row"><span>60 min</span><span>$579 BBD</span></li>
-          <li class="price-row"><span>90 min</span><span>$739 BBD</span></li>
-        </ul>
+      <div class="setting-card">
+        <p class="setting-label">Home Studio</p>
+        <h3 class="setting-title">Step away. A retreat of your own.</h3>
+        <p class="setting-desc">
+          A quiet, private studio in St James, set aside for your session alone. For the days when leaving your own four walls is part of the reset — the same care, a change of scene.
+        </p>
       </div>
 
     </div>
 
-    <p class="mobile-note fade-up">
-      Prices shown reflect St James and surrounding areas. <strong>Liminal Light comes to you</strong> — for locations further afield, message me and I'll confirm your rate.
-    </p>
+    <div class="pricing-toggle fade-up">
+      <button type="button" class="toggle-btn is-active" data-setting="mobile">Mobile</button>
+      <button type="button" class="toggle-btn" data-setting="studio">Home Studio</button>
+    </div>
+
+    <div class="price-panel" data-panel="mobile">
+
+      <p class="area-note">Service Area — Island Wide, Barbados</p>
+
+      <div class="price-groups">
+
+        <div class="price-group">
+          <h3 class="price-group-title">Solo Massage</h3>
+          <ul class="price-list">
+            <li class="price-row"><span>30 min</span><span>$185 BBD</span></li>
+            <li class="price-row"><span>45 min</span><span>$255 BBD</span></li>
+            <li class="price-row"><span>60 min</span><span>$310 BBD</span></li>
+            <li class="price-row"><span>90 min</span><span>$415 BBD</span></li>
+            <li class="price-row"><span>120 min</span><span>$505 BBD</span></li>
+          </ul>
+        </div>
+
+        <div class="price-group pending">
+          <h3 class="price-group-title">Couples Massage <span class="coming-soon-badge">Coming Soon</span></h3>
+          <ul class="price-list">
+            <li class="price-row"><span>60 min</span><span>$579 BBD</span></li>
+            <li class="price-row"><span>90 min</span><span>$739 BBD</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <p class="mobile-note">
+        Prices reflect St James and surrounding areas. <strong>Liminal Light comes to you</strong> — for locations further afield, message me and I'll confirm your rate.
+      </p>
+
+    </div>
+
+    <div class="price-panel" data-panel="studio" style="display:none;">
+
+      <p class="area-note">Home Studio — St James, By Private Appointment</p>
+
+      <div class="price-groups">
+
+        <div class="price-group">
+          <h3 class="price-group-title">Solo Massage</h3>
+          <ul class="price-list">
+            <li class="price-row"><span>30 min</span><span>$170 BBD</span></li>
+            <li class="price-row"><span>45 min</span><span>$235 BBD</span></li>
+            <li class="price-row"><span>60 min</span><span>$285 BBD</span></li>
+            <li class="price-row"><span>90 min</span><span>$380 BBD</span></li>
+            <li class="price-row"><span>120 min</span><span>$465 BBD</span></li>
+          </ul>
+        </div>
+
+        <div class="price-group pending">
+          <h3 class="price-group-title">Couples Massage <span class="coming-soon-badge">Coming Soon</span></h3>
+          <ul class="price-list">
+            <li class="price-row"><span>60 min</span><span>$535 BBD</span></li>
+            <li class="price-row"><span>90 min</span><span>$685 BBD</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <p class="mobile-note">
+        <strong>Home Studio rates carry no travel overhead</strong> — held by private appointment in St James.
+      </p>
+
+    </div>
 
   </div>
 
@@ -1054,35 +1228,40 @@ hr.divider {
     </h2>
 
     <p class="body-text fade-up">
-      Select the treatment(s) you're interested in and share a few details below. We'll confirm your appointment by email or WhatsApp within 24 hours.
+      Choose your setting, select the treatment(s) you're interested in, and share a few details below. We'll confirm your appointment by email or WhatsApp within 24 hours.
     </p>
+
+    <div class="pricing-toggle fade-up" id="bookingSettingToggle">
+      <button type="button" class="toggle-btn is-active" data-setting="mobile" data-setting-label="Mobile — treatment at client's location">Mobile</button>
+      <button type="button" class="toggle-btn" data-setting="studio" data-setting-label="Home Studio — treatment at Liminal Light studio, St James">Home Studio</button>
+    </div>
 
     <form id="requestForm" class="fade-up">
 
       <div class="checkbox-grid">
         <label class="checkbox-item">
-          <input type="checkbox" name="service" value="30-min Massage — $239 BBD" data-label="30-min Massage">
-          <span class="checkbox-label"><span class="service-name">30-min Massage</span><span class="service-price">$239 BBD</span></span>
+          <input type="checkbox" name="service" data-duration="30-min Massage" data-mobile-price="185" data-studio-price="170">
+          <span class="checkbox-label"><span class="service-name">30-min Massage</span><span class="service-price">$185 BBD</span></span>
         </label>
 
         <label class="checkbox-item">
-          <input type="checkbox" name="service" value="45-min Massage — $279 BBD" data-label="45-min Massage">
-          <span class="checkbox-label"><span class="service-name">45-min Massage</span><span class="service-price">$279 BBD</span></span>
+          <input type="checkbox" name="service" data-duration="45-min Massage" data-mobile-price="255" data-studio-price="235">
+          <span class="checkbox-label"><span class="service-name">45-min Massage</span><span class="service-price">$255 BBD</span></span>
         </label>
 
         <label class="checkbox-item">
-          <input type="checkbox" name="service" value="60-min Massage — $309 BBD" data-label="60-min Massage">
-          <span class="checkbox-label"><span class="service-name">60-min Massage</span><span class="service-price">$309 BBD</span></span>
+          <input type="checkbox" name="service" data-duration="60-min Massage" data-mobile-price="310" data-studio-price="285">
+          <span class="checkbox-label"><span class="service-name">60-min Massage</span><span class="service-price">$310 BBD</span></span>
         </label>
 
         <label class="checkbox-item">
-          <input type="checkbox" name="service" value="90-min Massage — $389 BBD" data-label="90-min Massage">
-          <span class="checkbox-label"><span class="service-name">90-min Massage</span><span class="service-price">$389 BBD</span></span>
+          <input type="checkbox" name="service" data-duration="90-min Massage" data-mobile-price="415" data-studio-price="380">
+          <span class="checkbox-label"><span class="service-name">90-min Massage</span><span class="service-price">$415 BBD</span></span>
         </label>
 
         <label class="checkbox-item">
-          <input type="checkbox" name="service" value="120-min Massage — $509 BBD" data-label="120-min Massage">
-          <span class="checkbox-label"><span class="service-name">120-min Massage</span><span class="service-price">$509 BBD</span></span>
+          <input type="checkbox" name="service" data-duration="120-min Massage" data-mobile-price="505" data-studio-price="465">
+          <span class="checkbox-label"><span class="service-name">120-min Massage</span><span class="service-price">$505 BBD</span></span>
         </label>
       </div>
 
@@ -1096,12 +1275,12 @@ hr.divider {
 
       <div class="checkbox-grid">
         <label class="checkbox-item waitlist">
-          <input type="checkbox" name="waitlist" value="60-min Couples Massage (waitlist) — est. $579 BBD" data-label="60-min Couples Massage (waitlist)">
+          <input type="checkbox" name="waitlist" data-duration="60-min Couples Massage (waitlist)" data-mobile-price="579" data-studio-price="535">
           <span class="checkbox-label"><span class="service-name">60-min Couples Massage</span><span class="service-price">Waitlist — est. $579 BBD</span></span>
         </label>
 
         <label class="checkbox-item waitlist">
-          <input type="checkbox" name="waitlist" value="90-min Couples Massage (waitlist) — est. $739 BBD" data-label="90-min Couples Massage (waitlist)">
+          <input type="checkbox" name="waitlist" data-duration="90-min Couples Massage (waitlist)" data-mobile-price="739" data-studio-price="685">
           <span class="checkbox-label"><span class="service-name">90-min Couples Massage</span><span class="service-price">Waitlist — est. $739 BBD</span></span>
         </label>
       </div>
@@ -1123,7 +1302,7 @@ hr.divider {
         </div>
 
         <div class="form-field">
-          <label for="clientArea">Parish / Area</label>
+          <label for="clientArea">Parish / Area (for Mobile bookings)</label>
           <input type="text" id="clientArea" placeholder="e.g. Christ Church">
         </div>
 
@@ -1240,15 +1419,49 @@ document
   .querySelectorAll('.fade-up')
   .forEach(el => observer.observe(el));
 
+/* PRICING TOGGLE — drives both the Services price table and the booking form */
+
+let currentSetting = 'mobile';
+let currentSettingLabel = "Mobile — treatment at client's location";
+
+function applySetting(setting, label) {
+  currentSetting = setting;
+  currentSettingLabel = label;
+
+  // sync every toggle group on the page (Services table + booking form)
+  document.querySelectorAll('.toggle-btn').forEach(function (b) {
+    b.classList.toggle('is-active', b.dataset.setting === setting);
+  });
+
+  // swap the Services price panel, if present
+  document.querySelectorAll('.price-panel').forEach(function (panel) {
+    panel.style.display = (panel.dataset.panel === setting) ? '' : 'none';
+  });
+
+  // update every priced checkbox in the booking form
+  document.querySelectorAll('[data-mobile-price][data-studio-price]').forEach(function (input) {
+    const price = setting === 'studio' ? input.dataset.studioPrice : input.dataset.mobilePrice;
+    const priceLabel = input.closest('.checkbox-item').querySelector('.service-price');
+    if (priceLabel) {
+      priceLabel.textContent = input.name === 'waitlist'
+        ? 'Waitlist — est. $' + price + ' BBD'
+        : '$' + price + ' BBD';
+    }
+  });
+}
+
+document.querySelectorAll('.toggle-btn').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    applySetting(this.dataset.setting, this.dataset.settingLabel || this.textContent.trim());
+  });
+});
+
 /* BOOKING FORM LOGIC */
 
 function buildRequestMessage() {
 
-  const checked = Array.from(document.querySelectorAll('input[name="service"]:checked'))
-    .map(cb => cb.value);
-
-  const waitlisted = Array.from(document.querySelectorAll('input[name="waitlist"]:checked'))
-    .map(cb => cb.value);
+  const checked = Array.from(document.querySelectorAll('input[name="service"]:checked'));
+  const waitlisted = Array.from(document.querySelectorAll('input[name="waitlist"]:checked'));
 
   const name = document.getElementById('clientName').value.trim();
   const phone = document.getElementById('clientPhone').value.trim();
@@ -1268,16 +1481,24 @@ function buildRequestMessage() {
     return null;
   }
 
+  function lineFor(input, isWaitlist) {
+    const price = currentSetting === 'studio' ? input.dataset.studioPrice : input.dataset.mobilePrice;
+    const priceText = isWaitlist ? ('est. $' + price + ' BBD') : ('$' + price + ' BBD');
+    return input.dataset.duration + ' — ' + priceText;
+  }
+
   let msg = 'New Massage Request — Liminal Light\n\n';
 
+  msg += 'Preferred Setting: ' + currentSettingLabel + '\n';
+
   if (checked.length > 0) {
-    msg += 'Treatment(s) requested:\n';
-    checked.forEach(item => { msg += '- ' + item + '\n'; });
+    msg += '\nTreatment(s) requested:\n';
+    checked.forEach(input => { msg += '- ' + lineFor(input, false) + '\n'; });
   }
 
   if (waitlisted.length > 0) {
     msg += '\nWaitlist interest (Coming Soon):\n';
-    waitlisted.forEach(item => { msg += '- ' + item + '\n'; });
+    waitlisted.forEach(input => { msg += '- ' + lineFor(input, true) + '\n'; });
   }
 
   msg += '\nName: ' + name;
