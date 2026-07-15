@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Liminal Light — mobile and studio massage and wellness in Barbados. Brought to you anywhere on the island, or held at a private home studio in St James. Relaxation, deep tissue and massage.">
+<meta name="description" content="Liminal Light — mobile and studio massage and wellness in Barbados. Brought to you anywhere on the island, or held at a private home studio in St James. Relaxation, deep tissue massage.">
 
 <title>Liminal Light — Mobile and Studio Massage &amp; Wellness, Barbados</title>
 
@@ -21,13 +21,17 @@
 }
 
 :root {
-  --stone: #c8b89a;
-  --warm-white: #f5f0e8;
-  --deep-amber: #8b6914;
-  --limestone: #e8dcc8;
-  --shadow: #1a1408;
+  --stone: #DDD1C2;
+  --warm-white: #F5EEE6;
+  --deep-amber: #D4A843;
+  --limestone: #DDD1C2;
+  --shadow: #1A120D;
   --moss: #4a5240;
-  --light-gold: #d4a843;
+  --light-gold: #E8C468;
+  --walnut: #241812;
+  --mocha: #2B1B14;
+  --cocoa: #32221A;
+  --bronze: #6A4A33;
 }
 
 html {
@@ -54,9 +58,9 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 1.3rem 2.5rem;
-  background: rgba(8,6,1,0.72);
+  background: rgba(26,18,13,0.78);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(200,184,154,0.08);
+  border-bottom: 1px solid rgba(106,74,51,0.35);
 }
 
 .nav-brand {
@@ -89,10 +93,11 @@ body {
 }
 
 .nav-call {
-  font-size: 0.6rem;
+  font-size: 0.68rem;
+  font-weight: 500;
   letter-spacing: 0.2em;
   color: var(--light-gold);
-  border: 1px solid rgba(139,105,20,0.5);
+  border: 2px solid rgba(212,168,67,0.7);
   padding: 0.6rem 1.1rem;
   text-decoration: none;
   text-transform: uppercase;
@@ -101,7 +106,7 @@ body {
 }
 
 .nav-call:hover {
-  background: rgba(139,105,20,0.12);
+  background: rgba(212,168,67,0.15);
   border-color: var(--light-gold);
 }
 
@@ -119,7 +124,7 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
-  background: #080601;
+  background: #2B1B14;
   overflow: hidden;
   text-align: center;
 }
@@ -131,7 +136,7 @@ body {
   background:
     radial-gradient(
       ellipse at center,
-      rgba(139,105,20,0.08) 0%,
+      rgba(212,168,67,0.1) 0%,
       transparent 70%
     );
   animation: breathe 6s ease-in-out infinite;
@@ -200,21 +205,63 @@ body {
   animation: fadeIn 2s ease 3s forwards;
 }
 
+.opening-mission {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(0.95rem, 2vw, 1.2rem);
+  line-height: 1.7;
+  color: var(--stone);
+  max-width: 480px;
+  margin: 1.5rem auto 0;
+  opacity: 0;
+  animation: fadeIn 2s ease 3.6s forwards;
+}
+
 .opening-cta {
   margin-top: 3rem;
   opacity: 0;
-  animation: fadeIn 2s ease 3.6s forwards;
+  animation: fadeIn 2s ease 4.2s forwards;
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
 }
 
+/* HOW YOU'LL FEEL */
+
+.feeling-section {
+  min-height: 80vh;
+  background: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.feeling-inner {
+  max-width: 680px;
+  position: relative;
+  z-index: 2;
+}
+
+.feeling-question {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--deep-amber);
+  margin: 2rem 0;
+}
+
 /* INTRO STRIP */
 
 .intro-strip {
   min-height: 70vh;
-  background: #050402;
+  background: #241812;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -233,7 +280,7 @@ body {
   background:
     radial-gradient(
       ellipse at center,
-      rgba(139,105,20,0.08) 0%,
+      rgba(212,168,67,0.1) 0%,
       transparent 70%
     );
   animation: breathe 6s ease-in-out infinite;
@@ -269,7 +316,7 @@ body {
 .intro-divider {
   width: 1px;
   align-self: stretch;
-  background: linear-gradient(to bottom, transparent, rgba(200,184,154,0.25), transparent);
+  background: linear-gradient(to bottom, transparent, rgba(106,74,51,0.55), transparent);
 }
 
 @media (max-width: 720px) {
@@ -311,7 +358,7 @@ body {
   animation-delay: 2s;
 
   background: transparent;
-  border: 1px solid rgba(200,184,154,0.3);
+  border: 1px solid rgba(106,74,51,0.6);
   color: var(--stone);
 
   padding: 1rem 2.5rem;
@@ -335,8 +382,8 @@ body {
 }
 
 .enter-button:hover {
-  background: rgba(200,184,154,0.08);
-  border-color: rgba(200,184,154,0.5);
+  background: rgba(106,74,51,0.35);
+  border-color: rgba(106,74,51,0.8);
   color: var(--warm-white);
 }
 
@@ -413,7 +460,7 @@ section {
 .body-text {
   font-size: clamp(0.9rem, 1.8vw, 1.05rem);
   line-height: 2;
-  color: rgba(245,240,232,0.75);
+  color: rgba(245,238,230,0.82);
   font-weight: 300;
 }
 
@@ -427,9 +474,9 @@ section {
   background:
     linear-gradient(
       160deg,
-      #0f0c06 0%,
-      #1e1608 40%,
-      #2a1e0a 100%
+      #1A120D 0%,
+      #241812 45%,
+      #2B1B14 100%
     );
 }
 
@@ -445,7 +492,7 @@ section {
   letter-spacing: 0.3em;
   text-transform: uppercase;
   padding: 0.6rem 1.3rem;
-  border: 1px solid rgba(200,184,154,0.25);
+  border: 1px solid rgba(106,74,51,0.55);
   color: var(--stone);
   font-weight: 300;
 }
@@ -457,7 +504,7 @@ hr.divider {
     linear-gradient(
       to right,
       transparent,
-      rgba(200,184,154,0.2),
+      rgba(106,74,51,0.5),
       transparent
     );
   margin: 3rem 0;
@@ -466,7 +513,7 @@ hr.divider {
 /* SERVICES */
 
 .services {
-  background: #14100a;
+  background: #241812;
 }
 
 .area-note {
@@ -483,7 +530,7 @@ hr.divider {
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--light-gold);
-  border: 1px solid rgba(212,168,67,0.4);
+  border: 1px solid rgba(232,196,104,0.6);
   padding: 0.3rem 0.7rem;
   margin-left: 0.8rem;
   vertical-align: middle;
@@ -494,20 +541,20 @@ hr.divider {
 }
 
 .price-group.pending .price-row span:last-child {
-  color: rgba(212,168,67,0.5);
+  color: rgba(232,196,104,0.7);
 }
 
 .price-groups {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1px;
-  background: rgba(200,184,154,0.1);
-  border: 1px solid rgba(200,184,154,0.1);
+  background: rgba(106,74,51,0.4);
+  border: 1px solid rgba(106,74,51,0.4);
   margin-top: 3rem;
 }
 
 .price-group {
-  background: #14100a;
+  background: #32221A;
   padding: 2.5rem;
 }
 
@@ -532,8 +579,8 @@ hr.divider {
   align-items: baseline;
   gap: 1rem;
   font-size: 0.82rem;
-  color: rgba(245,240,232,0.7);
-  border-bottom: 1px dashed rgba(200,184,154,0.15);
+  color: rgba(245,238,230,0.78);
+  border-bottom: 1px dashed rgba(106,74,51,0.45);
   padding-bottom: 0.7rem;
 }
 
@@ -554,19 +601,22 @@ hr.divider {
 }
 
 .setting-card {
-  border: 1px solid rgba(200,184,154,0.15);
+  border: 1px solid rgba(106,74,51,0.5);
+  border-left: 3px solid rgba(212,168,67,0.5);
   padding: 2.5rem;
-  background: rgba(245,240,232,0.02);
+  background: rgba(245,238,230,0.02);
   transition: border-color 0.3s ease, background 0.3s ease;
 }
 
 .setting-card:hover {
-  border-color: rgba(200,184,154,0.35);
-  background: rgba(139,105,20,0.04);
+  border-color: rgba(106,74,51,0.7);
+  border-left-color: var(--deep-amber);
+  background: rgba(212,168,67,0.06);
 }
 
 .setting-label {
-  font-size: 0.6rem;
+  font-size: 0.62rem;
+  font-weight: 500;
   letter-spacing: 0.35em;
   text-transform: uppercase;
   color: var(--deep-amber);
@@ -586,7 +636,7 @@ hr.divider {
 .setting-desc {
   font-size: 0.85rem;
   line-height: 1.9;
-  color: rgba(245,240,232,0.65);
+  color: rgba(245,238,230,0.72);
   font-weight: 300;
 }
 
@@ -600,11 +650,12 @@ hr.divider {
 
 .toggle-btn {
   background: transparent;
-  border: 1px solid rgba(200,184,154,0.3);
+  border: 2px solid rgba(212,168,67,0.4);
   color: var(--stone);
   padding: 0.75rem 1.8rem;
   font-family: 'Jost', sans-serif;
-  font-size: 0.68rem;
+  font-weight: 500;
+  font-size: 0.7rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   cursor: pointer;
@@ -612,7 +663,7 @@ hr.divider {
 }
 
 .toggle-btn:hover {
-  border-color: rgba(200,184,154,0.6);
+  border-color: rgba(212,168,67,0.8);
   color: var(--warm-white);
 }
 
@@ -620,6 +671,7 @@ hr.divider {
   background: var(--deep-amber);
   border-color: var(--deep-amber);
   color: var(--shadow);
+  box-shadow: 0 2px 16px rgba(212,168,67,0.35);
 }
 
 .price-panel {
@@ -632,7 +684,7 @@ hr.divider {
   margin-top: 2rem;
   font-size: 0.78rem;
   line-height: 1.8;
-  color: rgba(245,240,232,0.5);
+  color: rgba(245,238,230,0.7);
   font-style: italic;
   font-family: 'Cormorant Garamond', serif;
 }
@@ -651,8 +703,8 @@ hr.divider {
   background:
     linear-gradient(
       160deg,
-      #14100a,
-      #1a1408
+      #241812,
+      #1A120D
     );
 }
 
@@ -667,15 +719,15 @@ hr.divider {
   display: flex;
   align-items: center;
   gap: 1rem;
-  border: 1px solid rgba(200,184,154,0.15);
+  border: 1px solid rgba(106,74,51,0.45);
   padding: 1rem 1.3rem;
   cursor: pointer;
   transition: border-color 0.3s ease, background 0.3s ease;
 }
 
 .checkbox-item:hover {
-  border-color: rgba(200,184,154,0.4);
-  background: rgba(139,105,20,0.05);
+  border-color: rgba(106,74,51,0.7);
+  background: rgba(212,168,67,0.06);
 }
 
 .checkbox-item input[type="checkbox"] {
@@ -726,12 +778,12 @@ hr.divider {
 
 .checkbox-item.waitlist {
   border-style: dashed;
-  border-color: rgba(212,168,67,0.3);
+  border-color: rgba(232,196,104,0.5);
 }
 
 .checkbox-item.waitlist:hover {
-  border-color: rgba(212,168,67,0.5);
-  background: rgba(212,168,67,0.04);
+  border-color: rgba(232,196,104,0.7);
+  background: rgba(232,196,104,0.08);
 }
 
 .waitlist-heading {
@@ -751,7 +803,7 @@ hr.divider {
 
 .waitlist-note {
   font-size: 0.78rem;
-  color: rgba(245,240,232,0.5);
+  color: rgba(245,238,230,0.7);
   line-height: 1.7;
   margin-bottom: 1rem;
 }
@@ -787,8 +839,8 @@ hr.divider {
 .form-field input,
 .form-field textarea,
 .form-field select {
-  background: rgba(245,240,232,0.03);
-  border: 1px solid rgba(200,184,154,0.2);
+  background: rgba(245,238,230,0.03);
+  border: 1px solid rgba(106,74,51,0.5);
   color: var(--warm-white);
   padding: 0.85rem 1rem;
   font-family: 'Jost', sans-serif;
@@ -849,7 +901,7 @@ hr.divider {
 }
 
 .btn-secondary:hover {
-  background: rgba(139,105,20,0.1);
+  background: rgba(212,168,67,0.12);
   border-color: var(--light-gold);
   color: var(--light-gold);
 }
@@ -857,14 +909,14 @@ hr.divider {
 .form-note {
   margin-top: 1.5rem;
   font-size: 0.78rem;
-  color: rgba(245,240,232,0.45);
+  color: rgba(245,238,230,0.68);
   line-height: 1.7;
 }
 
 /* CONTACT / CLOSING */
 
 .closing {
-  background: #080601;
+  background: #1A120D;
   padding: 8vw 2rem;
   text-align: center;
   min-height: 90vh;
@@ -934,7 +986,7 @@ hr.divider {
 .social-icon {
   width: 42px;
   height: 42px;
-  border: 1px solid rgba(200,184,154,0.25);
+  border: 1px solid rgba(106,74,51,0.55);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -954,7 +1006,7 @@ hr.divider {
 
 .social-note {
   font-size: 0.7rem;
-  color: rgba(245,240,232,0.35);
+  color: rgba(245,238,230,0.68);
   letter-spacing: 0.05em;
   margin-top: 0.5rem;
 }
@@ -972,7 +1024,7 @@ hr.divider {
   font-size: 0.7rem;
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: rgba(200,184,154,0.4);
+  color: rgba(221,209,194,0.6);
   margin-top: 1rem;
 }
 
@@ -1004,7 +1056,7 @@ hr.divider {
 .glow-amber {
   width: 300px;
   height: 300px;
-  background: rgba(139,105,20,0.12);
+  background: rgba(212,168,67,0.15);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1050,10 +1102,41 @@ hr.divider {
       Mobile &amp; Studio Massage Wellness — Barbados
     </p>
 
+    <p class="opening-mission">
+      Helping you move intentionally between the demands of life and the restoration you need to thrive.
+    </p>
+
     <div class="opening-cta">
       <a href="#booking" class="enter-button filled">Request a Treatment</a>
       <a href="#services" class="enter-button">View Pricing</a>
     </div>
+  </div>
+
+</section>
+
+<!-- HOW YOU'LL FEEL -->
+
+<section class="feeling-section">
+
+  <div class="glow glow-amber" style="top:20%; left:50%; opacity:0.4;"></div>
+
+  <div class="feeling-inner">
+
+    <h2 class="section-heading fade-up">
+      Restoration looks<br>
+      different for <em>everyone.</em>
+    </h2>
+
+    <p class="body-text fade-up">
+      Whether you're carrying the weight of a demanding career, recovering after travel, managing the pace of family life, or simply longing for uninterrupted quiet, every treatment begins with one question:
+    </p>
+
+    <p class="feeling-question fade-up">What do you need today?</p>
+
+    <p class="body-text fade-up">
+      From there, your session is shaped around you — helping your body release tension, your mind settle, and your nervous system shift from constant doing into genuine restoration.
+    </p>
+
   </div>
 
 </section>
@@ -1093,13 +1176,27 @@ hr.divider {
   <div class="section-inner">
 
     <div class="section-label fade-up">
-      I — The Practice
+      I — Why Liminal Light Exists
     </div>
 
     <h2 class="section-heading fade-up">
-      The sanctuary<br>
-      comes to <em>you.</em>
+      Space to<br>
+      transition <em>intentionally.</em>
     </h2>
+
+    <p class="body-text fade-up">
+      Modern life asks us to move constantly — from work to family, from responsibilities to endless notifications. Rarely are we given space to transition intentionally.
+    </p>
+
+    <p class="body-text fade-up">
+      Liminal Light exists to help people move intentionally between the demands of life and the restoration they need to thrive.
+    </p>
+
+    <p class="body-text fade-up">
+      Every treatment is designed as more than a massage. It's an opportunity to slow your nervous system, reconnect with your body, and leave feeling more grounded than when you arrived.
+    </p>
+
+    <hr class="divider">
 
     <p class="body-text fade-up">
       Mobile brings the practice to you — no commute, no gap between work and your session, no need to leave a space you already feel at ease in. It's built for convenience: the treatment folds into your day exactly where you already are.
@@ -1107,10 +1204,6 @@ hr.divider {
 
     <p class="body-text fade-up">
       Home Studio offers the opposite gift: distance. A private, dedicated room in St James, set apart from your inbox, your kitchen, your to-do list — for the days when a change of scene is as restorative as the massage itself.
-    </p>
-
-    <p class="body-text fade-up">
-      However you choose to receive it, every session is approached with a human-centred philosophy: your body, your context, and what you actually need in that moment shape the treatment — not a fixed script.
     </p>
 
     <div class="tag-strip fade-up">
@@ -1381,9 +1474,9 @@ hr.divider {
   <div class="section-inner" style="max-width:100%; padding-bottom:2rem;">
 
     <p class="closing-statement fade-up">
-      This is not a massage business with a waiting room.
+      This isn't just massage.
       <br><br>
-      <em>This is restoration, brought to your door.</em>
+      <em>It's restoration, brought to your door.</em>
     </p>
 
     <div class="contact-grid fade-up">
