@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Liminal Light — mobile and studio massage and wellness in Barbados. Brought to you anywhere on the island, or held at a private home studio in St James. Relaxation, deep tissue massage.">
+<meta name="description" content="Liminal Light — mobile and studio massage and wellness in Barbados. Brought to you anywhere on the island, or held at a private home studio in St James. Relaxation, deep tissue and lymphatic drainage massage.">
 
 <title>Liminal Light — Mobile and Studio Massage &amp; Wellness, Barbados</title>
 
@@ -124,7 +124,7 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
-  background: linear-gradient(to bottom, #2B1B14 0%, #1A120D 100%);
+  background: #2B1B14;
   overflow: hidden;
   text-align: center;
 }
@@ -232,7 +232,7 @@ body {
 
 .feeling-section {
   min-height: 80vh;
-  background: linear-gradient(to bottom, #1A120D 0%, #241812 100%);
+  background: var(--shadow);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -261,7 +261,7 @@ body {
 
 .intro-strip {
   min-height: 70vh;
-  background: linear-gradient(to bottom, #241812 0%, #1A120D 100%);
+  background: #241812;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -473,7 +473,7 @@ section {
 .philosophy {
   background:
     linear-gradient(
-      to bottom,
+      160deg,
       #1A120D 0%,
       #241812 45%,
       #2B1B14 100%
@@ -513,7 +513,7 @@ hr.divider {
 /* SERVICES */
 
 .services {
-  background: linear-gradient(to bottom, #2B1B14 0%, #241812 100%);
+  background: #241812;
 }
 
 .area-note {
@@ -648,6 +648,25 @@ hr.divider {
   margin: 2.5rem 0 0;
 }
 
+.intro-badge {
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--shadow);
+  background: var(--light-gold);
+  padding: 0.4rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.intro-note {
+  font-size: 0.78rem;
+  color: rgba(245,238,230,0.7);
+  margin: 0.8rem 0 0;
+  font-style: italic;
+}
+
 .toggle-btn {
   background: transparent;
   border: 2px solid rgba(212,168,67,0.4);
@@ -702,7 +721,7 @@ hr.divider {
 .booking {
   background:
     linear-gradient(
-      to bottom,
+      160deg,
       #241812,
       #1A120D
     );
@@ -1211,6 +1230,7 @@ hr.divider {
       <span class="tag">Home Studio</span>
       <span class="tag">Relaxation</span>
       <span class="tag">Deep Tissue</span>
+      <span class="tag">Lymphatic Drainage</span>
       <span class="tag">Couples — Coming Soon</span>
     </div>
 
@@ -1265,6 +1285,8 @@ hr.divider {
 
     </div>
 
+    <p class="intro-badge fade-up">Introductory Rate</p>
+
     <div class="pricing-toggle fade-up">
       <button type="button" class="toggle-btn is-active" data-setting="mobile">Mobile</button>
       <button type="button" class="toggle-btn" data-setting="studio">Home Studio</button>
@@ -1279,19 +1301,19 @@ hr.divider {
         <div class="price-group">
           <h3 class="price-group-title">Solo Massage</h3>
           <ul class="price-list">
-            <li class="price-row"><span>30 min</span><span>$185 BBD</span></li>
-            <li class="price-row"><span>45 min</span><span>$255 BBD</span></li>
-            <li class="price-row"><span>60 min</span><span>$310 BBD</span></li>
-            <li class="price-row"><span>90 min</span><span>$415 BBD</span></li>
-            <li class="price-row"><span>120 min</span><span>$505 BBD</span></li>
+            <li class="price-row"><span>30 min</span><span>$115 BBD</span></li>
+            <li class="price-row"><span>45 min</span><span>$160 BBD</span></li>
+            <li class="price-row"><span>60 min</span><span>$190 BBD</span></li>
+            <li class="price-row"><span>90 min</span><span>$255 BBD</span></li>
+            <li class="price-row"><span>120 min</span><span>$310 BBD</span></li>
           </ul>
         </div>
 
         <div class="price-group pending">
           <h3 class="price-group-title">Couples Massage <span class="coming-soon-badge">Coming Soon</span></h3>
           <ul class="price-list">
-            <li class="price-row"><span>60 min</span><span>$579 BBD</span></li>
-            <li class="price-row"><span>90 min</span><span>$739 BBD</span></li>
+            <li class="price-row"><span>60 min</span><span>$345 BBD</span></li>
+            <li class="price-row"><span>90 min</span><span>$460 BBD</span></li>
           </ul>
         </div>
 
@@ -1312,19 +1334,19 @@ hr.divider {
         <div class="price-group">
           <h3 class="price-group-title">Solo Massage</h3>
           <ul class="price-list">
-            <li class="price-row"><span>30 min</span><span>$170 BBD</span></li>
-            <li class="price-row"><span>45 min</span><span>$235 BBD</span></li>
-            <li class="price-row"><span>60 min</span><span>$285 BBD</span></li>
-            <li class="price-row"><span>90 min</span><span>$380 BBD</span></li>
-            <li class="price-row"><span>120 min</span><span>$465 BBD</span></li>
+            <li class="price-row"><span>30 min</span><span>$105 BBD</span></li>
+            <li class="price-row"><span>45 min</span><span>$145 BBD</span></li>
+            <li class="price-row"><span>60 min</span><span>$170 BBD</span></li>
+            <li class="price-row"><span>90 min</span><span>$230 BBD</span></li>
+            <li class="price-row"><span>120 min</span><span>$280 BBD</span></li>
           </ul>
         </div>
 
         <div class="price-group pending">
           <h3 class="price-group-title">Couples Massage <span class="coming-soon-badge">Coming Soon</span></h3>
           <ul class="price-list">
-            <li class="price-row"><span>60 min</span><span>$535 BBD</span></li>
-            <li class="price-row"><span>90 min</span><span>$685 BBD</span></li>
+            <li class="price-row"><span>60 min</span><span>$310 BBD</span></li>
+            <li class="price-row"><span>90 min</span><span>$410 BBD</span></li>
           </ul>
         </div>
 
@@ -1335,6 +1357,10 @@ hr.divider {
       </p>
 
     </div>
+
+    <p class="intro-note fade-up">
+      Introductory pricing available for the first 25 clients or through September 2026, whichever comes first.
+    </p>
 
   </div>
 
@@ -1368,28 +1394,28 @@ hr.divider {
 
       <div class="checkbox-grid">
         <label class="checkbox-item">
-          <input type="checkbox" name="service" data-duration="30-min Massage" data-mobile-price="185" data-studio-price="170">
-          <span class="checkbox-label"><span class="service-name">30-min Massage</span><span class="service-price">$185 BBD</span></span>
+          <input type="checkbox" name="service" data-duration="30-min Massage" data-mobile-price="115" data-studio-price="105">
+          <span class="checkbox-label"><span class="service-name">30-min Massage</span><span class="service-price">$115 BBD</span></span>
         </label>
 
         <label class="checkbox-item">
-          <input type="checkbox" name="service" data-duration="45-min Massage" data-mobile-price="255" data-studio-price="235">
-          <span class="checkbox-label"><span class="service-name">45-min Massage</span><span class="service-price">$255 BBD</span></span>
+          <input type="checkbox" name="service" data-duration="45-min Massage" data-mobile-price="160" data-studio-price="145">
+          <span class="checkbox-label"><span class="service-name">45-min Massage</span><span class="service-price">$160 BBD</span></span>
         </label>
 
         <label class="checkbox-item">
-          <input type="checkbox" name="service" data-duration="60-min Massage" data-mobile-price="310" data-studio-price="285">
-          <span class="checkbox-label"><span class="service-name">60-min Massage</span><span class="service-price">$310 BBD</span></span>
+          <input type="checkbox" name="service" data-duration="60-min Massage" data-mobile-price="190" data-studio-price="170">
+          <span class="checkbox-label"><span class="service-name">60-min Massage</span><span class="service-price">$190 BBD</span></span>
         </label>
 
         <label class="checkbox-item">
-          <input type="checkbox" name="service" data-duration="90-min Massage" data-mobile-price="415" data-studio-price="380">
-          <span class="checkbox-label"><span class="service-name">90-min Massage</span><span class="service-price">$415 BBD</span></span>
+          <input type="checkbox" name="service" data-duration="90-min Massage" data-mobile-price="255" data-studio-price="230">
+          <span class="checkbox-label"><span class="service-name">90-min Massage</span><span class="service-price">$255 BBD</span></span>
         </label>
 
         <label class="checkbox-item">
-          <input type="checkbox" name="service" data-duration="120-min Massage" data-mobile-price="505" data-studio-price="465">
-          <span class="checkbox-label"><span class="service-name">120-min Massage</span><span class="service-price">$505 BBD</span></span>
+          <input type="checkbox" name="service" data-duration="120-min Massage" data-mobile-price="310" data-studio-price="280">
+          <span class="checkbox-label"><span class="service-name">120-min Massage</span><span class="service-price">$310 BBD</span></span>
         </label>
       </div>
 
@@ -1403,13 +1429,13 @@ hr.divider {
 
       <div class="checkbox-grid">
         <label class="checkbox-item waitlist">
-          <input type="checkbox" name="waitlist" data-duration="60-min Couples Massage (waitlist)" data-mobile-price="579" data-studio-price="535">
-          <span class="checkbox-label"><span class="service-name">60-min Couples Massage</span><span class="service-price">Waitlist — est. $579 BBD</span></span>
+          <input type="checkbox" name="waitlist" data-duration="60-min Couples Massage (waitlist)" data-mobile-price="345" data-studio-price="310">
+          <span class="checkbox-label"><span class="service-name">60-min Couples Massage</span><span class="service-price">Waitlist — est. $345 BBD</span></span>
         </label>
 
         <label class="checkbox-item waitlist">
-          <input type="checkbox" name="waitlist" data-duration="90-min Couples Massage (waitlist)" data-mobile-price="739" data-studio-price="685">
-          <span class="checkbox-label"><span class="service-name">90-min Couples Massage</span><span class="service-price">Waitlist — est. $739 BBD</span></span>
+          <input type="checkbox" name="waitlist" data-duration="90-min Couples Massage (waitlist)" data-mobile-price="460" data-studio-price="410">
+          <span class="checkbox-label"><span class="service-name">90-min Couples Massage</span><span class="service-price">Waitlist — est. $460 BBD</span></span>
         </label>
       </div>
 
