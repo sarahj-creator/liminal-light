@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Liminal Light — mobile and studio massage and wellness in Barbados. Brought to you anywhere on the island, or held at a private home studio in St James. Relaxation, deep tissue.">
+<meta name="description" content="Liminal Light — mobile and studio massage and wellness in Barbados. Brought to you anywhere on the island, or held at a private home studio in St James. Relaxation, deep tissue massage.">
 
 <title>Liminal Light — Mobile and Studio Massage &amp; Wellness, Barbados</title>
 
@@ -778,6 +778,31 @@ hr.divider {
   color: var(--shadow);
 }
 
+.checkbox-item input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--stone);
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: relative;
+  cursor: pointer;
+  background: transparent;
+}
+
+.checkbox-item input[type="radio"]:checked {
+  border-color: var(--deep-amber);
+}
+
+.checkbox-item input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: var(--deep-amber);
+}
+
 .checkbox-label {
   display: flex;
   flex-direction: column;
@@ -794,6 +819,13 @@ hr.divider {
   font-size: 0.78rem;
   color: var(--light-gold);
   font-family: 'Cormorant Garamond', serif;
+}
+
+.checkbox-label .service-desc {
+  font-size: 0.72rem;
+  line-height: 1.6;
+  color: rgba(245,238,230,0.6);
+  font-weight: 300;
 }
 
 .checkbox-item.waitlist {
@@ -826,6 +858,31 @@ hr.divider {
   color: rgba(245,238,230,0.7);
   line-height: 1.7;
   margin-bottom: 1rem;
+}
+
+.style-note {
+  font-size: 0.78rem;
+  color: rgba(245,238,230,0.7);
+  line-height: 1.7;
+  margin: 2.5rem 0 1.2rem;
+}
+
+.disclaimer-box {
+  margin: 1.5rem 0 0;
+  padding: 1.2rem 1.4rem;
+  border-left: 2px solid rgba(212,168,67,0.6);
+  background: rgba(212,168,67,0.05);
+}
+
+.disclaimer-box p {
+  font-size: 0.75rem;
+  line-height: 1.8;
+  color: rgba(245,238,230,0.72);
+}
+
+.disclaimer-box p strong {
+  color: var(--light-gold);
+  font-weight: 400;
 }
 
 .form-grid {
@@ -1417,6 +1474,44 @@ hr.divider {
         </label>
       </div>
 
+      <p class="area-note" style="margin-top:0;">Preferred Style</p>
+
+      <p class="style-note">
+        Choose a style if you already know what suits you, or leave it to your therapist to recommend on arrival based on how you're feeling that day.
+      </p>
+
+      <div class="checkbox-grid">
+        <label class="checkbox-item">
+          <input type="radio" name="style" value="Swedish / Therapeutic Relaxation" checked>
+          <span class="checkbox-label">
+            <span class="service-name">Swedish / Therapeutic Relaxation</span>
+            <span class="service-desc">Lighter, flowing pressure to ease tension and calm the nervous system.</span>
+          </span>
+        </label>
+
+        <label class="checkbox-item">
+          <input type="radio" name="style" value="Deep Tissue">
+          <span class="checkbox-label">
+            <span class="service-name">Deep Tissue</span>
+            <span class="service-desc">Firmer, targeted pressure for chronic tightness or muscle-specific work.</span>
+          </span>
+        </label>
+
+        <label class="checkbox-item">
+          <input type="radio" name="style" value="Not sure — recommend on arrival">
+          <span class="checkbox-label">
+            <span class="service-name">Not Sure</span>
+            <span class="service-desc">Let your therapist assess and recommend the best approach on the day.</span>
+          </span>
+        </label>
+      </div>
+
+      <div class="disclaimer-box">
+        <p>
+          <strong>A note on Deep Tissue:</strong> this style may not be suitable if you are pregnant, have certain injuries, or have a blood pressure condition. If any of this applies to you, please select "Not Sure" or mention it in the notes below so we can discuss the safest option with you before your session.
+        </p>
+      </div>
+
       <div class="waitlist-heading">
         <h3>Coming Soon</h3>
       </div>
@@ -1614,6 +1709,7 @@ function buildRequestMessage() {
 
   const checked = Array.from(document.querySelectorAll('input[name="service"]:checked'));
   const waitlisted = Array.from(document.querySelectorAll('input[name="waitlist"]:checked'));
+  const styleChoice = document.querySelector('input[name="style"]:checked');
 
   const name = document.getElementById('clientName').value.trim();
   const phone = document.getElementById('clientPhone').value.trim();
@@ -1646,6 +1742,10 @@ function buildRequestMessage() {
   if (checked.length > 0) {
     msg += '\nTreatment(s) requested:\n';
     checked.forEach(input => { msg += '- ' + lineFor(input, false) + '\n'; });
+  }
+
+  if (styleChoice) {
+    msg += '\nPreferred Style: ' + styleChoice.value + '\n';
   }
 
   if (waitlisted.length > 0) {
