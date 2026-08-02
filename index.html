@@ -510,6 +510,59 @@ hr.divider {
   margin: 3rem 0;
 }
 
+/* WHO THIS IS FOR */
+
+.motivations {
+  background: #1A120D;
+}
+
+.motivation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.motivation-card {
+  border: 1px solid rgba(106,74,51,0.5);
+  border-top: 3px solid rgba(212,168,67,0.5);
+  padding: 2.5rem 2.2rem;
+  background: rgba(245,238,230,0.02);
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.motivation-card:hover {
+  border-color: rgba(106,74,51,0.7);
+  border-top-color: var(--deep-amber);
+  background: rgba(212,168,67,0.06);
+}
+
+.motivation-eyebrow {
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--deep-amber);
+  margin-bottom: 1rem;
+}
+
+.motivation-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 1.4rem;
+  color: var(--warm-white);
+  margin-bottom: 1.1rem;
+  line-height: 1.3;
+}
+
+.motivation-desc {
+  font-size: 0.85rem;
+  line-height: 1.9;
+  color: rgba(245,238,230,0.72);
+  font-weight: 300;
+}
+
 /* SERVICES */
 
 .services {
@@ -1155,6 +1208,7 @@ hr.divider {
   <a href="#top" class="nav-brand"><!-- Swap for <img src="logo.png" alt="Liminal Light" style="height:28px;"> once your logo file is ready -->Liminal Light</a>
   <ul class="nav-links">
     <li><a href="#philosophy">About</a></li>
+    <li><a href="#motivations">Who It's For</a></li>
     <li><a href="#services">Treatments</a></li>
     <li><a href="#booking">Book</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -1205,7 +1259,7 @@ hr.divider {
     </h2>
 
     <p class="body-text fade-up">
-      Whether you're carrying the weight of a demanding career, recovering after travel, managing the pace of family life, or simply longing for uninterrupted quiet, every treatment begins with one question:
+      Whether it's sleep that won't come, a body adjusting to hormonal change, or muscles pushed hard by training and the trail, every treatment begins in the same place: the space between what's wrong and what's next.
     </p>
 
     <p class="feeling-question fade-up">What do you need today?</p>
@@ -1301,6 +1355,59 @@ hr.divider {
 
 </section>
 
+<!-- WHO THIS IS FOR -->
+
+<section class="motivations" id="motivations">
+
+  <div class="glow glow-amber" style="top:10%; left:8%; opacity:0.4;"></div>
+
+  <div class="section-inner" style="max-width:980px;">
+
+    <div class="section-label fade-up">
+      II — Who This Is For
+    </div>
+
+    <h2 class="section-heading fade-up">
+      Three paths.<br>
+      One <em>space in between.</em>
+    </h2>
+
+    <p class="body-text fade-up">
+      Whatever brought you here, the work is the same: meeting the issue, holding you in the liminal space of the treatment itself, and sending you back out the other side changed.
+    </p>
+
+    <div class="motivation-grid fade-up">
+
+      <div class="motivation-card">
+        <p class="motivation-eyebrow">When Rest Won't Come</p>
+        <h3 class="motivation-title">Restorative Sleep</h3>
+        <p class="motivation-desc">
+          Insomnia isn't just tiredness — it's a body that's forgotten how to let go. Between the racing mind and the morning you're dreading, there's a space that's been missing: somewhere to land. Each treatment is built to meet you there, slowing the nervous system and easing the grip so the body can finally settle. What follows isn't just a good night's sleep — it's the return of trust in your own rest.
+        </p>
+      </div>
+
+      <div class="motivation-card">
+        <p class="motivation-eyebrow">When Your Body Feels Unfamiliar</p>
+        <h3 class="motivation-title">Hormonal Balance</h3>
+        <p class="motivation-desc">
+          Hormonal shifts — in women and men alike — can leave sleep, mood, and the body itself feeling out of sync. Treatment here isn't about fixing what's "wrong"; it's about creating a pause inside the change, a space where the body can regulate, breathe, and recalibrate before you carry on. The result isn't a return to how things were — it's steadiness within how things are now.
+        </p>
+      </div>
+
+      <div class="motivation-card">
+        <p class="motivation-eyebrow">When You've Asked A Lot Of Your Body</p>
+        <h3 class="motivation-title">Active Recovery</h3>
+        <p class="motivation-desc">
+          Training, hiking, long days on your feet — the active life gives a lot back, but it takes plenty too. Deep tissue work meets that strain directly, releasing the tension and restriction training leaves behind. The value isn't only physical release — it's the space it creates between effort and the next effort, where muscles actually recover, not just relax. You leave capable of showing up again, stronger.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
 <!-- SERVICES / PRICING -->
 
 <section class="services" id="services">
@@ -1308,7 +1415,7 @@ hr.divider {
   <div class="section-inner" style="max-width:980px;">
 
     <div class="section-label fade-up">
-      II — The Treatments
+      III — The Treatments
     </div>
 
     <h2 class="section-heading fade-up">
@@ -1317,7 +1424,7 @@ hr.divider {
     </h2>
 
     <p class="body-text fade-up">
-      Every treatment is fully customisable to your needs. All prices in BBD.
+      Every treatment is fully customisable to your needs — whether you're here for sleep, for hormonal balance, or for recovery after training. All prices in BBD.
     </p>
 
     <p class="area-note fade-up">Choose Your Setting</p>
@@ -1428,7 +1535,7 @@ hr.divider {
   <div class="section-inner" style="max-width:900px;">
 
     <div class="section-label fade-up">
-      III — Request Your Treatment
+      IV — Request Your Treatment
     </div>
 
     <h2 class="section-heading fade-up">
@@ -1493,7 +1600,7 @@ hr.divider {
           <input type="radio" name="style" value="Deep Tissue">
           <span class="checkbox-label">
             <span class="service-name">Deep Tissue</span>
-            <span class="service-desc">Firmer, targeted pressure for chronic tightness or muscle-specific work.</span>
+            <span class="service-desc">Firmer, targeted pressure for chronic tightness, muscle-specific work, or post-training recovery.</span>
           </span>
         </label>
 
