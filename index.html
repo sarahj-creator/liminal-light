@@ -563,6 +563,45 @@ hr.divider {
   font-weight: 300;
 }
 
+/* TESTIMONIALS */
+
+.testimonials {
+  background: #1A120D;
+  min-height: auto;
+  padding: 2vw 0;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.testimonial-card {
+  border: 1px solid rgba(106,74,51,0.5);
+  border-top: 3px solid rgba(212,168,67,0.5);
+  padding: 2.5rem 2.2rem;
+  background: rgba(245,238,230,0.02);
+}
+
+.testimonial-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--limestone);
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-attribution {
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--deep-amber);
+}
+
 /* SERVICES */
 
 .services {
@@ -1262,6 +1301,36 @@ hr.divider {
       <a href="#booking" class="enter-button filled">Request a Treatment</a>
       <a href="#services" class="enter-button">View Pricing</a>
     </div>
+  </div>
+
+</section>
+
+<!-- TESTIMONIALS -->
+
+<section class="testimonials" id="testimonials">
+
+  <div class="section-inner" style="max-width:980px;">
+
+    <div class="section-label fade-up">
+      Client Words
+    </div>
+
+    <h2 class="section-heading fade-up">
+      In their<br>
+      own <em>words.</em>
+    </h2>
+
+    <div class="testimonial-grid fade-up">
+
+      <div class="testimonial-card">
+        <p class="testimonial-quote">
+          "I thoroughly enjoyed my massage. From your professionalism to your ability to release the pressure in my body (especially my legs). It left me feeling re-energised and like a new man. I am looking forward to our next session!"
+        </p>
+        <p class="testimonial-attribution">— J.W.</p>
+      </div>
+
+    </div>
+
   </div>
 
 </section>
