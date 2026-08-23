@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Liminal Light — A Gift for You</title>
+<meta name="description" content="A small gift of daily wellness reminders from Liminal Light.">
+<meta name="theme-color" content="#F6F1E7">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Liminal Light">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F1E7;
+    --sand:#E5D9C3;
+    --sand-deep:#D8C8A8;
+    --sage:#8B9A82;
+    --sage-deep:#5E6E55;
+    --sage-pale:#C9D1BF;
+    --charcoal:#3A362E;
+    --charcoal-soft:#6B665A;
+    --line:#D2C4A4;
+  }
+  *{box-sizing:border-box;}
+  html,body{
+    margin:0;
+    min-height:100vh;
+    background:var(--paper);
+    background-image:
+      radial-gradient(circle at 50% -10%, rgba(139,154,130,0.10), transparent 55%),
+      repeating-linear-gradient(0deg, rgba(58,54,46,0.015) 0px, rgba(58,54,46,0.015) 1px, transparent 1px, transparent 3px);
+    font-family:'Jost', sans-serif;
+    color:var(--charcoal);
+    overscroll-behavior:none;
+  }
+  body{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:env(safe-area-inset-top,32px) 20px calc(env(safe-area-inset-bottom,32px) + 12px);
+  }
+  .wrap{
+    width:100%;
+    max-width:420px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+
+  /* ---------- Screens ---------- */
+  .screen{ width:100%; }
+  .hidden{ display:none; }
+
+  /* Welcome / gift screen */
+  .gift-arch{
+    width:120px;
+    height:150px;
+    margin:0 auto 28px;
+    border:2px solid var(--sage-deep);
+    border-bottom:none;
+    border-radius:60px 60px 0 0;
+    position:relative;
+  }
+  .gift-arch::after{
+    content:"";
+    position:absolute;
+    left:-2px; right:-2px; bottom:-2px;
+    height:2px;
+    background:var(--sage-deep);
+  }
+  .gift-eyebrow{
+    text-align:center;
+    font-size:11px;
+    letter-spacing:0.32em;
+    text-transform:uppercase;
+    color:var(--sage-deep);
+    margin:0 0 10px;
+  }
+  .gift-title{
+    text-align:center;
+    font-family:'Cormorant Garamond', serif;
+    font-weight:500;
+    font-size:38px;
+    line-height:1.2;
+    margin:0 0 18px;
+  }
+  .gift-body{
+    text-align:center;
+    font-size:15px;
+    line-height:1.7;
+    color:var(--charcoal-soft);
+    font-weight:300;
+    max-width:320px;
+    margin:0 auto 34px;
+  }
+  .gift-body strong{
+    color:var(--charcoal);
+    font-weight:400;
+  }
+  .primary-btn{
+    display:block;
+    width:100%;
+    background:var(--sage-deep);
+    color:var(--paper);
+    border:none;
+    padding:16px 24px;
+    border-radius:30px;
+    font-family:'Jost', sans-serif;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    font-weight:400;
+    cursor:pointer;
+    transition:background 0.2s ease, transform 0.15s ease;
+  }
+  .primary-btn:hover{ background:var(--sage); }
+  .primary-btn:active{ transform:scale(0.98); }
+
+  /* Brand strip on deck screen */
+  .brand{
+    text-align:center;
+    margin-bottom:24px;
+  }
+  .brand .mark{
+    font-family:'Cormorant Garamond', serif;
+    font-size:13px;
+    letter-spacing:0.32em;
+    text-transform:uppercase;
+    color:var(--sage-deep);
+    margin:0 0 4px;
+  }
+  .brand .tag{
+    font-size:11px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--charcoal-soft);
+    margin:0;
+    font-weight:300;
+  }
+
+  .stage{ position:relative; width:100%; }
+
+  .card{
+    position:relative;
+    width:100%;
+    min-height:480px;
+    background:linear-gradient(180deg, #FBF8F1 0%, var(--paper) 38%);
+    border:1px solid var(--line);
+    border-radius:190px 190px 14px 14px;
+    padding:60px 34px 36px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    transition:opacity 0.5s ease, transform 0.5s ease;
+  }
+  .card.fade{ opacity:0; transform:translateY(6px); }
+
+  .arch-glow{
+    position:absolute; top:0; left:0; right:0; height:200px;
+    border-radius:190px 190px 0 0;
+    background:radial-gradient(circle at 50% 15%, rgba(139,154,130,0.30), rgba(139,154,130,0.04) 65%, transparent 75%);
+    pointer-events:none;
+  }
+  .arch-line{
+    position:absolute; top:24px; left:24px; right:24px; height:156px;
+    border:1px solid var(--sage-pale);
+    border-bottom:none;
+    border-radius:135px 135px 0 0;
+    pointer-events:none;
+  }
+
+  .eyebrow{ position:relative; font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:var(--sage-deep); font-weight:400; margin:0 0 16px; }
+  .count{ position:relative; font-size:10px; letter-spacing:0.1em; color:var(--charcoal-soft); margin:0 0 20px; text-transform:uppercase; font-weight:300; }
+  .title{ position:relative; font-family:'Cormorant Garamond', serif; font-weight:500; font-size:32px; line-height:1.15; margin:0 0 16px; max-width:270px; }
+  .instruction{ position:relative; font-size:15px; line-height:1.6; color:var(--charcoal-soft); font-weight:300; max-width:250px; margin:0 0 24px; }
+  .divider{ width:34px; height:1px; background:var(--sage); opacity:0.6; margin:0 0 22px; }
+  .why-label{ font-size:10px; letter-spacing:0.24em; text-transform:uppercase; color:var(--sage-deep); font-weight:400; margin:0 0 10px; }
+  .why{ font-family:'Cormorant Garamond', serif; font-style:italic; font-size:16px; line-height:1.55; max-width:260px; margin:0; }
+
+  .controls{ display:flex; align-items:center; justify-content:center; gap:20px; margin-top:24px; }
+  .nav-btn{
+    background:none; border:1px solid var(--line); width:38px; height:38px; border-radius:50%;
+    color:var(--sage-deep); font-size:15px; cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition:background 0.2s ease, border-color 0.2s ease; font-family:'Jost', sans-serif;
+  }
+  .nav-btn:hover{ background:var(--sand); border-color:var(--sand-deep); }
+  .draw-btn{
+    background:var(--sage-deep); color:var(--paper); border:none; padding:13px 28px; border-radius:30px;
+    font-family:'Jost', sans-serif; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; font-weight:400;
+    cursor:pointer; transition:background 0.2s ease, transform 0.15s ease;
+  }
+  .draw-btn:hover{ background:var(--sage); }
+  .draw-btn:active{ transform:scale(0.97); }
+
+  .dots{ display:flex; gap:6px; margin-top:20px; justify-content:center; }
+  .dot{ width:5px; height:5px; border-radius:50%; background:var(--line); }
+  .dot.active{ background:var(--sage-deep); }
+
+  @media (max-width:400px){
+    .card{ min-height:450px; padding:52px 24px 30px; border-radius:150px 150px 12px 12px; }
+    .arch-line{ border-radius:110px 110px 0 0; height:132px; }
+    .title{ font-size:28px; }
+    .gift-title{ font-size:32px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Welcome / Gift screen -->
+  <div class="screen" id="welcomeScreen">
+    <div class="gift-arch"></div>
+    <p class="gift-eyebrow">A gift from Liminal Light</p>
+    <h1 class="gift-title">Something to keep with you</h1>
+    <p class="gift-body">Thank you for your first session. This small deck holds <strong>ten daily reminders</strong> — simple things worth returning to between visits. Draw one whenever you need a pause.</p>
+    <button class="primary-btn" id="enterBtn">Open your deck</button>
+  </div>
+
+  <!-- Deck screen -->
+  <div class="screen hidden" id="deckScreen">
+    <div class="brand">
+      <p class="mark">Liminal Light</p>
+      <p class="tag">A daily pause, between tension and relief</p>
+    </div>
+
+    <div class="stage">
+      <div class="card" id="card">
+        <div class="arch-glow"></div>
+        <div class="arch-line"></div>
+        <p class="eyebrow" id="eyebrow">Breath</p>
+        <p class="count" id="count">Reminder 1 of 10</p>
+        <h1 class="title" id="title">Breathe deeply</h1>
+        <p class="instruction" id="instruction">Take five slow breaths — in for four counts, out for six.</p>
+        <div class="divider"></div>
+        <p class="why-label">Why it helps</p>
+        <p class="why" id="why">Slow, extended exhales signal your nervous system to soften.</p>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="nav-btn" id="prevBtn" aria-label="Previous reminder">←</button>
+      <button class="draw-btn" id="drawBtn">Draw a reminder</button>
+      <button class="nav-btn" id="nextBtn" aria-label="Next reminder">→</button>
+    </div>
+
+    <div class="dots" id="dots"></div>
+  </div>
+
+</div>
+
+<script>
+  // ---------- Data ----------
+  const cards = [
+    { eyebrow:"Breath", title:"Breathe deeply", instruction:"Take five slow breaths — in for four counts, out for six.", why:"Slow, extended exhales signal your nervous system to soften. Heart rate drops, cortisol eases, and the body remembers it is safe to rest." },
+    { eyebrow:"Movement", title:"Stretch your spine", instruction:"Reach both arms overhead and lengthen through your side body.", why:"Gentle spinal stretches release fascia that tightens from hours of sitting or standing still, easing pressure through the back and improving circulation." },
+    { eyebrow:"Hydration", title:"Drink a full glass of water", instruction:"Pause and drink slowly, without rushing.", why:"Muscle tissue and lymph fluid both depend on hydration to move freely. Even mild dehydration can leave the body feeling tighter and recovery feeling slower." },
+    { eyebrow:"Light", title:"Step into natural light", instruction:"Spend a few minutes outside, ideally in the morning.", why:"Natural light exposure helps set your circadian rhythm — the internal clock that decides when your body feels alert and when it is ready to rest." },
+    { eyebrow:"Rest", title:"Rest without earning it", instruction:"Sit or lie down for ten minutes, with nothing to accomplish.", why:"Recovery is not the reward for productivity. It is the mechanism through which muscles repair and the nervous system resets. Rest is the work." },
+    { eyebrow:"Movement", title:"Roll your shoulders back", instruction:"Circle your shoulders slowly, five times in each direction.", why:"The shoulders quietly hold tension most of the day. Slow, deliberate movement invites the upper back to loosen its grip." },
+    { eyebrow:"Stillness", title:"Unplug for ten minutes", instruction:"Set your phone in another room and simply be.", why:"Constant notifications keep the nervous system mildly activated all day. A short break from screens gives it room to downshift." },
+    { eyebrow:"Sleep", title:"Notice your breath before bed", instruction:"Lying down, rest a hand on your belly and feel it rise and fall.", why:"This small practice cues the body that the day is ending, easing the transition from waking alertness into deeper rest." },
+    { eyebrow:"Recovery", title:"Move gently, not hard", instruction:"Take a slow walk or a few easy stretches today.", why:"Light movement increases blood flow to tired muscles without adding new strain, helping clear what has built up after harder effort." },
+    { eyebrow:"Gratitude", title:"Name one good thing", instruction:"Think of one small thing that went well today.", why:"Briefly noticing what is going right shifts the nervous system out of scanning for threats — a quiet, real form of rest." }
+  ];
+
+  let order = shuffle([...Array(cards.length).keys()]);
+  let pos = 0;
+
+  function shuffle(arr){
+    for(let i = arr.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  const cardEl = document.getElementById('card');
+  const eyebrowEl = document.getElementById('eyebrow');
+  const countEl = document.getElementById('count');
+  const titleEl = document.getElementById('title');
+  const instructionEl = document.getElementById('instruction');
+  const whyEl = document.getElementById('why');
+  const dotsEl = document.getElementById('dots');
+
+  function renderDots(){
+    dotsEl.innerHTML = '';
+    for(let i = 0; i < cards.length; i++){
+      const d = document.createElement('div');
+      d.className = 'dot' + (i === pos ? ' active' : '');
+      dotsEl.appendChild(d);
+    }
+  }
+
+  function showCard(index){
+    const data = cards[order[index]];
+    cardEl.classList.add('fade');
+    setTimeout(() => {
+      eyebrowEl.textContent = data.eyebrow;
+      countEl.textContent = 'Reminder ' + (index + 1) + ' of ' + cards.length;
+      titleEl.textContent = data.title;
+      instructionEl.textContent = data.instruction;
+      whyEl.textContent = data.why;
+      cardEl.classList.remove('fade');
+    }, 220);
+    renderDots();
+  }
+
+  function nextCard(){
+    pos = (pos + 1) % cards.length;
+    if(pos === 0){ order = shuffle([...Array(cards.length).keys()]); }
+    showCard(pos);
+  }
+  function prevCard(){
+    pos = (pos - 1 + cards.length) % cards.length;
+    showCard(pos);
+  }
+
+  document.getElementById('drawBtn').addEventListener('click', nextCard);
+  document.getElementById('nextBtn').addEventListener('click', nextCard);
+  document.getElementById('prevBtn').addEventListener('click', prevCard);
+
+  // ---------- Screen transition ----------
+  document.getElementById('enterBtn').addEventListener('click', () => {
+    document.getElementById('welcomeScreen').classList.add('hidden');
+    document.getElementById('deckScreen').classList.remove('hidden');
+    showCard(pos);
+    try{ localStorage.setItem('ll_gift_opened', '1'); }catch(e){}
+  });
+
+  // Skip straight to deck on return visits
+  try{
+    if(localStorage.getItem('ll_gift_opened') === '1'){
+      document.getElementById('welcomeScreen').classList.add('hidden');
+      document.getElementById('deckScreen').classList.remove('hidden');
+    }
+  }catch(e){}
+  showCard(pos);
+
+  // ---------- Service worker ----------
+  if('serviceWorker' in navigator){
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js').catch(() => {});
+    });
+  }
+</script>
+</body>
+</html>
