@@ -1,0 +1,2091 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Liminal Light — mobile and studio massage and wellness in Barbados. Brought to you anywhere on the island, or held at a private home studio in St James. Relaxation, deep tissue massage.">
+
+<title>Liminal Light — Mobile and Studio Massage &amp; Wellness, Barbados</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+
+<style>
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --stone: #DDD1C2;
+  --warm-white: #F5EEE6;
+  --deep-amber: #D4A843;
+  --limestone: #DDD1C2;
+  --shadow: #1A120D;
+  --moss: #4a5240;
+  --light-gold: #E8C468;
+  --walnut: #241812;
+  --mocha: #2B1B14;
+  --cocoa: #32221A;
+  --bronze: #6A4A33;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--shadow);
+  color: var(--warm-white);
+  font-family: 'Jost', sans-serif;
+  font-weight: 200;
+  overflow-x: hidden;
+}
+
+/* NAV */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.3rem 2.5rem;
+  background: rgba(26,18,13,0.78);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(106,74,51,0.35);
+}
+
+.nav-brand {
+  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: 0.25em;
+  font-size: 1rem;
+  color: var(--warm-white);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--stone);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--warm-white);
+}
+
+.nav-call {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--light-gold);
+  border: 2px solid rgba(212,168,67,0.7);
+  padding: 0.6rem 1.1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.nav-call:hover {
+  background: rgba(212,168,67,0.15);
+  border-color: var(--light-gold);
+}
+
+@media (max-width: 760px) {
+  .nav-links { display: none; }
+  .nav { padding: 1.1rem 1.5rem; }
+}
+
+/* OPENING */
+
+.opening {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: #2B1B14;
+  overflow: hidden;
+  text-align: center;
+}
+
+.opening::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(212,168,67,0.1) 0%,
+      transparent 70%
+    );
+  animation: breathe 6s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.opening-text {
+  text-align: center;
+  z-index: 2;
+  animation: fadeIn 3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.welcome-line {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  letter-spacing: 0.4em;
+  color: var(--stone);
+  opacity: 0;
+  animation: fadeIn 2s ease 1s forwards;
+}
+
+.brand-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(3rem, 8vw, 6rem);
+  letter-spacing: 0.15em;
+  color: var(--warm-white);
+  opacity: 0;
+  animation: fadeIn 2s ease 2s forwards;
+  margin: 0.3em 0;
+}
+
+.opening-sub {
+  font-family: 'Jost', sans-serif;
+  font-weight: 200;
+  font-size: clamp(0.65rem, 1.5vw, 0.8rem);
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--deep-amber);
+  opacity: 0;
+  animation: fadeIn 2s ease 3s forwards;
+}
+
+.opening-mission {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(0.95rem, 2vw, 1.2rem);
+  line-height: 1.7;
+  color: var(--stone);
+  max-width: 480px;
+  margin: 1.5rem auto 0;
+  opacity: 0;
+  animation: fadeIn 2s ease 3.6s forwards;
+}
+
+.opening-cta {
+  margin-top: 3rem;
+  opacity: 0;
+  animation: fadeIn 2s ease 4.2s forwards;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* HOW YOU'LL FEEL */
+
+.feeling-section {
+  min-height: 80vh;
+  background: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.feeling-inner {
+  max-width: 680px;
+  position: relative;
+  z-index: 2;
+}
+
+.feeling-question {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--deep-amber);
+  margin: 2rem 0;
+}
+
+/* INTRO STRIP */
+
+.intro-strip {
+  min-height: 70vh;
+  background: #241812;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.intro-strip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(212,168,67,0.1) 0%,
+      transparent 70%
+    );
+  animation: breathe 6s ease-in-out infinite;
+}
+
+.intro-split {
+  opacity: 0;
+  animation: slowReveal 3s ease forwards;
+  animation-delay: 0.6s;
+  display: flex;
+  gap: 3.5rem;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 900px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.intro-col {
+  flex: 1;
+  min-width: 200px;
+}
+
+.intro-col-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--deep-amber);
+  margin-bottom: 1rem;
+}
+
+.intro-divider {
+  width: 1px;
+  align-self: stretch;
+  background: linear-gradient(to bottom, transparent, rgba(106,74,51,0.55), transparent);
+}
+
+@media (max-width: 720px) {
+  .intro-split {
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+  }
+  .intro-divider {
+    display: none;
+  }
+}
+
+.intro-fade-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  line-height: 1.7;
+  color: var(--limestone);
+  text-align: center;
+}
+
+@keyframes slowReveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.enter-button {
+  opacity: 0;
+  animation: fadeButton 2s ease forwards;
+  animation-delay: 2s;
+
+  background: transparent;
+  border: 1px solid rgba(106,74,51,0.6);
+  color: var(--stone);
+
+  padding: 1rem 2.5rem;
+
+  font-family: 'Jost', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+
+  transition:
+    background 0.4s ease,
+    color 0.4s ease,
+    border-color 0.4s ease;
+
+  position: relative;
+  z-index: 2;
+}
+
+.enter-button:hover {
+  background: rgba(106,74,51,0.35);
+  border-color: rgba(106,74,51,0.8);
+  color: var(--warm-white);
+}
+
+.enter-button.filled {
+  background: var(--deep-amber);
+  border-color: var(--deep-amber);
+  color: var(--shadow);
+}
+
+.enter-button.filled:hover {
+  background: var(--light-gold);
+  border-color: var(--light-gold);
+  color: var(--shadow);
+}
+
+@keyframes fadeButton {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* GENERAL SECTIONS */
+
+section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  padding: 6rem 2rem;
+}
+
+.section-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--deep-amber);
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--deep-amber);
+  opacity: 0.3;
+  max-width: 80px;
+}
+
+.section-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.2;
+  margin-bottom: 2.5rem;
+  color: var(--warm-white);
+}
+
+.section-heading em {
+  font-style: italic;
+  color: var(--limestone);
+}
+
+.body-text {
+  font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+  line-height: 2;
+  color: rgba(245,238,230,0.82);
+  font-weight: 300;
+}
+
+.body-text + .body-text {
+  margin-top: 1.5rem;
+}
+
+/* PHILOSOPHY */
+
+.philosophy {
+  background:
+    linear-gradient(
+      160deg,
+      #1A120D 0%,
+      #241812 45%,
+      #2B1B14 100%
+    );
+}
+
+.tag-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 3rem 0;
+}
+
+.tag {
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.3rem;
+  border: 1px solid rgba(106,74,51,0.55);
+  color: var(--stone);
+  font-weight: 300;
+}
+
+hr.divider {
+  border: none;
+  height: 1px;
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      rgba(106,74,51,0.5),
+      transparent
+    );
+  margin: 3rem 0;
+}
+
+/* WHO THIS IS FOR */
+
+.motivations {
+  background: #1A120D;
+}
+
+.motivation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.motivation-card {
+  border: 1px solid rgba(106,74,51,0.5);
+  border-top: 3px solid rgba(212,168,67,0.5);
+  padding: 2.5rem 2.2rem;
+  background: rgba(245,238,230,0.02);
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.motivation-card:hover {
+  border-color: rgba(106,74,51,0.7);
+  border-top-color: var(--deep-amber);
+  background: rgba(212,168,67,0.06);
+}
+
+.motivation-eyebrow {
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--deep-amber);
+  margin-bottom: 1rem;
+}
+
+.motivation-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 1.4rem;
+  color: var(--warm-white);
+  margin-bottom: 1.1rem;
+  line-height: 1.3;
+}
+
+.motivation-desc {
+  font-size: 0.85rem;
+  line-height: 1.9;
+  color: rgba(245,238,230,0.72);
+  font-weight: 300;
+}
+
+/* TESTIMONIALS */
+
+.testimonials {
+  background: #1A120D;
+  min-height: auto;
+  padding: 2vw 0;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.testimonial-card {
+  border: 1px solid rgba(106,74,51,0.5);
+  border-top: 3px solid rgba(212,168,67,0.5);
+  padding: 2.5rem 2.2rem;
+  background: rgba(245,238,230,0.02);
+}
+
+.testimonial-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--limestone);
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-attribution {
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--deep-amber);
+}
+
+/* SERVICES */
+
+.services {
+  background: #241812;
+}
+
+.area-note {
+  margin-top: 2.5rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--deep-amber);
+}
+
+.coming-soon-badge {
+  display: inline-block;
+  font-size: 0.55rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--light-gold);
+  border: 1px solid rgba(232,196,104,0.6);
+  padding: 0.3rem 0.7rem;
+  margin-left: 0.8rem;
+  vertical-align: middle;
+}
+
+.price-group.pending {
+  opacity: 0.7;
+}
+
+.price-group.pending .price-row span:last-child {
+  color: rgba(232,196,104,0.7);
+}
+
+.price-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1px;
+  background: rgba(106,74,51,0.4);
+  border: 1px solid rgba(106,74,51,0.4);
+  margin-top: 3rem;
+}
+
+.price-group {
+  background: #32221A;
+  padding: 2.5rem;
+}
+
+.price-group-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: var(--warm-white);
+  margin-bottom: 1.8rem;
+}
+
+.price-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  font-size: 0.82rem;
+  color: rgba(245,238,230,0.78);
+  border-bottom: 1px dashed rgba(106,74,51,0.45);
+  padding-bottom: 0.7rem;
+}
+
+.price-row span:last-child {
+  color: var(--light-gold);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  white-space: nowrap;
+}
+
+.price-row .price-duo {
+  display: flex;
+  gap: 0.9rem;
+  align-items: baseline;
+}
+
+.price-row .price-duo .price-option {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.3;
+}
+
+.price-row .price-duo .price-option-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.52rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(245,238,230,0.55);
+}
+
+/* SETTING CHOICE CARDS */
+
+.setting-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+
+.setting-card {
+  border: 1px solid rgba(106,74,51,0.5);
+  border-left: 3px solid rgba(212,168,67,0.5);
+  padding: 2.5rem;
+  background: rgba(245,238,230,0.02);
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.setting-card:hover {
+  border-color: rgba(106,74,51,0.7);
+  border-left-color: var(--deep-amber);
+  background: rgba(212,168,67,0.06);
+}
+
+.setting-label {
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--deep-amber);
+  margin-bottom: 1.2rem;
+}
+
+.setting-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--warm-white);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.setting-desc {
+  font-size: 0.85rem;
+  line-height: 1.9;
+  color: rgba(245,238,230,0.72);
+  font-weight: 300;
+}
+
+/* PRICING TOGGLE */
+
+.pricing-toggle {
+  display: flex;
+  gap: 0.8rem;
+  margin: 2.5rem 0 0;
+}
+
+.intro-badge {
+  display: inline-block;
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--shadow);
+  background: var(--light-gold);
+  padding: 0.3rem 0.7rem;
+  margin-left: 0.8rem;
+  vertical-align: middle;
+}
+
+.intro-note {
+  font-size: 0.78rem;
+  color: rgba(245,238,230,0.7);
+  margin: 0.8rem 0 0;
+  font-style: italic;
+}
+
+.toggle-btn {
+  background: transparent;
+  border: 2px solid rgba(212,168,67,0.4);
+  color: var(--stone);
+  padding: 0.75rem 1.8rem;
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+  border-color: rgba(212,168,67,0.8);
+  color: var(--warm-white);
+}
+
+.toggle-btn.is-active {
+  background: var(--deep-amber);
+  border-color: var(--deep-amber);
+  color: var(--shadow);
+  box-shadow: 0 2px 16px rgba(212,168,67,0.35);
+}
+
+.price-panel {
+  margin-top: 2rem;
+}
+
+/* MOBILE SERVICE NOTE */
+
+.mobile-note {
+  margin-top: 2rem;
+  font-size: 0.78rem;
+  line-height: 1.8;
+  color: rgba(245,238,230,0.7);
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.mobile-note strong {
+  font-style: normal;
+  color: var(--light-gold);
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+/* BOOKING FORM */
+
+.booking {
+  background:
+    linear-gradient(
+      160deg,
+      #241812,
+      #1A120D
+    );
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  margin: 3rem 0;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid rgba(106,74,51,0.45);
+  padding: 1rem 1.3rem;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.checkbox-item:hover {
+  border-color: rgba(106,74,51,0.7);
+  background: rgba(212,168,67,0.06);
+}
+
+.checkbox-item input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--stone);
+  flex-shrink: 0;
+  position: relative;
+  cursor: pointer;
+  background: transparent;
+}
+
+.checkbox-item input[type="checkbox"]:checked {
+  background: var(--deep-amber);
+  border-color: var(--deep-amber);
+}
+
+.checkbox-item input[type="checkbox"]:checked::after {
+  content: '\2713';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  color: var(--shadow);
+}
+
+.checkbox-item input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--stone);
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: relative;
+  cursor: pointer;
+  background: transparent;
+}
+
+.checkbox-item input[type="radio"]:checked {
+  border-color: var(--deep-amber);
+}
+
+.checkbox-item input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: var(--deep-amber);
+}
+
+.checkbox-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.checkbox-label .service-name {
+  font-size: 0.85rem;
+  color: var(--warm-white);
+  font-weight: 300;
+}
+
+.checkbox-label .service-price {
+  font-size: 0.78rem;
+  color: var(--light-gold);
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.checkbox-label .service-desc {
+  font-size: 0.72rem;
+  line-height: 1.6;
+  color: rgba(245,238,230,0.6);
+  font-weight: 300;
+}
+
+.checkbox-item.waitlist {
+  border-style: dashed;
+  border-color: rgba(232,196,104,0.5);
+}
+
+.checkbox-item.waitlist:hover {
+  border-color: rgba(232,196,104,0.7);
+  background: rgba(232,196,104,0.08);
+}
+
+.waitlist-heading {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 3rem 0 1.5rem;
+}
+
+.waitlist-heading h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--limestone);
+}
+
+.waitlist-note {
+  font-size: 0.78rem;
+  color: rgba(245,238,230,0.7);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.style-note {
+  font-size: 0.78rem;
+  color: rgba(245,238,230,0.7);
+  line-height: 1.7;
+  margin: 2.5rem 0 1.2rem;
+}
+
+.disclaimer-box {
+  margin: 1.5rem 0 0;
+  padding: 1.2rem 1.4rem;
+  border-left: 2px solid rgba(212,168,67,0.6);
+  background: rgba(212,168,67,0.05);
+}
+
+.disclaimer-box p {
+  font-size: 0.75rem;
+  line-height: 1.8;
+  color: rgba(245,238,230,0.72);
+}
+
+.disclaimer-box p strong {
+  color: var(--light-gold);
+  font-weight: 400;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 640px) {
+  .form-grid { grid-template-columns: 1fr; }
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.form-field.full {
+  grid-column: 1 / -1;
+}
+
+.form-field label {
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--deep-amber);
+}
+
+.form-field input,
+.form-field textarea,
+.form-field select {
+  background: rgba(245,238,230,0.03);
+  border: 1px solid rgba(106,74,51,0.5);
+  color: var(--warm-white);
+  padding: 0.85rem 1rem;
+  font-family: 'Jost', sans-serif;
+  font-weight: 200;
+  font-size: 0.9rem;
+}
+
+.form-field select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23c8b89a'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+}
+
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus {
+  outline: none;
+  border-color: var(--deep-amber);
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.submit-row {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+  align-items: center;
+}
+
+.btn-primary,
+.btn-secondary {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  padding: 1rem 2.2rem;
+  cursor: pointer;
+  border: 1px solid var(--deep-amber);
+  background: transparent;
+  color: var(--warm-white);
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: var(--deep-amber);
+  color: var(--shadow);
+}
+
+.btn-primary:hover {
+  background: var(--light-gold);
+  border-color: var(--light-gold);
+}
+
+.btn-secondary:hover {
+  background: rgba(212,168,67,0.12);
+  border-color: var(--light-gold);
+  color: var(--light-gold);
+}
+
+.form-note {
+  margin-top: 1.5rem;
+  font-size: 0.78rem;
+  color: rgba(245,238,230,0.68);
+  line-height: 1.7;
+}
+
+/* CONTACT / CLOSING */
+
+.closing {
+  background: #1A120D;
+  padding: 8vw 2rem;
+  text-align: center;
+  min-height: 90vh;
+  flex-direction: column;
+}
+
+.closing-statement {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  line-height: 1.5;
+  max-width: 680px;
+  margin: 0 auto 3.5rem;
+}
+
+.closing-statement em {
+  color: var(--stone);
+}
+
+.contact-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.contact-row {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contact-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--stone);
+}
+
+.contact-link .contact-label {
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--deep-amber);
+}
+
+.contact-link .contact-value {
+  font-size: 1rem;
+  color: var(--warm-white);
+  font-family: 'Cormorant Garamond', serif;
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover .contact-value {
+  color: var(--light-gold);
+}
+
+.social-row {
+  display: flex;
+  gap: 1.3rem;
+  margin-top: 0.5rem;
+}
+
+.social-icon {
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(106,74,51,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--stone);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  font-size: 0.6rem;
+  letter-spacing: 0.05em;
+  font-family: 'Jost', sans-serif;
+}
+
+.social-icon:hover {
+  border-color: var(--light-gold);
+  color: var(--light-gold);
+}
+
+.social-note {
+  font-size: 0.7rem;
+  color: rgba(245,238,230,0.68);
+  letter-spacing: 0.05em;
+  margin-top: 0.5rem;
+}
+
+.closing-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  letter-spacing: 0.4em;
+  color: var(--deep-amber);
+  text-transform: uppercase;
+  margin-top: 4rem;
+}
+
+.closing-tagline {
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(221,209,194,0.6);
+  margin-top: 1rem;
+}
+
+/* ANIMATION */
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* GLOW */
+
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow-amber {
+  width: 300px;
+  height: 300px;
+  background: rgba(212,168,67,0.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+
+<nav class="nav">
+  <a href="#top" class="nav-brand"><!-- Swap for <img src="logo.png" alt="Liminal Light" style="height:28px;"> once your logo file is ready -->Liminal Light</a>
+  <ul class="nav-links">
+    <li><a href="#philosophy">About</a></li>
+    <li><a href="#motivations">Who It's For</a></li>
+    <li><a href="#services">Treatments</a></li>
+    <li><a href="#booking">Book</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="tel:+12462590091" class="nav-call">246 259 0091</a>
+</nav>
+
+<!-- OPENING -->
+
+<section class="opening" id="top">
+
+  <div class="glow glow-amber" style="top:30%; left:40%;"></div>
+
+  <div class="opening-text">
+    <p class="welcome-line">Welcome to</p>
+
+    <h1 class="brand-name">
+      Liminal Light
+    </h1>
+
+    <p class="opening-sub">
+      Mobile &amp; Studio Massage Wellness — Barbados
+    </p>
+
+    <p class="opening-mission">
+      Helping you move intentionally between the demands of life and the restoration you need to thrive.
+    </p>
+
+    <div class="opening-cta">
+      <a href="#booking" class="enter-button filled">Request a Treatment</a>
+      <a href="#services" class="enter-button">View Pricing</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- TESTIMONIALS -->
+
+<section class="testimonials" id="testimonials">
+
+  <div class="section-inner" style="max-width:980px;">
+
+    <div class="section-label fade-up">
+      Client Words
+    </div>
+
+    <h2 class="section-heading fade-up">
+      In their<br>
+      own <em>words.</em>
+    </h2>
+
+    <div class="testimonial-grid fade-up">
+
+      <div class="testimonial-card">
+        <p class="testimonial-quote">
+          "I thoroughly enjoyed my massage. From your professionalism to your ability to release the pressure in my body (especially my legs). It left me feeling re-energised and like a new man. I am looking forward to our next session!"
+        </p>
+        <p class="testimonial-attribution">— J.W.</p>
+      </div>
+
+      <div class="testimonial-card">
+        <p class="testimonial-quote">
+          "My Swedish massage was incredibly relaxing and soothing. Sarah was professional, attentive, and created a calm atmosphere. I left feeling refreshed, relaxed, and completely rejuvenated."
+        </p>
+        <p class="testimonial-attribution">— J.D.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- HOW YOU'LL FEEL -->
+
+<section class="feeling-section">
+
+  <div class="glow glow-amber" style="top:20%; left:50%; opacity:0.4;"></div>
+
+  <div class="feeling-inner">
+
+    <h2 class="section-heading fade-up">
+      Restoration looks<br>
+      different for <em>everyone.</em>
+    </h2>
+
+    <p class="body-text fade-up">
+      Whether it's sleep that won't come, a body adjusting to hormonal change, or muscles pushed hard by training and the trail, every treatment begins in the same place: the space between what's wrong and what's next.
+    </p>
+
+    <p class="feeling-question fade-up">What do you need today?</p>
+
+    <p class="body-text fade-up">
+      From there, your session is shaped around you — helping your body release tension, your mind settle, and your nervous system shift from constant doing into genuine restoration.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- INTRO -->
+
+<section class="intro-strip">
+
+  <div class="glow glow-amber" style="top:20%; right:10%; opacity:0.6;"></div>
+
+  <div class="intro-split">
+
+    <div class="intro-col">
+      <p class="intro-col-label">Mobile</p>
+      <p class="intro-fade-text">No clinic. No waiting room. Just skilled, attentive touch, brought into the comfort of your own space, wherever you are in Barbados.</p>
+    </div>
+
+    <div class="intro-divider"></div>
+
+    <div class="intro-col">
+      <p class="intro-col-label">Home Studio</p>
+      <p class="intro-fade-text">A private studio in St James, held quietly for you — for the days when leaving your own four walls is part of the reset.</p>
+    </div>
+
+  </div>
+
+  <a href="#philosophy" class="enter-button">Learn More</a>
+
+</section>
+
+<!-- PHILOSOPHY -->
+
+<section class="philosophy" id="philosophy">
+
+  <div class="glow glow-amber" style="top:15%; right:5%; opacity:0.5;"></div>
+
+  <div class="section-inner">
+
+    <div class="section-label fade-up">
+      I — Why Liminal Light Exists
+    </div>
+
+    <h2 class="section-heading fade-up">
+      Space to<br>
+      transition <em>intentionally.</em>
+    </h2>
+
+    <p class="body-text fade-up">
+      Modern life asks us to move constantly — from work to family, from responsibilities to endless notifications. Rarely are we given space to transition intentionally.
+    </p>
+
+    <p class="body-text fade-up">
+      Liminal Light exists to help people move intentionally between the demands of life and the restoration they need to thrive.
+    </p>
+
+    <p class="body-text fade-up">
+      Every treatment is designed as more than a massage. It's an opportunity to slow your nervous system, reconnect with your body, and leave feeling more grounded than when you arrived.
+    </p>
+
+    <hr class="divider">
+
+    <p class="body-text fade-up">
+      Mobile brings the practice to you — no commute, no gap between work and your session, no need to leave a space you already feel at ease in. It's built for convenience: the treatment folds into your day exactly where you already are.
+    </p>
+
+    <p class="body-text fade-up">
+      Home Studio offers the opposite gift: distance. A private, dedicated room in St James, set apart from your inbox, your kitchen, your to-do list — for the days when a change of scene is as restorative as the massage itself.
+    </p>
+
+    <div class="tag-strip fade-up">
+      <span class="tag">Mobile</span>
+      <span class="tag">Home Studio</span>
+      <span class="tag">Relaxation</span>
+      <span class="tag">Deep Tissue</span>
+      <span class="tag">Couples — Coming Soon</span>
+    </div>
+
+    <hr class="divider">
+
+    <p class="body-text fade-up">
+      Based in St. James, serving clients island-wide.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- WHO THIS IS FOR -->
+
+<section class="motivations" id="motivations">
+
+  <div class="glow glow-amber" style="top:10%; left:8%; opacity:0.4;"></div>
+
+  <div class="section-inner" style="max-width:980px;">
+
+    <div class="section-label fade-up">
+      II — Who This Is For
+    </div>
+
+    <h2 class="section-heading fade-up">
+      Three paths.<br>
+      One <em>space in between.</em>
+    </h2>
+
+    <p class="body-text fade-up">
+      Whatever brought you here, the work is the same: meeting the issue, holding you in the liminal space of the treatment itself, and sending you back out the other side changed.
+    </p>
+
+    <div class="motivation-grid fade-up">
+
+      <div class="motivation-card">
+        <p class="motivation-eyebrow">When Rest Won't Come</p>
+        <h3 class="motivation-title">Restorative Sleep</h3>
+        <p class="motivation-desc">
+          Insomnia isn't just tiredness — it's a body that's forgotten how to let go. Between the racing mind and the morning you're dreading, there's a space that's been missing: somewhere to land. Each treatment is built to meet you there, slowing the nervous system and easing the grip so the body can finally settle. What follows isn't just a good night's sleep — it's the return of trust in your own rest.
+        </p>
+      </div>
+
+      <div class="motivation-card">
+        <p class="motivation-eyebrow">When Your Body Feels Unfamiliar</p>
+        <h3 class="motivation-title">Hormonal Balance</h3>
+        <p class="motivation-desc">
+          Hormonal shifts — in women and men alike — can leave sleep, mood, and the body itself feeling out of sync. Treatment here isn't about fixing what's "wrong"; it's about creating a pause inside the change, a space where the body can regulate, breathe, and recalibrate before you carry on. The result isn't a return to how things were — it's steadiness within how things are now.
+        </p>
+      </div>
+
+      <div class="motivation-card">
+        <p class="motivation-eyebrow">When You've Asked A Lot Of Your Body</p>
+        <h3 class="motivation-title">Active Recovery</h3>
+        <p class="motivation-desc">
+          Training, hiking, long days on your feet — the active life gives a lot back, but it takes plenty too. Deep tissue work meets that strain directly, releasing the tension and restriction training leaves behind. The value isn't only physical release — it's the space it creates between effort and the next effort, where muscles actually recover, not just relax. You leave capable of showing up again, stronger.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SERVICES / PRICING -->
+
+<section class="services" id="services">
+
+  <div class="section-inner" style="max-width:980px;">
+
+    <div class="section-label fade-up">
+      III — The Treatments
+    </div>
+
+    <h2 class="section-heading fade-up">
+      Restoration,<br>
+      <em>tailored to time.</em>
+    </h2>
+
+    <p class="body-text fade-up">
+      Every treatment is fully customisable to your needs — whether you're here for sleep, for hormonal balance, or for recovery after training. All prices in BBD.
+    </p>
+
+    <p class="area-note fade-up">Choose Your Setting</p>
+
+    <div class="setting-grid fade-up">
+
+      <div class="setting-card">
+        <p class="setting-label">Mobile Service</p>
+        <h3 class="setting-title">The sanctuary comes to you.</h3>
+        <p class="setting-desc">
+          Your own space, held for an hour as a place of stillness. No travel, no waiting room — just skilled, attentive touch, brought directly to you, wherever you are in Barbados.
+        </p>
+      </div>
+
+      <div class="setting-card">
+        <p class="setting-label">Home Studio</p>
+        <h3 class="setting-title">Step away. A retreat of your own.</h3>
+        <p class="setting-desc">
+          A quiet, private studio in St James, set aside for your session alone. For the days when leaving your own four walls is part of the reset — the same care, a change of scene.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="pricing-toggle fade-up">
+      <button type="button" class="toggle-btn is-active" data-setting="mobile">Mobile</button>
+      <button type="button" class="toggle-btn" data-setting="studio">Home Studio</button>
+    </div>
+
+    <div class="price-panel" data-panel="mobile">
+
+      <p class="area-note">Service Area — Island Wide, Barbados</p>
+
+      <div class="price-groups">
+
+        <div class="price-group">
+          <h3 class="price-group-title">Solo Massage <span class="intro-badge">Introductory Rate</span></h3>
+          <ul class="price-list">
+            <li class="price-row">
+              <span>30 min</span>
+              <span class="price-duo">
+                <span class="price-option"><span class="price-option-label">Swedish</span><span>$115 BBD</span></span>
+                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$125 BBD</span></span>
+              </span>
+            </li>
+            <li class="price-row">
+              <span>45 min</span>
+              <span class="price-duo">
+                <span class="price-option"><span class="price-option-label">Swedish</span><span>$160 BBD</span></span>
+                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$172 BBD</span></span>
+              </span>
+            </li>
+            <li class="price-row">
+              <span>60 min</span>
+              <span class="price-duo">
+                <span class="price-option"><span class="price-option-label">Swedish</span><span>$190 BBD</span></span>
+                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$205 BBD</span></span>
+              </span>
+            </li>
+            <li class="price-row">
+              <span>90 min</span>
+              <span class="price-duo">
+                <span class="price-option"><span class="price-option-label">Swedish</span><span>$255 BBD</span></span>
+                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$275 BBD</span></span>
+              </span>
+            </li>
+            <li class="price-row">
+              <span>120 min</span>
+              <span class="price-duo">
+                <span class="price-option"><span class="price-option-label">Swedish</span><span>$310 BBD</span></span>
+                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$335 BBD</span></span>
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="price-group pending">
+          <h3 class="price-group-title">Couples Massage <span class="coming-soon-badge">Coming Soon</span></h3>
+          <ul class="price-list">
+            <li class="price-row"><span>60 min</span><span>$345 BBD</span></li>
+            <li class="price-row"><span>90 min</span><span>$460 BBD</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <p class="mobile-note">
+        Prices reflect St James and surrounding areas. <strong>Liminal Light comes to you</strong> — for locations further afield, message me and I'll confirm your rate.
+      </p>
+
+    </div>
+
+    <div class="price-panel" data-panel="studio" style="display:none;">
+
+      <p class="area-note">Home Studio — St James, By Private Appointment</p>
+
+      <div class="price-groups">
+
+        <div class="price-group">
+          <h3 class="price-group-title">Solo Massage <span class="intro-badge">Introductory Rate</span></h3>
+          <ul class="price-list">
+            <li class="price-row">
+              <span>30 min</span>
+              <span class="price-duo">
+                <span class="price-option"><span class="price-option-label">Swedish</span><span>$105 BBD</span></span>
+                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$115 BBD</span></span>
+              </span>
+            </li>
+            <li class="price-row">
+              <span>45 min</span>
+              <span class="price-duo">
+                <span class="price-option"><span class="price-option-label">Swedish</span><span>$145 BBD</span></span>
+                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$157 BBD</span></span>
+              </span>
+            </li>
+            <li class="price-row">
+              <span>60 min</span>
+              <span class="price-duo">
+                <span class="price-option"><span class="price-option-label">Swedish</span><span>$170 BBD</span></span>
+                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$185 BBD</span></span>
+              </span>
+            </li>
+            <li class="price-row">
+              <span>90 min</span>
+              <span class="price-duo">
+                <span class="price-option"><span class="price-option-label">Swedish</span><span>$230 BBD</span></span>
+                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$250 BBD</span></span>
+              </span>
+            </li>
+            <li class="price-row">
+              <span>120 min</span>
+              <span class="price-duo">
+                <span class="price-option"><span class="price-option-label">Swedish</span><span>$280 BBD</span></span>
+                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$305 BBD</span></span>
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="price-group pending">
+          <h3 class="price-group-title">Couples Massage <span class="coming-soon-badge">Coming Soon</span></h3>
+          <ul class="price-list">
+            <li class="price-row"><span>60 min</span><span>$310 BBD</span></li>
+            <li class="price-row"><span>90 min</span><span>$410 BBD</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <p class="mobile-note">
+        <strong>Home Studio rates carry no travel overhead</strong> — held by private appointment in St James.
+      </p>
+
+    </div>
+
+    <p class="intro-note fade-up">
+      Introductory pricing available for the first 25 clients or through September 2026, whichever comes first. Deep Tissue reflects a small premium for the additional pressure and technique the treatment requires.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- BOOKING FORM -->
+
+<section class="booking" id="booking">
+
+  <div class="section-inner" style="max-width:900px;">
+
+    <div class="section-label fade-up">
+      IV — Request Your Treatment
+    </div>
+
+    <h2 class="section-heading fade-up">
+      Tell us what<br>
+      you <em>need.</em>
+    </h2>
+
+    <p class="body-text fade-up">
+      Choose your setting and preferred style below, then select the treatment(s) you're interested in and share a few details. We'll confirm your appointment by email or WhatsApp within 24 hours.
+    </p>
+
+    <div class="pricing-toggle fade-up" id="bookingSettingToggle">
+      <button type="button" class="toggle-btn is-active" data-setting="mobile" data-setting-label="Mobile — treatment at client's location">Mobile</button>
+      <button type="button" class="toggle-btn" data-setting="studio" data-setting-label="Home Studio — treatment at Liminal Light studio, St James">Home Studio</button>
+    </div>
+
+    <p class="area-note" style="margin-top:2rem;">Preferred Style</p>
+
+    <p class="style-note">
+      Choose a style if you already know what suits you, or leave it to your therapist to recommend on arrival based on how you're feeling that day. Deep Tissue carries a small premium over Swedish, reflected in the treatment prices below once selected.
+    </p>
+
+    <div class="checkbox-grid" id="styleToggle">
+      <label class="checkbox-item">
+        <input type="radio" name="style" value="Swedish / Therapeutic Relaxation" data-style-key="swedish" checked>
+        <span class="checkbox-label">
+          <span class="service-name">Swedish / Therapeutic Relaxation</span>
+          <span class="service-desc">Lighter, flowing pressure to ease tension and calm the nervous system.</span>
+        </span>
+      </label>
+
+      <label class="checkbox-item">
+        <input type="radio" name="style" value="Deep Tissue" data-style-key="deep-tissue">
+        <span class="checkbox-label">
+          <span class="service-name">Deep Tissue</span>
+          <span class="service-desc">Firmer, targeted pressure for chronic tightness, muscle-specific work, or post-training recovery.</span>
+        </span>
+      </label>
+
+      <label class="checkbox-item">
+        <input type="radio" name="style" value="Not sure — recommend on arrival" data-style-key="swedish">
+        <span class="checkbox-label">
+          <span class="service-name">Not Sure</span>
+          <span class="service-desc">Let your therapist assess and recommend the best approach on the day. Priced as Swedish; adjusted with you on arrival if Deep Tissue suits better.</span>
+        </span>
+      </label>
+    </div>
+
+    <div class="disclaimer-box">
+      <p>
+        <strong>A note on Deep Tissue:</strong> this style may not be suitable if you are pregnant, have certain injuries, or have a blood pressure condition. If any of this applies to you, please select "Not Sure" or mention it in the notes below so we can discuss the safest option with you before your session.
+      </p>
+    </div>
+
+    <p class="area-note" style="margin-top:2.5rem;">Select Duration</p>
+
+    <form id="requestForm" class="fade-up">
+
+      <div class="checkbox-grid">
+        <label class="checkbox-item">
+          <input type="checkbox" name="service" data-duration="30-min Massage"
+                 data-mobile-price="115" data-studio-price="105"
+                 data-mobile-price-deep="125" data-studio-price-deep="115">
+          <span class="checkbox-label"><span class="service-name">30-min Massage</span><span class="service-price">$115 BBD</span></span>
+        </label>
+
+        <label class="checkbox-item">
+          <input type="checkbox" name="service" data-duration="45-min Massage"
+                 data-mobile-price="160" data-studio-price="145"
+                 data-mobile-price-deep="172" data-studio-price-deep="157">
+          <span class="checkbox-label"><span class="service-name">45-min Massage</span><span class="service-price">$160 BBD</span></span>
+        </label>
+
+        <label class="checkbox-item">
+          <input type="checkbox" name="service" data-duration="60-min Massage"
+                 data-mobile-price="190" data-studio-price="170"
+                 data-mobile-price-deep="205" data-studio-price-deep="185">
+          <span class="checkbox-label"><span class="service-name">60-min Massage</span><span class="service-price">$190 BBD</span></span>
+        </label>
+
+        <label class="checkbox-item">
+          <input type="checkbox" name="service" data-duration="90-min Massage"
+                 data-mobile-price="255" data-studio-price="230"
+                 data-mobile-price-deep="275" data-studio-price-deep="250">
+          <span class="checkbox-label"><span class="service-name">90-min Massage</span><span class="service-price">$255 BBD</span></span>
+        </label>
+
+        <label class="checkbox-item">
+          <input type="checkbox" name="service" data-duration="120-min Massage"
+                 data-mobile-price="310" data-studio-price="280"
+                 data-mobile-price-deep="335" data-studio-price-deep="305">
+          <span class="checkbox-label"><span class="service-name">120-min Massage</span><span class="service-price">$310 BBD</span></span>
+        </label>
+      </div>
+
+      <div class="waitlist-heading">
+        <h3>Coming Soon</h3>
+      </div>
+
+      <p class="waitlist-note">
+        Couples massage isn't bookable yet — I'm currently a solo practitioner. Tick a box below to join the waitlist and I'll reach out as soon as it's available.
+      </p>
+
+      <div class="checkbox-grid">
+        <label class="checkbox-item waitlist">
+          <input type="checkbox" name="waitlist" data-duration="60-min Couples Massage (waitlist)" data-mobile-price="345" data-studio-price="310">
+          <span class="checkbox-label"><span class="service-name">60-min Couples Massage</span><span class="service-price">Waitlist — est. $345 BBD</span></span>
+        </label>
+
+        <label class="checkbox-item waitlist">
+          <input type="checkbox" name="waitlist" data-duration="90-min Couples Massage (waitlist)" data-mobile-price="460" data-studio-price="410">
+          <span class="checkbox-label"><span class="service-name">90-min Couples Massage</span><span class="service-price">Waitlist — est. $460 BBD</span></span>
+        </label>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="clientName">Full Name</label>
+          <input type="text" id="clientName" required>
+        </div>
+
+        <div class="form-field">
+          <label for="clientPhone">Phone / WhatsApp</label>
+          <input type="tel" id="clientPhone" required>
+        </div>
+
+        <div class="form-field">
+          <label for="clientEmail">Email</label>
+          <input type="email" id="clientEmail">
+        </div>
+
+        <div class="form-field">
+          <label for="clientArea">Parish / Area (for Mobile bookings)</label>
+          <input type="text" id="clientArea" placeholder="e.g. Christ Church">
+        </div>
+
+        <div class="form-field">
+          <label for="clientDate">Preferred Date</label>
+          <input type="date" id="clientDate">
+        </div>
+
+        <div class="form-field">
+          <label for="clientTime">Preferred Time</label>
+          <input type="time" id="clientTime">
+        </div>
+
+        <div class="form-field full">
+          <label for="clientNotes">Notes (optional)</label>
+          <textarea id="clientNotes" placeholder="Anything we should know — areas of focus, pressure preference, allergies..."></textarea>
+        </div>
+      </div>
+
+      <div class="submit-row">
+        <button type="button" id="emailRequestBtn" class="btn-primary">Send Request by Email</button>
+        <button type="button" id="whatsappRequestBtn" class="btn-secondary">Send via WhatsApp</button>
+      </div>
+
+      <p class="form-note">
+        Choosing either option opens your email or WhatsApp app with your request pre-filled — nothing is sent automatically until you press send there. Online booking via Fresha is coming soon.
+      </p>
+
+    </form>
+
+  </div>
+
+</section>
+
+<!-- CONTACT / CLOSING -->
+
+<section class="closing" id="contact">
+
+  <div class="glow glow-amber" style="top:20%; left:30%; opacity:0.7;"></div>
+
+  <div class="section-inner" style="max-width:100%; padding-bottom:2rem;">
+
+    <p class="closing-statement fade-up">
+      This isn't just massage.
+      <br><br>
+      <em>It's restoration, brought to your door.</em>
+    </p>
+
+    <div class="contact-grid fade-up">
+
+      <div class="contact-row">
+        <a href="mailto:info_liminallight@proton.me" class="contact-link">
+          <span class="contact-label">Email</span>
+          <span class="contact-value">info_liminallight@proton.me</span>
+        </a>
+
+        <a href="tel:+12462590091" class="contact-link">
+          <span class="contact-label">Call</span>
+          <span class="contact-value">+1 246 259 0091</span>
+        </a>
+
+        <a href="https://wa.me/12462590091" target="_blank" class="contact-link">
+          <span class="contact-label">WhatsApp</span>
+          <span class="contact-value">+1 246 259 0091</span>
+        </a>
+      </div>
+
+      <!-- Update these href values once your social profiles are set up -->
+      <div>
+        <div class="social-row">
+          <a href="#" class="social-icon" aria-label="Instagram">IG</a>
+          <a href="#" class="social-icon" aria-label="Facebook">FB</a>
+        </div>
+        <p class="social-note">Social profiles coming soon</p>
+      </div>
+
+    </div>
+
+    <p class="closing-brand fade-up">
+      Liminal Light
+    </p>
+
+    <p class="closing-tagline fade-up">
+      Where the crossing is the healing
+    </p>
+
+  </div>
+
+</section>
+
+<script>
+
+const observer = new IntersectionObserver((entries) => {
+
+  entries.forEach((entry) => {
+
+    if (entry.isIntersecting) {
+
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, 100);
+
+      observer.unobserve(entry.target);
+
+    }
+
+  });
+
+}, {
+  threshold: 0.15
+});
+
+document
+  .querySelectorAll('.fade-up')
+  .forEach(el => observer.observe(el));
+
+/* PRICING TOGGLE + STYLE TOGGLE — drives both the Services price table and the booking form */
+
+let currentSetting = 'mobile';
+let currentSettingLabel = "Mobile — treatment at client's location";
+let currentStyleKey = 'swedish'; // 'swedish' or 'deep-tissue'
+
+function priceFor(input) {
+  if (currentSetting === 'studio') {
+    return currentStyleKey === 'deep-tissue' ? input.dataset.studioPriceDeep : input.dataset.studioPrice;
+  }
+  return currentStyleKey === 'deep-tissue' ? input.dataset.mobilePriceDeep : input.dataset.mobilePrice;
+}
+
+function refreshBookingPrices() {
+  // priced duration checkboxes (style-aware)
+  document.querySelectorAll('input[name="service"][data-mobile-price]').forEach(function (input) {
+    const price = priceFor(input);
+    const priceLabel = input.closest('.checkbox-item').querySelector('.service-price');
+    if (priceLabel && price) {
+      priceLabel.textContent = '$' + price + ' BBD';
+    }
+  });
+
+  // waitlist items (setting-aware only, no style split yet — couples pricing TBD)
+  document.querySelectorAll('input[name="waitlist"][data-mobile-price]').forEach(function (input) {
+    const price = currentSetting === 'studio' ? input.dataset.studioPrice : input.dataset.mobilePrice;
+    const priceLabel = input.closest('.checkbox-item').querySelector('.service-price');
+    if (priceLabel) {
+      priceLabel.textContent = 'Waitlist — est. $' + price + ' BBD';
+    }
+  });
+}
+
+function applySetting(setting, label) {
+  currentSetting = setting;
+  currentSettingLabel = label;
+
+  document.querySelectorAll('.toggle-btn').forEach(function (b) {
+    b.classList.toggle('is-active', b.dataset.setting === setting);
+  });
+
+  document.querySelectorAll('.price-panel').forEach(function (panel) {
+    panel.style.display = (panel.dataset.panel === setting) ? '' : 'none';
+  });
+
+  refreshBookingPrices();
+}
+
+document.querySelectorAll('.toggle-btn').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    applySetting(this.dataset.setting, this.dataset.settingLabel || this.textContent.trim());
+  });
+});
+
+document.querySelectorAll('input[name="style"]').forEach(function (radio) {
+  radio.addEventListener('change', function () {
+    if (this.checked) {
+      currentStyleKey = this.dataset.styleKey || 'swedish';
+      refreshBookingPrices();
+    }
+  });
+});
+
+/* BOOKING FORM LOGIC */
+
+function buildRequestMessage() {
+
+  const checked = Array.from(document.querySelectorAll('input[name="service"]:checked'));
+  const waitlisted = Array.from(document.querySelectorAll('input[name="waitlist"]:checked'));
+  const styleChoice = document.querySelector('input[name="style"]:checked');
+
+  const name = document.getElementById('clientName').value.trim();
+  const phone = document.getElementById('clientPhone').value.trim();
+  const email = document.getElementById('clientEmail').value.trim();
+  const area = document.getElementById('clientArea').value.trim();
+  const date = document.getElementById('clientDate').value;
+  const time = document.getElementById('clientTime').value;
+  const notes = document.getElementById('clientNotes').value.trim();
+
+  if (checked.length === 0 && waitlisted.length === 0) {
+    alert('Please select at least one treatment or waitlist option.');
+    return null;
+  }
+
+  if (!name || !phone) {
+    alert('Please enter your name and phone/WhatsApp number.');
+    return null;
+  }
+
+  function lineFor(input, isWaitlist) {
+    let price;
+    if (isWaitlist) {
+      price = currentSetting === 'studio' ? input.dataset.studioPrice : input.dataset.mobilePrice;
+      return input.dataset.duration + ' — est. $' + price + ' BBD';
+    }
+    price = priceFor(input);
+    return input.dataset.duration + ' — $' + price + ' BBD';
+  }
+
+  let msg = 'New Massage Request — Liminal Light\n\n';
+
+  msg += 'Preferred Setting: ' + currentSettingLabel + '\n';
+
+  if (styleChoice) {
+    msg += 'Preferred Style: ' + styleChoice.value + '\n';
+  }
+
+  if (checked.length > 0) {
+    msg += '\nTreatment(s) requested:\n';
+    checked.forEach(input => { msg += '- ' + lineFor(input, false) + '\n'; });
+  }
+
+  if (waitlisted.length > 0) {
+    msg += '\nWaitlist interest (Coming Soon):\n';
+    waitlisted.forEach(input => { msg += '- ' + lineFor(input, true) + '\n'; });
+  }
+
+  msg += '\nName: ' + name;
+  msg += '\nPhone/WhatsApp: ' + phone;
+  if (email) msg += '\nEmail: ' + email;
+  if (area) msg += '\nParish/Area: ' + area;
+  if (date) msg += '\nPreferred Date: ' + date;
+  if (time) msg += '\nPreferred Time: ' + time;
+  if (notes) msg += '\nNotes: ' + notes;
+
+  return msg;
+}
+
+document.getElementById('emailRequestBtn').addEventListener('click', function () {
+  const msg = buildRequestMessage();
+  if (!msg) return;
+  const subject = encodeURIComponent('Massage Request — Liminal Light');
+  const body = encodeURIComponent(msg);
+  window.location.href = 'mailto:info_liminallight@proton.me?subject=' + subject + '&body=' + body;
+});
+
+document.getElementById('whatsappRequestBtn').addEventListener('click', function () {
+  const msg = buildRequestMessage();
+  if (!msg) return;
+  const text = encodeURIComponent(msg);
+  window.open('https://wa.me/12462590091?text=' + text, '_blank');
+});
+
+</script>
+
+</body>
+</html>
