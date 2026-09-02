@@ -228,6 +228,74 @@ body {
   justify-content: center;
 }
 
+/* HERO IMAGE REVEAL */
+
+.opening {
+  background: #1A120D;
+}
+
+.opening::before {
+  z-index: 1;
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  background-image: url("oil-bowl-hero.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0;
+  transform: scale(1.04);
+  animation: heroImageReveal 4.5s ease-out 3s forwards;
+}
+
+.hero-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg,
+      rgba(26,18,13,0.78) 0%,
+      rgba(26,18,13,0.28) 50%,
+      rgba(26,18,13,0.72) 100%),
+    linear-gradient(0deg,
+      rgba(26,18,13,0.55) 0%,
+      transparent 45%,
+      rgba(26,18,13,0.35) 100%);
+}
+
+.opening .glow {
+  z-index: 2;
+}
+
+.opening-text {
+  position: relative;
+  z-index: 3;
+}
+
+@keyframes heroImageReveal {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+
+  to {
+    opacity: 0.72;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 760px) {
+  .hero-image {
+    background-position: 58% center;
+    animation-duration: 4s;
+  }
+}
+
 /* HOW YOU'LL FEEL */
 
 .feeling-section {
@@ -1279,6 +1347,9 @@ hr.divider {
 <!-- OPENING -->
 
 <section class="opening" id="top">
+
+  <!-- CINEMATIC OIL BOWL HERO IMAGE -->
+  <div class="hero-image" aria-hidden="true"></div>
 
   <div class="glow glow-amber" style="top:30%; left:40%;"></div>
 
