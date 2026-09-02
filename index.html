@@ -1,16 +1,13 @@
 ```
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Liminal Light — mobile and studio massage and wellness in Barbados. Brought to you anywhere on the island, or held at a private home studio in St James. Relaxation, deep tissue massage.">
-
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Liminal Light — mobile and studio massage and wellness in Barbados. Brought to you anywhere on the island, or held at a private home studio in St James. Relaxation, deep tissue massage." name="description"/>
 <title>Liminal Light — Mobile and Studio Massage &amp; Wellness, Barbados</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&amp;family=Jost:wght@200;300;400&amp;display=swap" rel="stylesheet"/>
 <style>
 
 *,
@@ -544,9 +541,10 @@ section {
 }
 .therapist-section .section-inner { max-width: 820px; }
 .therapist-intro {
-  .therapist-intro {
-  font-size: 1.25rem;
-  line-height: 1.5;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+  line-height: 1.65;
+  color: var(--limestone);
   margin-bottom: 2rem;
 }
 .therapist-signoff {
@@ -1353,736 +1351,479 @@ hr.divider {
   }
 }
 
+
+
+/* STRUCTURE & READABILITY FIXES */
+.therapist-section .section-inner { max-width: 760px; }
+.therapist-intro {
+  font-size: clamp(1rem, 1.8vw, 1.12rem);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+@media (max-width: 760px) {
+  .therapist-section .section-inner, .philosophy .section-inner {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
 </style>
 </head>
-
 <body>
-
 <!-- NAV -->
-
 <nav class="nav">
-  <a href="#top" class="nav-brand"><!-- Swap for <img src="logo.png" alt="Liminal Light" style="height:28px;"> once your logo file is ready -->Liminal Light</a>
-  <ul class="nav-links">
-    <li><a href="#therapist">About</a></li>
-    <li><a href="#motivations">Who It's For</a></li>
-    <li><a href="#services">Treatments</a></li>
-    <li><a href="#booking">Book</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a href="tel:+12462590091" class="nav-call">246 259 0091</a>
+<a class="nav-brand" href="#top"><!-- Swap for <img src="logo.png" alt="Liminal Light" style="height:28px;"> once your logo file is ready -->Liminal Light</a>
+<ul class="nav-links">
+<li><a href="#therapist">About</a></li>
+<li><a href="#motivations">Who It's For</a></li>
+<li><a href="#services">Treatments</a></li>
+<li><a href="#booking">Book</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<a class="nav-call" href="tel:+12462590091">246 259 0091</a>
 </nav>
-
 <!-- OPENING -->
-
 <section class="opening" id="top">
-
-  <!-- CINEMATIC OIL BOWL HERO IMAGE -->
-  <div class="hero-image" aria-hidden="true"></div>
-
-  <div class="glow glow-amber" style="top:30%; left:40%;"></div>
-
-  <div class="opening-text">
-    <p class="welcome-line">Welcome to</p>
-
-    <h1 class="brand-name">
+<!-- CINEMATIC OIL BOWL HERO IMAGE -->
+<div aria-hidden="true" class="hero-image"></div>
+<div class="glow glow-amber" style="top:30%; left:40%;"></div>
+<div class="opening-text">
+<p class="welcome-line">Welcome to</p>
+<h1 class="brand-name">
       Liminal Light
     </h1>
-
-    <p class="opening-sub">
+<p class="opening-sub">
       Mobile &amp; Studio Massage Wellness — Barbados
     </p>
-
-    <p class="opening-mission">
+<p class="opening-mission">
       Helping you move intentionally between the demands of life and the restoration you need to thrive.
     </p>
-
-    <div class="opening-cta">
-      <a href="#booking" class="enter-button filled">Request a Treatment</a>
-      <a href="#services" class="enter-button">View Pricing</a>
-    </div>
-  </div>
-
+<div class="opening-cta">
+<a class="enter-button filled" href="#booking">Request a Treatment</a>
+<a class="enter-button" href="#services">View Pricing</a>
+</div>
+</div>
 </section>
-
 <!-- TESTIMONIALS -->
-
 <section class="testimonials" id="testimonials">
-
-  <div class="section-inner" style="max-width:980px;">
-
-    <div class="section-label fade-up">
+<div class="section-inner" style="max-width:980px;">
+<div class="section-label fade-up">
       Client Words
     </div>
-
-    <h2 class="section-heading fade-up">
-      In their<br>
+<h2 class="section-heading fade-up">
+      In their<br/>
       own <em>words.</em>
-    </h2>
-
-    <div class="testimonial-grid fade-up">
-
-      <div class="testimonial-card">
-        <p class="testimonial-quote">
+</h2>
+<div class="testimonial-grid fade-up">
+<div class="testimonial-card">
+<p class="testimonial-quote">
           "I thoroughly enjoyed my massage. From your professionalism to your ability to release the pressure in my body (especially my legs). It left me feeling re-energised and like a new person. I am looking forward to our next session!"
         </p>
-        <p class="testimonial-attribution">— J.W.</p>
-      </div>
-
-      <div class="testimonial-card">
-        <p class="testimonial-quote">
+<p class="testimonial-attribution">— J.W.</p>
+</div>
+<div class="testimonial-card">
+<p class="testimonial-quote">
           "My Swedish massage was incredibly relaxing and soothing. Sarah was professional, attentive, and created a calm atmosphere. I left feeling refreshed, relaxed, and completely rejuvenated."
         </p>
-        <p class="testimonial-attribution">— J.D.</p>
-      </div>
-
-    </div>
-
-  </div>
-
+<p class="testimonial-attribution">— J.D.</p>
+</div>
+</div>
+</div>
 </section>
-
 <!-- HOW YOU'LL FEEL -->
-
 <section class="feeling-section">
-
-  <div class="glow glow-amber" style="top:20%; left:50%; opacity:0.4;"></div>
-
-  <div class="feeling-inner">
-
-    <h2 class="section-heading fade-up">
-      Restoration looks<br>
+<div class="glow glow-amber" style="top:20%; left:50%; opacity:0.4;"></div>
+<div class="feeling-inner">
+<h2 class="section-heading fade-up">
+      Restoration looks<br/>
       different for <em>everyone.</em>
-    </h2>
-
-    <p class="body-text fade-up">
+</h2>
+<p class="body-text fade-up">
       Whether it's sleep that won't come, a body adjusting to hormonal change, or muscles pushed hard by training and the trail, every treatment begins in the same place: the space between what's wrong and what's next.
     </p>
-
-    <p class="feeling-question fade-up">What do you need today?</p>
-
-    <p class="body-text fade-up">
+<p class="feeling-question fade-up">What do you need today?</p>
+<p class="body-text fade-up">
       From there, your session is shaped around you — helping your body release tension, your mind settle, and your nervous system shift from constant doing into genuine restoration.
     </p>
-
-  </div>
-
+</div>
 </section>
-
 <!-- INTRO -->
-
 <section class="intro-strip">
-
-  <div class="glow glow-amber" style="top:20%; right:10%; opacity:0.6;"></div>
-
-  <div class="intro-split">
-
-    <div class="intro-col">
-      <p class="intro-col-label">Mobile</p>
-      <p class="intro-fade-text">No clinic. No waiting room. Just skilled, attentive touch, brought into the comfort of your own space, wherever you are in Barbados.</p>
-    </div>
-
-    <div class="intro-divider"></div>
-
-    <div class="intro-col">
-      <p class="intro-col-label">Home Studio</p>
-      <p class="intro-fade-text">A private studio in St James, held quietly for you — for the days when leaving your own four walls is part of the reset.</p>
-    </div>
-
-  </div>
-
-  <a href="#philosophy" class="enter-button">Learn More</a>
-
+<div class="glow glow-amber" style="top:20%; right:10%; opacity:0.6;"></div>
+<div class="intro-split">
+<div class="intro-col">
+<p class="intro-col-label">Mobile</p>
+<p class="intro-fade-text">No clinic. No waiting room. Just skilled, attentive touch, brought into the comfort of your own space, wherever you are in Barbados.</p>
+</div>
+<div class="intro-divider"></div>
+<div class="intro-col">
+<p class="intro-col-label">Home Studio</p>
+<p class="intro-fade-text">A private studio in St James, held quietly for you — for the days when leaving your own four walls is part of the reset.</p>
+</div>
+</div>
+<a class="enter-button" href="#philosophy">Learn More</a>
 </section>
-
 <!-- PHILOSOPHY -->
-
-<section class="philosophy" id="philosophy">
-
-  <div class="glow glow-amber" style="top:15%; right:5%; opacity:0.5;"></div>
-
-  <div class="section-inner">
-
-    <div class="section-label fade-up">
-      I — Why Liminal Light Exists
-    </div>
-
-    <h2 class="section-heading fade-up">
-      Space to<br>
-      transition <em>intentionally.</em>
-    </h2>
-
-    <p class="body-text fade-up">
-      Modern life asks us to move constantly — from work to family, from responsibilities to endless notifications. Rarely are we given space to transition intentionally.
-    </p>
-
-    <p class="body-text fade-up">
-      Liminal Light exists to help people move intentionally between the demands of life and the restoration they need to thrive.
-    </p>
-
-    <p class="body-text fade-up">
-      Every treatment is designed as more than a massage. It's an opportunity to slow your nervous system, reconnect with your body, and leave feeling more grounded than when you arrived.
-    </p>
-
-    <hr class="divider">
-
-    <p class="body-text fade-up">
-      Mobile brings the practice to you — no commute, no gap between work and your session, no need to leave a space you already feel at ease in. It's built for convenience: the treatment folds into your day exactly where you already are.
-    </p>
-
-    <p class="body-text fade-up">
-      Home Studio offers the opposite gift: distance. A private, dedicated room in St James, set apart from your inbox, your kitchen, your to-do list — for the days when a change of scene is as restorative as the massage itself.
-    </p>
-
-    <div class="tag-strip fade-up">
-      <span class="tag">Mobile</span>
-      <span class="tag">Home Studio</span>
-      <span class="tag">Relaxation</span>
-      <span class="tag">Deep Tissue</span>
-      <span class="tag">Couples — Coming Soon</span>
-    </div>
-
-    <hr class="divider">
-
-    <p class="body-text fade-up">
-      Based in St. James, serving clients island-wide.
-    </p>
-
-  </div>
-
-</section>
-
-
-<!-- MEET YOUR THERAPIST -->
 <section class="therapist-section" id="therapist">
-  <div class="glow glow-amber" style="top:12%; left:6%; opacity:0.35;"></div>
-  <div class="section-inner">
-    <div class="section-label fade-up">
-      Meet Your Therapist
-    </div>
-
-    <h2 class="section-heading fade-up">
-      The hands behind<br>
-      <em>Liminal Light.</em>
-    </h2>
-
-    <p class="therapist-intro fade-up">Hi, I'm Sarah, your therapist at Liminal Light.</p>
-
-    <p class="body-text fade-up">
-      My relationship with massage began long before I ever considered it a profession. As a child, my mum would often tell me that I was good with my hands and ask me to work on the knots in her shoulders. I was only eight or nine years old, but I remember being fascinated by what happened in those moments — feeling the tension beneath my hands, working through it, and hearing the relief as each knot began to release.
-    </p>
-
-    <p class="body-text fade-up">
-      Even then, there was something I instinctively understood: what we carry in our minds can be held in our bodies.
-    </p>
-
-    <p class="body-text fade-up">
-      Over time, that understanding became the foundation of my relationship with massage. The mind and body do not exist separately. Stress, pressure, routine, and the demands of everyday life all leave their mark — often in ways we don't immediately recognise.
-    </p>
-
-    <hr class="divider">
-
-    <p class="body-text fade-up">
-      The idea behind Liminal Light came later, while studying Anthropology. I became fascinated by the concept of <em>liminality</em>: the state of being in between.
-    </p>
-
-    <p class="body-text fade-up">
-      The space between what was and what comes next. The unknown. The uncertainty. The moments in life when we are still becoming, still adjusting, still unsure of what lies on the other side.
-    </p>
-
-    <p class="body-text fade-up">
-      In many ways, we occupy these spaces throughout our lives. It is often only once we move through them that clarity begins to emerge.
-    </p>
-
-    <p class="body-text fade-up">
-      That idea became the foundation of Liminal Light — both philosophically and creatively. The name also carries an artistic meaning: the relationship between darkness and light, and the quiet transition from one into the other.
-    </p>
-
-    <p class="body-text fade-up">
-      For me, massage exists within that same space. Between tension and release. Between constant doing and the permission to stop. Between the demands we place on our bodies and the restoration they need in return.
-    </p>
-
-    <hr class="divider">
-
-    <p class="body-text fade-up">
-      I believe restoration and recovery are not luxuries reserved for special occasions. They are vital to how we function, move through life, and care for ourselves over time. The choices we make for our bodies today do not exist only in the present — their effects accumulate and reveal themselves over time. Caring for yourself is not simply about responding when something feels wrong. It is about recognising that your wellbeing is being shaped every day.
-    </p>
-
-    <p class="body-text fade-up">
-      That is the space I want Liminal Light to offer: a warm, comforting environment where you can let go. A treatment that begins with attention to you as an individual — what your body is carrying, what your life is asking of you, and what you need in that moment.
-    </p>
-
-    <p class="body-text fade-up">
-      Whether you come seeking deep relaxation, recovery, or simply a pause from the constant demands of everyday life, my intention is the same: to create space for you to release what you're holding and move gently towards whatever comes next.
-    </p>
-
-    <p class="therapist-signoff fade-up">— Sarah</p>
-  </div>
+<div class="glow glow-amber" style="top:12%; left:6%; opacity:0.35;"></div>
+<div class="section-inner"><div class="section-label fade-up">I — Meet Your Therapist</div><h2 class="section-heading fade-up">The hands behind<br/><em>Liminal Light.</em></h2><p class="therapist-intro fade-up">Hi, I'm Sarah — your therapist at Liminal Light.</p><p class="body-text fade-up">My relationship with massage began long before I ever considered it a profession. As a child, my mum would often tell me that I was good with my hands and ask me to work on the knots in her shoulders. I was only eight or nine years old, but I remember being fascinated by what happened in those moments — feeling the tension beneath my hands, working through it, and hearing the relief as each knot began to release.</p><p class="body-text fade-up">Even then, there was something I instinctively understood: what we carry in our minds can be held in our bodies.</p><p class="body-text fade-up">Over time, that understanding became the foundation of my relationship with massage. The mind and body do not exist separately. Stress, pressure, routine, and the demands of everyday life all leave their mark — often in ways we don't immediately recognise.</p><p class="body-text fade-up">Today, my approach is centred on attention to the individual and creating a warm, comforting space where you can let go. Every treatment begins with understanding what your body is carrying, what life is asking of you, and what you need in that moment.</p><p class="therapist-signoff fade-up">— Sarah</p></div>
+</section><section class="philosophy" id="philosophy">
+<div class="glow glow-amber" style="top:15%; right:5%; opacity:0.5;"></div>
+<div class="section-inner"><div class="section-label fade-up">II — Why Liminal Light</div><h2 class="section-heading fade-up">A space<br/>in <em>between.</em></h2><p class="body-text fade-up">The idea behind Liminal Light came while I was studying Anthropology, when I became fascinated by the concept of liminality: the state of being in between.</p><p class="body-text fade-up">The space between what was and what comes next. The unknown. The uncertainty. The moments in life when we are still becoming, still adjusting, and still unsure of what lies on the other side.</p><p class="body-text fade-up">In many ways, we occupy these spaces throughout our lives. It is often only once we move through them that clarity begins to emerge.</p><hr class="divider"/><p class="body-text fade-up">That idea became the foundation of Liminal Light — both philosophically and creatively. The name also carries an artistic meaning: the relationship between darkness and light, and the quiet transition from one into the other.</p><p class="body-text fade-up">For me, massage exists within that same space: between tension and release, between constant doing and the permission to stop, and between the demands we place on our bodies and the restoration they need in return.</p><hr class="divider"/><p class="body-text fade-up">I believe restoration and recovery are not luxuries reserved for special occasions. They are vital to how we function, move through life, and care for ourselves over time. The choices we make for our bodies today do not exist only in the present — their effects accumulate and reveal themselves over time.</p><p class="body-text fade-up">Liminal Light exists to offer a space where you can step away from the constant demands of life, release what you are holding, and move intentionally towards restoration.</p></div>
 </section>
+<!-- MEET YOUR THERAPIST -->
 
 <!-- WHO THIS IS FOR -->
-
 <section class="motivations" id="motivations">
-
-  <div class="glow glow-amber" style="top:10%; left:8%; opacity:0.4;"></div>
-
-  <div class="section-inner" style="max-width:980px;">
-
-    <div class="section-label fade-up">
-      II — Who This Is For
-    </div>
-
-    <h2 class="section-heading fade-up">
-      Three paths.<br>
+<div class="glow glow-amber" style="top:10%; left:8%; opacity:0.4;"></div>
+<div class="section-inner" style="max-width:980px;">
+<div class="section-label fade-up">III — Who This Is For</div>
+<h2 class="section-heading fade-up">
+      Three paths.<br/>
       One <em>space in between.</em>
-    </h2>
-
-    <p class="body-text fade-up">
+</h2>
+<p class="body-text fade-up">
       Whatever brought you here, the work is the same: meeting the issue, holding you in the liminal space of the treatment itself, and sending you back out the other side changed.
     </p>
-
-    <div class="motivation-grid fade-up">
-
-      <div class="motivation-card">
-        <p class="motivation-eyebrow">When Rest Won't Come</p>
-        <h3 class="motivation-title">Restorative Sleep</h3>
-        <p class="motivation-desc">
+<div class="motivation-grid fade-up">
+<div class="motivation-card">
+<p class="motivation-eyebrow">When Rest Won't Come</p>
+<h3 class="motivation-title">Restorative Sleep</h3>
+<p class="motivation-desc">
           Insomnia isn't just tiredness — it's a body that's forgotten how to let go. Between the racing mind and the morning you're dreading, there's a space that's been missing: somewhere to land. Each treatment is built to meet you there, slowing the nervous system and easing the grip so the body can finally settle. What follows isn't just a good night's sleep — it's the return of trust in your own rest.
         </p>
-      </div>
-
-      <div class="motivation-card">
-        <p class="motivation-eyebrow">When Your Body Feels Unfamiliar</p>
-        <h3 class="motivation-title">Hormonal Balance</h3>
-        <p class="motivation-desc">
+</div>
+<div class="motivation-card">
+<p class="motivation-eyebrow">When Your Body Feels Unfamiliar</p>
+<h3 class="motivation-title">Hormonal Balance</h3>
+<p class="motivation-desc">
           Hormonal shifts — in women and men alike — can leave sleep, mood, and the body itself feeling out of sync. Treatment here isn't about fixing what's "wrong"; it's about creating a pause inside the change, a space where the body can regulate, breathe, and recalibrate before you carry on. The result isn't a return to how things were — it's steadiness within how things are now.
         </p>
-      </div>
-
-      <div class="motivation-card">
-        <p class="motivation-eyebrow">When You've Asked A Lot Of Your Body</p>
-        <h3 class="motivation-title">Active Recovery</h3>
-        <p class="motivation-desc">
+</div>
+<div class="motivation-card">
+<p class="motivation-eyebrow">When You've Asked A Lot Of Your Body</p>
+<h3 class="motivation-title">Active Recovery</h3>
+<p class="motivation-desc">
           Training, hiking, long days on your feet — the active life gives a lot back, but it takes plenty too. Deep tissue work meets that strain directly, releasing the tension and restriction training leaves behind. The value isn't only physical release — it's the space it creates between effort and the next effort, where muscles actually recover, not just relax. You leave capable of showing up again, stronger.
         </p>
-      </div>
-
-    </div>
-
-  </div>
-
+</div>
+</div>
+</div>
 </section>
-
 <!-- SERVICES / PRICING -->
-
 <section class="services" id="services">
-
-  <div class="section-inner" style="max-width:980px;">
-
-    <div class="section-label fade-up">
-      III — The Treatments
-    </div>
-
-    <h2 class="section-heading fade-up">
-      Restoration,<br>
-      <em>tailored to time.</em>
-    </h2>
-
-    <p class="body-text fade-up">
+<div class="section-inner" style="max-width:980px;">
+<div class="section-label fade-up">IV — The Treatments</div>
+<h2 class="section-heading fade-up">
+      Restoration,<br/>
+<em>tailored to time.</em>
+</h2>
+<p class="body-text fade-up">
       Every treatment is fully customisable to your needs — whether you're here for sleep, for hormonal balance, or for recovery after training. All prices in BBD.
     </p>
-
-    <p class="area-note fade-up">Choose Your Setting</p>
-
-    <div class="setting-grid fade-up">
-
-      <div class="setting-card">
-        <p class="setting-label">Mobile Service</p>
-        <h3 class="setting-title">The sanctuary comes to you.</h3>
-        <p class="setting-desc">
+<p class="area-note fade-up">Choose Your Setting</p>
+<div class="setting-grid fade-up">
+<div class="setting-card">
+<p class="setting-label">Mobile Service</p>
+<h3 class="setting-title">The sanctuary comes to you.</h3>
+<p class="setting-desc">
           Your own space, held for an hour as a place of stillness. No travel, no waiting room — just skilled, attentive touch, brought directly to you, wherever you are in Barbados.
         </p>
-      </div>
-
-      <div class="setting-card">
-        <p class="setting-label">Home Studio</p>
-        <h3 class="setting-title">Step away. A retreat of your own.</h3>
-        <p class="setting-desc">
+</div>
+<div class="setting-card">
+<p class="setting-label">Home Studio</p>
+<h3 class="setting-title">Step away. A retreat of your own.</h3>
+<p class="setting-desc">
           A quiet, private studio in St James, set aside for your session alone. For the days when leaving your own four walls is part of the reset — the same care, a change of scene.
         </p>
-      </div>
-
-    </div>
-
-    <div class="pricing-toggle fade-up">
-      <button type="button" class="toggle-btn is-active" data-setting="mobile">Mobile</button>
-      <button type="button" class="toggle-btn" data-setting="studio">Home Studio</button>
-    </div>
-
-    <div class="price-panel" data-panel="mobile">
-
-      <p class="area-note">Service Area — Island Wide, Barbados</p>
-
-      <div class="price-groups">
-
-        <div class="price-group">
-          <h3 class="price-group-title">Solo Massage <span class="intro-badge">Introductory Rate</span></h3>
-          <ul class="price-list">
-            <li class="price-row">
-              <span>30 min</span>
-              <span class="price-duo">
-                <span class="price-option"><span class="price-option-label">Swedish</span><span>$115 BBD</span></span>
-                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$125 BBD</span></span>
-              </span>
-            </li>
-            <li class="price-row">
-              <span>45 min</span>
-              <span class="price-duo">
-                <span class="price-option"><span class="price-option-label">Swedish</span><span>$160 BBD</span></span>
-                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$172 BBD</span></span>
-              </span>
-            </li>
-            <li class="price-row">
-              <span>60 min</span>
-              <span class="price-duo">
-                <span class="price-option"><span class="price-option-label">Swedish</span><span>$190 BBD</span></span>
-                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$205 BBD</span></span>
-              </span>
-            </li>
-            <li class="price-row">
-              <span>90 min</span>
-              <span class="price-duo">
-                <span class="price-option"><span class="price-option-label">Swedish</span><span>$255 BBD</span></span>
-                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$275 BBD</span></span>
-              </span>
-            </li>
-            <li class="price-row">
-              <span>120 min</span>
-              <span class="price-duo">
-                <span class="price-option"><span class="price-option-label">Swedish</span><span>$310 BBD</span></span>
-                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$335 BBD</span></span>
-              </span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="price-group pending">
-          <h3 class="price-group-title">Couples Massage <span class="coming-soon-badge">Coming Soon</span></h3>
-          <ul class="price-list">
-            <li class="price-row"><span>60 min</span><span>$345 BBD</span></li>
-            <li class="price-row"><span>90 min</span><span>$460 BBD</span></li>
-          </ul>
-        </div>
-
-      </div>
-
-      <p class="mobile-note">
+</div>
+</div>
+<div class="pricing-toggle fade-up">
+<button class="toggle-btn is-active" data-setting="mobile" type="button">Mobile</button>
+<button class="toggle-btn" data-setting="studio" type="button">Home Studio</button>
+</div>
+<div class="price-panel" data-panel="mobile">
+<p class="area-note">Service Area — Island Wide, Barbados</p>
+<div class="price-groups">
+<div class="price-group">
+<h3 class="price-group-title">Solo Massage <span class="intro-badge">Introductory Rate</span></h3>
+<ul class="price-list">
+<li class="price-row">
+<span>30 min</span>
+<span class="price-duo">
+<span class="price-option"><span class="price-option-label">Swedish</span><span>$115 BBD</span></span>
+<span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$125 BBD</span></span>
+</span>
+</li>
+<li class="price-row">
+<span>45 min</span>
+<span class="price-duo">
+<span class="price-option"><span class="price-option-label">Swedish</span><span>$160 BBD</span></span>
+<span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$172 BBD</span></span>
+</span>
+</li>
+<li class="price-row">
+<span>60 min</span>
+<span class="price-duo">
+<span class="price-option"><span class="price-option-label">Swedish</span><span>$190 BBD</span></span>
+<span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$205 BBD</span></span>
+</span>
+</li>
+<li class="price-row">
+<span>90 min</span>
+<span class="price-duo">
+<span class="price-option"><span class="price-option-label">Swedish</span><span>$255 BBD</span></span>
+<span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$275 BBD</span></span>
+</span>
+</li>
+<li class="price-row">
+<span>120 min</span>
+<span class="price-duo">
+<span class="price-option"><span class="price-option-label">Swedish</span><span>$310 BBD</span></span>
+<span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$335 BBD</span></span>
+</span>
+</li>
+</ul>
+</div>
+<div class="price-group pending">
+<h3 class="price-group-title">Couples Massage <span class="coming-soon-badge">Coming Soon</span></h3>
+<ul class="price-list">
+<li class="price-row"><span>60 min</span><span>$345 BBD</span></li>
+<li class="price-row"><span>90 min</span><span>$460 BBD</span></li>
+</ul>
+</div>
+</div>
+<p class="mobile-note">
         Prices reflect St James and surrounding areas. <strong>Liminal Light comes to you</strong> — for locations further afield, message me and I'll confirm your rate.
       </p>
-
-    </div>
-
-    <div class="price-panel" data-panel="studio" style="display:none;">
-
-      <p class="area-note">Home Studio — St James, By Private Appointment</p>
-
-      <div class="price-groups">
-
-        <div class="price-group">
-          <h3 class="price-group-title">Solo Massage <span class="intro-badge">Introductory Rate</span></h3>
-          <ul class="price-list">
-            <li class="price-row">
-              <span>30 min</span>
-              <span class="price-duo">
-                <span class="price-option"><span class="price-option-label">Swedish</span><span>$105 BBD</span></span>
-                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$115 BBD</span></span>
-              </span>
-            </li>
-            <li class="price-row">
-              <span>45 min</span>
-              <span class="price-duo">
-                <span class="price-option"><span class="price-option-label">Swedish</span><span>$145 BBD</span></span>
-                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$157 BBD</span></span>
-              </span>
-            </li>
-            <li class="price-row">
-              <span>60 min</span>
-              <span class="price-duo">
-                <span class="price-option"><span class="price-option-label">Swedish</span><span>$170 BBD</span></span>
-                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$185 BBD</span></span>
-              </span>
-            </li>
-            <li class="price-row">
-              <span>90 min</span>
-              <span class="price-duo">
-                <span class="price-option"><span class="price-option-label">Swedish</span><span>$230 BBD</span></span>
-                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$250 BBD</span></span>
-              </span>
-            </li>
-            <li class="price-row">
-              <span>120 min</span>
-              <span class="price-duo">
-                <span class="price-option"><span class="price-option-label">Swedish</span><span>$280 BBD</span></span>
-                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$305 BBD</span></span>
-              </span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="price-group pending">
-          <h3 class="price-group-title">Couples Massage <span class="coming-soon-badge">Coming Soon</span></h3>
-          <ul class="price-list">
-            <li class="price-row"><span>60 min</span><span>$310 BBD</span></li>
-            <li class="price-row"><span>90 min</span><span>$410 BBD</span></li>
-          </ul>
-        </div>
-
-      </div>
-
-      <p class="mobile-note">
-        <strong>Home Studio rates carry no travel overhead</strong> — held by private appointment in St James.
+</div>
+<div class="price-panel" data-panel="studio" style="display:none;">
+<p class="area-note">Home Studio — St James, By Private Appointment</p>
+<div class="price-groups">
+<div class="price-group">
+<h3 class="price-group-title">Solo Massage <span class="intro-badge">Introductory Rate</span></h3>
+<ul class="price-list">
+<li class="price-row">
+<span>30 min</span>
+<span class="price-duo">
+<span class="price-option"><span class="price-option-label">Swedish</span><span>$105 BBD</span></span>
+<span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$115 BBD</span></span>
+</span>
+</li>
+<li class="price-row">
+<span>45 min</span>
+<span class="price-duo">
+<span class="price-option"><span class="price-option-label">Swedish</span><span>$145 BBD</span></span>
+<span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$157 BBD</span></span>
+</span>
+</li>
+<li class="price-row">
+<span>60 min</span>
+<span class="price-duo">
+<span class="price-option"><span class="price-option-label">Swedish</span><span>$170 BBD</span></span>
+<span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$185 BBD</span></span>
+</span>
+</li>
+<li class="price-row">
+<span>90 min</span>
+<span class="price-duo">
+<span class="price-option"><span class="price-option-label">Swedish</span><span>$230 BBD</span></span>
+<span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$250 BBD</span></span>
+</span>
+</li>
+<li class="price-row">
+<span>120 min</span>
+<span class="price-duo">
+<span class="price-option"><span class="price-option-label">Swedish</span><span>$280 BBD</span></span>
+<span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$305 BBD</span></span>
+</span>
+</li>
+</ul>
+</div>
+<div class="price-group pending">
+<h3 class="price-group-title">Couples Massage <span class="coming-soon-badge">Coming Soon</span></h3>
+<ul class="price-list">
+<li class="price-row"><span>60 min</span><span>$310 BBD</span></li>
+<li class="price-row"><span>90 min</span><span>$410 BBD</span></li>
+</ul>
+</div>
+</div>
+<p class="mobile-note">
+<strong>Home Studio rates carry no travel overhead</strong> — held by private appointment in St James.
       </p>
-
-    </div>
-
-    <p class="intro-note fade-up">
+</div>
+<p class="intro-note fade-up">
       Introductory pricing available for the first 25 clients or through September 2026, whichever comes first. Deep Tissue reflects a small premium for the additional pressure and technique the treatment requires.
     </p>
-
-  </div>
-
+</div>
 </section>
-
 <!-- BOOKING FORM -->
-
 <section class="booking" id="booking">
-
-  <div class="section-inner" style="max-width:900px;">
-
-    <div class="section-label fade-up">
-      IV — Request Your Treatment
-    </div>
-
-    <h2 class="section-heading fade-up">
-      Tell us what<br>
+<div class="section-inner" style="max-width:900px;">
+<div class="section-label fade-up">V — Request Your Treatment</div>
+<h2 class="section-heading fade-up">
+      Tell us what<br/>
       you <em>need.</em>
-    </h2>
-
-    <p class="body-text fade-up">
+</h2>
+<p class="body-text fade-up">
       Choose your setting and preferred style below, then select the treatment(s) you're interested in and share a few details. We'll confirm your appointment by email or WhatsApp within 24 hours.
     </p>
-
-    <div class="pricing-toggle fade-up" id="bookingSettingToggle">
-      <button type="button" class="toggle-btn is-active" data-setting="mobile" data-setting-label="Mobile — treatment at client's location">Mobile</button>
-      <button type="button" class="toggle-btn" data-setting="studio" data-setting-label="Home Studio — treatment at Liminal Light studio, St James">Home Studio</button>
-    </div>
-
-    <p class="area-note" style="margin-top:2rem;">Preferred Style</p>
-
-    <p class="style-note">
+<div class="pricing-toggle fade-up" id="bookingSettingToggle">
+<button class="toggle-btn is-active" data-setting="mobile" data-setting-label="Mobile — treatment at client's location" type="button">Mobile</button>
+<button class="toggle-btn" data-setting="studio" data-setting-label="Home Studio — treatment at Liminal Light studio, St James" type="button">Home Studio</button>
+</div>
+<p class="area-note" style="margin-top:2rem;">Preferred Style</p>
+<p class="style-note">
       Choose a style if you already know what suits you, or leave it to your therapist to recommend on arrival based on how you're feeling that day. Deep Tissue carries a small premium over Swedish, reflected in the treatment prices below once selected.
     </p>
-
-    <div class="checkbox-grid" id="styleToggle">
-      <label class="checkbox-item">
-        <input type="radio" name="style" value="Swedish / Therapeutic Relaxation" data-style-key="swedish" checked>
-        <span class="checkbox-label">
-          <span class="service-name">Swedish / Therapeutic Relaxation</span>
-          <span class="service-desc">Lighter, flowing pressure to ease tension and calm the nervous system.</span>
-        </span>
-      </label>
-
-      <label class="checkbox-item">
-        <input type="radio" name="style" value="Deep Tissue" data-style-key="deep-tissue">
-        <span class="checkbox-label">
-          <span class="service-name">Deep Tissue</span>
-          <span class="service-desc">Firmer, targeted pressure for chronic tightness, muscle-specific work, or post-training recovery.</span>
-        </span>
-      </label>
-
-      <label class="checkbox-item">
-        <input type="radio" name="style" value="Not sure — recommend on arrival" data-style-key="swedish">
-        <span class="checkbox-label">
-          <span class="service-name">Not Sure</span>
-          <span class="service-desc">Let your therapist assess and recommend the best approach on the day. Priced as Swedish; adjusted with you on arrival if Deep Tissue suits better.</span>
-        </span>
-      </label>
-    </div>
-
-    <div class="disclaimer-box">
-      <p>
-        <strong>A note on Deep Tissue:</strong> this style may not be suitable if you are pregnant, have certain injuries, or have a blood pressure condition. If any of this applies to you, please select "Not Sure" or mention it in the notes below so we can discuss the safest option with you before your session.
+<div class="checkbox-grid" id="styleToggle">
+<label class="checkbox-item">
+<input checked="" data-style-key="swedish" name="style" type="radio" value="Swedish / Therapeutic Relaxation"/>
+<span class="checkbox-label">
+<span class="service-name">Swedish / Therapeutic Relaxation</span>
+<span class="service-desc">Lighter, flowing pressure to ease tension and calm the nervous system.</span>
+</span>
+</label>
+<label class="checkbox-item">
+<input data-style-key="deep-tissue" name="style" type="radio" value="Deep Tissue"/>
+<span class="checkbox-label">
+<span class="service-name">Deep Tissue</span>
+<span class="service-desc">Firmer, targeted pressure for chronic tightness, muscle-specific work, or post-training recovery.</span>
+</span>
+</label>
+<label class="checkbox-item">
+<input data-style-key="swedish" name="style" type="radio" value="Not sure — recommend on arrival"/>
+<span class="checkbox-label">
+<span class="service-name">Not Sure</span>
+<span class="service-desc">Let your therapist assess and recommend the best approach on the day. Priced as Swedish; adjusted with you on arrival if Deep Tissue suits better.</span>
+</span>
+</label>
+</div>
+<div class="disclaimer-box">
+<p>
+<strong>A note on Deep Tissue:</strong> this style may not be suitable if you are pregnant, have certain injuries, or have a blood pressure condition. If any of this applies to you, please select "Not Sure" or mention it in the notes below so we can discuss the safest option with you before your session.
       </p>
-    </div>
-
-    <p class="area-note" style="margin-top:2.5rem;">Select Duration</p>
-
-    <form id="requestForm" class="fade-up">
-
-      <div class="checkbox-grid">
-        <label class="checkbox-item">
-          <input type="checkbox" name="service" data-duration="30-min Massage"
-                 data-mobile-price="115" data-studio-price="105"
-                 data-mobile-price-deep="125" data-studio-price-deep="115">
-          <span class="checkbox-label"><span class="service-name">30-min Massage</span><span class="service-price">$115 BBD</span></span>
-        </label>
-
-        <label class="checkbox-item">
-          <input type="checkbox" name="service" data-duration="45-min Massage"
-                 data-mobile-price="160" data-studio-price="145"
-                 data-mobile-price-deep="172" data-studio-price-deep="157">
-          <span class="checkbox-label"><span class="service-name">45-min Massage</span><span class="service-price">$160 BBD</span></span>
-        </label>
-
-        <label class="checkbox-item">
-          <input type="checkbox" name="service" data-duration="60-min Massage"
-                 data-mobile-price="190" data-studio-price="170"
-                 data-mobile-price-deep="205" data-studio-price-deep="185">
-          <span class="checkbox-label"><span class="service-name">60-min Massage</span><span class="service-price">$190 BBD</span></span>
-        </label>
-
-        <label class="checkbox-item">
-          <input type="checkbox" name="service" data-duration="90-min Massage"
-                 data-mobile-price="255" data-studio-price="230"
-                 data-mobile-price-deep="275" data-studio-price-deep="250">
-          <span class="checkbox-label"><span class="service-name">90-min Massage</span><span class="service-price">$255 BBD</span></span>
-        </label>
-
-        <label class="checkbox-item">
-          <input type="checkbox" name="service" data-duration="120-min Massage"
-                 data-mobile-price="310" data-studio-price="280"
-                 data-mobile-price-deep="335" data-studio-price-deep="305">
-          <span class="checkbox-label"><span class="service-name">120-min Massage</span><span class="service-price">$310 BBD</span></span>
-        </label>
-      </div>
-
-      <div class="waitlist-heading">
-        <h3>Coming Soon</h3>
-      </div>
-
-      <p class="waitlist-note">
+</div>
+<p class="area-note" style="margin-top:2.5rem;">Select Duration</p>
+<form class="fade-up" id="requestForm">
+<div class="checkbox-grid">
+<label class="checkbox-item">
+<input data-duration="30-min Massage" data-mobile-price="115" data-mobile-price-deep="125" data-studio-price="105" data-studio-price-deep="115" name="service" type="checkbox"/>
+<span class="checkbox-label"><span class="service-name">30-min Massage</span><span class="service-price">$115 BBD</span></span>
+</label>
+<label class="checkbox-item">
+<input data-duration="45-min Massage" data-mobile-price="160" data-mobile-price-deep="172" data-studio-price="145" data-studio-price-deep="157" name="service" type="checkbox"/>
+<span class="checkbox-label"><span class="service-name">45-min Massage</span><span class="service-price">$160 BBD</span></span>
+</label>
+<label class="checkbox-item">
+<input data-duration="60-min Massage" data-mobile-price="190" data-mobile-price-deep="205" data-studio-price="170" data-studio-price-deep="185" name="service" type="checkbox"/>
+<span class="checkbox-label"><span class="service-name">60-min Massage</span><span class="service-price">$190 BBD</span></span>
+</label>
+<label class="checkbox-item">
+<input data-duration="90-min Massage" data-mobile-price="255" data-mobile-price-deep="275" data-studio-price="230" data-studio-price-deep="250" name="service" type="checkbox"/>
+<span class="checkbox-label"><span class="service-name">90-min Massage</span><span class="service-price">$255 BBD</span></span>
+</label>
+<label class="checkbox-item">
+<input data-duration="120-min Massage" data-mobile-price="310" data-mobile-price-deep="335" data-studio-price="280" data-studio-price-deep="305" name="service" type="checkbox"/>
+<span class="checkbox-label"><span class="service-name">120-min Massage</span><span class="service-price">$310 BBD</span></span>
+</label>
+</div>
+<div class="waitlist-heading">
+<h3>Coming Soon</h3>
+</div>
+<p class="waitlist-note">
         Couples massage isn't bookable yet — I'm currently a solo practitioner. Tick a box below to join the waitlist and I'll reach out as soon as it's available.
       </p>
-
-      <div class="checkbox-grid">
-        <label class="checkbox-item waitlist">
-          <input type="checkbox" name="waitlist" data-duration="60-min Couples Massage (waitlist)" data-mobile-price="345" data-studio-price="310">
-          <span class="checkbox-label"><span class="service-name">60-min Couples Massage</span><span class="service-price">Waitlist — est. $345 BBD</span></span>
-        </label>
-
-        <label class="checkbox-item waitlist">
-          <input type="checkbox" name="waitlist" data-duration="90-min Couples Massage (waitlist)" data-mobile-price="460" data-studio-price="410">
-          <span class="checkbox-label"><span class="service-name">90-min Couples Massage</span><span class="service-price">Waitlist — est. $460 BBD</span></span>
-        </label>
-      </div>
-
-      <div class="form-grid">
-        <div class="form-field">
-          <label for="clientName">Full Name</label>
-          <input type="text" id="clientName" required>
-        </div>
-
-        <div class="form-field">
-          <label for="clientPhone">Phone / WhatsApp</label>
-          <input type="tel" id="clientPhone" required>
-        </div>
-
-        <div class="form-field">
-          <label for="clientEmail">Email</label>
-          <input type="email" id="clientEmail">
-        </div>
-
-        <div class="form-field">
-          <label for="clientArea">Parish / Area (for Mobile bookings)</label>
-          <input type="text" id="clientArea" placeholder="e.g. Christ Church">
-        </div>
-
-        <div class="form-field">
-          <label for="clientDate">Preferred Date</label>
-          <input type="date" id="clientDate">
-        </div>
-
-        <div class="form-field">
-          <label for="clientTime">Preferred Time</label>
-          <input type="time" id="clientTime">
-        </div>
-
-        <div class="form-field full">
-          <label for="clientNotes">Notes (optional)</label>
-          <textarea id="clientNotes" placeholder="Anything we should know — areas of focus, pressure preference, allergies..."></textarea>
-        </div>
-      </div>
-
-      <div class="submit-row">
-        <button type="button" id="emailRequestBtn" class="btn-primary">Send Request by Email</button>
-        <button type="button" id="whatsappRequestBtn" class="btn-secondary">Send via WhatsApp</button>
-      </div>
-
-      <p class="form-note">
+<div class="checkbox-grid">
+<label class="checkbox-item waitlist">
+<input data-duration="60-min Couples Massage (waitlist)" data-mobile-price="345" data-studio-price="310" name="waitlist" type="checkbox"/>
+<span class="checkbox-label"><span class="service-name">60-min Couples Massage</span><span class="service-price">Waitlist — est. $345 BBD</span></span>
+</label>
+<label class="checkbox-item waitlist">
+<input data-duration="90-min Couples Massage (waitlist)" data-mobile-price="460" data-studio-price="410" name="waitlist" type="checkbox"/>
+<span class="checkbox-label"><span class="service-name">90-min Couples Massage</span><span class="service-price">Waitlist — est. $460 BBD</span></span>
+</label>
+</div>
+<div class="form-grid">
+<div class="form-field">
+<label for="clientName">Full Name</label>
+<input id="clientName" required="" type="text"/>
+</div>
+<div class="form-field">
+<label for="clientPhone">Phone / WhatsApp</label>
+<input id="clientPhone" required="" type="tel"/>
+</div>
+<div class="form-field">
+<label for="clientEmail">Email</label>
+<input id="clientEmail" type="email"/>
+</div>
+<div class="form-field">
+<label for="clientArea">Parish / Area (for Mobile bookings)</label>
+<input id="clientArea" placeholder="e.g. Christ Church" type="text"/>
+</div>
+<div class="form-field">
+<label for="clientDate">Preferred Date</label>
+<input id="clientDate" type="date"/>
+</div>
+<div class="form-field">
+<label for="clientTime">Preferred Time</label>
+<input id="clientTime" type="time"/>
+</div>
+<div class="form-field full">
+<label for="clientNotes">Notes (optional)</label>
+<textarea id="clientNotes" placeholder="Anything we should know — areas of focus, pressure preference, allergies..."></textarea>
+</div>
+</div>
+<div class="submit-row">
+<button class="btn-primary" id="emailRequestBtn" type="button">Send Request by Email</button>
+<button class="btn-secondary" id="whatsappRequestBtn" type="button">Send via WhatsApp</button>
+</div>
+<p class="form-note">
         Choosing either option opens your email or WhatsApp app with your request pre-filled — nothing is sent automatically until you press send there. Online booking via Fresha is coming soon.
       </p>
-
-    </form>
-
-  </div>
-
+</form>
+</div>
 </section>
-
 <!-- CONTACT / CLOSING -->
-
 <section class="closing" id="contact">
-
-  <div class="glow glow-amber" style="top:20%; left:30%; opacity:0.7;"></div>
-
-  <div class="section-inner" style="max-width:100%; padding-bottom:2rem;">
-
-    <p class="closing-statement fade-up">
+<div class="glow glow-amber" style="top:20%; left:30%; opacity:0.7;"></div>
+<div class="section-inner" style="max-width:100%; padding-bottom:2rem;">
+<p class="closing-statement fade-up">
       This isn't just massage.
-      <br><br>
-      <em>It's restoration, brought to your door.</em>
-    </p>
-
-    <div class="contact-grid fade-up">
-
-      <div class="contact-row">
-        <a href="mailto:info_liminallight@proton.me" class="contact-link">
-          <span class="contact-label">Email</span>
-          <span class="contact-value">info_liminallight@proton.me</span>
-        </a>
-
-        <a href="tel:+12462590091" class="contact-link">
-          <span class="contact-label">Call</span>
-          <span class="contact-value">+1 246 259 0091</span>
-        </a>
-
-        <a href="https://wa.me/12462590091" target="_blank" class="contact-link">
-          <span class="contact-label">WhatsApp</span>
-          <span class="contact-value">+1 246 259 0091</span>
-        </a>
-      </div>
-
-      <!-- Update these href values once your social profiles are set up -->
-      <div>
-        <div class="social-row">
-          <a href="#" class="social-icon" aria-label="Instagram">IG</a>
-          <a href="#" class="social-icon" aria-label="Facebook">FB</a>
-        </div>
-        <p class="social-note">Social profiles coming soon</p>
-      </div>
-
-    </div>
-
-    <p class="closing-brand fade-up">
+      <br/><br/>
+<em>It's restoration, brought to your door.</em>
+</p>
+<div class="contact-grid fade-up">
+<div class="contact-row">
+<a class="contact-link" href="mailto:info_liminallight@proton.me">
+<span class="contact-label">Email</span>
+<span class="contact-value">info_liminallight@proton.me</span>
+</a>
+<a class="contact-link" href="tel:+12462590091">
+<span class="contact-label">Call</span>
+<span class="contact-value">+1 246 259 0091</span>
+</a>
+<a class="contact-link" href="https://wa.me/12462590091" target="_blank">
+<span class="contact-label">WhatsApp</span>
+<span class="contact-value">+1 246 259 0091</span>
+</a>
+</div>
+<!-- Update these href values once your social profiles are set up -->
+<div>
+<div class="social-row">
+<a aria-label="Instagram" class="social-icon" href="#">IG</a>
+<a aria-label="Facebook" class="social-icon" href="#">FB</a>
+</div>
+<p class="social-note">Social profiles coming soon</p>
+</div>
+</div>
+<p class="closing-brand fade-up">
       Liminal Light
     </p>
-
-    <p class="closing-tagline fade-up">
+<p class="closing-tagline fade-up">
       Where the crossing is the healing
     </p>
-
-  </div>
-
+</div>
 </section>
-
 <script>
 
 const observer = new IntersectionObserver((entries) => {
@@ -2253,7 +1994,6 @@ document.getElementById('whatsappRequestBtn').addEventListener('click', function
 });
 
 </script>
-
 </body>
 </html>
 ```
