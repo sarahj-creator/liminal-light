@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Liminal Light Lounge — a space for rest, recovery and everything in between.">
+<title>Liminal Light Lounge — Rest, Recovery & Everything in Between</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+:root{--stone:#DDD1C2;--warm-white:#F5EEE6;--deep-amber:#D4A843;--shadow:#1A120D;--mocha:#2B1B14;--bronze:#6A4A33}
+*{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth}
+body{background:var(--shadow);color:var(--warm-white);font-family:Jost,sans-serif;font-weight:300}
+nav{position:fixed;top:0;width:100%;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:1.3rem 2.5rem;background:rgba(26,18,13,.82);backdrop-filter:blur(12px);border-bottom:1px solid rgba(106,74,51,.35)}
+.brand{font-family:"Cormorant Garamond",serif;letter-spacing:.25em;text-transform:uppercase;color:var(--warm-white);text-decoration:none}
+.back{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--stone);text-decoration:none}
+.hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding:8rem 2rem;background:radial-gradient(ellipse at center,rgba(212,168,67,.12),transparent 65%),var(--mocha)}
+.eyebrow{font-size:.65rem;letter-spacing:.5em;text-transform:uppercase;color:var(--deep-amber);margin-bottom:1.5rem}
+h1{font-family:"Cormorant Garamond",serif;font-weight:300;font-size:clamp(4rem,10vw,8rem);letter-spacing:.08em;line-height:.9}
+.hero p{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(1.1rem,2vw,1.5rem);color:var(--stone);max-width:620px;margin:2rem auto;line-height:1.6}
+.enter{display:inline-block;margin-top:1rem;border:1px solid rgba(212,168,67,.7);padding:1rem 1.6rem;color:var(--warm-white);text-decoration:none;font-size:.65rem;letter-spacing:.25em;text-transform:uppercase}
+section{padding:7rem max(2rem,8vw)} .intro{text-align:center;max-width:700px;margin:auto}
+h2{font-family:"Cormorant Garamond",serif;font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300;margin-bottom:1rem}
+.intro p{color:var(--stone);line-height:1.8}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:4rem}
+.card{min-height:330px;padding:2rem;display:flex;flex-direction:column;justify-content:flex-end;border:1px solid rgba(221,209,194,.15);background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(106,74,51,.12))}
+.card span{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--deep-amber);margin-bottom:1rem}
+.card h3{font-family:"Cormorant Garamond",serif;font-size:2.1rem;font-weight:300;margin-bottom:.8rem}
+.card p{color:var(--stone);line-height:1.6;font-size:.9rem}
+.coming{padding:7rem 2rem;text-align:center;background:var(--mocha)}
+.coming p{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--stone);font-size:1.3rem;margin-top:1rem}
+@media(max-width:760px){nav{padding:1.1rem 1.5rem}.grid{grid-template-columns:1fr}.brand{font-size:.8rem}h1{letter-spacing:.04em}}
+</style>
+</head>
+<body>
+<nav><a class="brand" href="Liminal_Light_Index.html">Liminal Light</a><a class="back" href="Liminal_Light_Index.html">← Back to Treatments</a></nav>
+<header class="hero">
+<div>
+<div class="eyebrow">Welcome to</div>
+<h1>Liminal Light<br>Lounge</h1>
+<p>A space for rest, recovery and everything in between.</p>
+<a class="enter" href="#explore">Enter the Lounge</a>
+</div>
+</header>
+<section id="explore">
+<div class="intro">
+<h2>Stay awhile.</h2>
+<p>The Liminal Light Lounge is a quieter space within Liminal Light — created to explore the body, recovery, relaxation and the moments we often forget to make space for.</p>
+</div>
+<div class="grid">
+<article class="card"><span>Recover</span><h3>Between the work.</h3><p>Recovery, movement, massage and the space your body needs after effort.</p></article>
+<article class="card"><span>Unwind</span><h3>Come back to stillness.</h3><p>Thoughts and practices centred around slowing down and allowing yourself to rest.</p></article>
+<article class="card"><span>Understand</span><h3>Get to know your body.</h3><p>Massage education, treatment guidance and simple ways to understand what your body needs.</p></article>
+</div>
+</section>
+<section class="coming"><h2>The Lounge is just beginning.</h2><p>Articles, reflections and experiences are coming soon.</p></section>
+</body>
+</html>
