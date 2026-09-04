@@ -4,6 +4,7 @@
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QB5TKBZ7FZ"></script>
+
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -86,8 +87,6 @@
 
       color: var(--stone);
       text-decoration: none;
-
-      transition: color .3s ease;
     }
 
     .back:hover {
@@ -95,11 +94,10 @@
     }
 
 
-    /* ARTICLE HERO */
+    /* HERO */
 
     .article-hero {
-
-      min-height: 75vh;
+      min-height: 70vh;
 
       display: flex;
       align-items: center;
@@ -107,19 +105,22 @@
 
       text-align: center;
 
-      padding: 10rem 2rem 6rem;
+      padding: 9rem 2rem 5rem;
 
       background:
-        radial-gradient(
-          ellipse at center,
-          rgba(212, 168, 67, .12),
-          transparent 65%
+        linear-gradient(
+          rgba(26, 18, 13, .55),
+          rgba(26, 18, 13, .78)
         ),
-        var(--mocha);
+        url("images/intentional-peace.png");
+
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
     .article-header {
-      max-width: 900px;
+      max-width: 850px;
     }
 
     .category {
@@ -136,43 +137,37 @@
       font-family: "Cormorant Garamond", serif;
       font-weight: 300;
 
-      font-size: clamp(3.5rem, 8vw, 7rem);
+      font-size: clamp(3rem, 6vw, 5.5rem);
 
-      line-height: .95;
+      line-height: 1;
 
       letter-spacing: .02em;
 
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
 
     .reading-time {
       font-size: .65rem;
-
       letter-spacing: .25em;
-
       text-transform: uppercase;
 
       color: var(--stone);
     }
 
 
-    /* ARTICLE CONTENT */
+    /* ARTICLE */
 
     .article {
-
       max-width: 720px;
-
       margin: auto;
 
       padding: 7rem 2rem;
     }
 
     .article p {
-
       font-family: "Cormorant Garamond", serif;
 
       font-size: 1.45rem;
-
       line-height: 1.75;
 
       color: var(--warm-white);
@@ -181,7 +176,6 @@
     }
 
     .article h2 {
-
       font-family: "Cormorant Garamond", serif;
 
       font-weight: 300;
@@ -191,38 +185,15 @@
       line-height: 1.1;
 
       margin-top: 5rem;
-
       margin-bottom: 2rem;
 
       color: var(--warm-white);
     }
 
 
-    /* ARTICLE IMAGE */
-
-    .article-image {
-
-      width: 100%;
-
-      margin: 3rem 0 4rem;
-
-      overflow: hidden;
-    }
-
-    .article-image img {
-
-      width: 100%;
-
-      display: block;
-
-      object-fit: cover;
-    }
-
-
     /* QUOTE */
 
     blockquote {
-
       margin: 4rem 0;
 
       padding: 2rem 2.5rem;
@@ -244,7 +215,6 @@
     /* ENDING */
 
     .article-ending {
-
       text-align: center;
 
       padding: 6rem 2rem;
@@ -253,7 +223,6 @@
     }
 
     .article-ending p {
-
       font-family: "Cormorant Garamond", serif;
 
       font-size: 1.5rem;
@@ -268,7 +237,6 @@
     }
 
     .lounge-button {
-
       display: inline-block;
 
       margin-top: 3rem;
@@ -286,14 +254,10 @@
       letter-spacing: .25em;
 
       text-transform: uppercase;
-
-      transition: all .3s ease;
     }
 
     .lounge-button:hover {
-
       background: var(--deep-amber);
-
       color: var(--shadow);
     }
 
@@ -312,6 +276,10 @@
 
       .back {
         font-size: .55rem;
+      }
+
+      .article-hero {
+        min-height: 65vh;
       }
 
       .article p {
@@ -348,8 +316,7 @@
 </nav>
 
 
-
-<!-- ARTICLE HERO -->
+<!-- HERO -->
 
 <header class="article-hero">
 
@@ -372,7 +339,6 @@
 </header>
 
 
-
 <!-- ARTICLE -->
 
 <main class="article">
@@ -388,19 +354,6 @@
   <p>
     Are your shoulders tense? Is your stomach in knots? Is your mind racing?
   </p>
-
-
-  <!-- ARTICLE IMAGE -->
-
-  <div class="article-image">
-
-    <img 
-      src="images/intentional-peace.png" 
-      alt="A peaceful space for rest, reflection and intentional calm"
-    >
-
-  </div>
-
 
   <p>
     Peace is something I think we all want to feel. If there's someone who doesn't, I'd genuinely love to have a conversation with them about why.
@@ -431,11 +384,9 @@
   </p>
 
 
-
   <h2>
     I had to ask myself what peace actually looked like in my life.
   </h2>
-
 
   <p>
     I had a moment when I realised that I yearned for peace.
@@ -498,11 +449,9 @@
   </p>
 
 
-
   <h2>
     Peace isn't always a big event.
   </h2>
-
 
   <p>
     It doesn't have to arrive with the perfect moment, the perfect person or the perfect life.
@@ -542,11 +491,9 @@
   </blockquote>
 
 
-
   <h2>
     Peace can live in the small moments.
   </h2>
-
 
   <p>
     I know now that peace can sometimes mean escaping for a moment.
@@ -565,7 +512,6 @@
   </p>
 
 </main>
-
 
 
 <!-- ENDING -->
