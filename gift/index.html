@@ -1,63 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>A Gift From Liminal Light</title>
+  <title>A Moment For Yourself | Liminal Light</title>
 
   <meta name="description"
-    content="A small collection of moments to return to whenever you need to pause, breathe and come back to yourself.">
+    content="A collection of ten pauses to keep with you. A gift from Liminal Light.">
+
+  <!-- FONTS -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Parisienne&display=swap"
+    rel="stylesheet">
+
 
   <style>
 
-    /* =========================================
-       LIMINAL LIGHT — THE PAUSE
-    ========================================= */
+    /* =====================================================
+       LIMINAL LIGHT — YOUR COLLECTION OF PAUSES
+    ===================================================== */
+
 
     :root {
 
-      --espresso: #211A17;
-      --deep-brown: #2A211D;
-      --warm-brown: #342823;
-      --mocha: #45352E;
+      /* BACKGROUNDS */
 
-      --limestone: #DED5C8;
-      --cream: #F3EEE6;
-      --warm-white: #FAF7F2;
+      --brown-dark: #211814;
+      --brown-deep: #2B201B;
+      --brown-mid: #382921;
+      --brown-light: #49362B;
 
-      --gold: #A98D6A;
-      --soft-gold: #C7AE8B;
 
-      --text-light: #F1EBE3;
-      --text-muted: #BEB2A7;
+      /* CARDS */
+
+      --limestone: #E7DED2;
+      --limestone-light: #F1EAE0;
+      --limestone-dark: #D5C8B9;
+
+
+      /* ACCENTS */
+
+      --gold: #B28A55;
+      --gold-light: #D1AD78;
+
+
+      /* TEXT */
+
+      --cream: #F3ECE3;
+      --muted: #C8B9AA;
+      --dark-text: #342820;
+
+
+      /* FONTS */
 
       --serif: "Cormorant Garamond", serif;
       --sans: "Inter", sans-serif;
+      --script: "Parisienne", cursive;
 
     }
 
 
-    /* =========================================
+
+    /* =====================================================
        RESET
-    ========================================= */
+    ===================================================== */
+
 
     * {
+
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+
     }
 
 
     html {
+
       scroll-behavior: smooth;
+
     }
 
 
@@ -65,25 +95,34 @@
 
       background:
         radial-gradient(
-          circle at top left,
-          rgba(112, 82, 59, 0.18),
-          transparent 35%
+          circle at 15% 15%,
+          rgba(130, 91, 59, 0.22),
+          transparent 28%
         ),
+
+        radial-gradient(
+          circle at 85% 35%,
+          rgba(103, 72, 48, 0.15),
+          transparent 25%
+        ),
+
         linear-gradient(
           135deg,
-          var(--deep-brown),
-          var(--espresso)
+          var(--brown-mid),
+          var(--brown-dark)
         );
 
-      color: var(--text-light);
+      color: var(--cream);
 
       font-family: var(--sans);
-
-      min-height: 100vh;
 
       overflow-x: hidden;
 
     }
+
+
+
+    /* SUBTLE TEXTURE */
 
 
     body::before {
@@ -96,156 +135,115 @@
 
       pointer-events: none;
 
-      opacity: 0.18;
+      opacity: 0.28;
+
+      z-index: 1000;
 
       background-image:
 
         radial-gradient(
-          rgba(255,255,255,0.03) 1px,
+          rgba(255,255,255,0.025) 1px,
           transparent 1px
         );
 
-      background-size: 4px 4px;
-
-      z-index: 100;
+      background-size: 5px 5px;
 
     }
 
 
-    /* =========================================
+
+    /* =====================================================
        GENERAL
-    ========================================= */
-
-    .experience {
-
-      display: none;
-
-      min-height: 100vh;
-
-      padding: 30px;
-
-      animation: fadeIn 1.2s ease forwards;
-
-    }
+    ===================================================== */
 
 
-    .experience.active {
-      display: block;
+    .section {
+
+      padding: 90px 25px;
+
+      position: relative;
+
     }
 
 
     .container {
 
-      max-width: 1100px;
+      width: min(1100px, 100%);
 
       margin: auto;
-
-      min-height: calc(100vh - 60px);
-
-      display: flex;
-
-      flex-direction: column;
-
-      justify-content: center;
-
-      align-items: center;
-
-      text-align: center;
 
     }
 
 
     .brand {
 
-      font-size: 10px;
+      font-size: 11px;
 
-      letter-spacing: 8px;
+      letter-spacing: 12px;
 
       text-transform: uppercase;
 
-      color: var(--soft-gold);
-
-      margin-bottom: 25px;
+      color: var(--cream);
 
     }
 
 
     .star {
 
-      color: var(--soft-gold);
+      color: var(--gold-light);
 
-      font-size: 22px;
-
-      margin-bottom: 25px;
-
-    }
-
-
-    h1,
-    h2 {
-
-      font-family: var(--serif);
-
-      font-weight: 500;
-
-      line-height: 1;
-
-    }
-
-
-    h1 {
-
-      font-size: clamp(55px, 8vw, 110px);
-
-      max-width: 850px;
-
-      margin-bottom: 30px;
-
-    }
-
-
-    h2 {
-
-      font-size: clamp(45px, 6vw, 75px);
-
-      margin-bottom: 25px;
-
-    }
-
-
-    .intro-text {
-
-      max-width: 560px;
-
-      color: var(--text-muted);
-
-      line-height: 1.8;
-
-      font-size: 15px;
-
-      margin-bottom: 45px;
+      font-size: 26px;
 
     }
 
 
     .gold-line {
 
-      width: 50px;
+      width: 48px;
 
       height: 1px;
 
       background: var(--gold);
 
-      margin: 25px auto;
+      margin: 22px auto;
 
     }
 
 
-    /* =========================================
-       BUTTONS
-    ========================================= */
+    h1,
+    h2,
+    h3 {
 
-    button {
+      font-family: var(--serif);
+
+      font-weight: 500;
+
+    }
+
+
+
+    /* =====================================================
+       BUTTONS
+    ===================================================== */
+
+
+    .outline-button {
+
+      background: transparent;
+
+      border: 1px solid var(--gold);
+
+      color: var(--cream);
+
+      border-radius: 100px;
+
+      padding: 17px 34px;
+
+      text-transform: uppercase;
+
+      letter-spacing: 4px;
+
+      font-size: 10px;
 
       font-family: var(--sans);
 
@@ -256,576 +254,822 @@
     }
 
 
-    .primary-button {
-
-      background: transparent;
-
-      color: var(--cream);
-
-      border: 1px solid var(--gold);
-
-      padding: 17px 32px;
-
-      border-radius: 100px;
-
-      font-size: 10px;
-
-      letter-spacing: 3px;
-
-      text-transform: uppercase;
-
-    }
-
-
-    .primary-button:hover {
+    .outline-button:hover {
 
       background: var(--gold);
 
-      color: var(--espresso);
+      color: var(--brown-dark);
 
       transform: translateY(-3px);
 
-      box-shadow: 0 15px 40px rgba(169,141,106,0.18);
-
-    }
-
-
-    /* =========================================
-       HERO
-    ========================================= */
-
-    #hero {
-
-      position: relative;
-
-    }
-
-
-    .hero-light {
-
-      position: absolute;
-
-      width: 500px;
-
-      height: 500px;
-
-      background:
-
-        radial-gradient(
-          circle,
-          rgba(169,141,106,0.14),
-          transparent 65%
-        );
-
-      filter: blur(30px);
-
-      top: -100px;
-
-      left: -100px;
-
-      pointer-events: none;
-
-    }
-
-
-    /* =========================================
-       BREATHING SCREEN
-    ========================================= */
-
-    .breathing-area {
-
-      display: flex;
-
-      gap: 70px;
-
-      margin: 45px 0;
-
-      flex-wrap: wrap;
-
-      justify-content: center;
-
-    }
-
-
-    .breath-box {
-
-      min-width: 180px;
-
-    }
-
-
-    .breath-box h3 {
-
-      font-family: var(--serif);
-
-      font-size: 32px;
-
-      font-weight: 400;
-
-      margin-bottom: 12px;
-
-    }
-
-
-    .breath-count {
-
-      color: var(--soft-gold);
-
-      letter-spacing: 5px;
-
-      font-size: 14px;
-
-    }
-
-
-    .breath-divider {
-
-      width: 1px;
-
-      height: 100px;
-
-      background: rgba(222,213,200,0.2);
-
-    }
-
-
-    /* =========================================
-       CARD DECK
-    ========================================= */
-
-    .deck-wrapper {
-
-      margin-top: 30px;
-
-      position: relative;
-
-      width: 330px;
-
-      height: 420px;
-
-      cursor: pointer;
-
-    }
-
-
-    .deck-shadow {
-
-      position: absolute;
-
-      width: 310px;
-
-      height: 390px;
-
-      border-radius: 20px;
-
-      background: #8E7B69;
-
-      left: 20px;
-
-      top: 20px;
-
-      opacity: 0.25;
-
-      transform: rotate(4deg);
-
-    }
-
-
-    .deck-shadow.two {
-
-      left: 10px;
-
-      top: 10px;
-
-      transform: rotate(-3deg);
-
-      opacity: 0.4;
-
-    }
-
-
-    .deck-card {
-
-      position: absolute;
-
-      inset: 0;
-
-      background:
-
-        radial-gradient(
-          circle at top left,
-          rgba(255,255,255,0.5),
-          transparent 40%
-        ),
-
-        linear-gradient(
-          135deg,
-          #E9E0D4,
-          #CFC2B3
-        );
-
-      border-radius: 20px;
-
-      display: flex;
-
-      flex-direction: column;
-
-      align-items: center;
-
-      justify-content: center;
-
-      color: var(--espresso);
-
       box-shadow:
-
-        0 35px 80px rgba(0,0,0,0.3),
-
-        inset 0 0 0 1px rgba(255,255,255,0.5);
-
-      transition: transform 0.5s ease;
-
-    }
-
-
-    .deck-wrapper:hover .deck-card {
-
-      transform: translateY(-10px);
-
-    }
-
-
-    .card-brand {
-
-      font-size: 9px;
-
-      letter-spacing: 6px;
-
-      margin-bottom: 40px;
-
-    }
-
-
-    .card-star {
-
-      font-size: 28px;
-
-      margin-bottom: 25px;
-
-    }
-
-
-    .card-subtitle {
-
-      font-family: var(--serif);
-
-      font-size: 25px;
-
-      opacity: 0.8;
-
-    }
-
-
-    /* =========================================
-       INDIVIDUAL CARD
-    ========================================= */
-
-    .pause-card {
-
-      width: min(90vw, 560px);
-
-      min-height: 500px;
-
-      padding: 60px 45px;
-
-      background:
-
-        radial-gradient(
-          circle at top left,
-          rgba(255,255,255,0.55),
-          transparent 35%
-        ),
-
-        linear-gradient(
-          135deg,
-          #EAE1D5,
-          #D3C5B6
-        );
-
-      color: var(--espresso);
-
-      border-radius: 25px;
-
-      display: flex;
-
-      flex-direction: column;
-
-      justify-content: center;
-
-      align-items: center;
-
-      text-align: center;
-
-      box-shadow:
-
-        0 30px 80px rgba(0,0,0,0.3);
-
-      margin-bottom: 35px;
-
-    }
-
-
-    .card-number {
-
-      font-size: 10px;
-
-      letter-spacing: 4px;
-
-      margin-bottom: 35px;
-
-      opacity: 0.65;
-
-    }
-
-
-    .pause-title {
-
-      font-family: var(--serif);
-
-      font-size: clamp(48px, 8vw, 75px);
-
-      letter-spacing: 5px;
-
-      margin-bottom: 20px;
-
-    }
-
-
-    .pause-text {
-
-      max-width: 380px;
-
-      line-height: 1.9;
-
-      font-size: 15px;
-
-      opacity: 0.8;
-
-    }
-
-
-    .card-controls {
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      gap: 20px;
-
-      flex-wrap: wrap;
+        0 15px 40px rgba(178,138,85,0.18);
 
     }
 
 
     .circle-button {
 
-      width: 48px;
+      width: 60px;
 
-      height: 48px;
+      height: 60px;
 
       border-radius: 50%;
 
-      border: 1px solid rgba(222,213,200,0.3);
+      border: 1px solid var(--gold);
 
-      background: transparent;
+      background: rgba(0,0,0,0.08);
 
       color: var(--cream);
 
-      font-size: 20px;
+      font-size: 28px;
+
+      cursor: pointer;
+
+      transition: all 0.3s ease;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
 
     }
 
 
     .circle-button:hover {
 
-      border-color: var(--gold);
+      background: var(--gold);
+
+      color: var(--brown-dark);
+
+      transform: scale(1.08);
+
+    }
+
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+
+    .hero {
+
+      min-height: 100vh;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 40px 25px 100px;
+
+      position: relative;
+
+    }
+
+
+    .exit {
+
+      position: absolute;
+
+      top: 40px;
+
+      right: 50px;
+
+      font-size: 12px;
+
+      color: var(--muted);
+
+      text-decoration: none;
+
+      transition: color 0.3s ease;
+
+    }
+
+
+    .exit:hover {
+
+      color: var(--cream);
+
+    }
+
+
+    .hero .star {
+
+      margin: 30px 0;
+
+    }
+
+
+    .hero h1 {
+
+      font-size: clamp(60px, 8vw, 110px);
+
+      line-height: 0.95;
+
+      max-width: 900px;
+
+    }
+
+
+    .hero-description {
+
+      font-size: 18px;
+
+      line-height: 1.7;
+
+      color: var(--muted);
+
+      max-width: 420px;
+
+      margin: 28px auto 30px;
+
+    }
+
+
+    .choose-card-label {
+
+      margin-top: 65px;
+
+      font-size: 11px;
+
+      letter-spacing: 7px;
+
+      color: var(--muted);
+
+      text-transform: uppercase;
+
+    }
+
+
+    .down-arrow {
+
+      margin-top: 12px;
 
       color: var(--gold);
 
+      font-size: 22px;
+
+      animation: floatArrow 2s infinite ease-in-out;
+
     }
 
 
-    /* =========================================
-       WHAT DO YOU NEED
-    ========================================= */
+    @keyframes floatArrow {
 
-    .needs-grid {
+      0%, 100% {
+
+        transform: translateY(0);
+
+      }
+
+      50% {
+
+        transform: translateY(7px);
+
+      }
+
+    }
+
+
+
+    /* =====================================================
+       CARD DECK SECTION
+    ===================================================== */
+
+
+    .deck-section {
+
+      min-height: 650px;
+
+      padding: 80px 25px 100px;
+
+      position: relative;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+    }
+
+
+    .deck-layout {
+
+      width: min(1000px, 100%);
 
       display: grid;
 
-      grid-template-columns: repeat(4, minmax(150px, 1fr));
+      grid-template-columns: 160px 1fr 160px;
 
-      gap: 15px;
+      align-items: center;
 
-      width: min(100%, 850px);
-
-      margin-top: 40px;
+      gap: 40px;
 
     }
 
 
-    .need-button {
+    /* SIDE CONTROLS */
 
-      min-height: 190px;
 
-      padding: 25px;
+    .deck-side {
 
-      background:
+      display: flex;
 
-        linear-gradient(
-          145deg,
-          rgba(75,58,49,0.65),
-          rgba(38,29,25,0.8)
-        );
+      flex-direction: column;
 
-      border: 1px solid rgba(222,213,200,0.08);
+      align-items: center;
 
-      border-radius: 18px;
+      gap: 15px;
+
+    }
+
+
+    .deck-side-label {
+
+      font-family: var(--script);
+
+      font-size: 27px;
 
       color: var(--cream);
+
+      line-height: 0.8;
 
       text-align: center;
 
     }
 
 
-    .need-button:hover {
+    .deck-side-arrow {
 
-      transform: translateY(-7px);
+      color: var(--gold);
 
-      border-color: var(--gold);
-
-      background:
-
-        linear-gradient(
-          145deg,
-          rgba(90,70,59,0.7),
-          rgba(47,35,30,0.9)
-        );
+      font-size: 30px;
 
     }
 
 
-    .need-icon {
 
-      font-size: 35px;
+    /* =====================================================
+       PHYSICAL CARD STACK
+    ===================================================== */
 
-      color: var(--soft-gold);
+
+    .card-stack {
+
+      width: min(500px, 90vw);
+
+      height: 310px;
+
+      position: relative;
+
+      margin: auto;
+
+      cursor: pointer;
+
+    }
+
+
+    .stack-card {
+
+      position: absolute;
+
+      width: 100%;
+
+      height: 100%;
+
+      border-radius: 24px;
+
+      background:
+
+        radial-gradient(
+          circle at 20% 10%,
+          rgba(255,255,255,0.7),
+          transparent 35%
+        ),
+
+        linear-gradient(
+          135deg,
+          var(--limestone-light),
+          var(--limestone-dark)
+        );
+
+      box-shadow:
+
+        0 30px 60px rgba(10,7,5,0.35),
+
+        inset 0 0 0 1px rgba(255,255,255,0.6);
+
+    }
+
+
+    .stack-card:nth-child(1) {
+
+      transform:
+        translate(18px, 18px)
+        rotate(4deg);
+
+      opacity: 0.55;
+
+    }
+
+
+    .stack-card:nth-child(2) {
+
+      transform:
+        translate(9px, 9px)
+        rotate(-2deg);
+
+      opacity: 0.75;
+
+    }
+
+
+    .stack-card:nth-child(3) {
+
+      transform:
+        translate(0, 0);
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      justify-content: center;
+
+      color: var(--dark-text);
+
+      transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
+
+    }
+
+
+    .card-stack:hover .stack-card:nth-child(3) {
+
+      transform:
+        translateY(-12px)
+        rotate(-1deg);
+
+      box-shadow:
+
+        0 45px 80px rgba(10,7,5,0.45);
+
+    }
+
+
+    .deck-star {
+
+      font-size: 30px;
+
+      margin-bottom: 25px;
+
+    }
+
+
+    .deck-brand {
+
+      letter-spacing: 10px;
+
+      font-size: 13px;
 
       margin-bottom: 20px;
 
     }
 
 
-    .need-title {
+    .deck-divider {
 
-      font-size: 11px;
+      width: 45px;
+
+      height: 1px;
+
+      background: var(--gold);
+
+      margin-bottom: 20px;
+
+    }
+
+
+    .deck-text {
+
+      font-family: var(--serif);
+
+      font-size: 25px;
+
+    }
+
+
+
+    /* =====================================================
+       FEATURE CARD
+    ===================================================== */
+
+
+    .feature-section {
+
+      padding: 50px 25px 100px;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+    }
+
+
+    .feature-layout {
+
+      width: min(1100px, 100%);
+
+      display: grid;
+
+      grid-template-columns: 100px 1fr 100px;
+
+      align-items: center;
+
+      gap: 30px;
+
+    }
+
+
+    .feature-card {
+
+      min-height: 450px;
+
+      width: min(100%, 600px);
+
+      margin: auto;
+
+      padding: 55px 50px;
+
+      border-radius: 24px;
+
+      background:
+
+        radial-gradient(
+          circle at top left,
+          rgba(255,255,255,0.65),
+          transparent 40%
+        ),
+
+        linear-gradient(
+          135deg,
+          #F0E8DD,
+          #D8CBBB
+        );
+
+      color: var(--dark-text);
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      justify-content: center;
+
+      text-align: center;
+
+      box-shadow:
+
+        0 35px 80px rgba(10,7,5,0.35),
+
+        inset 0 0 0 1px rgba(255,255,255,0.55);
+
+      transition: transform 0.4s ease;
+
+    }
+
+
+    .feature-card.animating {
+
+      animation: cardChange 0.5s ease;
+
+    }
+
+
+    @keyframes cardChange {
+
+      0% {
+
+        opacity: 0;
+        transform: translateY(20px) rotateY(10deg);
+
+      }
+
+      100% {
+
+        opacity: 1;
+        transform: translateY(0) rotateY(0);
+
+      }
+
+    }
+
+
+    .card-number {
+
+      font-size: 12px;
+
+      letter-spacing: 5px;
+
+      margin-bottom: 20px;
+
+    }
+
+
+    .feature-title {
+
+      font-size: clamp(55px, 7vw, 78px);
+
+      letter-spacing: 7px;
+
+      line-height: 1;
+
+    }
+
+
+    .feature-divider {
+
+      width: 45px;
+
+      height: 1px;
+
+      background: var(--gold);
+
+      margin: 25px 0;
+
+    }
+
+
+    .feature-message {
+
+      max-width: 420px;
+
+      font-size: 16px;
+
+      line-height: 1.8;
+
+    }
+
+
+
+    /* =====================================================
+       CARD NAVIGATION
+    ===================================================== */
+
+
+    .feature-navigation {
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      gap: 18px;
+
+      margin-top: 28px;
+
+    }
+
+
+    .progress-dots {
+
+      display: flex;
+
+      justify-content: center;
+
+      gap: 11px;
+
+      margin: 25px 0;
+
+    }
+
+
+    .dot {
+
+      width: 8px;
+
+      height: 8px;
+
+      border-radius: 50%;
+
+      background: rgba(243,236,227,0.25);
+
+      transition: all 0.3s ease;
+
+    }
+
+
+    .dot.active {
+
+      background: var(--gold);
+
+      transform: scale(1.2);
+
+    }
+
+
+    .card-actions {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 30px;
+
+      flex-wrap: wrap;
+
+    }
+
+
+    .keep-reminder {
+
+      border: none;
+
+      background: transparent;
+
+      color: var(--cream);
+
+      font-size: 10px;
 
       letter-spacing: 2px;
 
       text-transform: uppercase;
 
-      margin-bottom: 12px;
+      cursor: pointer;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
 
     }
 
 
-    .need-description {
+    .bookmark {
 
-      font-size: 12px;
+      width: 17px;
 
-      line-height: 1.6;
+      height: 25px;
 
-      color: var(--text-muted);
+      border: 1px solid var(--cream);
+
+      border-radius: 2px 2px 0 0;
+
+      position: relative;
 
     }
 
 
-    /* =========================================
+    .bookmark::after {
+
+      content: "";
+
+      position: absolute;
+
+      bottom: -1px;
+
+      left: 3px;
+
+      width: 8px;
+
+      height: 8px;
+
+      background: var(--brown-dark);
+
+      border-right: 1px solid var(--cream);
+
+      border-bottom: 1px solid var(--cream);
+
+      transform: rotate(45deg);
+
+    }
+
+
+
+    /* =====================================================
        COLLECTION
-    ========================================= */
+    ===================================================== */
+
 
     .collection {
-
-      padding: 100px 30px;
 
       background:
 
         linear-gradient(
           135deg,
-          #E7DED2,
+          #F0E9DF,
           #D8CCBE
         );
 
-      color: var(--espresso);
+      color: var(--dark-text);
+
+      padding: 75px 25px;
 
       text-align: center;
 
     }
 
 
-    .collection h2 {
+    .collection-title {
 
-      font-size: clamp(45px, 6vw, 70px);
+      font-family: var(--sans);
+
+      text-transform: uppercase;
+
+      letter-spacing: 7px;
+
+      font-size: 13px;
+
+      font-weight: 400;
+
+    }
+
+
+    .collection-divider {
+
+      width: 45px;
+
+      height: 1px;
+
+      background: var(--gold);
+
+      margin: 20px auto 40px;
 
     }
 
 
     .collection-grid {
 
+      max-width: 1150px;
+
+      margin: auto;
+
       display: grid;
 
       grid-template-columns: repeat(5, 1fr);
 
-      gap: 15px;
-
-      max-width: 1200px;
-
-      margin: 50px auto 0;
+      gap: 20px;
 
     }
 
 
     .mini-card {
 
+      min-height: 155px;
+
+      border-radius: 13px;
+
+      padding: 20px 12px;
+
       background:
 
+        radial-gradient(
+          circle at top left,
+          rgba(255,255,255,0.7),
+          transparent 40%
+        ),
+
         linear-gradient(
-          145deg,
-          #F2EBE2,
-          #D8CCBE
+          135deg,
+          #F4EEE6,
+          #DDD1C3
         );
 
-      min-height: 180px;
+      border: 1px solid rgba(70,50,35,0.12);
 
-      border-radius: 15px;
+      box-shadow:
 
-      padding: 20px 10px;
+        0 10px 20px rgba(50,35,25,0.13);
+
+      cursor: pointer;
 
       display: flex;
 
       flex-direction: column;
 
-      justify-content: center;
-
       align-items: center;
 
-      cursor: pointer;
+      justify-content: center;
 
       transition: all 0.3s ease;
-
-      border: 1px solid rgba(33,26,23,0.08);
 
     }
 
@@ -834,20 +1078,31 @@
 
       transform: translateY(-8px);
 
-      box-shadow: 0 20px 40px rgba(33,26,23,0.15);
+      box-shadow:
+
+        0 20px 35px rgba(50,35,25,0.2);
 
     }
 
 
     .mini-number {
 
-      font-size: 9px;
+      font-size: 10px;
 
       letter-spacing: 3px;
 
-      opacity: 0.5;
+      margin-bottom: 18px;
 
-      margin-bottom: 20px;
+    }
+
+
+    .mini-icon {
+
+      font-size: 30px;
+
+      margin-bottom: 15px;
+
+      color: #5B4638;
 
     }
 
@@ -863,39 +1118,23 @@
     }
 
 
-    /* =========================================
-       ENDING
-    ========================================= */
 
-    .ending {
-
-      position: relative;
-
-    }
-
-
-    .ending p {
-
-      max-width: 600px;
-
-      color: var(--text-muted);
-
-      line-height: 2;
-
-      margin-bottom: 15px;
-
-      font-size: 14px;
-
-    }
-
-
-    /* =========================================
+    /* =====================================================
        FOOTER
-    ========================================= */
+    ===================================================== */
 
-    .gift-footer {
 
-      padding: 25px 35px;
+    .footer {
+
+      background:
+
+        linear-gradient(
+          135deg,
+          var(--brown-deep),
+          var(--brown-dark)
+        );
+
+      padding: 25px 40px;
 
       display: flex;
 
@@ -903,102 +1142,230 @@
 
       align-items: center;
 
-      font-size: 10px;
+      color: var(--muted);
 
-      color: var(--text-muted);
+      font-size: 12px;
 
-      border-top: 1px solid rgba(222,213,200,0.08);
+    }
+
+
+    .footer-heart {
+
+      color: var(--gold);
+
+      font-size: 22px;
+
+      margin-right: 15px;
+
+    }
+
+
+    .footer-left {
+
+      display: flex;
+
+      align-items: center;
 
     }
 
 
     .footer-brand {
 
-      letter-spacing: 5px;
+      color: var(--gold-light);
 
-      color: var(--soft-gold);
-
-    }
-
-
-    /* =========================================
-       ANIMATION
-    ========================================= */
-
-    @keyframes fadeIn {
-
-      from {
-        opacity: 0;
-        transform: translateY(15px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      font-size: 18px;
 
     }
 
 
-    /* =========================================
+
+    /* =====================================================
        RESPONSIVE
-    ========================================= */
+    ===================================================== */
+
 
     @media (max-width: 850px) {
 
-      .needs-grid {
-        grid-template-columns: repeat(2, 1fr);
+
+      .deck-layout {
+
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
       }
 
+
+      .deck-side {
+
+        flex-direction: row;
+
+      }
+
+
+      .deck-layout .deck-side:last-child {
+
+        order: 3;
+
+      }
+
+
+      .feature-layout {
+
+        grid-template-columns: 1fr;
+
+      }
+
+
+      .feature-layout .circle-button {
+
+        margin: auto;
+
+      }
+
+
       .collection-grid {
+
         grid-template-columns: repeat(2, 1fr);
+
+      }
+
+
+      .exit {
+
+        right: 25px;
+
       }
 
     }
+
 
 
     @media (max-width: 600px) {
 
-      .experience {
-        padding: 20px;
+
+      .hero {
+
+        padding-top: 100px;
+
       }
 
-      h1 {
-        font-size: 58px;
+
+      .brand {
+
+        letter-spacing: 7px;
+
+        font-size: 9px;
+
       }
 
-      .breathing-area {
-        gap: 30px;
+
+      .hero h1 {
+
+        font-size: 62px;
+
       }
 
-      .breath-divider {
-        display: none;
+
+      .hero-description {
+
+        font-size: 16px;
+
       }
 
-      .deck-wrapper {
-        transform: scale(0.88);
-        margin-top: 0;
+
+      .deck-section {
+
+        padding-top: 40px;
+
       }
 
-      .pause-card {
-        padding: 50px 25px;
+
+      .card-stack {
+
+        height: 230px;
+
       }
 
-      .needs-grid {
-        grid-template-columns: 1fr;
+
+      .deck-brand {
+
+        font-size: 10px;
+
+        letter-spacing: 7px;
+
       }
+
+
+      .feature-card {
+
+        min-height: 420px;
+
+        padding: 45px 28px;
+
+      }
+
+
+      .feature-title {
+
+        font-size: 52px;
+
+      }
+
+
+      .feature-message {
+
+        font-size: 15px;
+
+      }
+
+
+      .card-actions {
+
+        flex-direction: column;
+
+        gap: 25px;
+
+      }
+
 
       .collection-grid {
+
         grid-template-columns: repeat(2, 1fr);
+
+        gap: 13px;
+
       }
 
-      .gift-footer {
+
+      .mini-card {
+
+        min-height: 130px;
+
+      }
+
+
+      .footer {
+
         flex-direction: column;
-        gap: 15px;
+
+        gap: 20px;
+
         text-align: center;
+
+        padding: 25px;
+
+      }
+
+
+      .footer-left {
+
+        justify-content: center;
+
       }
 
     }
+
 
   </style>
 
@@ -1008,520 +1375,443 @@
 <body>
 
 
-  <!-- =========================================
+  <!-- =====================================================
        HERO
-  ========================================= -->
+  ===================================================== -->
 
-  <section id="hero" class="experience active">
 
-    <div class="hero-light"></div>
+  <section class="hero" id="top">
 
-    <div class="container">
 
-      <div class="brand">
-        Liminal Light
-      </div>
+    <a href="/" class="exit">
 
-      <div class="star">✦</div>
+      Exit experience
 
-      <h1>
-        You made time<br>
-        for yourself today.
-      </h1>
+    </a>
 
-      <div class="gold-line"></div>
 
-      <p class="intro-text">
+    <div class="brand">
 
-        A small collection of moments to return to
-        whenever you need to pause, breathe and
-        come back to yourself.
-
-      </p>
-
-      <button
-        class="primary-button"
-        onclick="showExperience('breathing')">
-
-        Begin Your Pause
-
-      </button>
+      Liminal Light
 
     </div>
 
-  </section>
 
+    <div class="star">
 
-
-  <!-- =========================================
-       BREATHING
-  ========================================= -->
-
-  <section id="breathing" class="experience">
-
-    <div class="container">
-
-      <div class="brand">
-        Liminal Light
-      </div>
-
-      <div class="star">✦</div>
-
-      <h2>
-        Take a breath.
-      </h2>
-
-      <p class="intro-text">
-        Before continuing...
-      </p>
-
-
-      <div class="breathing-area">
-
-        <div class="breath-box">
-
-          <h3>Inhale slowly.</h3>
-
-          <div class="breath-count">
-            1 · 2 · 3 · 4
-          </div>
-
-        </div>
-
-
-        <div class="breath-divider"></div>
-
-
-        <div class="breath-box">
-
-          <h3>Exhale.</h3>
-
-          <div class="breath-count">
-            1 · 2 · 3 · 4 · 5 · 6
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <button
-        class="primary-button"
-        onclick="showExperience('deck')">
-
-        I'm Ready
-
-      </button>
+      ✦
 
     </div>
 
-  </section>
 
+    <h1>
 
+      A moment for yourself.
 
-  <!-- =========================================
-       DECK
-  ========================================= -->
+    </h1>
 
-  <section id="deck" class="experience">
-
-    <div class="container">
-
-      <div class="brand">
-        Liminal Light
-      </div>
-
-      <div class="star">✦</div>
-
-      <h2>
-        Your collection<br>
-        of pauses.
-      </h2>
-
-      <p class="intro-text">
-        Choose a card.
-      </p>
-
-
-      <div
-        class="deck-wrapper"
-        onclick="drawRandomCard()">
-
-        <div class="deck-shadow"></div>
-
-        <div class="deck-shadow two"></div>
-
-
-        <div class="deck-card">
-
-          <div class="card-brand">
-            LIMINAL LIGHT
-          </div>
-
-          <div class="card-star">
-            ✦
-          </div>
-
-          <div class="card-subtitle">
-            A moment for yourself
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <button
-        class="primary-button"
-        onclick="drawRandomCard()">
-
-        Draw A Card
-
-      </button>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =========================================
-       PAUSE CARD
-  ========================================= -->
-
-  <section id="cardExperience" class="experience">
-
-    <div class="container">
-
-      <div class="brand">
-        Liminal Light
-      </div>
-
-
-      <div class="pause-card">
-
-        <div id="cardNumber" class="card-number">
-          01 / 10
-        </div>
-
-
-        <div id="cardTitle" class="pause-title">
-          PAUSE
-        </div>
-
-
-        <div class="gold-line"></div>
-
-
-        <p id="cardText" class="pause-text">
-
-          You don't always have to keep moving.
-
-          <br><br>
-
-          Sometimes the most important thing
-          you can do is stop.
-
-          <br><br>
-
-          Nothing needs to happen right now.
-
-        </p>
-
-      </div>
-
-
-      <div class="card-controls">
-
-        <button
-          class="circle-button"
-          onclick="previousCard()">
-
-          ←
-
-        </button>
-
-
-        <button
-          class="primary-button"
-          onclick="drawRandomCard()">
-
-          Draw Another Card
-
-        </button>
-
-
-        <button
-          class="circle-button"
-          onclick="nextCard()">
-
-          →
-
-        </button>
-
-      </div>
-
-
-      <div style="margin-top:30px;">
-
-        <button
-          class="primary-button"
-          onclick="showExperience('needs')">
-
-          What Do I Need Right Now?
-
-        </button>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =========================================
-       NEEDS
-  ========================================= -->
-
-  <section id="needs" class="experience">
-
-    <div class="container">
-
-      <div class="brand">
-        Liminal Light
-      </div>
-
-      <div class="star">✦</div>
-
-      <h2>
-        What do you need<br>
-        right now?
-      </h2>
-
-      <p class="intro-text">
-        Choose what feels right for you.
-      </p>
-
-
-      <div class="needs-grid">
-
-
-        <button
-          class="need-button"
-          onclick="showSpecificCard(1)">
-
-          <div class="need-icon">◎</div>
-
-          <div class="need-title">
-            To Calm Down
-          </div>
-
-          <div class="need-description">
-            Slow your thoughts<br>
-            and find calm.
-          </div>
-
-        </button>
-
-
-
-        <button
-          class="need-button"
-          onclick="showSpecificCard(4)">
-
-          <div class="need-icon">☾</div>
-
-          <div class="need-title">
-            To Rest
-          </div>
-
-          <div class="need-description">
-            Give yourself<br>
-            permission to rest.
-          </div>
-
-        </button>
-
-
-
-        <button
-          class="need-button"
-          onclick="showSpecificCard(0)">
-
-          <div class="need-icon">☼</div>
-
-          <div class="need-title">
-            To Reset
-          </div>
-
-          <div class="need-description">
-            Clear your mind<br>
-            and start again.
-          </div>
-
-        </button>
-
-
-
-        <button
-          class="need-button"
-          onclick="showSpecificCard(3)">
-
-          <div class="need-icon">○</div>
-
-          <div class="need-title">
-            To Reconnect
-          </div>
-
-          <div class="need-description">
-            Come back to<br>
-            yourself.
-          </div>
-
-        </button>
-
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =========================================
-       COLLECTION
-  ========================================= -->
-
-  <section class="collection">
-
-    <h2>
-      Your collection of 10 pauses
-    </h2>
 
     <div class="gold-line"></div>
 
 
-    <div class="collection-grid" id="collectionGrid">
+    <p class="hero-description">
 
-      <!-- Added by JavaScript -->
+      A collection of ten pauses
+      <br>
+      to keep with you.
+
+    </p>
+
+
+    <button
+      class="outline-button"
+      onclick="document.getElementById('deck').scrollIntoView({behavior:'smooth'})">
+
+      Open Your Deck
+
+    </button>
+
+
+    <div class="choose-card-label">
+
+      Choose a card
 
     </div>
+
+
+    <div class="down-arrow">
+
+      ↓
+
+    </div>
+
 
   </section>
 
 
 
-  <!-- =========================================
-       ENDING
-  ========================================= -->
-
-  <section id="ending" class="experience ending">
-
-    <div class="container">
-
-      <div class="brand">
-        Liminal Light
-      </div>
-
-      <div class="star">✦</div>
-
-      <h2>
-        Your pause is<br>
-        always here.
-      </h2>
-
-      <div class="gold-line"></div>
+  <!-- =====================================================
+       CARD DECK
+  ===================================================== -->
 
 
-      <p>
-
-        Life will begin moving quickly again.
-
-      </p>
-
-      <p>
-
-        There will be messages.
-        Responsibilities.
-        Things to do.
-
-      </p>
-
-      <p>
-
-        But you can always come back to this moment.
-
-      </p>
+  <section class="deck-section" id="deck">
 
 
-      <div class="star" style="margin-top:35px;">
-        ✦
+    <div class="deck-layout">
+
+
+      <!-- DRAW RANDOM -->
+
+
+      <div class="deck-side">
+
+        <div class="deck-side-label">
+
+          Draw
+          <br>
+          random
+
+        </div>
+
+
+        <div class="deck-side-arrow">
+
+          ↓
+
+        </div>
+
+
+        <button
+          class="circle-button"
+          onclick="drawRandomCard()">
+
+          ⤨
+
+        </button>
+
       </div>
 
 
-      <p style="margin-bottom:35px;">
 
-        Thank you for choosing Liminal Light.
+      <!-- CARD STACK -->
 
-      </p>
+
+      <div
+        class="card-stack"
+        onclick="drawRandomCard()">
+
+
+        <div class="stack-card"></div>
+
+        <div class="stack-card"></div>
+
+
+        <div class="stack-card">
+
+
+          <div class="deck-star">
+
+            ✦
+
+          </div>
+
+
+          <div class="deck-brand">
+
+            LIMINAL LIGHT
+
+          </div>
+
+
+          <div class="deck-divider"></div>
+
+
+          <div class="deck-text">
+
+            A moment for yourself
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+
+      <!-- EXPLORE -->
+
+
+      <div class="deck-side">
+
+
+        <div class="deck-side-label">
+
+          Explore
+          <br>
+          all cards
+
+        </div>
+
+
+        <div class="deck-side-arrow">
+
+          ↓
+
+        </div>
+
+
+        <button
+          class="circle-button"
+          onclick="document.getElementById('collection').scrollIntoView({behavior:'smooth'})">
+
+          ☷
+
+        </button>
+
+
+      </div>
+
+
+    </div>
+
+
+  </section>
+
+
+
+  <!-- =====================================================
+       FEATURE CARD
+  ===================================================== -->
+
+
+  <section class="feature-section" id="featured">
+
+
+    <div class="feature-layout">
 
 
       <button
-        class="primary-button"
-        onclick="showExperience('hero')">
+        class="circle-button"
+        onclick="previousCard()">
 
-        Return Whenever You Need To
+        ←
 
       </button>
 
+
+
+      <div>
+
+
+        <div
+          class="feature-card"
+          id="featureCard">
+
+
+          <div
+            class="card-number"
+            id="cardNumber">
+
+            01
+
+          </div>
+
+
+          <div
+            class="feature-title"
+            id="cardTitle">
+
+            PAUSE
+
+          </div>
+
+
+          <div class="feature-divider"></div>
+
+
+          <div
+            class="feature-message"
+            id="cardMessage">
+
+            You don't always have to keep moving.
+            <br><br>
+            Sometimes the most important thing
+            you can do is stop.
+            <br><br>
+            Nothing needs to happen right now.
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- PROGRESS DOTS -->
+
+
+        <div
+          class="progress-dots"
+          id="progressDots">
+
+        </div>
+
+
+
+        <!-- ACTIONS -->
+
+
+        <div class="card-actions">
+
+
+          <button
+            class="outline-button"
+            onclick="drawRandomCard()">
+
+            Draw Another Card
+
+          </button>
+
+
+          <button
+            class="keep-reminder"
+            onclick="keepReminder()">
+
+
+            <span class="bookmark"></span>
+
+            <span id="keepText">
+
+              Keep This Reminder
+
+            </span>
+
+
+          </button>
+
+
+        </div>
+
+
+      </div>
+
+
+
+      <button
+        class="circle-button"
+        onclick="nextCard()">
+
+        →
+
+      </button>
+
+
     </div>
+
 
   </section>
 
 
 
-  <!-- =========================================
+  <!-- =====================================================
+       COLLECTION
+  ===================================================== -->
+
+
+  <section
+    class="collection"
+    id="collection">
+
+
+    <h2 class="collection-title">
+
+      Your Collection — Ten Pauses
+
+    </h2>
+
+
+    <div class="collection-divider"></div>
+
+
+    <div
+      class="collection-grid"
+      id="collectionGrid">
+
+    </div>
+
+
+  </section>
+
+
+
+  <!-- =====================================================
        FOOTER
-  ========================================= -->
+  ===================================================== -->
 
-  <footer class="gift-footer">
 
-    <div>
-      ♡ You made time for yourself. That matters.
+  <footer class="footer">
+
+
+    <div class="footer-left">
+
+      <span class="footer-heart">
+
+        ♡
+
+      </span>
+
+
+      You made time for yourself. That matters.
+
     </div>
 
 
     <div class="footer-brand">
-      LIMINAL LIGHT ✦
+
+      ✦
+
     </div>
+
+
+    <div>
+
+      Come back anytime.
+
+    </div>
+
 
   </footer>
 
 
 
-  <!-- =========================================
+  <!-- =====================================================
        JAVASCRIPT
-  ========================================= -->
+  ===================================================== -->
+
 
   <script>
+
+
+    /* =====================================================
+       CARD DATA
+    ===================================================== */
+
 
     const cards = [
 
       {
         title: "PAUSE",
-        text: `
+        icon: "Ⅱ",
+        message: `
 
           You don't always have to keep moving.
-
           <br><br>
-
           Sometimes the most important thing
           you can do is stop.
-
           <br><br>
-
           Nothing needs to happen right now.
 
         `
@@ -1530,21 +1820,16 @@
 
       {
         title: "BREATHE",
-        text: `
+        icon: "≈",
+        message: `
 
           Slow down your breathing.
-
           <br><br>
-
           Let your shoulders soften.
-
           <br><br>
-
           You don't need to solve everything
           in this moment.
-
           <br><br>
-
           Just breathe.
 
         `
@@ -1553,19 +1838,16 @@
 
       {
         title: "RELEASE",
-        text: `
+        icon: "↓",
+        message: `
 
           Notice what you're holding.
-
           <br><br>
-
           Your shoulders.
           Your jaw.
           Your hands.
-
           <br><br>
-
-          Take a breath and let something soften.
+          Take a breath and let something go.
 
         `
       },
@@ -1573,21 +1855,15 @@
 
       {
         title: "RETURN",
-        text: `
+        icon: "○",
+        message: `
 
           Come back to where you are.
-
           <br><br>
-
-          Notice your surroundings.
-
-          <br><br>
-
           Feel your feet.
-          Feel your breath.
-
+          Notice your breath.
+          Notice your surroundings.
           <br><br>
-
           You are here.
 
         `
@@ -1596,18 +1872,15 @@
 
       {
         title: "REST",
-        text: `
+        icon: "☾",
+        message: `
 
           Rest is not something
           you have to earn.
-
           <br><br>
-
           Your body deserves moments
           without expectation.
-
           <br><br>
-
           Let yourself rest.
 
         `
@@ -1616,20 +1889,17 @@
 
       {
         title: "NOTICE",
-        text: `
+        icon: "☼",
+        message: `
 
           Notice one thing that feels good
           right now.
-
           <br><br>
-
           Warmth.
           Quiet.
           Comfort.
           A deep breath.
-
           <br><br>
-
           Stay with it for a moment.
 
         `
@@ -1638,21 +1908,16 @@
 
       {
         title: "SOFTEN",
-        text: `
+        icon: "≋",
+        message: `
 
           You don't have to hold yourself
           so tightly.
-
           <br><br>
-
           Relax your jaw.
-
           Drop your shoulders.
-
           Unclench your hands.
-
           <br><br>
-
           Soften.
 
         `
@@ -1661,17 +1926,14 @@
 
       {
         title: "RECEIVE",
-        text: `
+        icon: "○",
+        message: `
 
           You are allowed to receive care.
-
           <br><br>
-
           You don't always have to be
           the person giving everything away.
-
           <br><br>
-
           Let yourself receive.
 
         `
@@ -1680,24 +1942,17 @@
 
       {
         title: "STILL",
-        text: `
+        icon: "○",
+        message: `
 
           There is nothing you need
           to chase in this moment.
-
           <br><br>
-
           Stay here.
-
           <br><br>
-
           Be still.
-
           <br><br>
-
-          Let the world continue without
-          needing anything from you
-          for a moment.
+          Let this moment be enough.
 
         `
       },
@@ -1705,21 +1960,16 @@
 
       {
         title: "RETURN TO YOURSELF",
-        text: `
+        icon: "✦",
+        message: `
 
           Among everything demanding
           your attention...
-
           <br><br>
-
           Don't forget yourself.
-
           <br><br>
-
           Come back.
-
           <br><br>
-
           You are still here.
 
         `
@@ -1728,120 +1978,251 @@
     ];
 
 
+
+    /* =====================================================
+       CURRENT CARD
+    ===================================================== */
+
+
     let currentCard = 0;
 
 
-    function showExperience(id) {
 
-      document
-        .querySelectorAll(".experience")
-        .forEach(section => {
+    /* =====================================================
+       CREATE DOTS
+    ===================================================== */
 
-          section.classList.remove("active");
+
+    function createDots() {
+
+
+      const dotsContainer =
+        document.getElementById("progressDots");
+
+
+      dotsContainer.innerHTML = "";
+
+
+      cards.forEach((card, index) => {
+
+
+        const dot =
+          document.createElement("div");
+
+
+        dot.className =
+          "dot";
+
+
+        if (index === currentCard) {
+
+          dot.classList.add("active");
+
+        }
+
+
+        dot.addEventListener("click", () => {
+
+          showCard(index);
 
         });
 
 
-      const selected =
-        document.getElementById(id);
+        dotsContainer.appendChild(dot);
 
-
-      selected.classList.add("active");
-
-
-      window.scrollTo({
-
-        top: 0,
-
-        behavior: "smooth"
 
       });
+
 
     }
 
 
 
-    function displayCard(index) {
+    /* =====================================================
+       SHOW CARD
+    ===================================================== */
+
+
+    function showCard(index) {
+
 
       currentCard = index;
 
 
-      document
-        .getElementById("cardNumber")
+      const featureCard =
+        document.getElementById("featureCard");
+
+
+      featureCard.classList.remove("animating");
+
+
+      void featureCard.offsetWidth;
+
+
+      featureCard.classList.add("animating");
+
+
+      document.getElementById("cardNumber")
         .innerText =
-        String(index + 1).padStart(2, "0") + " / 10";
+        String(index + 1).padStart(2, "0");
 
 
-      document
-        .getElementById("cardTitle")
+      document.getElementById("cardTitle")
         .innerText =
         cards[index].title;
 
 
-      document
-        .getElementById("cardText")
+      document.getElementById("cardMessage")
         .innerHTML =
-        cards[index].text;
+        cards[index].message;
 
 
-      showExperience("cardExperience");
+      createDots();
+
+
+      document.getElementById("featured")
+        .scrollIntoView({
+
+          behavior: "smooth",
+          block: "center"
+
+        });
+
 
     }
 
 
 
-    function drawRandomCard() {
-
-      let randomIndex =
-        Math.floor(Math.random() * cards.length);
-
-
-      displayCard(randomIndex);
-
-    }
-
+    /* =====================================================
+       NEXT CARD
+    ===================================================== */
 
 
     function nextCard() {
 
-      currentCard =
-        (currentCard + 1) % cards.length;
+
+      currentCard++;
 
 
-      displayCard(currentCard);
+      if (currentCard >= cards.length) {
+
+        currentCard = 0;
+
+      }
+
+
+      showCard(currentCard);
+
 
     }
 
+
+
+    /* =====================================================
+       PREVIOUS CARD
+    ===================================================== */
 
 
     function previousCard() {
 
-      currentCard =
-        (currentCard - 1 + cards.length)
-        % cards.length;
+
+      currentCard--;
 
 
-      displayCard(currentCard);
+      if (currentCard < 0) {
+
+        currentCard =
+          cards.length - 1;
+
+      }
+
+
+      showCard(currentCard);
+
 
     }
 
 
 
-    function showSpecificCard(index) {
+    /* =====================================================
+       RANDOM CARD
+    ===================================================== */
 
-      displayCard(index);
+
+    function drawRandomCard() {
+
+
+      let newCard =
+        Math.floor(
+          Math.random() * cards.length
+        );
+
+
+      /* Prevent the same card appearing twice */
+
+
+      if (newCard === currentCard) {
+
+
+        newCard =
+          (newCard + 1) %
+          cards.length;
+
+
+      }
+
+
+      showCard(newCard);
+
 
     }
 
+
+
+    /* =====================================================
+       KEEP REMINDER
+    ===================================================== */
+
+
+    function keepReminder() {
+
+
+      const keepText =
+        document.getElementById("keepText");
+
+
+      keepText.innerText =
+        "Reminder Kept ✦";
+
+
+      setTimeout(() => {
+
+
+        keepText.innerText =
+          "Keep This Reminder";
+
+
+      }, 2500);
+
+
+    }
+
+
+
+    /* =====================================================
+       CREATE COLLECTION
+    ===================================================== */
 
 
     function createCollection() {
+
 
       const grid =
         document.getElementById("collectionGrid");
 
 
       cards.forEach((card, index) => {
+
 
         const miniCard =
           document.createElement("div");
@@ -1854,31 +2235,53 @@
         miniCard.innerHTML = `
 
           <div class="mini-number">
+
             ${String(index + 1).padStart(2, "0")}
+
           </div>
 
+
+          <div class="mini-icon">
+
+            ${card.icon}
+
+          </div>
+
+
           <div class="mini-title">
+
             ${card.title}
+
           </div>
 
         `;
 
 
-        miniCard.addEventListener("click", () => {
-
-          displayCard(index);
-
-        });
+        miniCard.addEventListener(
+          "click",
+          () => showCard(index)
+        );
 
 
         grid.appendChild(miniCard);
 
+
       });
+
 
     }
 
 
+
+    /* =====================================================
+       INITIALISE
+    ===================================================== */
+
+
+    createDots();
+
     createCollection();
+
 
   </script>
 
