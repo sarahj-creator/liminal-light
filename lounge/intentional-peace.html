@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QB5TKBZ7FZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QB5TKBZ7FZ');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Fall in love with being intentional about your peace — a reflection from the Liminal Light Lounge.">
+
+  <title>Fall in Love With Being Intentional About Your Peace | Liminal Light Lounge</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+
+  <style>
+
+    :root {
+      --stone: #DDD1C2;
+      --warm-white: #F5EEE6;
+      --deep-amber: #D4A843;
+      --shadow: #1A120D;
+      --mocha: #2B1B14;
+      --bronze: #6A4A33;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--shadow);
+      color: var(--warm-white);
+      font-family: Jost, sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+
+    /* NAVIGATION */
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 1.3rem 2.5rem;
+
+      background: rgba(26,18,13,.88);
+      backdrop-filter: blur(12px);
+
+      border-bottom: 1px solid rgba(106,74,51,.35);
+    }
+
+    .brand {
+      font-family: "Cormorant Garamond", serif;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+
+      color: var(--warm-white);
+      text-decoration: none;
+    }
+
+    .back {
+      font-size: .65rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+
+      color: var(--stone);
+      text-decoration: none;
+
+      transition: color .3s ease;
+    }
+
+    .back:hover {
+      color: var(--deep-amber);
+    }
+
+
+    /* ARTICLE HERO */
+
+    .article-hero {
+
+      min-height: 75vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 10rem 2rem 6rem;
+
+      background:
+        radial-gradient(
+          ellipse at center,
+          rgba(212,168,67,.12),
+          transparent 65%
+        ),
+        var(--mocha);
+    }
+
+    .article-header {
+      max-width: 900px;
+    }
+
+    .category {
+
+      font-size: .65rem;
+      letter-spacing: .45em;
+      text-transform: uppercase;
+
+      color: var(--deep-amber);
+
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-weight: 300;
+
+      font-size: clamp(3.5rem, 8vw, 7rem);
+
+      line-height: .95;
+
+      letter-spacing: .02em;
+
+      margin-bottom: 2rem;
+    }
+
+    .reading-time {
+
+      font-size: .65rem;
+
+      letter-spacing: .25em;
+
+      text-transform: uppercase;
+
+      color: var(--stone);
+    }
+
+
+    /* ARTICLE */
+
+    .article {
+
+      max-width: 720px;
+
+      margin: auto;
+
+      padding: 7rem 2rem;
+    }
+
+    .article p {
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: 1.45rem;
+
+      line-height: 1.75;
+
+      color: var(--warm-white);
+
+      margin-bottom: 2rem;
+    }
+
+    .article h2 {
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-weight: 300;
+
+      font-size: clamp(2.3rem, 5vw, 3.5rem);
+
+      line-height: 1.1;
+
+      margin-top: 5rem;
+
+      margin-bottom: 2rem;
+
+      color: var(--warm-white);
+    }
+
+
+    /* HIGHLIGHT */
+
+    blockquote {
+
+      margin: 4rem 0;
+
+      padding: 2rem 2.5rem;
+
+      border-left: 1px solid var(--deep-amber);
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: 2rem;
+
+      font-style: italic;
+
+      line-height: 1.4;
+
+      color: var(--stone);
+    }
+
+
+    /* FINAL SECTION */
+
+    .article-ending {
+
+      text-align: center;
+
+      padding: 6rem 2rem;
+
+      background: var(--mocha);
+    }
+
+    .article-ending p {
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: 1.5rem;
+
+      font-style: italic;
+
+      color: var(--stone);
+
+      max-width: 600px;
+
+      margin: auto;
+    }
+
+    .lounge-button {
+
+      display: inline-block;
+
+      margin-top: 3rem;
+
+      padding: 1rem 1.6rem;
+
+      border: 1px solid rgba(212,168,67,.7);
+
+      color: var(--warm-white);
+
+      text-decoration: none;
+
+      font-size: .65rem;
+
+      letter-spacing: .25em;
+
+      text-transform: uppercase;
+
+      transition: all .3s ease;
+    }
+
+    .lounge-button:hover {
+
+      background: var(--deep-amber);
+
+      color: var(--shadow);
+    }
+
+
+    /* MOBILE */
+
+    @media (max-width: 760px) {
+
+      nav {
+        padding: 1.1rem 1.5rem;
+      }
+
+      .brand {
+        font-size: .75rem;
+      }
+
+      .back {
+        font-size: .55rem;
+      }
+
+      .article p {
+        font-size: 1.25rem;
+      }
+
+      blockquote {
+        font-size: 1.6rem;
+        padding: 1.5rem;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+  <a class="brand" href="index.html">
+    Liminal Light Lounge
+  </a>
+
+  <a class="back" href="index.html">
+    ← Back to Lounge
+  </a>
+
+</nav>
+
+
+
+<!-- ARTICLE HERO -->
+
+<header class="article-hero">
+
+  <div class="article-header">
+
+    <div class="category">
+      Reflection
+    </div>
+
+    <h1>
+      Fall in Love With Being Intentional About Your Peace
+    </h1>
+
+    <div class="reading-time">
+      2 Min Read
+    </div>
+
+  </div>
+
+</header>
+
+
+
+<!-- ARTICLE -->
+
+<main class="article">
+
+  <p>
+    Stop for a moment and feel your body.
+  </p>
+
+  <p>
+    How does it feel?
+  </p>
+
+  <p>
+    Are your shoulders tense? Is your stomach in knots? Is your mind racing?
+  </p>
+
+  <p>
+    Peace is something I think we all want to feel. If there's someone who doesn't, I'd genuinely love to have a conversation with them about why.
+  </p>
+
+  <p>
+    We experience life in many different ways, and feeling at peace is part of that experience. But sometimes, peace can feel difficult to find in the middle of life.
+  </p>
+
+  <p>
+    We wait for the day to end so we can go home and find peace.
+  </p>
+
+  <p>
+    We wait for the weekend.
+  </p>
+
+  <p>
+    We wait for the holiday.
+  </p>
+
+  <p>
+    We wait for the right moment.
+  </p>
+
+  <p>
+    But what if peace isn't always something waiting for us somewhere else?
+  </p>
+
+
+
+  <h2>
+    I had to ask myself what peace actually looked like in my life.
+  </h2>
+
+
+  <p>
+    I had a moment when I realised that I yearned for peace.
+  </p>
+
+  <p>
+    I believed I wanted it. I believed I had made it a priority.
+  </p>
+
+  <p>
+    But I had to take a step back and honestly look at how peace actually functioned in my life.
+  </p>
+
+  <p>
+    What was I doing to cultivate peace?
+  </p>
+
+  <p>
+    Or was I simply expecting it to appear?
+  </p>
+
+  <p>
+    In another person?
+  </p>
+
+  <p>
+    In a particular moment?
+  </p>
+
+  <p>
+    In a future version of my life?
+  </p>
+
+  <p>
+    What that moment taught me was that if I wanted peace, I had to fall in love with being intentional about it.
+  </p>
+
+  <p>
+    For me, that means acknowledging where I am.
+  </p>
+
+  <p>
+    Am I fighting against reality?
+  </p>
+
+  <p>
+    Am I existing in a space of expectations?
+  </p>
+
+  <p>
+    Am I taking moments for myself — not as another task on my list, but as an intentional and thoughtful action?
+  </p>
+
+  <p>
+    Do I slow down before speaking?
+  </p>
+
+  <p>
+    Or am I rushing to get the words out while doing 101 other things?
+  </p>
+
+
+
+  <h2>
+    Peace isn't always a big event.
+  </h2>
+
+
+  <p>
+    It doesn't have to arrive with the perfect moment, the perfect person or the perfect life.
+  </p>
+
+  <p>
+    Sometimes, peace is something you choose to create in the small moments.
+  </p>
+
+  <p>
+    Spending time talking to the people I love.
+  </p>
+
+  <p>
+    Being in my favourite places.
+  </p>
+
+  <p>
+    Going to the beach.
+  </p>
+
+  <p>
+    Slowing down my speech.
+  </p>
+
+  <p>
+    Checking my body for tension.
+  </p>
+
+  <p>
+    And when I can, massaging those tense areas and taking deep breaths — letting my body know that it's okay to be calm right now.
+  </p>
+
+
+  <blockquote>
+    Peace isn't always something you stumble across. Sometimes, it's something you choose to be intentional about.
+  </blockquote>
+
+
+
+  <h2>
+    Peace can live in the small moments.
+  </h2>
+
+
+  <p>
+    I know now that peace can sometimes mean escaping for a moment.
+  </p>
+
+  <p>
+    But it can also mean becoming more intentional about the moments you're already living.
+  </p>
+
+  <p>
+    And sometimes, that intention leads to bigger decisions too.
+  </p>
+
+  <p>
+    For me, one of those decisions was choosing to leave my birth country and find peace in my mother's home country.
+  </p>
+
+</main>
+
+
+
+<!-- ENDING -->
+
+<section class="article-ending">
+
+  <p>
+    But that's a story for another Lounge post.
+  </p>
+
+  <a class="lounge-button" href="index.html">
+    ← Back to the Lounge
+  </a>
+
+</section>
+
+
+</body>
+</html>
