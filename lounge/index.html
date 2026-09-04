@@ -22,7 +22,21 @@ body{background:var(--shadow);color:var(--warm-white);font-family:Jost,sans-seri
 nav{position:fixed;top:0;width:100%;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:1.3rem 2.5rem;background:rgba(26,18,13,.82);backdrop-filter:blur(12px);border-bottom:1px solid rgba(106,74,51,.35)}
 .brand{font-family:"Cormorant Garamond",serif;letter-spacing:.25em;text-transform:uppercase;color:var(--warm-white);text-decoration:none}
 .back{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--stone);text-decoration:none}
-.hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding:8rem 2rem;background:radial-gradient(ellipse at center,rgba(212,168,67,.12),transparent 65%),var(--mocha)}
+.hero{
+min-height:100vh;
+display:grid;
+place-items:center;
+text-align:center;
+padding:8rem 2rem;
+
+background:
+linear-gradient(rgba(26,18,13,.45), rgba(26,18,13,.65)),
+url("images/lounge-hero.png");
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+}
 .eyebrow{font-size:.65rem;letter-spacing:.5em;text-transform:uppercase;color:var(--deep-amber);margin-bottom:1.5rem}
 h1{font-family:"Cormorant Garamond",serif;font-weight:300;font-size:clamp(4rem,10vw,8rem);letter-spacing:.08em;line-height:.9}
 .hero p{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(1.1rem,2vw,1.5rem);color:var(--stone);max-width:620px;margin:2rem auto;line-height:1.6}
