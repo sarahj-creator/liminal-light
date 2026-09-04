@@ -64,10 +64,10 @@
 
       padding: 1.3rem 2.5rem;
 
-      background: rgba(26,18,13,.88);
+      background: rgba(26, 18, 13, .88);
       backdrop-filter: blur(12px);
 
-      border-bottom: 1px solid rgba(106,74,51,.35);
+      border-bottom: 1px solid rgba(106, 74, 51, .35);
     }
 
     .brand {
@@ -112,7 +112,7 @@
       background:
         radial-gradient(
           ellipse at center,
-          rgba(212,168,67,.12),
+          rgba(212, 168, 67, .12),
           transparent 65%
         ),
         var(--mocha);
@@ -123,7 +123,6 @@
     }
 
     .category {
-
       font-size: .65rem;
       letter-spacing: .45em;
       text-transform: uppercase;
@@ -134,9 +133,7 @@
     }
 
     h1 {
-
       font-family: "Cormorant Garamond", serif;
-
       font-weight: 300;
 
       font-size: clamp(3.5rem, 8vw, 7rem);
@@ -149,7 +146,6 @@
     }
 
     .reading-time {
-
       font-size: .65rem;
 
       letter-spacing: .25em;
@@ -160,7 +156,7 @@
     }
 
 
-    /* ARTICLE */
+    /* ARTICLE CONTENT */
 
     .article {
 
@@ -202,7 +198,28 @@
     }
 
 
-    /* HIGHLIGHT */
+    /* ARTICLE IMAGE */
+
+    .article-image {
+
+      width: 100%;
+
+      margin: 3rem 0 4rem;
+
+      overflow: hidden;
+    }
+
+    .article-image img {
+
+      width: 100%;
+
+      display: block;
+
+      object-fit: cover;
+    }
+
+
+    /* QUOTE */
 
     blockquote {
 
@@ -224,7 +241,7 @@
     }
 
 
-    /* FINAL SECTION */
+    /* ENDING */
 
     .article-ending {
 
@@ -258,7 +275,7 @@
 
       padding: 1rem 1.6rem;
 
-      border: 1px solid rgba(212,168,67,.7);
+      border: 1px solid rgba(212, 168, 67, .7);
 
       color: var(--warm-white);
 
@@ -371,6 +388,19 @@
   <p>
     Are your shoulders tense? Is your stomach in knots? Is your mind racing?
   </p>
+
+
+  <!-- ARTICLE IMAGE -->
+
+  <div class="article-image">
+
+    <img 
+      src="images/intentional-peace.png" 
+      alt="A peaceful space for rest, reflection and intentional calm"
+    >
+
+  </div>
+
 
   <p>
     Peace is something I think we all want to feel. If there's someone who doesn't, I'd genuinely love to have a conversation with them about why.
