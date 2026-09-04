@@ -1,2291 +1,1596 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Moment For Yourself | Liminal Light</title>
 
-  <title>A Moment For Yourself | Liminal Light</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <meta name="description"
-    content="A collection of ten pauses to keep with you. A gift from Liminal Light.">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=DM+Sans:wght@300;400;500&family=Italiana&display=swap" rel="stylesheet">
 
-  <!-- FONTS -->
+<style>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+/* =========================================================
+   LIMINAL LIGHT — GIFT EXPERIENCE
+========================================================= */
 
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+:root {
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Parisienne&display=swap"
-    rel="stylesheet">
+  --espresso: #211713;
+  --deep-brown: #2d201a;
+  --warm-brown: #493126;
+  --clay: #765342;
 
+  --stone: #e8dfd3;
+  --stone-light: #f3ede5;
+  --stone-dark: #d5c6b5;
 
-  <style>
+  --gold: #b58b5b;
+  --gold-soft: #cfaa7a;
 
-    /* =====================================================
-       LIMINAL LIGHT — YOUR COLLECTION OF PAUSES
-    ===================================================== */
+  --cream: #f4eee7;
+  --muted: #c9b9aa;
+  --ink: #30231d;
 
+  --display: "Bodoni Moda", serif;
+  --editorial: "Italiana", serif;
+  --sans: "DM Sans", sans-serif;
 
-    :root {
+}
 
-      /* BACKGROUNDS */
 
-      --brown-dark: #211814;
-      --brown-deep: #2B201B;
-      --brown-mid: #382921;
-      --brown-light: #49362B;
+/* =========================================================
+   RESET
+========================================================= */
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-      /* CARDS */
+html {
+  scroll-behavior: smooth;
+}
 
-      --limestone: #E7DED2;
-      --limestone-light: #F1EAE0;
-      --limestone-dark: #D5C8B9;
+body {
+  background: var(--espresso);
+  color: var(--cream);
+  font-family: var(--sans);
+  overflow-x: hidden;
+}
 
 
-      /* ACCENTS */
+/* =========================================================
+   ATMOSPHERIC BACKGROUND
+========================================================= */
 
-      --gold: #B28A55;
-      --gold-light: #D1AD78;
+.atmosphere {
 
+  position: fixed;
+  inset: 0;
 
-      /* TEXT */
+  pointer-events: none;
 
-      --cream: #F3ECE3;
-      --muted: #C8B9AA;
-      --dark-text: #342820;
+  z-index: -2;
 
+  overflow: hidden;
 
-      /* FONTS */
+  background:
 
-      --serif: "Cormorant Garamond", serif;
-      --sans: "Inter", sans-serif;
-      --script: "Parisienne", cursive;
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(126, 82, 57, 0.48),
+      transparent 34%
+    ),
 
-    }
+    radial-gradient(
+      circle at 10% 65%,
+      rgba(109, 72, 49, 0.34),
+      transparent 32%
+    ),
 
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(91, 55, 38, 0.28),
+      transparent 30%
+    ),
 
+    linear-gradient(
+      135deg,
+      #1e1512 0%,
+      #35241d 28%,
+      #51372a 52%,
+      #2d201a 78%,
+      #1b1310 100%
+    );
 
-    /* =====================================================
-       RESET
-    ===================================================== */
+}
 
 
-    * {
+/* SOFT LIGHT */
 
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+.atmosphere::before {
 
-    }
+  content: "";
 
+  position: absolute;
 
-    html {
+  width: 900px;
+  height: 900px;
 
-      scroll-behavior: smooth;
+  left: 50%;
+  top: -250px;
 
-    }
+  transform: translateX(-50%);
 
+  background:
 
-    body {
+    radial-gradient(
+      ellipse,
+      rgba(202, 155, 111, 0.17),
+      rgba(202, 155, 111, 0.04) 40%,
+      transparent 70%
+    );
 
-      background:
-        radial-gradient(
-          circle at 15% 15%,
-          rgba(130, 91, 59, 0.22),
-          transparent 28%
-        ),
+  filter: blur(30px);
 
-        radial-gradient(
-          circle at 85% 35%,
-          rgba(103, 72, 48, 0.15),
-          transparent 25%
-        ),
+}
 
-        linear-gradient(
-          135deg,
-          var(--brown-mid),
-          var(--brown-dark)
-        );
 
-      color: var(--cream);
+/* TEXTURE */
 
-      font-family: var(--sans);
+.atmosphere::after {
 
-      overflow-x: hidden;
+  content: "";
 
-    }
+  position: absolute;
 
+  inset: 0;
 
+  opacity: 0.18;
 
-    /* SUBTLE TEXTURE */
+  background-image:
 
+    radial-gradient(
+      rgba(255,255,255,0.08) 0.6px,
+      transparent 0.8px
+    );
 
-    body::before {
+  background-size: 4px 4px;
 
-      content: "";
+  mix-blend-mode: soft-light;
 
-      position: fixed;
+}
 
-      inset: 0;
 
-      pointer-events: none;
+/* =========================================================
+   BOTANICAL SHADOWS
+========================================================= */
 
-      opacity: 0.28;
+.botanical {
 
-      z-index: 1000;
+  position: fixed;
 
-      background-image:
+  width: 500px;
+  height: 700px;
 
-        radial-gradient(
-          rgba(255,255,255,0.025) 1px,
-          transparent 1px
-        );
+  pointer-events: none;
 
-      background-size: 5px 5px;
+  z-index: -1;
 
-    }
+  opacity: 0.16;
 
+  filter: blur(1px);
 
+}
 
-    /* =====================================================
-       GENERAL
-    ===================================================== */
 
+.botanical-left {
 
-    .section {
+  left: -180px;
+  bottom: -100px;
 
-      padding: 90px 25px;
+  transform: rotate(-20deg);
 
-      position: relative;
+  background:
 
-    }
+    repeating-linear-gradient(
+      55deg,
+      transparent 0px,
+      transparent 28px,
+      rgba(0,0,0,0.8) 30px,
+      transparent 34px
+    );
 
+}
 
-    .container {
 
-      width: min(1100px, 100%);
+.botanical-right {
 
-      margin: auto;
+  right: -200px;
+  top: 80px;
 
-    }
+  transform: rotate(25deg);
 
+  background:
 
-    .brand {
+    repeating-linear-gradient(
+      125deg,
+      transparent 0px,
+      transparent 35px,
+      rgba(0,0,0,0.7) 38px,
+      transparent 42px
+    );
 
-      font-size: 11px;
+}
 
-      letter-spacing: 12px;
 
-      text-transform: uppercase;
+/* =========================================================
+   HERO
+========================================================= */
 
-      color: var(--cream);
+.hero {
 
-    }
+  min-height: 100vh;
 
+  display: flex;
+  flex-direction: column;
 
-    .star {
+  justify-content: center;
+  align-items: center;
 
-      color: var(--gold-light);
+  text-align: center;
 
-      font-size: 26px;
+  padding: 70px 30px 80px;
 
-    }
+  position: relative;
 
+}
 
-    .gold-line {
 
-      width: 48px;
+/* TOP BRAND */
 
-      height: 1px;
+.brand {
 
-      background: var(--gold);
+  position: absolute;
 
-      margin: 22px auto;
+  top: 35px;
 
-    }
+  font-size: 10px;
 
+  font-weight: 500;
 
-    h1,
-    h2,
-    h3 {
+  letter-spacing: 12px;
 
-      font-family: var(--serif);
+  text-transform: uppercase;
 
-      font-weight: 500;
+  color: rgba(244,238,231,0.9);
 
-    }
+}
 
 
+.exit {
 
-    /* =====================================================
-       BUTTONS
-    ===================================================== */
+  position: absolute;
 
+  right: 40px;
+  top: 35px;
 
-    .outline-button {
+  color: var(--muted);
 
-      background: transparent;
+  text-decoration: none;
 
-      border: 1px solid var(--gold);
+  font-size: 11px;
 
-      color: var(--cream);
+  letter-spacing: 0.5px;
 
-      border-radius: 100px;
+  transition: color 0.3s ease;
 
-      padding: 17px 34px;
+}
 
-      text-transform: uppercase;
+.exit:hover {
+  color: var(--cream);
+}
 
-      letter-spacing: 4px;
 
-      font-size: 10px;
+/* STAR */
 
-      font-family: var(--sans);
+.hero-star {
 
-      cursor: pointer;
+  color: var(--gold-soft);
 
-      transition: all 0.35s ease;
+  font-size: 30px;
 
-    }
+  margin-bottom: 40px;
 
+  text-shadow:
+    0 0 30px rgba(207,170,122,0.3);
 
-    .outline-button:hover {
+}
 
-      background: var(--gold);
 
-      color: var(--brown-dark);
+/* MAIN TITLE */
 
-      transform: translateY(-3px);
+.hero h1 {
 
-      box-shadow:
-        0 15px 40px rgba(178,138,85,0.18);
+  font-family: var(--display);
 
-    }
+  font-weight: 400;
 
+  font-size: clamp(70px, 9vw, 145px);
 
-    .circle-button {
+  line-height: 0.85;
 
-      width: 60px;
+  letter-spacing: -5px;
 
-      height: 60px;
+  max-width: 1000px;
 
-      border-radius: 50%;
+  color: var(--cream);
 
-      border: 1px solid var(--gold);
+  text-shadow:
+    0 20px 50px rgba(0,0,0,0.2);
 
-      background: rgba(0,0,0,0.08);
+}
 
-      color: var(--cream);
 
-      font-size: 28px;
+/* GOLD DIVIDER */
 
-      cursor: pointer;
+.divider {
 
-      transition: all 0.3s ease;
+  width: 45px;
+  height: 1px;
 
-      display: flex;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold),
+    transparent
+  );
 
-      align-items: center;
+  margin: 42px auto 38px;
 
-      justify-content: center;
+}
 
-    }
 
+/* SUBTEXT */
 
-    .circle-button:hover {
+.hero-description {
 
-      background: var(--gold);
+  font-size: 16px;
 
-      color: var(--brown-dark);
+  font-weight: 300;
 
-      transform: scale(1.08);
+  line-height: 2;
 
-    }
+  letter-spacing: 0.5px;
 
+  color: var(--muted);
 
+  max-width: 420px;
 
-    /* =====================================================
-       HERO
-    ===================================================== */
+}
 
 
-    .hero {
+/* BUTTON */
 
-      min-height: 100vh;
+.main-button {
 
-      display: flex;
+  margin-top: 40px;
 
-      flex-direction: column;
+  padding: 18px 42px;
 
-      align-items: center;
+  background: rgba(255,255,255,0.025);
 
-      justify-content: center;
+  border: 1px solid rgba(181,139,91,0.7);
 
-      text-align: center;
+  border-radius: 100px;
 
-      padding: 40px 25px 100px;
+  color: var(--cream);
 
-      position: relative;
+  font-family: var(--sans);
 
-    }
+  font-size: 10px;
 
+  font-weight: 500;
 
-    .exit {
+  letter-spacing: 5px;
 
-      position: absolute;
+  text-transform: uppercase;
 
-      top: 40px;
+  cursor: pointer;
 
-      right: 50px;
+  transition: all 0.4s ease;
 
-      font-size: 12px;
+}
 
-      color: var(--muted);
+.main-button:hover {
 
-      text-decoration: none;
+  transform: translateY(-4px);
 
-      transition: color 0.3s ease;
+  background: rgba(181,139,91,0.12);
 
-    }
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.25);
 
+}
 
-    .exit:hover {
 
-      color: var(--cream);
+.choose {
 
-    }
+  margin-top: 80px;
 
+  font-size: 9px;
 
-    .hero .star {
+  letter-spacing: 9px;
 
-      margin: 30px 0;
+  text-transform: uppercase;
 
-    }
+  color: rgba(244,238,231,0.7);
 
+}
 
-    .hero h1 {
 
-      font-size: clamp(60px, 8vw, 110px);
+.arrow-down {
 
-      line-height: 0.95;
+  margin-top: 20px;
 
-      max-width: 900px;
+  color: var(--gold-soft);
 
-    }
+  font-size: 28px;
 
+  animation: float 2.5s infinite ease-in-out;
 
-    .hero-description {
+}
 
-      font-size: 18px;
+@keyframes float {
 
-      line-height: 1.7;
+  0%,100% {
+    transform: translateY(0);
+  }
 
-      color: var(--muted);
+  50% {
+    transform: translateY(9px);
+  }
 
-      max-width: 420px;
+}
 
-      margin: 28px auto 30px;
 
-    }
+/* =========================================================
+   DECK
+========================================================= */
 
+.deck-section {
 
-    .choose-card-label {
+  min-height: 700px;
 
-      margin-top: 65px;
+  display: flex;
 
-      font-size: 11px;
+  align-items: center;
 
-      letter-spacing: 7px;
+  justify-content: center;
 
-      color: var(--muted);
+  padding: 100px 30px;
 
-      text-transform: uppercase;
+}
 
-    }
 
+.deck-container {
 
-    .down-arrow {
+  display: grid;
 
-      margin-top: 12px;
+  grid-template-columns: 180px 1fr 180px;
 
-      color: var(--gold);
+  align-items: center;
 
-      font-size: 22px;
+  gap: 60px;
 
-      animation: floatArrow 2s infinite ease-in-out;
+  width: min(1100px, 100%);
 
-    }
+}
 
 
-    @keyframes floatArrow {
+/* SIDE OPTIONS */
 
-      0%, 100% {
+.deck-option {
 
-        transform: translateY(0);
+  text-align: center;
 
-      }
+}
 
-      50% {
+.deck-option p {
 
-        transform: translateY(7px);
+  font-family: var(--editorial);
 
-      }
+  font-size: 30px;
 
-    }
+  line-height: 0.9;
 
+  color: var(--cream);
 
+}
 
-    /* =====================================================
-       CARD DECK SECTION
-    ===================================================== */
+.deck-option span {
 
+  display: block;
 
-    .deck-section {
+  color: var(--gold);
 
-      min-height: 650px;
+  font-size: 24px;
 
-      padding: 80px 25px 100px;
+  margin: 18px 0;
 
-      position: relative;
+}
 
-      display: flex;
 
-      align-items: center;
+.option-button {
 
-      justify-content: center;
+  width: 58px;
+  height: 58px;
 
-    }
+  border-radius: 50%;
 
+  border: 1px solid rgba(181,139,91,0.8);
 
-    .deck-layout {
+  background: transparent;
 
-      width: min(1000px, 100%);
+  color: var(--cream);
 
-      display: grid;
+  font-size: 22px;
 
-      grid-template-columns: 160px 1fr 160px;
+  cursor: pointer;
 
-      align-items: center;
+  transition: all 0.35s ease;
 
-      gap: 40px;
+}
 
-    }
+.option-button:hover {
 
+  background: var(--gold);
 
-    /* SIDE CONTROLS */
+  color: var(--espresso);
 
+  transform: scale(1.08);
 
-    .deck-side {
+}
 
-      display: flex;
 
-      flex-direction: column;
+/* =========================================================
+   PHYSICAL CARD STACK
+========================================================= */
 
-      align-items: center;
+.card-stack {
 
-      gap: 15px;
+  position: relative;
 
-    }
+  width: min(540px, 90vw);
 
+  height: 350px;
 
-    .deck-side-label {
+  margin: auto;
 
-      font-family: var(--script);
+  cursor: pointer;
 
-      font-size: 27px;
+}
 
-      color: var(--cream);
 
-      line-height: 0.8;
+.stack-layer {
 
-      text-align: center;
+  position: absolute;
 
-    }
+  width: 100%;
+  height: 100%;
 
+  border-radius: 5px;
 
-    .deck-side-arrow {
+  background:
 
-      color: var(--gold);
+    radial-gradient(
+      circle at 20% 10%,
+      rgba(255,255,255,0.8),
+      transparent 35%
+    ),
 
-      font-size: 30px;
+    linear-gradient(
+      135deg,
+      #efe7dc,
+      #d8c9b8
+    );
 
-    }
+  box-shadow:
+    0 25px 60px rgba(0,0,0,0.35);
 
+}
 
 
-    /* =====================================================
-       PHYSICAL CARD STACK
-    ===================================================== */
+.layer-one {
 
+  transform:
+    translate(24px,18px)
+    rotate(5deg);
 
-    .card-stack {
+  opacity: 0.45;
 
-      width: min(500px, 90vw);
+}
 
-      height: 310px;
 
-      position: relative;
+.layer-two {
 
-      margin: auto;
+  transform:
+    translate(12px,9px)
+    rotate(-2.5deg);
 
-      cursor: pointer;
+  opacity: 0.75;
 
-    }
+}
 
 
-    .stack-card {
+.layer-main {
 
-      position: absolute;
+  display: flex;
 
-      width: 100%;
+  flex-direction: column;
 
-      height: 100%;
+  align-items: center;
 
-      border-radius: 24px;
+  justify-content: center;
 
-      background:
+  color: var(--ink);
 
-        radial-gradient(
-          circle at 20% 10%,
-          rgba(255,255,255,0.7),
-          transparent 35%
-        ),
+  overflow: hidden;
 
-        linear-gradient(
-          135deg,
-          var(--limestone-light),
-          var(--limestone-dark)
-        );
+  transition:
+    transform 0.5s ease,
+    box-shadow 0.5s ease;
 
-      box-shadow:
+}
 
-        0 30px 60px rgba(10,7,5,0.35),
 
-        inset 0 0 0 1px rgba(255,255,255,0.6);
+.card-stack:hover .layer-main {
 
-    }
+  transform:
+    translateY(-16px)
+    rotate(-1deg);
 
+  box-shadow:
+    0 50px 100px rgba(0,0,0,0.45);
 
-    .stack-card:nth-child(1) {
+}
 
-      transform:
-        translate(18px, 18px)
-        rotate(4deg);
 
-      opacity: 0.55;
+.layer-main::before {
 
-    }
+  content: "";
 
+  position: absolute;
 
-    .stack-card:nth-child(2) {
+  inset: 0;
 
-      transform:
-        translate(9px, 9px)
-        rotate(-2deg);
+  opacity: 0.25;
 
-      opacity: 0.75;
+  background-image:
 
-    }
+    radial-gradient(
+      rgba(80,60,45,0.25) 0.5px,
+      transparent 0.8px
+    );
 
+  background-size: 5px 5px;
 
-    .stack-card:nth-child(3) {
+}
 
-      transform:
-        translate(0, 0);
 
-      display: flex;
+.deck-content {
 
-      flex-direction: column;
+  position: relative;
 
-      align-items: center;
+  text-align: center;
 
-      justify-content: center;
+}
 
-      color: var(--dark-text);
 
-      transition:
-        transform 0.5s ease,
-        box-shadow 0.5s ease;
+.deck-star {
 
-    }
+  color: var(--gold);
 
+  font-size: 34px;
 
-    .card-stack:hover .stack-card:nth-child(3) {
+  margin-bottom: 28px;
 
-      transform:
-        translateY(-12px)
-        rotate(-1deg);
+}
 
-      box-shadow:
 
-        0 45px 80px rgba(10,7,5,0.45);
+.deck-brand {
 
-    }
+  font-size: 11px;
 
+  letter-spacing: 9px;
 
-    .deck-star {
+}
 
-      font-size: 30px;
 
-      margin-bottom: 25px;
+.deck-line {
 
-    }
+  width: 38px;
+  height: 1px;
 
+  background: var(--gold);
 
-    .deck-brand {
+  margin: 25px auto;
 
-      letter-spacing: 10px;
+}
 
-      font-size: 13px;
 
-      margin-bottom: 20px;
+.deck-copy {
 
-    }
+  font-family: var(--display);
 
+  font-size: 28px;
 
-    .deck-divider {
+}
 
-      width: 45px;
 
-      height: 1px;
+/* =========================================================
+   FEATURE CARD
+========================================================= */
 
-      background: var(--gold);
+.feature-section {
 
-      margin-bottom: 20px;
+  padding: 70px 30px 120px;
 
-    }
+}
 
 
-    .deck-text {
+.feature-wrapper {
 
-      font-family: var(--serif);
+  width: min(1100px, 100%);
 
-      font-size: 25px;
+  margin: auto;
 
-    }
+  display: grid;
 
+  grid-template-columns: 90px 1fr 90px;
 
+  gap: 30px;
 
-    /* =====================================================
-       FEATURE CARD
-    ===================================================== */
+  align-items: center;
 
+}
 
-    .feature-section {
 
-      padding: 50px 25px 100px;
+.nav-button {
 
-      display: flex;
+  width: 58px;
+  height: 58px;
 
-      justify-content: center;
+  border-radius: 50%;
 
-      align-items: center;
+  border: 1px solid rgba(181,139,91,0.7);
 
-    }
+  background: transparent;
 
+  color: var(--cream);
 
-    .feature-layout {
+  font-size: 25px;
 
-      width: min(1100px, 100%);
+  cursor: pointer;
 
-      display: grid;
+  transition: all 0.3s ease;
 
-      grid-template-columns: 100px 1fr 100px;
+}
 
-      align-items: center;
+.nav-button:hover {
 
-      gap: 30px;
+  background: var(--gold);
 
-    }
+  color: var(--espresso);
 
+}
 
-    .feature-card {
 
-      min-height: 450px;
+.feature-card {
 
-      width: min(100%, 600px);
+  width: min(620px,100%);
 
-      margin: auto;
+  min-height: 500px;
 
-      padding: 55px 50px;
+  margin: auto;
 
-      border-radius: 24px;
+  padding: 70px 50px;
 
-      background:
+  display: flex;
 
-        radial-gradient(
-          circle at top left,
-          rgba(255,255,255,0.65),
-          transparent 40%
-        ),
+  flex-direction: column;
 
-        linear-gradient(
-          135deg,
-          #F0E8DD,
-          #D8CBBB
-        );
+  justify-content: center;
 
-      color: var(--dark-text);
+  align-items: center;
 
-      display: flex;
+  text-align: center;
 
-      flex-direction: column;
+  color: var(--ink);
 
-      align-items: center;
+  position: relative;
 
-      justify-content: center;
+  background:
 
-      text-align: center;
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(255,255,255,0.9),
+      transparent 32%
+    ),
 
-      box-shadow:
+    linear-gradient(
+      135deg,
+      #f2ebe2,
+      #d9cab9
+    );
 
-        0 35px 80px rgba(10,7,5,0.35),
+  box-shadow:
 
-        inset 0 0 0 1px rgba(255,255,255,0.55);
+    0 45px 100px rgba(0,0,0,0.38),
 
-      transition: transform 0.4s ease;
+    inset 0 0 0 1px rgba(255,255,255,0.5);
 
-    }
+}
 
 
-    .feature-card.animating {
+.feature-card::after {
 
-      animation: cardChange 0.5s ease;
+  content: "";
 
-    }
+  position: absolute;
 
+  inset: 0;
 
-    @keyframes cardChange {
+  opacity: 0.14;
 
-      0% {
+  pointer-events: none;
 
-        opacity: 0;
-        transform: translateY(20px) rotateY(10deg);
+  background-image:
 
-      }
+    radial-gradient(
+      rgba(70,50,35,0.3) 0.5px,
+      transparent 0.8px
+    );
 
-      100% {
+  background-size: 5px 5px;
 
-        opacity: 1;
-        transform: translateY(0) rotateY(0);
+}
 
-      }
 
-    }
+.card-content {
+  position: relative;
+  z-index: 2;
+}
 
 
-    .card-number {
+.card-number {
 
-      font-size: 12px;
+  font-size: 10px;
 
-      letter-spacing: 5px;
+  letter-spacing: 5px;
 
-      margin-bottom: 20px;
+  margin-bottom: 30px;
 
-    }
+}
 
 
-    .feature-title {
+.card-title {
 
-      font-size: clamp(55px, 7vw, 78px);
+  font-family: var(--display);
 
-      letter-spacing: 7px;
+  font-weight: 400;
 
-      line-height: 1;
+  font-size: clamp(52px,6vw,80px);
 
-    }
+  letter-spacing: -2px;
 
+  line-height: 0.9;
 
-    .feature-divider {
+}
 
-      width: 45px;
 
-      height: 1px;
+.card-divider {
 
-      background: var(--gold);
+  width: 38px;
 
-      margin: 25px 0;
+  height: 1px;
 
-    }
+  background: var(--gold);
 
+  margin: 35px auto;
 
-    .feature-message {
+}
 
-      max-width: 420px;
 
-      font-size: 16px;
+.card-message {
 
-      line-height: 1.8;
+  max-width: 400px;
 
-    }
+  font-family: var(--sans);
 
+  font-size: 15px;
 
+  font-weight: 300;
 
-    /* =====================================================
-       CARD NAVIGATION
-    ===================================================== */
+  line-height: 1.9;
 
+}
 
-    .feature-navigation {
 
-      display: flex;
+/* =========================================================
+   DOTS
+========================================================= */
 
-      justify-content: center;
+.progress {
 
-      align-items: center;
+  display: flex;
 
-      gap: 18px;
+  justify-content: center;
 
-      margin-top: 28px;
+  gap: 10px;
 
-    }
+  margin: 35px 0;
 
+}
 
-    .progress-dots {
+.dot {
 
-      display: flex;
+  width: 6px;
+  height: 6px;
 
-      justify-content: center;
+  border-radius: 50%;
 
-      gap: 11px;
+  background: rgba(244,238,231,0.25);
 
-      margin: 25px 0;
+  cursor: pointer;
 
-    }
+}
 
+.dot.active {
 
-    .dot {
+  background: var(--gold-soft);
 
-      width: 8px;
+  transform: scale(1.4);
 
-      height: 8px;
+}
 
-      border-radius: 50%;
 
-      background: rgba(243,236,227,0.25);
+/* =========================================================
+   COLLECTION
+========================================================= */
 
-      transition: all 0.3s ease;
+.collection {
 
-    }
+  position: relative;
 
+  padding: 110px 30px;
 
-    .dot.active {
+  background:
 
-      background: var(--gold);
+    linear-gradient(
+      135deg,
+      #ede5db,
+      #d8caba
+    );
 
-      transform: scale(1.2);
+  color: var(--ink);
 
-    }
+}
 
 
-    .card-actions {
+.collection-heading {
 
-      display: flex;
+  text-align: center;
 
-      align-items: center;
+  font-family: var(--sans);
 
-      justify-content: center;
+  font-size: 10px;
 
-      gap: 30px;
+  font-weight: 500;
 
-      flex-wrap: wrap;
+  text-transform: uppercase;
 
-    }
+  letter-spacing: 8px;
 
+}
 
-    .keep-reminder {
 
-      border: none;
+.collection-line {
 
-      background: transparent;
+  width: 40px;
 
-      color: var(--cream);
+  height: 1px;
 
-      font-size: 10px;
+  background: var(--gold);
 
-      letter-spacing: 2px;
+  margin: 25px auto 60px;
 
-      text-transform: uppercase;
+}
 
-      cursor: pointer;
 
-      display: flex;
+.collection-grid {
 
-      align-items: center;
+  max-width: 1150px;
 
-      gap: 12px;
+  margin: auto;
 
-    }
+  display: grid;
 
+  grid-template-columns: repeat(5,1fr);
 
-    .bookmark {
+  gap: 22px;
 
-      width: 17px;
+}
 
-      height: 25px;
 
-      border: 1px solid var(--cream);
+.mini-card {
 
-      border-radius: 2px 2px 0 0;
+  aspect-ratio: 0.72;
 
-      position: relative;
+  padding: 20px;
 
-    }
+  display: flex;
 
+  flex-direction: column;
 
-    .bookmark::after {
+  align-items: center;
 
-      content: "";
+  justify-content: center;
 
-      position: absolute;
+  text-align: center;
 
-      bottom: -1px;
+  cursor: pointer;
 
-      left: 3px;
+  background:
 
-      width: 8px;
+    radial-gradient(
+      circle at 20% 10%,
+      rgba(255,255,255,0.8),
+      transparent 35%
+    ),
 
-      height: 8px;
+    linear-gradient(
+      135deg,
+      #f5efe8,
+      #d8cbbb
+    );
 
-      background: var(--brown-dark);
+  box-shadow:
+    0 18px 35px rgba(65,45,30,0.16);
 
-      border-right: 1px solid var(--cream);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
 
-      border-bottom: 1px solid var(--cream);
+}
 
-      transform: rotate(45deg);
+.mini-card:hover {
 
-    }
+  transform:
+    translateY(-10px)
+    rotate(-1deg);
 
+  box-shadow:
+    0 28px 50px rgba(65,45,30,0.23);
 
+}
 
-    /* =====================================================
-       COLLECTION
-    ===================================================== */
 
+.mini-number {
 
-    .collection {
+  font-size: 9px;
 
-      background:
+  letter-spacing: 3px;
 
-        linear-gradient(
-          135deg,
-          #F0E9DF,
-          #D8CCBE
-        );
+  margin-bottom: 20px;
 
-      color: var(--dark-text);
+}
 
-      padding: 75px 25px;
 
-      text-align: center;
+.mini-icon {
 
-    }
+  color: var(--gold);
 
+  font-size: 25px;
 
-    .collection-title {
+  margin-bottom: 18px;
 
-      font-family: var(--sans);
+}
 
-      text-transform: uppercase;
 
-      letter-spacing: 7px;
+.mini-title {
 
-      font-size: 13px;
+  font-family: var(--editorial);
 
-      font-weight: 400;
+  font-size: 19px;
 
-    }
+  line-height: 1.1;
 
+}
 
-    .collection-divider {
 
-      width: 45px;
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
-      height: 1px;
+@media (max-width: 850px) {
 
-      background: var(--gold);
+  .deck-container {
+    grid-template-columns: 1fr;
+  }
 
-      margin: 20px auto 40px;
+  .deck-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    }
+  .feature-wrapper {
+    grid-template-columns: 1fr;
+  }
 
+  .feature-wrapper > .nav-button {
+    margin: auto;
+  }
 
-    .collection-grid {
+  .collection-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
 
-      max-width: 1150px;
+}
 
-      margin: auto;
 
-      display: grid;
+@media (max-width: 600px) {
 
-      grid-template-columns: repeat(5, 1fr);
+  .brand {
+    letter-spacing: 7px;
+    font-size: 8px;
+  }
 
-      gap: 20px;
+  .exit {
+    right: 20px;
+    top: 25px;
+  }
 
-    }
+  .hero h1 {
+    font-size: 70px;
+    letter-spacing: -3px;
+  }
 
+  .card-stack {
+    height: 240px;
+  }
 
-    .mini-card {
+  .feature-card {
+    min-height: 440px;
+    padding: 50px 25px;
+  }
 
-      min-height: 155px;
+  .collection {
+    padding: 80px 20px;
+  }
 
-      border-radius: 13px;
+}
 
-      padding: 20px 12px;
-
-      background:
-
-        radial-gradient(
-          circle at top left,
-          rgba(255,255,255,0.7),
-          transparent 40%
-        ),
-
-        linear-gradient(
-          135deg,
-          #F4EEE6,
-          #DDD1C3
-        );
-
-      border: 1px solid rgba(70,50,35,0.12);
-
-      box-shadow:
-
-        0 10px 20px rgba(50,35,25,0.13);
-
-      cursor: pointer;
-
-      display: flex;
-
-      flex-direction: column;
-
-      align-items: center;
-
-      justify-content: center;
-
-      transition: all 0.3s ease;
-
-    }
-
-
-    .mini-card:hover {
-
-      transform: translateY(-8px);
-
-      box-shadow:
-
-        0 20px 35px rgba(50,35,25,0.2);
-
-    }
-
-
-    .mini-number {
-
-      font-size: 10px;
-
-      letter-spacing: 3px;
-
-      margin-bottom: 18px;
-
-    }
-
-
-    .mini-icon {
-
-      font-size: 30px;
-
-      margin-bottom: 15px;
-
-      color: #5B4638;
-
-    }
-
-
-    .mini-title {
-
-      font-size: 10px;
-
-      letter-spacing: 2px;
-
-      text-transform: uppercase;
-
-    }
-
-
-
-    /* =====================================================
-       FOOTER
-    ===================================================== */
-
-
-    .footer {
-
-      background:
-
-        linear-gradient(
-          135deg,
-          var(--brown-deep),
-          var(--brown-dark)
-        );
-
-      padding: 25px 40px;
-
-      display: flex;
-
-      justify-content: space-between;
-
-      align-items: center;
-
-      color: var(--muted);
-
-      font-size: 12px;
-
-    }
-
-
-    .footer-heart {
-
-      color: var(--gold);
-
-      font-size: 22px;
-
-      margin-right: 15px;
-
-    }
-
-
-    .footer-left {
-
-      display: flex;
-
-      align-items: center;
-
-    }
-
-
-    .footer-brand {
-
-      color: var(--gold-light);
-
-      font-size: 18px;
-
-    }
-
-
-
-    /* =====================================================
-       RESPONSIVE
-    ===================================================== */
-
-
-    @media (max-width: 850px) {
-
-
-      .deck-layout {
-
-        grid-template-columns: 1fr;
-
-        gap: 35px;
-
-      }
-
-
-      .deck-side {
-
-        flex-direction: row;
-
-      }
-
-
-      .deck-layout .deck-side:last-child {
-
-        order: 3;
-
-      }
-
-
-      .feature-layout {
-
-        grid-template-columns: 1fr;
-
-      }
-
-
-      .feature-layout .circle-button {
-
-        margin: auto;
-
-      }
-
-
-      .collection-grid {
-
-        grid-template-columns: repeat(2, 1fr);
-
-      }
-
-
-      .exit {
-
-        right: 25px;
-
-      }
-
-    }
-
-
-
-    @media (max-width: 600px) {
-
-
-      .hero {
-
-        padding-top: 100px;
-
-      }
-
-
-      .brand {
-
-        letter-spacing: 7px;
-
-        font-size: 9px;
-
-      }
-
-
-      .hero h1 {
-
-        font-size: 62px;
-
-      }
-
-
-      .hero-description {
-
-        font-size: 16px;
-
-      }
-
-
-      .deck-section {
-
-        padding-top: 40px;
-
-      }
-
-
-      .card-stack {
-
-        height: 230px;
-
-      }
-
-
-      .deck-brand {
-
-        font-size: 10px;
-
-        letter-spacing: 7px;
-
-      }
-
-
-      .feature-card {
-
-        min-height: 420px;
-
-        padding: 45px 28px;
-
-      }
-
-
-      .feature-title {
-
-        font-size: 52px;
-
-      }
-
-
-      .feature-message {
-
-        font-size: 15px;
-
-      }
-
-
-      .card-actions {
-
-        flex-direction: column;
-
-        gap: 25px;
-
-      }
-
-
-      .collection-grid {
-
-        grid-template-columns: repeat(2, 1fr);
-
-        gap: 13px;
-
-      }
-
-
-      .mini-card {
-
-        min-height: 130px;
-
-      }
-
-
-      .footer {
-
-        flex-direction: column;
-
-        gap: 20px;
-
-        text-align: center;
-
-        padding: 25px;
-
-      }
-
-
-      .footer-left {
-
-        justify-content: center;
-
-      }
-
-    }
-
-
-  </style>
+</style>
 
 </head>
-
 
 <body>
 
 
-  <!-- =====================================================
-       HERO
-  ===================================================== -->
+<div class="atmosphere"></div>
+<div class="botanical botanical-left"></div>
+<div class="botanical botanical-right"></div>
 
 
-  <section class="hero" id="top">
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="brand">Liminal Light</div>
+
+  <a href="/" class="exit">Exit experience</a>
+
+  <div class="hero-star">✦</div>
+
+  <h1>A moment for<br>yourself.</h1>
+
+  <div class="divider"></div>
+
+  <p class="hero-description">
+    A collection of ten pauses<br>
+    to keep with you.
+  </p>
+
+  <button
+    class="main-button"
+    onclick="document.getElementById('deck').scrollIntoView({behavior:'smooth'})">
+
+    Open Your Deck
+
+  </button>
+
+  <div class="choose">Choose a card</div>
+
+  <div class="arrow-down">↓</div>
+
+</section>
 
 
-    <a href="/" class="exit">
 
-      Exit experience
+<!-- DECK -->
 
-    </a>
+<section class="deck-section" id="deck">
 
-
-    <div class="brand">
-
-      Liminal Light
-
-    </div>
+  <div class="deck-container">
 
 
-    <div class="star">
+    <div class="deck-option">
 
-      ✦
+      <p>Draw<br>random</p>
 
-    </div>
+      <span>↓</span>
 
-
-    <h1>
-
-      A moment for yourself.
-
-    </h1>
-
-
-    <div class="gold-line"></div>
-
-
-    <p class="hero-description">
-
-      A collection of ten pauses
-      <br>
-      to keep with you.
-
-    </p>
-
-
-    <button
-      class="outline-button"
-      onclick="document.getElementById('deck').scrollIntoView({behavior:'smooth'})">
-
-      Open Your Deck
-
-    </button>
-
-
-    <div class="choose-card-label">
-
-      Choose a card
+      <button class="option-button" onclick="drawRandomCard()">
+        ✦
+      </button>
 
     </div>
 
 
-    <div class="down-arrow">
+    <div class="card-stack" onclick="drawRandomCard()">
 
-      ↓
+      <div class="stack-layer layer-one"></div>
 
-    </div>
+      <div class="stack-layer layer-two"></div>
 
+      <div class="stack-layer layer-main">
 
-  </section>
+        <div class="deck-content">
 
-
-
-  <!-- =====================================================
-       CARD DECK
-  ===================================================== -->
-
-
-  <section class="deck-section" id="deck">
-
-
-    <div class="deck-layout">
-
-
-      <!-- DRAW RANDOM -->
-
-
-      <div class="deck-side">
-
-        <div class="deck-side-label">
-
-          Draw
-          <br>
-          random
-
-        </div>
-
-
-        <div class="deck-side-arrow">
-
-          ↓
-
-        </div>
-
-
-        <button
-          class="circle-button"
-          onclick="drawRandomCard()">
-
-          ⤨
-
-        </button>
-
-      </div>
-
-
-
-      <!-- CARD STACK -->
-
-
-      <div
-        class="card-stack"
-        onclick="drawRandomCard()">
-
-
-        <div class="stack-card"></div>
-
-        <div class="stack-card"></div>
-
-
-        <div class="stack-card">
-
-
-          <div class="deck-star">
-
-            ✦
-
-          </div>
-
+          <div class="deck-star">✦</div>
 
           <div class="deck-brand">
-
             LIMINAL LIGHT
-
           </div>
 
+          <div class="deck-line"></div>
 
-          <div class="deck-divider"></div>
-
-
-          <div class="deck-text">
-
+          <div class="deck-copy">
             A moment for yourself
-
           </div>
 
-
         </div>
-
 
       </div>
-
-
-
-      <!-- EXPLORE -->
-
-
-      <div class="deck-side">
-
-
-        <div class="deck-side-label">
-
-          Explore
-          <br>
-          all cards
-
-        </div>
-
-
-        <div class="deck-side-arrow">
-
-          ↓
-
-        </div>
-
-
-        <button
-          class="circle-button"
-          onclick="document.getElementById('collection').scrollIntoView({behavior:'smooth'})">
-
-          ☷
-
-        </button>
-
-
-      </div>
-
 
     </div>
 
 
-  </section>
+    <div class="deck-option">
 
+      <p>Explore<br>the deck</p>
 
-
-  <!-- =====================================================
-       FEATURE CARD
-  ===================================================== -->
-
-
-  <section class="feature-section" id="featured">
-
-
-    <div class="feature-layout">
-
+      <span>↓</span>
 
       <button
-        class="circle-button"
-        onclick="previousCard()">
+        class="option-button"
+        onclick="document.getElementById('collection').scrollIntoView({behavior:'smooth'})">
 
-        ←
+        ↘
 
       </button>
 
-
-
-      <div>
-
-
-        <div
-          class="feature-card"
-          id="featureCard">
-
-
-          <div
-            class="card-number"
-            id="cardNumber">
-
-            01
-
-          </div>
-
-
-          <div
-            class="feature-title"
-            id="cardTitle">
-
-            PAUSE
-
-          </div>
-
-
-          <div class="feature-divider"></div>
-
-
-          <div
-            class="feature-message"
-            id="cardMessage">
-
-            You don't always have to keep moving.
-            <br><br>
-            Sometimes the most important thing
-            you can do is stop.
-            <br><br>
-            Nothing needs to happen right now.
-
-          </div>
-
-
-        </div>
-
-
-
-        <!-- PROGRESS DOTS -->
-
-
-        <div
-          class="progress-dots"
-          id="progressDots">
-
-        </div>
-
-
-
-        <!-- ACTIONS -->
-
-
-        <div class="card-actions">
-
-
-          <button
-            class="outline-button"
-            onclick="drawRandomCard()">
-
-            Draw Another Card
-
-          </button>
-
-
-          <button
-            class="keep-reminder"
-            onclick="keepReminder()">
-
-
-            <span class="bookmark"></span>
-
-            <span id="keepText">
-
-              Keep This Reminder
-
-            </span>
-
-
-          </button>
-
-
-        </div>
-
-
-      </div>
-
-
-
-      <button
-        class="circle-button"
-        onclick="nextCard()">
-
-        →
-
-      </button>
-
-
     </div>
 
 
-  </section>
+  </div>
+
+</section>
 
 
 
-  <!-- =====================================================
-       COLLECTION
-  ===================================================== -->
+<!-- FEATURE CARD -->
+
+<section class="feature-section">
+
+  <div class="feature-wrapper">
 
 
-  <section
-    class="collection"
-    id="collection">
-
-
-    <h2 class="collection-title">
-
-      Your Collection — Ten Pauses
-
-    </h2>
-
-
-    <div class="collection-divider"></div>
-
-
-    <div
-      class="collection-grid"
-      id="collectionGrid">
-
-    </div>
-
-
-  </section>
-
-
-
-  <!-- =====================================================
-       FOOTER
-  ===================================================== -->
-
-
-  <footer class="footer">
-
-
-    <div class="footer-left">
-
-      <span class="footer-heart">
-
-        ♡
-
-      </span>
-
-
-      You made time for yourself. That matters.
-
-    </div>
-
-
-    <div class="footer-brand">
-
-      ✦
-
-    </div>
+    <button class="nav-button" onclick="previousCard()">←</button>
 
 
     <div>
 
-      Come back anytime.
+      <div class="feature-card" id="featureCard">
+
+        <div class="card-content">
+
+          <div class="card-number" id="cardNumber">01</div>
+
+          <h2 class="card-title" id="cardTitle">Pause</h2>
+
+          <div class="card-divider"></div>
+
+          <p class="card-message" id="cardMessage">
+            You don't always have to keep moving.
+            <br><br>
+            Sometimes the most important thing you can do is stop.
+            <br><br>
+            Nothing needs to happen right now.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="progress" id="progressDots"></div>
+
+
+      <div style="text-align:center">
+
+        <button class="main-button" onclick="drawRandomCard()">
+          Draw Another Card
+        </button>
+
+      </div>
 
     </div>
 
 
-  </footer>
+    <button class="nav-button" onclick="nextCard()">→</button>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- COLLECTION -->
+
+<section class="collection" id="collection">
+
+  <div class="collection-heading">
+    Your Collection — Ten Pauses
+  </div>
 
+  <div class="collection-line"></div>
 
+  <div class="collection-grid" id="collectionGrid"></div>
 
-  <!-- =====================================================
-       JAVASCRIPT
-  ===================================================== -->
+</section>
 
 
-  <script>
 
+<script>
 
-    /* =====================================================
-       CARD DATA
-    ===================================================== */
+const cards = [
 
+{
+title: "Pause",
+icon: "Ⅱ",
+message: `You don't always have to keep moving.<br><br>
+Sometimes the most important thing you can do is stop.<br><br>
+Nothing needs to happen right now.`
+},
 
-    const cards = [
+{
+title: "Breathe",
+icon: "≈",
+message: `Slow down your breathing.<br><br>
+Let your shoulders soften.<br><br>
+You don't need to solve everything right now.<br><br>
+Just breathe.`
+},
 
-      {
-        title: "PAUSE",
-        icon: "Ⅱ",
-        message: `
+{
+title: "Release",
+icon: "↓",
+message: `Notice what you're holding.<br><br>
+Your shoulders. Your jaw. Your hands.<br><br>
+Take a breath and let something go.`
+},
 
-          You don't always have to keep moving.
-          <br><br>
-          Sometimes the most important thing
-          you can do is stop.
-          <br><br>
-          Nothing needs to happen right now.
+{
+title: "Return",
+icon: "○",
+message: `Come back to where you are.<br><br>
+Feel your feet. Notice your breath.<br><br>
+You are here.`
+},
 
-        `
-      },
+{
+title: "Rest",
+icon: "☾",
+message: `Rest is not something you have to earn.<br><br>
+Your body deserves moments without expectation.<br><br>
+Let yourself rest.`
+},
 
+{
+title: "Notice",
+icon: "☼",
+message: `Notice one thing that feels good right now.<br><br>
+Warmth. Quiet. Comfort.<br><br>
+Stay with it for a moment.`
+},
 
-      {
-        title: "BREATHE",
-        icon: "≈",
-        message: `
+{
+title: "Soften",
+icon: "≋",
+message: `You don't have to hold yourself so tightly.<br><br>
+Relax your jaw. Drop your shoulders.<br><br>
+Soften.`
+},
 
-          Slow down your breathing.
-          <br><br>
-          Let your shoulders soften.
-          <br><br>
-          You don't need to solve everything
-          in this moment.
-          <br><br>
-          Just breathe.
+{
+title: "Receive",
+icon: "○",
+message: `You are allowed to receive care.<br><br>
+You don't always have to be the person giving everything away.<br><br>
+Let yourself receive.`
+},
 
-        `
-      },
+{
+title: "Still",
+icon: "○",
+message: `There is nothing you need to chase in this moment.<br><br>
+Stay here.<br><br>
+Be still.`
+},
 
+{
+title: "Return to yourself",
+icon: "✦",
+message: `Among everything demanding your attention...<br><br>
+Don't forget yourself.<br><br>
+Come back.<br><br>
+You are still here.`
+}
 
-      {
-        title: "RELEASE",
-        icon: "↓",
-        message: `
+];
 
-          Notice what you're holding.
-          <br><br>
-          Your shoulders.
-          Your jaw.
-          Your hands.
-          <br><br>
-          Take a breath and let something go.
 
-        `
-      },
+let currentCard = 0;
 
 
-      {
-        title: "RETURN",
-        icon: "○",
-        message: `
+function showCard(index) {
 
-          Come back to where you are.
-          <br><br>
-          Feel your feet.
-          Notice your breath.
-          Notice your surroundings.
-          <br><br>
-          You are here.
+  currentCard = index;
 
-        `
-      },
+  document.getElementById("cardNumber").innerText =
+    String(index + 1).padStart(2, "0");
 
+  document.getElementById("cardTitle").innerText =
+    cards[index].title;
 
-      {
-        title: "REST",
-        icon: "☾",
-        message: `
+  document.getElementById("cardMessage").innerHTML =
+    cards[index].message;
 
-          Rest is not something
-          you have to earn.
-          <br><br>
-          Your body deserves moments
-          without expectation.
-          <br><br>
-          Let yourself rest.
+  createDots();
 
-        `
-      },
+  document.querySelector(".feature-section").scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
 
+}
 
-      {
-        title: "NOTICE",
-        icon: "☼",
-        message: `
 
-          Notice one thing that feels good
-          right now.
-          <br><br>
-          Warmth.
-          Quiet.
-          Comfort.
-          A deep breath.
-          <br><br>
-          Stay with it for a moment.
+function nextCard() {
 
-        `
-      },
+  currentCard =
+    (currentCard + 1) % cards.length;
 
+  showCard(currentCard);
 
-      {
-        title: "SOFTEN",
-        icon: "≋",
-        message: `
+}
 
-          You don't have to hold yourself
-          so tightly.
-          <br><br>
-          Relax your jaw.
-          Drop your shoulders.
-          Unclench your hands.
-          <br><br>
-          Soften.
 
-        `
-      },
+function previousCard() {
 
+  currentCard =
+    (currentCard - 1 + cards.length) % cards.length;
 
-      {
-        title: "RECEIVE",
-        icon: "○",
-        message: `
+  showCard(currentCard);
 
-          You are allowed to receive care.
-          <br><br>
-          You don't always have to be
-          the person giving everything away.
-          <br><br>
-          Let yourself receive.
+}
 
-        `
-      },
 
+function drawRandomCard() {
 
-      {
-        title: "STILL",
-        icon: "○",
-        message: `
+  let random =
+    Math.floor(Math.random() * cards.length);
 
-          There is nothing you need
-          to chase in this moment.
-          <br><br>
-          Stay here.
-          <br><br>
-          Be still.
-          <br><br>
-          Let this moment be enough.
+  if (random === currentCard) {
 
-        `
-      },
+    random =
+      (random + 1) % cards.length;
 
+  }
 
-      {
-        title: "RETURN TO YOURSELF",
-        icon: "✦",
-        message: `
+  showCard(random);
 
-          Among everything demanding
-          your attention...
-          <br><br>
-          Don't forget yourself.
-          <br><br>
-          Come back.
-          <br><br>
-          You are still here.
+}
 
-        `
-      }
 
-    ];
+function createDots() {
 
+  const container =
+    document.getElementById("progressDots");
 
+  container.innerHTML = "";
 
-    /* =====================================================
-       CURRENT CARD
-    ===================================================== */
+  cards.forEach((card,index) => {
 
+    const dot =
+      document.createElement("div");
 
-    let currentCard = 0;
+    dot.className =
+      "dot" +
+      (index === currentCard ? " active" : "");
 
+    dot.onclick =
+      () => showCard(index);
 
+    container.appendChild(dot);
 
-    /* =====================================================
-       CREATE DOTS
-    ===================================================== */
+  });
 
+}
 
-    function createDots() {
 
+function createCollection() {
 
-      const dotsContainer =
-        document.getElementById("progressDots");
+  const grid =
+    document.getElementById("collectionGrid");
 
+  cards.forEach((card,index) => {
 
-      dotsContainer.innerHTML = "";
+    const element =
+      document.createElement("div");
 
+    element.className = "mini-card";
 
-      cards.forEach((card, index) => {
+    element.innerHTML = `
 
+      <div class="mini-number">
+        ${String(index + 1).padStart(2,"0")}
+      </div>
 
-        const dot =
-          document.createElement("div");
+      <div class="mini-icon">
+        ${card.icon}
+      </div>
 
+      <div class="mini-title">
+        ${card.title}
+      </div>
 
-        dot.className =
-          "dot";
+    `;
 
+    element.onclick =
+      () => showCard(index);
 
-        if (index === currentCard) {
+    grid.appendChild(element);
 
-          dot.classList.add("active");
+  });
 
-        }
+}
 
 
-        dot.addEventListener("click", () => {
+createDots();
+createCollection();
 
-          showCard(index);
-
-        });
-
-
-        dotsContainer.appendChild(dot);
-
-
-      });
-
-
-    }
-
-
-
-    /* =====================================================
-       SHOW CARD
-    ===================================================== */
-
-
-    function showCard(index) {
-
-
-      currentCard = index;
-
-
-      const featureCard =
-        document.getElementById("featureCard");
-
-
-      featureCard.classList.remove("animating");
-
-
-      void featureCard.offsetWidth;
-
-
-      featureCard.classList.add("animating");
-
-
-      document.getElementById("cardNumber")
-        .innerText =
-        String(index + 1).padStart(2, "0");
-
-
-      document.getElementById("cardTitle")
-        .innerText =
-        cards[index].title;
-
-
-      document.getElementById("cardMessage")
-        .innerHTML =
-        cards[index].message;
-
-
-      createDots();
-
-
-      document.getElementById("featured")
-        .scrollIntoView({
-
-          behavior: "smooth",
-          block: "center"
-
-        });
-
-
-    }
-
-
-
-    /* =====================================================
-       NEXT CARD
-    ===================================================== */
-
-
-    function nextCard() {
-
-
-      currentCard++;
-
-
-      if (currentCard >= cards.length) {
-
-        currentCard = 0;
-
-      }
-
-
-      showCard(currentCard);
-
-
-    }
-
-
-
-    /* =====================================================
-       PREVIOUS CARD
-    ===================================================== */
-
-
-    function previousCard() {
-
-
-      currentCard--;
-
-
-      if (currentCard < 0) {
-
-        currentCard =
-          cards.length - 1;
-
-      }
-
-
-      showCard(currentCard);
-
-
-    }
-
-
-
-    /* =====================================================
-       RANDOM CARD
-    ===================================================== */
-
-
-    function drawRandomCard() {
-
-
-      let newCard =
-        Math.floor(
-          Math.random() * cards.length
-        );
-
-
-      /* Prevent the same card appearing twice */
-
-
-      if (newCard === currentCard) {
-
-
-        newCard =
-          (newCard + 1) %
-          cards.length;
-
-
-      }
-
-
-      showCard(newCard);
-
-
-    }
-
-
-
-    /* =====================================================
-       KEEP REMINDER
-    ===================================================== */
-
-
-    function keepReminder() {
-
-
-      const keepText =
-        document.getElementById("keepText");
-
-
-      keepText.innerText =
-        "Reminder Kept ✦";
-
-
-      setTimeout(() => {
-
-
-        keepText.innerText =
-          "Keep This Reminder";
-
-
-      }, 2500);
-
-
-    }
-
-
-
-    /* =====================================================
-       CREATE COLLECTION
-    ===================================================== */
-
-
-    function createCollection() {
-
-
-      const grid =
-        document.getElementById("collectionGrid");
-
-
-      cards.forEach((card, index) => {
-
-
-        const miniCard =
-          document.createElement("div");
-
-
-        miniCard.className =
-          "mini-card";
-
-
-        miniCard.innerHTML = `
-
-          <div class="mini-number">
-
-            ${String(index + 1).padStart(2, "0")}
-
-          </div>
-
-
-          <div class="mini-icon">
-
-            ${card.icon}
-
-          </div>
-
-
-          <div class="mini-title">
-
-            ${card.title}
-
-          </div>
-
-        `;
-
-
-        miniCard.addEventListener(
-          "click",
-          () => showCard(index)
-        );
-
-
-        grid.appendChild(miniCard);
-
-
-      });
-
-
-    }
-
-
-
-    /* =====================================================
-       INITIALISE
-    ===================================================== */
-
-
-    createDots();
-
-    createCollection();
-
-
-  </script>
-
+</script>
 
 </body>
-
 </html>
