@@ -1,353 +1,1888 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Liminal Light — A Gift for You</title>
-<meta name="description" content="A small gift of daily wellness reminders from Liminal Light.">
-<meta name="theme-color" content="#F6F1E7">
-<link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Liminal Light">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --paper:#F6F1E7;
-    --sand:#E5D9C3;
-    --sand-deep:#D8C8A8;
-    --sage:#8B9A82;
-    --sage-deep:#5E6E55;
-    --sage-pale:#C9D1BF;
-    --charcoal:#3A362E;
-    --charcoal-soft:#6B665A;
-    --line:#D2C4A4;
-  }
-  *{box-sizing:border-box;}
-  html,body{
-    margin:0;
-    min-height:100vh;
-    background:var(--paper);
-    background-image:
-      radial-gradient(circle at 50% -10%, rgba(139,154,130,0.10), transparent 55%),
-      repeating-linear-gradient(0deg, rgba(58,54,46,0.015) 0px, rgba(58,54,46,0.015) 1px, transparent 1px, transparent 3px);
-    font-family:'Jost', sans-serif;
-    color:var(--charcoal);
-    overscroll-behavior:none;
-  }
-  body{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:env(safe-area-inset-top,32px) 20px calc(env(safe-area-inset-bottom,32px) + 12px);
-  }
-  .wrap{
-    width:100%;
-    max-width:420px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-  }
+  <meta charset="UTF-8">
 
-  /* ---------- Screens ---------- */
-  .screen{ width:100%; }
-  .hidden{ display:none; }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  /* Welcome / gift screen */
-  .gift-arch{
-    width:120px;
-    height:150px;
-    margin:0 auto 28px;
-    border:2px solid var(--sage-deep);
-    border-bottom:none;
-    border-radius:60px 60px 0 0;
-    position:relative;
-  }
-  .gift-arch::after{
-    content:"";
-    position:absolute;
-    left:-2px; right:-2px; bottom:-2px;
-    height:2px;
-    background:var(--sage-deep);
-  }
-  .gift-eyebrow{
-    text-align:center;
-    font-size:11px;
-    letter-spacing:0.32em;
-    text-transform:uppercase;
-    color:var(--sage-deep);
-    margin:0 0 10px;
-  }
-  .gift-title{
-    text-align:center;
-    font-family:'Cormorant Garamond', serif;
-    font-weight:500;
-    font-size:38px;
-    line-height:1.2;
-    margin:0 0 18px;
-  }
-  .gift-body{
-    text-align:center;
-    font-size:15px;
-    line-height:1.7;
-    color:var(--charcoal-soft);
-    font-weight:300;
-    max-width:320px;
-    margin:0 auto 34px;
-  }
-  .gift-body strong{
-    color:var(--charcoal);
-    font-weight:400;
-  }
-  .primary-btn{
-    display:block;
-    width:100%;
-    background:var(--sage-deep);
-    color:var(--paper);
-    border:none;
-    padding:16px 24px;
-    border-radius:30px;
-    font-family:'Jost', sans-serif;
-    font-size:12px;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    font-weight:400;
-    cursor:pointer;
-    transition:background 0.2s ease, transform 0.15s ease;
-  }
-  .primary-btn:hover{ background:var(--sage); }
-  .primary-btn:active{ transform:scale(0.98); }
+  <title>A Gift From Liminal Light</title>
 
-  /* Brand strip on deck screen */
-  .brand{
-    text-align:center;
-    margin-bottom:24px;
-  }
-  .brand .mark{
-    font-family:'Cormorant Garamond', serif;
-    font-size:13px;
-    letter-spacing:0.32em;
-    text-transform:uppercase;
-    color:var(--sage-deep);
-    margin:0 0 4px;
-  }
-  .brand .tag{
-    font-size:11px;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    color:var(--charcoal-soft);
-    margin:0;
-    font-weight:300;
-  }
+  <meta name="description"
+    content="A small collection of moments to return to whenever you need to pause, breathe and come back to yourself.">
 
-  .stage{ position:relative; width:100%; }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
 
-  .card{
-    position:relative;
-    width:100%;
-    min-height:480px;
-    background:linear-gradient(180deg, #FBF8F1 0%, var(--paper) 38%);
-    border:1px solid var(--line);
-    border-radius:190px 190px 14px 14px;
-    padding:60px 34px 36px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-    transition:opacity 0.5s ease, transform 0.5s ease;
-  }
-  .card.fade{ opacity:0; transform:translateY(6px); }
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  .arch-glow{
-    position:absolute; top:0; left:0; right:0; height:200px;
-    border-radius:190px 190px 0 0;
-    background:radial-gradient(circle at 50% 15%, rgba(139,154,130,0.30), rgba(139,154,130,0.04) 65%, transparent 75%);
-    pointer-events:none;
-  }
-  .arch-line{
-    position:absolute; top:24px; left:24px; right:24px; height:156px;
-    border:1px solid var(--sage-pale);
-    border-bottom:none;
-    border-radius:135px 135px 0 0;
-    pointer-events:none;
-  }
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  .eyebrow{ position:relative; font-size:11px; letter-spacing:0.28em; text-transform:uppercase; color:var(--sage-deep); font-weight:400; margin:0 0 16px; }
-  .count{ position:relative; font-size:10px; letter-spacing:0.1em; color:var(--charcoal-soft); margin:0 0 20px; text-transform:uppercase; font-weight:300; }
-  .title{ position:relative; font-family:'Cormorant Garamond', serif; font-weight:500; font-size:32px; line-height:1.15; margin:0 0 16px; max-width:270px; }
-  .instruction{ position:relative; font-size:15px; line-height:1.6; color:var(--charcoal-soft); font-weight:300; max-width:250px; margin:0 0 24px; }
-  .divider{ width:34px; height:1px; background:var(--sage); opacity:0.6; margin:0 0 22px; }
-  .why-label{ font-size:10px; letter-spacing:0.24em; text-transform:uppercase; color:var(--sage-deep); font-weight:400; margin:0 0 10px; }
-  .why{ font-family:'Cormorant Garamond', serif; font-style:italic; font-size:16px; line-height:1.55; max-width:260px; margin:0; }
+  <style>
 
-  .controls{ display:flex; align-items:center; justify-content:center; gap:20px; margin-top:24px; }
-  .nav-btn{
-    background:none; border:1px solid var(--line); width:38px; height:38px; border-radius:50%;
-    color:var(--sage-deep); font-size:15px; cursor:pointer; display:flex; align-items:center; justify-content:center;
-    transition:background 0.2s ease, border-color 0.2s ease; font-family:'Jost', sans-serif;
-  }
-  .nav-btn:hover{ background:var(--sand); border-color:var(--sand-deep); }
-  .draw-btn{
-    background:var(--sage-deep); color:var(--paper); border:none; padding:13px 28px; border-radius:30px;
-    font-family:'Jost', sans-serif; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; font-weight:400;
-    cursor:pointer; transition:background 0.2s ease, transform 0.15s ease;
-  }
-  .draw-btn:hover{ background:var(--sage); }
-  .draw-btn:active{ transform:scale(0.97); }
+    /* =========================================
+       LIMINAL LIGHT — THE PAUSE
+    ========================================= */
 
-  .dots{ display:flex; gap:6px; margin-top:20px; justify-content:center; }
-  .dot{ width:5px; height:5px; border-radius:50%; background:var(--line); }
-  .dot.active{ background:var(--sage-deep); }
+    :root {
 
-  @media (max-width:400px){
-    .card{ min-height:450px; padding:52px 24px 30px; border-radius:150px 150px 12px 12px; }
-    .arch-line{ border-radius:110px 110px 0 0; height:132px; }
-    .title{ font-size:28px; }
-    .gift-title{ font-size:32px; }
-  }
-</style>
+      --espresso: #211A17;
+      --deep-brown: #2A211D;
+      --warm-brown: #342823;
+      --mocha: #45352E;
+
+      --limestone: #DED5C8;
+      --cream: #F3EEE6;
+      --warm-white: #FAF7F2;
+
+      --gold: #A98D6A;
+      --soft-gold: #C7AE8B;
+
+      --text-light: #F1EBE3;
+      --text-muted: #BEB2A7;
+
+      --serif: "Cormorant Garamond", serif;
+      --sans: "Inter", sans-serif;
+
+    }
+
+
+    /* =========================================
+       RESET
+    ========================================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+
+      background:
+        radial-gradient(
+          circle at top left,
+          rgba(112, 82, 59, 0.18),
+          transparent 35%
+        ),
+        linear-gradient(
+          135deg,
+          var(--deep-brown),
+          var(--espresso)
+        );
+
+      color: var(--text-light);
+
+      font-family: var(--sans);
+
+      min-height: 100vh;
+
+      overflow-x: hidden;
+
+    }
+
+
+    body::before {
+
+      content: "";
+
+      position: fixed;
+
+      inset: 0;
+
+      pointer-events: none;
+
+      opacity: 0.18;
+
+      background-image:
+
+        radial-gradient(
+          rgba(255,255,255,0.03) 1px,
+          transparent 1px
+        );
+
+      background-size: 4px 4px;
+
+      z-index: 100;
+
+    }
+
+
+    /* =========================================
+       GENERAL
+    ========================================= */
+
+    .experience {
+
+      display: none;
+
+      min-height: 100vh;
+
+      padding: 30px;
+
+      animation: fadeIn 1.2s ease forwards;
+
+    }
+
+
+    .experience.active {
+      display: block;
+    }
+
+
+    .container {
+
+      max-width: 1100px;
+
+      margin: auto;
+
+      min-height: calc(100vh - 60px);
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+
+      align-items: center;
+
+      text-align: center;
+
+    }
+
+
+    .brand {
+
+      font-size: 10px;
+
+      letter-spacing: 8px;
+
+      text-transform: uppercase;
+
+      color: var(--soft-gold);
+
+      margin-bottom: 25px;
+
+    }
+
+
+    .star {
+
+      color: var(--soft-gold);
+
+      font-size: 22px;
+
+      margin-bottom: 25px;
+
+    }
+
+
+    h1,
+    h2 {
+
+      font-family: var(--serif);
+
+      font-weight: 500;
+
+      line-height: 1;
+
+    }
+
+
+    h1 {
+
+      font-size: clamp(55px, 8vw, 110px);
+
+      max-width: 850px;
+
+      margin-bottom: 30px;
+
+    }
+
+
+    h2 {
+
+      font-size: clamp(45px, 6vw, 75px);
+
+      margin-bottom: 25px;
+
+    }
+
+
+    .intro-text {
+
+      max-width: 560px;
+
+      color: var(--text-muted);
+
+      line-height: 1.8;
+
+      font-size: 15px;
+
+      margin-bottom: 45px;
+
+    }
+
+
+    .gold-line {
+
+      width: 50px;
+
+      height: 1px;
+
+      background: var(--gold);
+
+      margin: 25px auto;
+
+    }
+
+
+    /* =========================================
+       BUTTONS
+    ========================================= */
+
+    button {
+
+      font-family: var(--sans);
+
+      cursor: pointer;
+
+      transition: all 0.35s ease;
+
+    }
+
+
+    .primary-button {
+
+      background: transparent;
+
+      color: var(--cream);
+
+      border: 1px solid var(--gold);
+
+      padding: 17px 32px;
+
+      border-radius: 100px;
+
+      font-size: 10px;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+
+    }
+
+
+    .primary-button:hover {
+
+      background: var(--gold);
+
+      color: var(--espresso);
+
+      transform: translateY(-3px);
+
+      box-shadow: 0 15px 40px rgba(169,141,106,0.18);
+
+    }
+
+
+    /* =========================================
+       HERO
+    ========================================= */
+
+    #hero {
+
+      position: relative;
+
+    }
+
+
+    .hero-light {
+
+      position: absolute;
+
+      width: 500px;
+
+      height: 500px;
+
+      background:
+
+        radial-gradient(
+          circle,
+          rgba(169,141,106,0.14),
+          transparent 65%
+        );
+
+      filter: blur(30px);
+
+      top: -100px;
+
+      left: -100px;
+
+      pointer-events: none;
+
+    }
+
+
+    /* =========================================
+       BREATHING SCREEN
+    ========================================= */
+
+    .breathing-area {
+
+      display: flex;
+
+      gap: 70px;
+
+      margin: 45px 0;
+
+      flex-wrap: wrap;
+
+      justify-content: center;
+
+    }
+
+
+    .breath-box {
+
+      min-width: 180px;
+
+    }
+
+
+    .breath-box h3 {
+
+      font-family: var(--serif);
+
+      font-size: 32px;
+
+      font-weight: 400;
+
+      margin-bottom: 12px;
+
+    }
+
+
+    .breath-count {
+
+      color: var(--soft-gold);
+
+      letter-spacing: 5px;
+
+      font-size: 14px;
+
+    }
+
+
+    .breath-divider {
+
+      width: 1px;
+
+      height: 100px;
+
+      background: rgba(222,213,200,0.2);
+
+    }
+
+
+    /* =========================================
+       CARD DECK
+    ========================================= */
+
+    .deck-wrapper {
+
+      margin-top: 30px;
+
+      position: relative;
+
+      width: 330px;
+
+      height: 420px;
+
+      cursor: pointer;
+
+    }
+
+
+    .deck-shadow {
+
+      position: absolute;
+
+      width: 310px;
+
+      height: 390px;
+
+      border-radius: 20px;
+
+      background: #8E7B69;
+
+      left: 20px;
+
+      top: 20px;
+
+      opacity: 0.25;
+
+      transform: rotate(4deg);
+
+    }
+
+
+    .deck-shadow.two {
+
+      left: 10px;
+
+      top: 10px;
+
+      transform: rotate(-3deg);
+
+      opacity: 0.4;
+
+    }
+
+
+    .deck-card {
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+
+        radial-gradient(
+          circle at top left,
+          rgba(255,255,255,0.5),
+          transparent 40%
+        ),
+
+        linear-gradient(
+          135deg,
+          #E9E0D4,
+          #CFC2B3
+        );
+
+      border-radius: 20px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      justify-content: center;
+
+      color: var(--espresso);
+
+      box-shadow:
+
+        0 35px 80px rgba(0,0,0,0.3),
+
+        inset 0 0 0 1px rgba(255,255,255,0.5);
+
+      transition: transform 0.5s ease;
+
+    }
+
+
+    .deck-wrapper:hover .deck-card {
+
+      transform: translateY(-10px);
+
+    }
+
+
+    .card-brand {
+
+      font-size: 9px;
+
+      letter-spacing: 6px;
+
+      margin-bottom: 40px;
+
+    }
+
+
+    .card-star {
+
+      font-size: 28px;
+
+      margin-bottom: 25px;
+
+    }
+
+
+    .card-subtitle {
+
+      font-family: var(--serif);
+
+      font-size: 25px;
+
+      opacity: 0.8;
+
+    }
+
+
+    /* =========================================
+       INDIVIDUAL CARD
+    ========================================= */
+
+    .pause-card {
+
+      width: min(90vw, 560px);
+
+      min-height: 500px;
+
+      padding: 60px 45px;
+
+      background:
+
+        radial-gradient(
+          circle at top left,
+          rgba(255,255,255,0.55),
+          transparent 35%
+        ),
+
+        linear-gradient(
+          135deg,
+          #EAE1D5,
+          #D3C5B6
+        );
+
+      color: var(--espresso);
+
+      border-radius: 25px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+
+      align-items: center;
+
+      text-align: center;
+
+      box-shadow:
+
+        0 30px 80px rgba(0,0,0,0.3);
+
+      margin-bottom: 35px;
+
+    }
+
+
+    .card-number {
+
+      font-size: 10px;
+
+      letter-spacing: 4px;
+
+      margin-bottom: 35px;
+
+      opacity: 0.65;
+
+    }
+
+
+    .pause-title {
+
+      font-family: var(--serif);
+
+      font-size: clamp(48px, 8vw, 75px);
+
+      letter-spacing: 5px;
+
+      margin-bottom: 20px;
+
+    }
+
+
+    .pause-text {
+
+      max-width: 380px;
+
+      line-height: 1.9;
+
+      font-size: 15px;
+
+      opacity: 0.8;
+
+    }
+
+
+    .card-controls {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 20px;
+
+      flex-wrap: wrap;
+
+    }
+
+
+    .circle-button {
+
+      width: 48px;
+
+      height: 48px;
+
+      border-radius: 50%;
+
+      border: 1px solid rgba(222,213,200,0.3);
+
+      background: transparent;
+
+      color: var(--cream);
+
+      font-size: 20px;
+
+    }
+
+
+    .circle-button:hover {
+
+      border-color: var(--gold);
+
+      color: var(--gold);
+
+    }
+
+
+    /* =========================================
+       WHAT DO YOU NEED
+    ========================================= */
+
+    .needs-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(4, minmax(150px, 1fr));
+
+      gap: 15px;
+
+      width: min(100%, 850px);
+
+      margin-top: 40px;
+
+    }
+
+
+    .need-button {
+
+      min-height: 190px;
+
+      padding: 25px;
+
+      background:
+
+        linear-gradient(
+          145deg,
+          rgba(75,58,49,0.65),
+          rgba(38,29,25,0.8)
+        );
+
+      border: 1px solid rgba(222,213,200,0.08);
+
+      border-radius: 18px;
+
+      color: var(--cream);
+
+      text-align: center;
+
+    }
+
+
+    .need-button:hover {
+
+      transform: translateY(-7px);
+
+      border-color: var(--gold);
+
+      background:
+
+        linear-gradient(
+          145deg,
+          rgba(90,70,59,0.7),
+          rgba(47,35,30,0.9)
+        );
+
+    }
+
+
+    .need-icon {
+
+      font-size: 35px;
+
+      color: var(--soft-gold);
+
+      margin-bottom: 20px;
+
+    }
+
+
+    .need-title {
+
+      font-size: 11px;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 12px;
+
+    }
+
+
+    .need-description {
+
+      font-size: 12px;
+
+      line-height: 1.6;
+
+      color: var(--text-muted);
+
+    }
+
+
+    /* =========================================
+       COLLECTION
+    ========================================= */
+
+    .collection {
+
+      padding: 100px 30px;
+
+      background:
+
+        linear-gradient(
+          135deg,
+          #E7DED2,
+          #D8CCBE
+        );
+
+      color: var(--espresso);
+
+      text-align: center;
+
+    }
+
+
+    .collection h2 {
+
+      font-size: clamp(45px, 6vw, 70px);
+
+    }
+
+
+    .collection-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(5, 1fr);
+
+      gap: 15px;
+
+      max-width: 1200px;
+
+      margin: 50px auto 0;
+
+    }
+
+
+    .mini-card {
+
+      background:
+
+        linear-gradient(
+          145deg,
+          #F2EBE2,
+          #D8CCBE
+        );
+
+      min-height: 180px;
+
+      border-radius: 15px;
+
+      padding: 20px 10px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+
+      align-items: center;
+
+      cursor: pointer;
+
+      transition: all 0.3s ease;
+
+      border: 1px solid rgba(33,26,23,0.08);
+
+    }
+
+
+    .mini-card:hover {
+
+      transform: translateY(-8px);
+
+      box-shadow: 0 20px 40px rgba(33,26,23,0.15);
+
+    }
+
+
+    .mini-number {
+
+      font-size: 9px;
+
+      letter-spacing: 3px;
+
+      opacity: 0.5;
+
+      margin-bottom: 20px;
+
+    }
+
+
+    .mini-title {
+
+      font-size: 10px;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+    }
+
+
+    /* =========================================
+       ENDING
+    ========================================= */
+
+    .ending {
+
+      position: relative;
+
+    }
+
+
+    .ending p {
+
+      max-width: 600px;
+
+      color: var(--text-muted);
+
+      line-height: 2;
+
+      margin-bottom: 15px;
+
+      font-size: 14px;
+
+    }
+
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
+    .gift-footer {
+
+      padding: 25px 35px;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      font-size: 10px;
+
+      color: var(--text-muted);
+
+      border-top: 1px solid rgba(222,213,200,0.08);
+
+    }
+
+
+    .footer-brand {
+
+      letter-spacing: 5px;
+
+      color: var(--soft-gold);
+
+    }
+
+
+    /* =========================================
+       ANIMATION
+    ========================================= */
+
+    @keyframes fadeIn {
+
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+
+    @media (max-width: 850px) {
+
+      .needs-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .collection-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+    }
+
+
+    @media (max-width: 600px) {
+
+      .experience {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 58px;
+      }
+
+      .breathing-area {
+        gap: 30px;
+      }
+
+      .breath-divider {
+        display: none;
+      }
+
+      .deck-wrapper {
+        transform: scale(0.88);
+        margin-top: 0;
+      }
+
+      .pause-card {
+        padding: 50px 25px;
+      }
+
+      .needs-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .collection-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gift-footer {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+
+    }
+
+  </style>
+
 </head>
+
+
 <body>
-<div class="wrap">
 
-  <!-- Welcome / Gift screen -->
-  <div class="screen" id="welcomeScreen">
-    <div class="gift-arch"></div>
-    <p class="gift-eyebrow">A gift from Liminal Light</p>
-    <h1 class="gift-title">Something to keep with you</h1>
-    <p class="gift-body">Thank you for your first session. This small deck holds <strong>ten daily reminders</strong> — simple things worth returning to between visits. Draw one whenever you need a pause.</p>
-    <button class="primary-btn" id="enterBtn">Open your deck</button>
-  </div>
 
-  <!-- Deck screen -->
-  <div class="screen hidden" id="deckScreen">
-    <div class="brand">
-      <p class="mark">Liminal Light</p>
-      <p class="tag">A daily pause, between tension and relief</p>
-    </div>
+  <!-- =========================================
+       HERO
+  ========================================= -->
 
-    <div class="stage">
-      <div class="card" id="card">
-        <div class="arch-glow"></div>
-        <div class="arch-line"></div>
-        <p class="eyebrow" id="eyebrow">Breath</p>
-        <p class="count" id="count">Reminder 1 of 10</p>
-        <h1 class="title" id="title">Breathe deeply</h1>
-        <p class="instruction" id="instruction">Take five slow breaths — in for four counts, out for six.</p>
-        <div class="divider"></div>
-        <p class="why-label">Why it helps</p>
-        <p class="why" id="why">Slow, extended exhales signal your nervous system to soften.</p>
+  <section id="hero" class="experience active">
+
+    <div class="hero-light"></div>
+
+    <div class="container">
+
+      <div class="brand">
+        Liminal Light
       </div>
+
+      <div class="star">✦</div>
+
+      <h1>
+        You made time<br>
+        for yourself today.
+      </h1>
+
+      <div class="gold-line"></div>
+
+      <p class="intro-text">
+
+        A small collection of moments to return to
+        whenever you need to pause, breathe and
+        come back to yourself.
+
+      </p>
+
+      <button
+        class="primary-button"
+        onclick="showExperience('breathing')">
+
+        Begin Your Pause
+
+      </button>
+
     </div>
 
-    <div class="controls">
-      <button class="nav-btn" id="prevBtn" aria-label="Previous reminder">←</button>
-      <button class="draw-btn" id="drawBtn">Draw a reminder</button>
-      <button class="nav-btn" id="nextBtn" aria-label="Next reminder">→</button>
+  </section>
+
+
+
+  <!-- =========================================
+       BREATHING
+  ========================================= -->
+
+  <section id="breathing" class="experience">
+
+    <div class="container">
+
+      <div class="brand">
+        Liminal Light
+      </div>
+
+      <div class="star">✦</div>
+
+      <h2>
+        Take a breath.
+      </h2>
+
+      <p class="intro-text">
+        Before continuing...
+      </p>
+
+
+      <div class="breathing-area">
+
+        <div class="breath-box">
+
+          <h3>Inhale slowly.</h3>
+
+          <div class="breath-count">
+            1 · 2 · 3 · 4
+          </div>
+
+        </div>
+
+
+        <div class="breath-divider"></div>
+
+
+        <div class="breath-box">
+
+          <h3>Exhale.</h3>
+
+          <div class="breath-count">
+            1 · 2 · 3 · 4 · 5 · 6
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="primary-button"
+        onclick="showExperience('deck')">
+
+        I'm Ready
+
+      </button>
+
     </div>
 
-    <div class="dots" id="dots"></div>
-  </div>
+  </section>
 
-</div>
 
-<script>
-  // ---------- Data ----------
-  const cards = [
-    { eyebrow:"Breath", title:"Breathe deeply", instruction:"Take five slow breaths — in for four counts, out for six.", why:"Slow, extended exhales signal your nervous system to soften. Heart rate drops, cortisol eases, and the body remembers it is safe to rest." },
-    { eyebrow:"Movement", title:"Stretch your spine", instruction:"Reach both arms overhead and lengthen through your side body.", why:"Gentle spinal stretches release fascia that tightens from hours of sitting or standing still, easing pressure through the back and improving circulation." },
-    { eyebrow:"Hydration", title:"Drink a full glass of water", instruction:"Pause and drink slowly, without rushing.", why:"Muscle tissue and lymph fluid both depend on hydration to move freely. Even mild dehydration can leave the body feeling tighter and recovery feeling slower." },
-    { eyebrow:"Light", title:"Step into natural light", instruction:"Spend a few minutes outside, ideally in the morning.", why:"Natural light exposure helps set your circadian rhythm — the internal clock that decides when your body feels alert and when it is ready to rest." },
-    { eyebrow:"Rest", title:"Rest without earning it", instruction:"Sit or lie down for ten minutes, with nothing to accomplish.", why:"Recovery is not the reward for productivity. It is the mechanism through which muscles repair and the nervous system resets. Rest is the work." },
-    { eyebrow:"Movement", title:"Roll your shoulders back", instruction:"Circle your shoulders slowly, five times in each direction.", why:"The shoulders quietly hold tension most of the day. Slow, deliberate movement invites the upper back to loosen its grip." },
-    { eyebrow:"Stillness", title:"Unplug for ten minutes", instruction:"Set your phone in another room and simply be.", why:"Constant notifications keep the nervous system mildly activated all day. A short break from screens gives it room to downshift." },
-    { eyebrow:"Sleep", title:"Notice your breath before bed", instruction:"Lying down, rest a hand on your belly and feel it rise and fall.", why:"This small practice cues the body that the day is ending, easing the transition from waking alertness into deeper rest." },
-    { eyebrow:"Recovery", title:"Move gently, not hard", instruction:"Take a slow walk or a few easy stretches today.", why:"Light movement increases blood flow to tired muscles without adding new strain, helping clear what has built up after harder effort." },
-    { eyebrow:"Gratitude", title:"Name one good thing", instruction:"Think of one small thing that went well today.", why:"Briefly noticing what is going right shifts the nervous system out of scanning for threats — a quiet, real form of rest." }
-  ];
 
-  let order = shuffle([...Array(cards.length).keys()]);
-  let pos = 0;
+  <!-- =========================================
+       DECK
+  ========================================= -->
 
-  function shuffle(arr){
-    for(let i = arr.length - 1; i > 0; i--){
-      const j = Math.floor(Math.random() * (i + 1));
-      [arr[i], arr[j]] = [arr[j], arr[i]];
+  <section id="deck" class="experience">
+
+    <div class="container">
+
+      <div class="brand">
+        Liminal Light
+      </div>
+
+      <div class="star">✦</div>
+
+      <h2>
+        Your collection<br>
+        of pauses.
+      </h2>
+
+      <p class="intro-text">
+        Choose a card.
+      </p>
+
+
+      <div
+        class="deck-wrapper"
+        onclick="drawRandomCard()">
+
+        <div class="deck-shadow"></div>
+
+        <div class="deck-shadow two"></div>
+
+
+        <div class="deck-card">
+
+          <div class="card-brand">
+            LIMINAL LIGHT
+          </div>
+
+          <div class="card-star">
+            ✦
+          </div>
+
+          <div class="card-subtitle">
+            A moment for yourself
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="primary-button"
+        onclick="drawRandomCard()">
+
+        Draw A Card
+
+      </button>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================================
+       PAUSE CARD
+  ========================================= -->
+
+  <section id="cardExperience" class="experience">
+
+    <div class="container">
+
+      <div class="brand">
+        Liminal Light
+      </div>
+
+
+      <div class="pause-card">
+
+        <div id="cardNumber" class="card-number">
+          01 / 10
+        </div>
+
+
+        <div id="cardTitle" class="pause-title">
+          PAUSE
+        </div>
+
+
+        <div class="gold-line"></div>
+
+
+        <p id="cardText" class="pause-text">
+
+          You don't always have to keep moving.
+
+          <br><br>
+
+          Sometimes the most important thing
+          you can do is stop.
+
+          <br><br>
+
+          Nothing needs to happen right now.
+
+        </p>
+
+      </div>
+
+
+      <div class="card-controls">
+
+        <button
+          class="circle-button"
+          onclick="previousCard()">
+
+          ←
+
+        </button>
+
+
+        <button
+          class="primary-button"
+          onclick="drawRandomCard()">
+
+          Draw Another Card
+
+        </button>
+
+
+        <button
+          class="circle-button"
+          onclick="nextCard()">
+
+          →
+
+        </button>
+
+      </div>
+
+
+      <div style="margin-top:30px;">
+
+        <button
+          class="primary-button"
+          onclick="showExperience('needs')">
+
+          What Do I Need Right Now?
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================================
+       NEEDS
+  ========================================= -->
+
+  <section id="needs" class="experience">
+
+    <div class="container">
+
+      <div class="brand">
+        Liminal Light
+      </div>
+
+      <div class="star">✦</div>
+
+      <h2>
+        What do you need<br>
+        right now?
+      </h2>
+
+      <p class="intro-text">
+        Choose what feels right for you.
+      </p>
+
+
+      <div class="needs-grid">
+
+
+        <button
+          class="need-button"
+          onclick="showSpecificCard(1)">
+
+          <div class="need-icon">◎</div>
+
+          <div class="need-title">
+            To Calm Down
+          </div>
+
+          <div class="need-description">
+            Slow your thoughts<br>
+            and find calm.
+          </div>
+
+        </button>
+
+
+
+        <button
+          class="need-button"
+          onclick="showSpecificCard(4)">
+
+          <div class="need-icon">☾</div>
+
+          <div class="need-title">
+            To Rest
+          </div>
+
+          <div class="need-description">
+            Give yourself<br>
+            permission to rest.
+          </div>
+
+        </button>
+
+
+
+        <button
+          class="need-button"
+          onclick="showSpecificCard(0)">
+
+          <div class="need-icon">☼</div>
+
+          <div class="need-title">
+            To Reset
+          </div>
+
+          <div class="need-description">
+            Clear your mind<br>
+            and start again.
+          </div>
+
+        </button>
+
+
+
+        <button
+          class="need-button"
+          onclick="showSpecificCard(3)">
+
+          <div class="need-icon">○</div>
+
+          <div class="need-title">
+            To Reconnect
+          </div>
+
+          <div class="need-description">
+            Come back to<br>
+            yourself.
+          </div>
+
+        </button>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================================
+       COLLECTION
+  ========================================= -->
+
+  <section class="collection">
+
+    <h2>
+      Your collection of 10 pauses
+    </h2>
+
+    <div class="gold-line"></div>
+
+
+    <div class="collection-grid" id="collectionGrid">
+
+      <!-- Added by JavaScript -->
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================================
+       ENDING
+  ========================================= -->
+
+  <section id="ending" class="experience ending">
+
+    <div class="container">
+
+      <div class="brand">
+        Liminal Light
+      </div>
+
+      <div class="star">✦</div>
+
+      <h2>
+        Your pause is<br>
+        always here.
+      </h2>
+
+      <div class="gold-line"></div>
+
+
+      <p>
+
+        Life will begin moving quickly again.
+
+      </p>
+
+      <p>
+
+        There will be messages.
+        Responsibilities.
+        Things to do.
+
+      </p>
+
+      <p>
+
+        But you can always come back to this moment.
+
+      </p>
+
+
+      <div class="star" style="margin-top:35px;">
+        ✦
+      </div>
+
+
+      <p style="margin-bottom:35px;">
+
+        Thank you for choosing Liminal Light.
+
+      </p>
+
+
+      <button
+        class="primary-button"
+        onclick="showExperience('hero')">
+
+        Return Whenever You Need To
+
+      </button>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================================
+       FOOTER
+  ========================================= -->
+
+  <footer class="gift-footer">
+
+    <div>
+      ♡ You made time for yourself. That matters.
+    </div>
+
+
+    <div class="footer-brand">
+      LIMINAL LIGHT ✦
+    </div>
+
+  </footer>
+
+
+
+  <!-- =========================================
+       JAVASCRIPT
+  ========================================= -->
+
+  <script>
+
+    const cards = [
+
+      {
+        title: "PAUSE",
+        text: `
+
+          You don't always have to keep moving.
+
+          <br><br>
+
+          Sometimes the most important thing
+          you can do is stop.
+
+          <br><br>
+
+          Nothing needs to happen right now.
+
+        `
+      },
+
+
+      {
+        title: "BREATHE",
+        text: `
+
+          Slow down your breathing.
+
+          <br><br>
+
+          Let your shoulders soften.
+
+          <br><br>
+
+          You don't need to solve everything
+          in this moment.
+
+          <br><br>
+
+          Just breathe.
+
+        `
+      },
+
+
+      {
+        title: "RELEASE",
+        text: `
+
+          Notice what you're holding.
+
+          <br><br>
+
+          Your shoulders.
+          Your jaw.
+          Your hands.
+
+          <br><br>
+
+          Take a breath and let something soften.
+
+        `
+      },
+
+
+      {
+        title: "RETURN",
+        text: `
+
+          Come back to where you are.
+
+          <br><br>
+
+          Notice your surroundings.
+
+          <br><br>
+
+          Feel your feet.
+          Feel your breath.
+
+          <br><br>
+
+          You are here.
+
+        `
+      },
+
+
+      {
+        title: "REST",
+        text: `
+
+          Rest is not something
+          you have to earn.
+
+          <br><br>
+
+          Your body deserves moments
+          without expectation.
+
+          <br><br>
+
+          Let yourself rest.
+
+        `
+      },
+
+
+      {
+        title: "NOTICE",
+        text: `
+
+          Notice one thing that feels good
+          right now.
+
+          <br><br>
+
+          Warmth.
+          Quiet.
+          Comfort.
+          A deep breath.
+
+          <br><br>
+
+          Stay with it for a moment.
+
+        `
+      },
+
+
+      {
+        title: "SOFTEN",
+        text: `
+
+          You don't have to hold yourself
+          so tightly.
+
+          <br><br>
+
+          Relax your jaw.
+
+          Drop your shoulders.
+
+          Unclench your hands.
+
+          <br><br>
+
+          Soften.
+
+        `
+      },
+
+
+      {
+        title: "RECEIVE",
+        text: `
+
+          You are allowed to receive care.
+
+          <br><br>
+
+          You don't always have to be
+          the person giving everything away.
+
+          <br><br>
+
+          Let yourself receive.
+
+        `
+      },
+
+
+      {
+        title: "STILL",
+        text: `
+
+          There is nothing you need
+          to chase in this moment.
+
+          <br><br>
+
+          Stay here.
+
+          <br><br>
+
+          Be still.
+
+          <br><br>
+
+          Let the world continue without
+          needing anything from you
+          for a moment.
+
+        `
+      },
+
+
+      {
+        title: "RETURN TO YOURSELF",
+        text: `
+
+          Among everything demanding
+          your attention...
+
+          <br><br>
+
+          Don't forget yourself.
+
+          <br><br>
+
+          Come back.
+
+          <br><br>
+
+          You are still here.
+
+        `
+      }
+
+    ];
+
+
+    let currentCard = 0;
+
+
+    function showExperience(id) {
+
+      document
+        .querySelectorAll(".experience")
+        .forEach(section => {
+
+          section.classList.remove("active");
+
+        });
+
+
+      const selected =
+        document.getElementById(id);
+
+
+      selected.classList.add("active");
+
+
+      window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+      });
+
     }
-    return arr;
-  }
 
-  const cardEl = document.getElementById('card');
-  const eyebrowEl = document.getElementById('eyebrow');
-  const countEl = document.getElementById('count');
-  const titleEl = document.getElementById('title');
-  const instructionEl = document.getElementById('instruction');
-  const whyEl = document.getElementById('why');
-  const dotsEl = document.getElementById('dots');
 
-  function renderDots(){
-    dotsEl.innerHTML = '';
-    for(let i = 0; i < cards.length; i++){
-      const d = document.createElement('div');
-      d.className = 'dot' + (i === pos ? ' active' : '');
-      dotsEl.appendChild(d);
+
+    function displayCard(index) {
+
+      currentCard = index;
+
+
+      document
+        .getElementById("cardNumber")
+        .innerText =
+        String(index + 1).padStart(2, "0") + " / 10";
+
+
+      document
+        .getElementById("cardTitle")
+        .innerText =
+        cards[index].title;
+
+
+      document
+        .getElementById("cardText")
+        .innerHTML =
+        cards[index].text;
+
+
+      showExperience("cardExperience");
+
     }
-  }
 
-  function showCard(index){
-    const data = cards[order[index]];
-    cardEl.classList.add('fade');
-    setTimeout(() => {
-      eyebrowEl.textContent = data.eyebrow;
-      countEl.textContent = 'Reminder ' + (index + 1) + ' of ' + cards.length;
-      titleEl.textContent = data.title;
-      instructionEl.textContent = data.instruction;
-      whyEl.textContent = data.why;
-      cardEl.classList.remove('fade');
-    }, 220);
-    renderDots();
-  }
 
-  function nextCard(){
-    pos = (pos + 1) % cards.length;
-    if(pos === 0){ order = shuffle([...Array(cards.length).keys()]); }
-    showCard(pos);
-  }
-  function prevCard(){
-    pos = (pos - 1 + cards.length) % cards.length;
-    showCard(pos);
-  }
 
-  document.getElementById('drawBtn').addEventListener('click', nextCard);
-  document.getElementById('nextBtn').addEventListener('click', nextCard);
-  document.getElementById('prevBtn').addEventListener('click', prevCard);
+    function drawRandomCard() {
 
-  // ---------- Screen transition ----------
-  document.getElementById('enterBtn').addEventListener('click', () => {
-    document.getElementById('welcomeScreen').classList.add('hidden');
-    document.getElementById('deckScreen').classList.remove('hidden');
-    showCard(pos);
-    try{ localStorage.setItem('ll_gift_opened', '1'); }catch(e){}
-  });
+      let randomIndex =
+        Math.floor(Math.random() * cards.length);
 
-  // Skip straight to deck on return visits
-  try{
-    if(localStorage.getItem('ll_gift_opened') === '1'){
-      document.getElementById('welcomeScreen').classList.add('hidden');
-      document.getElementById('deckScreen').classList.remove('hidden');
+
+      displayCard(randomIndex);
+
     }
-  }catch(e){}
-  showCard(pos);
 
-  // ---------- Service worker ----------
-  if('serviceWorker' in navigator){
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('sw.js').catch(() => {});
-    });
-  }
-</script>
+
+
+    function nextCard() {
+
+      currentCard =
+        (currentCard + 1) % cards.length;
+
+
+      displayCard(currentCard);
+
+    }
+
+
+
+    function previousCard() {
+
+      currentCard =
+        (currentCard - 1 + cards.length)
+        % cards.length;
+
+
+      displayCard(currentCard);
+
+    }
+
+
+
+    function showSpecificCard(index) {
+
+      displayCard(index);
+
+    }
+
+
+
+    function createCollection() {
+
+      const grid =
+        document.getElementById("collectionGrid");
+
+
+      cards.forEach((card, index) => {
+
+        const miniCard =
+          document.createElement("div");
+
+
+        miniCard.className =
+          "mini-card";
+
+
+        miniCard.innerHTML = `
+
+          <div class="mini-number">
+            ${String(index + 1).padStart(2, "0")}
+          </div>
+
+          <div class="mini-title">
+            ${card.title}
+          </div>
+
+        `;
+
+
+        miniCard.addEventListener("click", () => {
+
+          displayCard(index);
+
+        });
+
+
+        grid.appendChild(miniCard);
+
+      });
+
+    }
+
+
+    createCollection();
+
+  </script>
+
+
 </body>
+
 </html>
