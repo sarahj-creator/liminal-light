@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en
-  
+<html lang="en">
+
 <head>
 
   <!-- Google Analytics -->
@@ -16,7 +16,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="Fall in love with being intentional about your peace — a reflection from the Liminal Light Lounge.">
+  <meta name="description" content="Fall in Love With Being Intentional About Your Peace — a reflection from the Liminal Light Lounge.">
 
   <title>Fall in Love With Being Intentional About Your Peace | Liminal Light Lounge</title>
 
@@ -58,7 +58,7 @@
       position: fixed;
       top: 0;
       width: 100%;
-      z-index: 10;
+      z-index: 100;
 
       display: flex;
       justify-content: space-between;
@@ -66,7 +66,7 @@
 
       padding: 1.3rem 2.5rem;
 
-      background: rgba(26, 18, 13, .88);
+      background: rgba(26, 18, 13, .92);
       backdrop-filter: blur(12px);
 
       border-bottom: 1px solid rgba(106, 74, 51, .35);
@@ -76,7 +76,6 @@
       font-family: "Cormorant Garamond", serif;
       letter-spacing: .25em;
       text-transform: uppercase;
-
       color: var(--warm-white);
       text-decoration: none;
     }
@@ -85,7 +84,6 @@
       font-size: .65rem;
       letter-spacing: .2em;
       text-transform: uppercase;
-
       color: var(--stone);
       text-decoration: none;
     }
@@ -95,54 +93,53 @@
     }
 
 
-    /* HERO */
+    /* IMAGE HERO */
 
-    .article-hero {
-      min-height: 70vh;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      text-align: center;
-
-      padding: 9rem 2rem 5rem;
-
-      background:
-        linear-gradient(
-          rgba(26, 18, 13, .55),
-          rgba(26, 18, 13, .78)
-        ),
-        url("images/intentional-peace.png");
-
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+    .image-hero {
+      width: 100%;
+      padding-top: 80px;
+      background: var(--mocha);
     }
 
-    .article-header {
-      max-width: 850px;
+    .image-hero img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+
+    /* ARTICLE */
+
+    .article {
+      max-width: 760px;
+      margin: auto;
+      padding: 5rem 2rem 7rem;
+    }
+
+
+    /* ARTICLE HEADER */
+
+    .article-title {
+      text-align: center;
+      margin-bottom: 5rem;
     }
 
     .category {
       font-size: .65rem;
       letter-spacing: .45em;
       text-transform: uppercase;
-
       color: var(--deep-amber);
-
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
 
     h1 {
       font-family: "Cormorant Garamond", serif;
       font-weight: 300;
 
-      font-size: 40px;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
 
-      line-height: 1;
-
-      letter-spacing: .02em;
+      line-height: 1.05;
+      letter-spacing: .01em;
 
       margin-bottom: 1.5rem;
     }
@@ -151,44 +148,30 @@
       font-size: .65rem;
       letter-spacing: .25em;
       text-transform: uppercase;
-
       color: var(--stone);
     }
 
 
-    /* ARTICLE */
-
-    .article {
-      max-width: 720px;
-      margin: auto;
-
-      padding: 7rem 2rem;
-    }
+    /* ARTICLE TEXT */
 
     .article p {
       font-family: "Cormorant Garamond", serif;
-
-      font-size: 1.45rem;
+      font-size: 1.4rem;
       line-height: 1.75;
-
       color: var(--warm-white);
-
       margin-bottom: 2rem;
     }
 
     .article h2 {
       font-family: "Cormorant Garamond", serif;
-
       font-weight: 300;
 
-      font-size: clamp(2.3rem, 5vw, 3.5rem);
+      font-size: clamp(2rem, 4vw, 3.2rem);
 
-      line-height: 1.1;
+      line-height: 1.15;
 
       margin-top: 5rem;
       margin-bottom: 2rem;
-
-      color: var(--warm-white);
     }
 
 
@@ -217,23 +200,16 @@
 
     .article-ending {
       text-align: center;
-
       padding: 6rem 2rem;
-
       background: var(--mocha);
     }
 
     .article-ending p {
       font-family: "Cormorant Garamond", serif;
-
       font-size: 1.5rem;
-
       font-style: italic;
-
       color: var(--stone);
-
       max-width: 600px;
-
       margin: auto;
     }
 
@@ -279,8 +255,12 @@
         font-size: .55rem;
       }
 
-      .article-hero {
-        min-height: 65vh;
+      .article {
+        padding: 4rem 1.5rem 5rem;
+      }
+
+      .article-title {
+        margin-bottom: 4rem;
       }
 
       .article p {
@@ -317,34 +297,43 @@
 </nav>
 
 
-<!-- HERO -->
+<!-- FULL IMAGE -->
 
-<header class="article-hero">
+<section class="image-hero">
 
-  <div class="article-header">
-</div>
+  <img
+    src="images/intentional-peace.png"
+    alt="Being intentional about finding peace"
+  >
 
-</header>
+</section>
 
 
 <!-- ARTICLE -->
 
 <main class="article">
+
+
+  <!-- TITLE -->
+
   <div class="article-title">
 
-  <div class="category">
-    Reflection
+    <div class="category">
+      Reflection
+    </div>
+
+    <h1>
+      Fall in Love With Being Intentional About Your Peace
+    </h1>
+
+    <div class="reading-time">
+      2 Min Read
+    </div>
+
   </div>
 
-  <h1>
-    Fall in Love With Being Intentional About Your Peace
-  </h1>
 
-  <div class="reading-time">
-    2 Min Read
-  </div>
-
-</div>
+  <!-- OPENING -->
 
   <p>
     Stop for a moment and feel your body.
@@ -357,6 +346,7 @@
   <p>
     Are your shoulders tense? Is your stomach in knots? Is your mind racing?
   </p>
+
 
   <p>
     Peace is something I think we all want to feel. If there's someone who doesn't, I'd genuinely love to have a conversation with them about why.
@@ -386,6 +376,8 @@
     But what if peace isn't always something waiting for us somewhere else?
   </p>
 
+
+  <!-- REFLECTION -->
 
   <h2>
     I had to ask myself what peace actually looked like in my life.
@@ -452,6 +444,8 @@
   </p>
 
 
+  <!-- SHIFT -->
+
   <h2>
     Peace isn't always a big event.
   </h2>
@@ -489,10 +483,14 @@
   </p>
 
 
+  <!-- QUOTE -->
+
   <blockquote>
     Peace isn't always something you stumble across. Sometimes, it's something you choose to be intentional about.
   </blockquote>
 
+
+  <!-- CLOSING -->
 
   <h2>
     Peace can live in the small moments.
@@ -513,6 +511,7 @@
   <p>
     For me, one of those decisions was choosing to leave my birth country and find peace in my mother's land.
   </p>
+
 
 </main>
 
