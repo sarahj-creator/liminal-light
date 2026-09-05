@@ -1,1526 +1,1815 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Liminal Light — A moment for yourself</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Inter:opsz,wght@14..32,200;14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet" />
-
-    <style>
-        /* ===== RESET & BASE ===== */
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --espresso: #1a0e0a;
-            --espresso-light: #2c1810;
-            --chocolate: #3d2317;
-            --burnt-umber: #6b3a2a;
-            --amber: #c9a96e;
-            --gold: #d4af37;
-            --gold-muted: #b8954a;
-            --ivory: #f5efe6;
-            --limestone: #e8ddd0;
-            --limestone-warm: #d4c9b8;
-            --limestone-paper: #ede4d8;
-            --warm-beige: #d9cec0;
-            --shadow-dark: rgba(10, 5, 3, 0.6);
-            --shadow-warm: rgba(60, 30, 15, 0.3);
-            --font-serif: 'Playfair Display', 'Didot', 'Bodoni', serif;
-            --font-serif-alt: 'Cormorant Garamond', 'Georgia', serif;
-            --font-sans: 'Inter', -apple-system, sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: var(--espresso);
-            color: var(--ivory);
-            font-family: var(--font-sans);
-            font-weight: 300;
-            line-height: 1.5;
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-
-        /* ===== SCROLLBAR ===== */
-        ::-webkit-scrollbar {
-            width: 4px;
-            height: 4px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--espresso);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--gold-muted);
-            border-radius: 2px;
-        }
-
-        /* ===== TEXTURE OVERLAY ===== */
-        .texture-overlay {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-            background:
-                /* plaster texture — fine noise */
-                repeating-linear-gradient(45deg,
-                    rgba(255, 245, 235, 0.012) 0px,
-                    rgba(255, 245, 235, 0.012) 2px,
-                    rgba(0, 0, 0, 0.01) 2px,
-                    rgba(0, 0, 0, 0.01) 4px),
-                /* subtle grain */
-                repeating-linear-gradient(135deg,
-                    rgba(255, 240, 230, 0.008) 0px,
-                    rgba(255, 240, 230, 0.008) 1px,
-                    rgba(0, 0, 0, 0.006) 1px,
-                    rgba(0, 0, 0, 0.006) 3px),
-                /* limestone base */
-                radial-gradient(ellipse at 30% 20%,
-                    rgba(120, 80, 60, 0.25) 0%,
-                    rgba(60, 35, 25, 0.1) 40%,
-                    transparent 70%),
-                radial-gradient(ellipse at 70% 80%,
-                    rgba(40, 25, 18, 0.3) 0%,
-                    transparent 60%),
-                linear-gradient(180deg,
-                    #2a1a12 0%,
-                    #1f110b 30%,
-                    #1a0e0a 60%,
-                    #120a07 100%);
-        }
-
-        /* Dramatic light from upper-left */
-        .texture-overlay::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background:
-                radial-gradient(ellipse at 15% 5%,
-                    rgba(210, 180, 140, 0.08) 0%,
-                    rgba(180, 140, 100, 0.04) 25%,
-                    transparent 55%),
-                radial-gradient(ellipse at 85% 95%,
-                    rgba(60, 35, 25, 0.15) 0%,
-                    transparent 50%);
-            pointer-events: none;
-        }
-
-        /* ===== WRAPPER ===== */
-        .page-wrapper {
-            position: relative;
-            z-index: 1;
-            max-width: 1440px;
-            margin: 0 auto;
-            padding: 2.5rem 3.5rem 2rem;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        @media (max-width: 1024px) {
-            .page-wrapper {
-                padding: 2rem 2rem 1.5rem;
-            }
-        }
-        @media (max-width: 640px) {
-            .page-wrapper {
-                padding: 1.25rem 1.25rem 1rem;
-            }
-        }
-
-        /* ===== HEADER ===== */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid rgba(180, 150, 120, 0.12);
-            position: relative;
-            z-index: 10;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .header-left {
-            display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
-        }
-
-        .logo {
-            font-family: var(--font-sans);
-            font-size: 0.55rem;
-            letter-spacing: 0.45em;
-            text-transform: uppercase;
-            color: var(--limestone);
-            opacity: 0.7;
-            font-weight: 400;
-        }
-
-        .logo-star {
-            display: block;
-            font-size: 0.5rem;
-            color: var(--gold-muted);
-            letter-spacing: 0;
-            margin-top: 0.15rem;
-            opacity: 0.6;
-        }
-
-        .header-right {
-            font-family: var(--font-sans);
-            font-size: 0.5rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--limestone);
-            opacity: 0.35;
-            font-weight: 300;
-            padding-top: 0.1rem;
-            transition: opacity 0.3s ease;
-            cursor: default;
-        }
-
-        .header-right:hover {
-            opacity: 0.6;
-        }
-
-        /* ===== HERO ===== */
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 2.5rem 0 1.5rem;
-            position: relative;
-            z-index: 5;
-        }
-
-        .hero-headline {
-            font-family: var(--font-serif);
-            font-weight: 400;
-            font-style: italic;
-            font-size: clamp(2.6rem, 8vw, 6.2rem);
-            line-height: 1.0;
-            color: var(--ivory);
-            letter-spacing: -0.02em;
-            text-shadow: 0 2px 40px rgba(0, 0, 0, 0.3);
-            margin-bottom: 0.15rem;
-        }
-
-        .hero-headline .line-2 {
-            font-style: italic;
-        }
-
-        .hero-divider {
-            width: 3.5rem;
-            height: 1px;
-            background: var(--gold-muted);
-            margin: 1.2rem auto 1rem;
-            opacity: 0.5;
-        }
-
-        .hero-sub {
-            font-family: var(--font-sans);
-            font-size: clamp(0.65rem, 1.2vw, 0.85rem);
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--warm-beige);
-            opacity: 0.6;
-            font-weight: 300;
-        }
-
-        .hero-cta {
-            margin-top: 2rem;
-            display: inline-block;
-            padding: 0.7rem 2.6rem;
-            border: 1px solid rgba(180, 150, 120, 0.35);
-            border-radius: 100px;
-            background: transparent;
-            color: var(--limestone);
-            font-family: var(--font-sans);
-            font-size: 0.6rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            font-weight: 400;
-            cursor: pointer;
-            transition: all 0.5s ease;
-            position: relative;
-            backdrop-filter: blur(4px);
-            background: rgba(26, 14, 10, 0.3);
-        }
-
-        .hero-cta:hover {
-            border-color: rgba(180, 150, 120, 0.7);
-            color: var(--ivory);
-            background: rgba(180, 150, 120, 0.08);
-            box-shadow: 0 0 40px rgba(180, 150, 120, 0.04);
-            transform: scale(1.02);
-        }
-
-        .hero-cta:active {
-            transform: scale(0.97);
-        }
-
-        .hero-scroll-hint {
-            margin-top: 1.4rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.2rem;
-            color: var(--limestone);
-            opacity: 0.25;
-            font-size: 0.5rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            font-weight: 300;
-            cursor: default;
-        }
-
-        .hero-scroll-hint .arrow-down {
-            display: block;
-            font-size: 0.7rem;
-            animation: floatDown 2.4s ease-in-out infinite;
-            opacity: 0.5;
-        }
-
-        @keyframes floatDown {
-            0%,
-            100% {
-                transform: translateY(0);
-                opacity: 0.3;
-            }
-            50% {
-                transform: translateY(6px);
-                opacity: 0.8;
-            }
-        }
-
-        /* ===== CARD DECK SECTION ===== */
-        .deck-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 1.5rem 0 1.8rem;
-            position: relative;
-            z-index: 5;
-        }
-
-        .deck-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 2.5rem;
-            flex-wrap: wrap;
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        /* Deck left: Draw random */
-        .deck-side {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            min-width: 70px;
-        }
-
-        .deck-side-label {
-            font-family: var(--font-serif-alt);
-            font-weight: 300;
-            font-style: italic;
-            font-size: 0.7rem;
-            color: var(--limestone);
-            opacity: 0.5;
-            text-align: center;
-            line-height: 1.3;
-            letter-spacing: 0.04em;
-        }
-
-        .deck-side-label .small-arrow {
-            display: block;
-            font-size: 0.6rem;
-            opacity: 0.4;
-            margin-top: 0.1rem;
-        }
-
-        .deck-circle-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: 1px solid rgba(180, 150, 120, 0.2);
-            background: rgba(26, 14, 10, 0.3);
-            backdrop-filter: blur(4px);
-            color: var(--limestone);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            font-size: 0.8rem;
-            opacity: 0.6;
-        }
-
-        .deck-circle-btn:hover {
-            border-color: rgba(180, 150, 120, 0.5);
-            opacity: 1;
-            transform: scale(1.05);
-            background: rgba(180, 150, 120, 0.06);
-        }
-
-        .deck-circle-btn:active {
-            transform: scale(0.92);
-        }
-
-        .deck-circle-btn svg {
-            width: 18px;
-            height: 18px;
-            fill: none;
-            stroke: currentColor;
-            stroke-width: 1.5;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
-        /* ===== THE PHYSICAL DECK ===== */
-        .deck-stack {
-            position: relative;
-            width: 200px;
-            height: 290px;
-            flex-shrink: 0;
-            perspective: 1200px;
-            cursor: pointer;
-        }
-
-        @media (max-width: 640px) {
-            .deck-stack {
-                width: 160px;
-                height: 230px;
-            }
-        }
-
-        .deck-card {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 12px;
-            background: var(--limestone-paper);
-            box-shadow:
-                0 4px 30px rgba(0, 0, 0, 0.5),
-                0 1px 8px rgba(0, 0, 0, 0.2),
-                inset 0 1px 0 rgba(255, 248, 240, 0.4);
-            transform-origin: center bottom;
-            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-            backface-visibility: hidden;
-            border: 1px solid rgba(200, 180, 165, 0.15);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        /* Card paper texture */
-        .deck-card::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 12px;
-            background:
-                repeating-linear-gradient(45deg,
-                    rgba(200, 180, 165, 0.02) 0px,
-                    rgba(200, 180, 165, 0.02) 2px,
-                    rgba(0, 0, 0, 0.01) 2px,
-                    rgba(0, 0, 0, 0.01) 5px),
-                repeating-linear-gradient(135deg,
-                    rgba(200, 180, 165, 0.015) 0px,
-                    rgba(200, 180, 165, 0.015) 1px,
-                    rgba(0, 0, 0, 0.008) 1px,
-                    rgba(0, 0, 0, 0.008) 4px);
-            pointer-events: none;
-            opacity: 0.4;
-        }
-
-        .deck-card:nth-child(1) {
-            transform: translateX(-6px) translateY(-4px) rotateZ(-1.2deg) scale(0.98);
-            box-shadow: 0 6px 40px rgba(0, 0, 0, 0.4), 0 2px 10px rgba(0, 0, 0, 0.15);
-            z-index: 1;
-        }
-        .deck-card:nth-child(2) {
-            transform: translateX(-3px) translateY(-2px) rotateZ(0.8deg) scale(0.99);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.35), 0 1px 8px rgba(0, 0, 0, 0.12);
-            z-index: 2;
-        }
-        .deck-card:nth-child(3) {
-            transform: translateX(2px) translateY(-1px) rotateZ(-0.5deg) scale(1);
-            box-shadow: 0 3px 25px rgba(0, 0, 0, 0.3), 0 1px 6px rgba(0, 0, 0, 0.1);
-            z-index: 3;
-        }
-        .deck-card:nth-child(4) {
-            transform: translateX(0px) translateY(0px) rotateZ(0deg) scale(1.01);
-            box-shadow: 0 8px 50px rgba(0, 0, 0, 0.5), 0 2px 12px rgba(0, 0, 0, 0.15);
-            z-index: 4;
-            border-color: rgba(200, 180, 165, 0.2);
-        }
-        .deck-card:nth-child(5) {
-            transform: translateX(0px) translateY(0px) rotateZ(0deg) scale(1.02);
-            box-shadow: 0 12px 60px rgba(0, 0, 0, 0.6), 0 2px 16px rgba(0, 0, 0, 0.2);
-            z-index: 5;
-            border-color: rgba(200, 180, 165, 0.25);
-        }
-
-        /* Top card content */
-        .deck-card-top .card-star {
-            font-size: 1.2rem;
-            color: var(--gold-muted);
-            margin-bottom: 0.5rem;
-            opacity: 0.6;
-            letter-spacing: 0;
-        }
-
-        .deck-card-top .card-logo {
-            font-family: var(--font-sans);
-            font-size: 0.5rem;
-            letter-spacing: 0.35em;
-            text-transform: uppercase;
-            color: var(--chocolate);
-            opacity: 0.5;
-            font-weight: 400;
-        }
-
-        .deck-card-top .card-divider {
-            width: 2rem;
-            height: 1px;
-            background: var(--gold-muted);
-            margin: 0.5rem auto;
-            opacity: 0.3;
-        }
-
-        .deck-card-top .card-title {
-            font-family: var(--font-serif);
-            font-size: 1rem;
-            font-weight: 400;
-            font-style: italic;
-            color: var(--espresso);
-            opacity: 0.7;
-            letter-spacing: 0.02em;
-            line-height: 1.2;
-        }
-
-        /* Deck right: Explore all */
-        .deck-side-right .deck-side-label {
-            text-align: center;
-        }
-
-        /* ===== FEATURED CARD ===== */
-        .featured-section {
-            padding: 2rem 0 1rem;
-            width: 100%;
-            max-width: 680px;
-            margin: 0 auto;
-        }
-
-        .featured-card-wrap {
-            position: relative;
-            background: var(--limestone-paper);
-            border-radius: 14px;
-            padding: 2.8rem 3rem 2.4rem;
-            box-shadow:
-                0 8px 50px rgba(0, 0, 0, 0.5),
-                0 2px 16px rgba(0, 0, 0, 0.15),
-                inset 0 1px 0 rgba(255, 248, 240, 0.3);
-            border: 1px solid rgba(200, 180, 165, 0.12);
-            transition: all 0.5s ease;
-            min-height: 260px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .featured-card-wrap::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 14px;
-            background:
-                repeating-linear-gradient(45deg,
-                    rgba(200, 180, 165, 0.015) 0px,
-                    rgba(200, 180, 165, 0.015) 2px,
-                    rgba(0, 0, 0, 0.008) 2px,
-                    rgba(0, 0, 0, 0.008) 5px);
-            pointer-events: none;
-            opacity: 0.3;
-        }
-
-        .featured-card-content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-        }
-
-        .featured-number {
-            font-family: var(--font-serif-alt);
-            font-size: 0.7rem;
-            font-weight: 300;
-            letter-spacing: 0.2em;
-            color: var(--gold-muted);
-            opacity: 0.5;
-            margin-bottom: 0.3rem;
-        }
-
-        .featured-divider {
-            width: 2.5rem;
-            height: 1px;
-            background: var(--gold-muted);
-            margin: 0.4rem auto 0.8rem;
-            opacity: 0.25;
-        }
-
-        .featured-title {
-            font-family: var(--font-serif);
-            font-size: clamp(1.6rem, 4vw, 2.8rem);
-            font-weight: 400;
-            font-style: italic;
-            color: var(--espresso);
-            letter-spacing: 0.01em;
-            line-height: 1.1;
-            margin-bottom: 0.6rem;
-        }
-
-        .featured-body {
-            font-family: var(--font-serif-alt);
-            font-weight: 300;
-            font-size: clamp(0.7rem, 1.1vw, 0.9rem);
-            color: var(--chocolate);
-            opacity: 0.65;
-            line-height: 1.7;
-            max-width: 420px;
-            margin: 0 auto;
-            letter-spacing: 0.02em;
-        }
-
-        .featured-nav {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 1.4rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .featured-nav-btn {
-            background: none;
-            border: none;
-            color: var(--limestone);
-            font-size: 0.8rem;
-            opacity: 0.25;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            padding: 0.3rem 0.6rem;
-            font-family: var(--font-sans);
-            letter-spacing: 0.1em;
-        }
-
-        .featured-nav-btn:hover {
-            opacity: 0.7;
-            transform: scale(1.1);
-        }
-
-        .featured-nav-btn:active {
-            transform: scale(0.9);
-        }
-
-        .featured-bookmark {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            margin-top: 1rem;
-            font-family: var(--font-sans);
-            font-size: 0.5rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--limestone);
-            opacity: 0.2;
-            cursor: default;
-            transition: opacity 0.3s ease;
-        }
-
-        .featured-bookmark:hover {
-            opacity: 0.5;
-        }
-
-        .featured-bookmark .icon {
-            font-size: 0.6rem;
-        }
-
-        /* ===== COLLECTION ===== */
-        .collection-section {
-            padding: 2rem 0 1.5rem;
-            width: 100%;
-            border-top: 1px solid rgba(180, 150, 120, 0.06);
-            margin-top: 0.5rem;
-        }
-
-        .collection-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 1.2rem;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .collection-title {
-            font-family: var(--font-sans);
-            font-size: 0.55rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--limestone);
-            opacity: 0.3;
-            font-weight: 300;
-        }
-
-        .collection-scroll {
-            display: flex;
-            gap: 0.8rem;
-            overflow-x: auto;
-            padding: 0.4rem 0.2rem 1rem;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: thin;
-        }
-
-        .collection-scroll::-webkit-scrollbar {
-            height: 2px;
-        }
-        .collection-scroll::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.02);
-        }
-        .collection-scroll::-webkit-scrollbar-thumb {
-            background: var(--gold-muted);
-            border-radius: 2px;
-            opacity: 0.3;
-        }
-
-        .collection-card {
-            flex: 0 0 90px;
-            scroll-snap-align: start;
-            background: var(--limestone-paper);
-            border-radius: 10px;
-            padding: 1rem 0.6rem;
-            box-shadow:
-                0 4px 20px rgba(0, 0, 0, 0.25),
-                inset 0 1px 0 rgba(255, 248, 240, 0.2);
-            border: 1px solid rgba(200, 180, 165, 0.08);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            min-height: 95px;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            position: relative;
-            transform-origin: center;
-        }
-
-        .collection-card:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 8px 35px rgba(0, 0, 0, 0.3);
-            border-color: rgba(180, 150, 120, 0.15);
-        }
-
-        .collection-card:active {
-            transform: scale(0.95);
-        }
-
-        .collection-card .card-symbol {
-            font-size: 0.7rem;
-            color: var(--gold-muted);
-            opacity: 0.4;
-            margin-bottom: 0.2rem;
-        }
-
-        .collection-card .card-label {
-            font-family: var(--font-sans);
-            font-size: 0.45rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--chocolate);
-            opacity: 0.5;
-            font-weight: 400;
-            line-height: 1.3;
-        }
-
-        .collection-card .card-number {
-            font-family: var(--font-serif-alt);
-            font-size: 0.4rem;
-            font-weight: 300;
-            color: var(--gold-muted);
-            opacity: 0.3;
-            margin-bottom: 0.1rem;
-        }
-
-        .collection-card.active {
-            border-color: rgba(180, 150, 120, 0.3);
-            box-shadow: 0 8px 35px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(180, 150, 120, 0.1);
-        }
-
-        /* ===== FOOTER ===== */
-        .footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 1.8rem;
-            margin-top: auto;
-            border-top: 1px solid rgba(180, 150, 120, 0.06);
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
-
-        .footer-left {
-            font-family: var(--font-serif-alt);
-            font-size: 0.6rem;
-            font-weight: 300;
-            font-style: italic;
-            color: var(--limestone);
-            opacity: 0.25;
-            letter-spacing: 0.03em;
-        }
-
-        .footer-center {
-            font-size: 0.5rem;
-            color: var(--gold-muted);
-            opacity: 0.2;
-        }
-
-        .footer-right {
-            font-family: var(--font-sans);
-            font-size: 0.5rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--limestone);
-            opacity: 0.2;
-            font-weight: 300;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .deck-container {
-                gap: 1.2rem;
-            }
-            .deck-side {
-                min-width: 50px;
-            }
-            .deck-side-label {
-                font-size: 0.6rem;
-            }
-            .deck-circle-btn {
-                width: 34px;
-                height: 34px;
-            }
-            .deck-stack {
-                width: 150px;
-                height: 215px;
-            }
-            .featured-card-wrap {
-                padding: 2rem 1.5rem 1.8rem;
-            }
-            .collection-card {
-                flex: 0 0 75px;
-                min-height: 80px;
-                padding: 0.7rem 0.4rem;
-            }
-            .collection-card .card-label {
-                font-size: 0.4rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .deck-stack {
-                width: 120px;
-                height: 175px;
-            }
-            .deck-card-top .card-title {
-                font-size: 0.75rem;
-            }
-            .deck-card-top .card-logo {
-                font-size: 0.4rem;
-            }
-            .featured-card-wrap {
-                padding: 1.5rem 1rem 1.5rem;
-                min-height: 200px;
-            }
-            .collection-card {
-                flex: 0 0 65px;
-                min-height: 70px;
-                padding: 0.5rem 0.3rem;
-            }
-            .footer-left,
-            .footer-right {
-                font-size: 0.45rem;
-            }
-            .header .logo {
-                font-size: 0.45rem;
-            }
-            .header-right {
-                font-size: 0.4rem;
-            }
-        }
-
-        /* ===== UTILITY ===== */
-        .hidden {
-            display: none !important;
-        }
-
-        .text-gold {
-            color: var(--gold-muted);
-        }
-
-        /* ===== ANIMATIONS ===== */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-in {
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        .delay-1 {
-            animation-delay: 0.1s;
-        }
-        .delay-2 {
-            animation-delay: 0.2s;
-        }
-        .delay-3 {
-            animation-delay: 0.3s;
-        }
-
-        /* Shuffle animation */
-        @keyframes shuffleCards {
-            0% {
-                transform: rotate(0deg) scale(1);
-            }
-            25% {
-                transform: rotate(6deg) scale(1.02);
-            }
-            50% {
-                transform: rotate(-4deg) scale(0.98);
-            }
-            75% {
-                transform: rotate(3deg) scale(1.01);
-            }
-            100% {
-                transform: rotate(0deg) scale(1);
-            }
-        }
-
-        .shuffling .deck-card {
-            animation: shuffleCards 0.6s ease;
-        }
-
-        /* Deck open animation */
-        @keyframes fanCards {
-            0% {
-                transform: translateX(0) translateY(0) rotateZ(0deg) scale(1);
-            }
-            100% {
-                transform: translateX(var(--tx)) translateY(var(--ty)) rotateZ(var(--rz)) scale(var(--sc));
-            }
-        }
-
-        /* ===== DRIED BOTANICALS (decorative) ===== */
-        .botanicals {
-            position: fixed;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.15;
-        }
-
-        .botanicals-left {
-            left: 0;
-            top: 10%;
-            width: 120px;
-            height: 60%;
-            background:
-                radial-gradient(ellipse at 0% 30%, rgba(120, 80, 50, 0.08) 0%, transparent 70%),
-                radial-gradient(ellipse at 0% 70%, rgba(80, 50, 30, 0.06) 0%, transparent 60%);
-            filter: blur(1px);
-        }
-
-        .botanicals-right {
-            right: 0;
-            bottom: 15%;
-            width: 160px;
-            height: 55%;
-            background:
-                radial-gradient(ellipse at 100% 40%, rgba(100, 70, 45, 0.07) 0%, transparent 65%),
-                radial-gradient(ellipse at 100% 80%, rgba(60, 40, 25, 0.05) 0%, transparent 50%);
-            filter: blur(1px);
-        }
-
-        /* Candle glow */
-        .candle-glow {
-            position: fixed;
-            bottom: 12%;
-            right: 8%;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: radial-gradient(ellipse, rgba(200, 160, 100, 0.06) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
-            filter: blur(8px);
-            animation: pulseGlow 4s ease-in-out infinite;
-        }
-
-        @keyframes pulseGlow {
-            0%,
-            100% {
-                opacity: 0.5;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1.15);
-            }
-        }
-
-        /* ===== SELECTED CARD STATE ===== */
-        .featured-card-wrap .featured-body {
-            transition: opacity 0.4s ease;
-        }
-
-        /* Smooth transitions for card content */
-        .featured-card-content.fade-transition {
-            animation: fadeContent 0.4s ease;
-        }
-
-        @keyframes fadeContent {
-            0% {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* ===== Responsive deck stack ===== */
-        @media (max-width: 600px) {
-            .deck-container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            .deck-side {
-                flex-direction: row;
-                gap: 1.2rem;
-                min-width: unset;
-            }
-            .deck-side-label {
-                font-size: 0.55rem;
-            }
-            .deck-side .small-arrow {
-                display: none;
-            }
-            .deck-side-right .deck-side-label {
-                text-align: right;
-            }
-            .deck-side {
-                order: 1;
-            }
-            .deck-stack {
-                order: 0;
-            }
-            .deck-side-left {
-                order: 2;
-            }
-            .deck-side-right {
-                order: 3;
-            }
-            .deck-container {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .deck-side {
-                flex-direction: row;
-                gap: 0.8rem;
-            }
-            .deck-side-label {
-                font-size: 0.5rem;
-            }
-            .deck-circle-btn {
-                width: 30px;
-                height: 30px;
-            }
-            .deck-circle-btn svg {
-                width: 14px;
-                height: 14px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Liminal Light — A moment for yourself</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+
+    :root{
+      /* Ancient limestone / travertine palette */
+      --wall-1:#ece1c4;
+      --wall-2:#e3d5b2;
+      --wall-3:#d6c49b;
+
+      --stone-50:#f4ecda;
+      --stone-100:#ecdfc0;
+      --stone-200:#dfcda3;
+      --stone-300:#cbb686;
+
+      --stone-shadow:#a48f68;
+      --stone-deep:#7d6a4b;
+
+      --gold:#a3835a;
+      --gold-soft:#bd9d72;
+      --gold-dim:#8a7250;
+
+      --ink:#4a3c26;
+      --ink-soft:#6b5a3e;
+
+      --shadow-soft:rgba(90,72,46,0.28);
+    }
+
+
+    *{
+      box-sizing:border-box;
+    }
+
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+
+    body{
+      margin:0;
+      background:var(--wall-2);
+      color:var(--ink-soft);
+      font-family:'Jost', sans-serif;
+      -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
+    }
+
+
+    ::selection{
+      background:var(--stone-300);
+      color:var(--ink);
+    }
+
+
+    a,
+    button{
+      font-family:inherit;
+    }
+
+
+    button{
+      cursor:pointer;
+      background:none;
+      border:none;
+      color:inherit;
+    }
+
+
+    :focus-visible{
+      outline:1.5px solid var(--gold);
+      outline-offset:4px;
+    }
+
+
+    @media (prefers-reduced-motion: reduce){
+      *{
+        animation:none !important;
+        transition:none !important;
+      }
+    }
+
+
+    /* ==========================================
+       FINE GRAIN / PAPER / STONE TEXTURE
+    ========================================== */
+
+    .grain{
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.45 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+
+      mix-blend-mode:multiply;
+      opacity:.35;
+    }
+
+
+    /* ==========================================
+       STONE PORES
+    ========================================== */
+
+    .pores{
+      background-image:
+
+        radial-gradient(
+          circle at 8% 18%,
+          rgba(125,106,75,0.30) 0 2px,
+          transparent 3px
+        ),
+
+        radial-gradient(
+          circle at 21% 46%,
+          rgba(125,106,75,0.22) 0 1.5px,
+          transparent 2.5px
+        ),
+
+        radial-gradient(
+          circle at 33% 12%,
+          rgba(125,106,75,0.26) 0 2px,
+          transparent 3px
+        ),
+
+        radial-gradient(
+          circle at 46% 60%,
+          rgba(125,106,75,0.20) 0 1.5px,
+          transparent 2.5px
+        ),
+
+        radial-gradient(
+          circle at 58% 30%,
+          rgba(125,106,75,0.28) 0 2.5px,
+          transparent 3.5px
+        ),
+
+        radial-gradient(
+          circle at 68% 72%,
+          rgba(125,106,75,0.22) 0 1.5px,
+          transparent 2.5px
+        ),
+
+        radial-gradient(
+          circle at 77% 20%,
+          rgba(125,106,75,0.26) 0 2px,
+          transparent 3px
+        ),
+
+        radial-gradient(
+          circle at 88% 55%,
+          rgba(125,106,75,0.24) 0 2px,
+          transparent 3px
+        ),
+
+        radial-gradient(
+          circle at 14% 80%,
+          rgba(125,106,75,0.24) 0 1.5px,
+          transparent 2.5px
+        ),
+
+        radial-gradient(
+          circle at 60% 88%,
+          rgba(125,106,75,0.20) 0 1.5px,
+          transparent 2.5px
+        ),
+
+        radial-gradient(
+          circle at 92% 85%,
+          rgba(125,106,75,0.22) 0 2px,
+          transparent 3px
+        ),
+
+        repeating-linear-gradient(
+          4deg,
+          rgba(255,255,255,0.05) 0 2px,
+          rgba(125,106,75,0.045) 2px 4px,
+          transparent 4px 9px
+        );
+    }
+
+
+    /* ==========================================
+       MAIN SCENE
+    ========================================== */
+
+    .scene{
+      position:relative;
+      width:100%;
+      min-height:100vh;
+
+      background:
+
+        radial-gradient(
+          ellipse 900px 700px at 16% 8%,
+          rgba(255,247,225,0.35),
+          transparent 55%
+        ),
+
+        radial-gradient(
+          ellipse 800px 700px at 85% 90%,
+          rgba(150,128,90,0.14),
+          transparent 60%
+        ),
+
+        linear-gradient(
+          155deg,
+          var(--wall-1) 0%,
+          var(--wall-2) 45%,
+          var(--wall-3) 100%
+        );
+
+      overflow:hidden;
+    }
+
+
+    .scene .pores{
+      position:absolute;
+      inset:0;
+      opacity:.55;
+      pointer-events:none;
+    }
+
+
+    .scene::before{
+      content:"";
+      position:absolute;
+      inset:0;
+
+      background:
+
+        radial-gradient(
+          ellipse 400px 260px at 30% 35%,
+          rgba(255,255,255,0.10),
+          transparent 70%
+        ),
+
+        radial-gradient(
+          ellipse 320px 460px at 74% 66%,
+          rgba(125,106,75,0.08),
+          transparent 70%
+        ),
+
+        radial-gradient(
+          ellipse 560px 220px at 55% 12%,
+          rgba(255,255,255,0.08),
+          transparent 70%
+        );
+
+      pointer-events:none;
+    }
+
+
+    /* ==========================================
+       HEADER
+    ========================================== */
+
+    header{
+      position:relative;
+      z-index:20;
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+
+      padding:28px 5vw 0;
+    }
+
+
+    .logo-wrap{
+      position:absolute;
+      left:50%;
+      top:28px;
+
+      transform:translateX(-50%);
+
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+
+      /* Tightened spacing */
+      gap:5px;
+    }
+
+
+    .logo{
+      font-family:'Jost', sans-serif;
+      font-weight:400;
+      font-size:11px;
+
+      letter-spacing:0.4em;
+
+      color:var(--ink-soft);
+
+      text-transform:uppercase;
+      white-space:nowrap;
+    }
+
+
+    .mark{
+      width:9px;
+      height:9px;
+      opacity:.8;
+    }
+
+
+    .exit-btn{
+      margin-left:auto;
+
+      font-size:10.5px;
+      font-weight:300;
+
+      letter-spacing:0.17em;
+
+      text-transform:uppercase;
+
+      color:var(--stone-shadow);
+
+      padding:6px 2px;
+
+      border-bottom:1px solid transparent;
+
+      transition:
+        color .3s ease,
+        border-color .3s ease;
+    }
+
+
+    .exit-btn:hover{
+      color:var(--gold);
+      border-color:var(--gold-dim);
+    }
+
+
+    /* ==========================================
+       BOTANICAL PROPS
+    ========================================== */
+
+    .branch-left{
+      position:absolute;
+
+      left:-40px;
+      top:9%;
+
+      height:74%;
+      width:200px;
+
+      opacity:.55;
+
+      z-index:5;
+
+      filter:
+        drop-shadow(
+          3px 6px 8px rgba(125,106,75,0.25)
+        );
+
+      pointer-events:none;
+    }
+
+
+    .vase-right{
+      position:absolute;
+
+      right:2%;
+      bottom:0;
+
+      width:250px;
+
+      z-index:6;
+
+      filter:
+        drop-shadow(
+          6px 10px 14px rgba(125,106,75,0.30)
+        );
+
+      pointer-events:none;
+    }
+
+
+    .candle-prop{
+      position:absolute;
+
+      left:6.5%;
+      bottom:6%;
+
+      width:110px;
+
+      z-index:6;
+
+      pointer-events:none;
+
+      opacity:.9;
+    }
+
+
+    .flame{
+      transform-origin:50% 100%;
+      animation:flicker 3.6s ease-in-out infinite;
+    }
+
+
+    @keyframes flicker{
+
+      0%,
+      100%{
+        transform:scaleY(1);
+        opacity:1;
+      }
+
+      50%{
+        transform:scaleY(1.03);
+        opacity:.95;
+      }
+
+    }
+
+
+    /* ==========================================
+       HERO
+    ========================================== */
+
+    .hero{
+      position:relative;
+      z-index:10;
+
+      max-width:820px;
+
+      margin:0 auto;
+
+      /* Reduced top space to bring title closer
+         to the Liminal Light branding */
+      padding:68px 24px 58px;
+
+      text-align:center;
+
+      opacity:0;
+
+      animation:
+        riseIn 1.3s cubic-bezier(.2,.7,.2,1)
+        .3s forwards;
+    }
+
+
+    @keyframes riseIn{
+
+      from{
+        opacity:0;
+        transform:translateY(16px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+
+    }
+
+
+    .headline{
+      font-family:'Bodoni Moda', serif;
+
+      font-optical-sizing:auto;
+      font-weight:500;
+
+      color:var(--ink);
+
+      font-size:
+        clamp(28px, 3.6vw, 44px);
+
+      line-height:1.14;
+
+      letter-spacing:0.005em;
+
+      text-shadow:
+        1px 1px 0 rgba(255,255,255,0.55),
+        -0.5px -0.5px 0.5px rgba(90,72,46,0.18);
+
+      margin-top:0;
+    }
+
+
+    .headline em{
+      font-style:italic;
+      font-weight:400;
+    }
+
+
+    .rule{
+      width:56px;
+      height:1px;
+
+      margin:28px auto 24px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--stone-shadow),
+          transparent
+        );
+    }
+
+
+    .subhead{
+      font-weight:300;
+
+      font-size:14.5px;
+
+      letter-spacing:0.03em;
+
+      line-height:1.65;
+
+      color:var(--ink-soft);
+
+      max-width:320px;
+
+      margin:0 auto;
+    }
+
+
+    .cta-pill{
+      display:inline-block;
+
+      margin:36px auto 0;
+
+      padding:13px 34px;
+
+      border:
+        1px solid var(--stone-shadow);
+
+      border-radius:999px;
+
+      font-size:10.5px;
+
+      letter-spacing:0.26em;
+
+      text-transform:uppercase;
+
+      color:var(--gold-dim);
+
+      background:
+        rgba(163,131,90,0.05);
+
+      transition:
+        border-color .35s ease,
+        background .35s ease,
+        color .35s ease,
+        transform .35s ease;
+    }
+
+
+    .cta-pill:hover{
+      border-color:var(--gold);
+
+      background:
+        rgba(163,131,90,0.12);
+
+      transform:translateY(-1px);
+    }
+
+
+    .choose-hint{
+      margin-top:38px;
+
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+
+      gap:9px;
+
+      font-size:9.5px;
+
+      letter-spacing:0.28em;
+
+      text-transform:uppercase;
+
+      color:var(--stone-shadow);
+
+      font-weight:300;
+    }
+
+
+    .choose-hint svg{
+      width:12px;
+      height:12px;
+
+      opacity:.8;
+
+      animation:
+        bob 2.8s ease-in-out infinite;
+    }
+
+
+    @keyframes bob{
+
+      0%,
+      100%{
+        transform:translateY(0);
+      }
+
+      50%{
+        transform:translateY(4px);
+      }
+
+    }
+
+
+    /* ==========================================
+       DECK SECTION
+    ========================================== */
+
+    .deck-section{
+      position:relative;
+
+      z-index:10;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      gap:58px;
+
+      padding:10px 24px 90px;
+
+      flex-wrap:wrap;
+    }
+
+
+    .side-control{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+
+      gap:16px;
+
+      max-width:120px;
+
+      text-align:center;
+    }
+
+
+    .side-control .label{
+      font-family:'Cormorant Garamond', serif;
+
+      font-style:italic;
+      font-weight:500;
+
+      font-size:17px;
+
+      line-height:1.25;
+
+      color:var(--ink-soft);
+    }
+
+
+    .side-control svg.down{
+      width:10px;
+      height:10px;
+
+      opacity:.55;
+    }
+
+
+    .circle-btn{
+      width:50px;
+      height:50px;
+
+      border-radius:50%;
+
+      border:
+        1px solid var(--stone-shadow);
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      background:
+        rgba(255,251,240,0.3);
+
+      transition:
+        border-color .3s ease,
+        background .3s ease,
+        transform .3s ease;
+    }
+
+
+    .circle-btn:hover{
+      border-color:var(--gold);
+
+      background:
+        rgba(163,131,90,0.1);
+
+      transform:translateY(-2px);
+    }
+
+
+    .circle-btn svg{
+      width:16px;
+      height:16px;
+
+      stroke:var(--gold-dim);
+    }
+
+
+    /* ==========================================
+       CARD DECK
+    ========================================== */
+
+    .deck{
+      position:relative;
+
+      width:280px;
+      height:390px;
+
+      flex-shrink:0;
+
+      cursor:pointer;
+
+      transition:
+        transform .45s cubic-bezier(.2,.7,.2,1);
+    }
+
+
+    .deck:hover{
+      transform:
+        translateY(-5px);
+    }
+
+
+    .card-base{
+      position:absolute;
+
+      inset:0;
+
+      border-radius:7px;
+
+      background:
+        linear-gradient(
+          160deg,
+          var(--stone-50),
+          var(--stone-100) 55%,
+          var(--stone-200) 100%
+        );
+
+      box-shadow:
+        0 20px 40px -18px var(--shadow-soft),
+        0 1px 0 rgba(255,255,255,0.5) inset;
+    }
+
+
+    .card-base .grain{
+      border-radius:7px;
+      opacity:.28;
+    }
+
+
+    .card-base .pores{
+      position:absolute;
+      inset:0;
+
+      border-radius:7px;
+
+      opacity:.4;
+    }
+
+
+    .deck .c4{
+      transform:
+        rotate(-6deg)
+        translate(-13px, 9px);
+
+      z-index:1;
+    }
+
+
+    .deck .c3{
+      transform:
+        rotate(-2.6deg)
+        translate(-6px, 4px);
+
+      z-index:2;
+    }
+
+
+    .deck .c2{
+      transform:
+        rotate(3deg)
+        translate(7px, 2px);
+
+      z-index:3;
+    }
+
+
+    .deck .c1{
+      z-index:4;
+
+      display:flex;
+      flex-direction:column;
+
+      align-items:center;
+      justify-content:center;
+
+      gap:14px;
+
+      padding:28px;
+
+      text-align:center;
+    }
+
+
+    .deck .c1 .spark{
+      width:14px;
+      height:14px;
+    }
+
+
+    .deck .c1 .wordmark{
+      font-size:10px;
+
+      letter-spacing:0.33em;
+
+      text-transform:uppercase;
+
+      color:var(--ink);
+
+      opacity:.7;
+
+      font-weight:400;
+    }
+
+
+    .deck .c1 .dash{
+      width:18px;
+      height:1px;
+
+      background:var(--stone-shadow);
+
+      opacity:.6;
+    }
+
+
+    .deck .c1 .tagline{
+      font-family:'Cormorant Garamond', serif;
+
+      font-style:italic;
+
+      font-size:20px;
+
+      color:var(--ink);
+
+      opacity:.85;
+    }
+
+
+    /* ==========================================
+       FOOTER
+    ========================================== */
+
+    footer{
+      position:relative;
+
+      z-index:10;
+
+      background:
+        linear-gradient(
+          180deg,
+          var(--wall-3),
+          var(--stone-300)
+        );
+
+      padding:38px 6vw 36px;
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+
+      flex-wrap:wrap;
+
+      gap:16px;
+
+      border-top:
+        1px solid rgba(163,131,90,0.2);
+    }
+
+
+    .foot-item{
+      font-size:11.5px;
+
+      letter-spacing:0.02em;
+
+      color:var(--ink-soft);
+
+      font-weight:300;
+
+      display:flex;
+      align-items:center;
+
+      gap:8px;
+    }
+
+
+    .foot-item svg{
+      width:12px;
+      height:12px;
+
+      opacity:.65;
+
+      flex-shrink:0;
+    }
+
+
+    .foot-star{
+      width:12px;
+      height:12px;
+
+      opacity:.6;
+
+      margin:0 auto;
+    }
+
+
+    .foot-center{
+      flex:1;
+
+      display:flex;
+      justify-content:center;
+    }
+
+
+    .foot-right{
+      text-align:right;
+    }
+
+
+    /* ==========================================
+       MOBILE
+    ========================================== */
+
+    @media (max-width:720px){
+
+      .branch-left{
+        width:110px;
+        opacity:.4;
+      }
+
+
+      .vase-right{
+        width:140px;
+      }
+
+
+      .candle-prop{
+        width:72px;
+        left:4%;
+      }
+
+
+      .hero{
+        padding-top:130px;
+      }
+
+
+      .deck-section{
+        gap:30px;
+      }
+
+
+      .side-control{
+        max-width:90px;
+      }
+
+
+      footer{
+        flex-direction:column;
+        text-align:center;
+      }
+
+
+      .foot-right{
+        text-align:center;
+      }
+
+    }
+
+  </style>
 </head>
+
+
 <body>
 
-    <!-- ===== TEXTURE OVERLAY ===== -->
-    <div class="texture-overlay"></div>
 
-    <!-- ===== DECORATIVE BOTANICALS ===== -->
-    <div class="botanicals botanicals-left"></div>
-    <div class="botanicals botanicals-right"></div>
-    <div class="candle-glow"></div>
+  <div class="scene">
 
-    <!-- ===== PAGE ===== -->
-    <div class="page-wrapper">
+    <div class="grain"></div>
 
-        <!-- ===== HEADER ===== -->
-        <header class="header">
-            <div class="header-left">
-                <span class="logo">L I M I N A L &nbsp; L I G H T</span>
-                <span class="logo-star">✦</span>
-            </div>
-            <div class="header-right">Exit experience</div>
-        </header>
+    <div class="pores"></div>
 
-        <!-- ===== HERO ===== -->
-        <section class="hero">
-            <h1 class="hero-headline">
-                A moment<br />
-                <span class="line-2">for yourself.</span>
-            </h1>
-            <div class="hero-divider"></div>
-            <p class="hero-sub">A collection of ten pauses to keep with you.</p>
 
-            <button class="hero-cta" id="openDeckBtn">Open your deck</button>
+    <!-- ==========================================
+         LEFT BOTANICAL BRANCH
+    ========================================== -->
 
-            <div class="hero-scroll-hint">
-                <span>Choose a card</span>
-                <span class="arrow-down">↓</span>
-            </div>
-        </section>
+    <svg
+      class="branch-left"
+      viewBox="0 0 200 480"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
 
-        <!-- ===== DECK SECTION ===== -->
-        <section class="deck-section" id="deckSection">
+      <path
+        d="M-10 40 C 40 90, 60 140, 55 220 C 50 300, 20 350, 40 430"
+        stroke="#a48f68"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
 
-            <div class="deck-container">
+      <path
+        d="M55 100 C 80 92, 96 78, 100 58"
+        stroke="#a48f68"
+        stroke-width="1.4"
+        stroke-linecap="round"
+      />
 
-                <!-- LEFT: Draw random -->
-                <div class="deck-side deck-side-left">
-                    <span class="deck-side-label">
-                        Draw<br />random
-                        <span class="small-arrow">↓</span>
-                    </span>
-                    <button class="deck-circle-btn" id="shuffleBtn" aria-label="Shuffle deck">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M21 16v4h-4" />
-                            <path d="M21 8v-4h-4" />
-                            <path d="M21 20l-6-6" />
-                            <path d="M3 4l6 6" />
-                            <path d="M3 20l6-6" />
-                            <path d="M17 4l4 4" />
-                            <path d="M13 10l-2.5 2.5" />
-                            <path d="M10.5 13.5L8 16" />
-                        </svg>
-                    </button>
-                </div>
+      <path
+        d="M50 160 C 76 156, 94 140, 104 118"
+        stroke="#a48f68"
+        stroke-width="1.4"
+        stroke-linecap="round"
+      />
 
-                <!-- DECK STACK -->
-                <div class="deck-stack" id="deckStack">
-                    <!-- 5 cards layered -->
-                    <div class="deck-card"></div>
-                    <div class="deck-card"></div>
-                    <div class="deck-card"></div>
-                    <div class="deck-card"></div>
-                    <div class="deck-card deck-card-top">
-                        <span class="card-star">✦</span>
-                        <span class="card-logo">L I M I N A L &nbsp; L I G H T</span>
-                        <div class="card-divider"></div>
-                        <span class="card-title">A moment<br />for yourself</span>
-                    </div>
-                </div>
+      <path
+        d="M52 240 C 78 244, 100 234, 116 212"
+        stroke="#a48f68"
+        stroke-width="1.4"
+        stroke-linecap="round"
+      />
 
-                <!-- RIGHT: Explore all -->
-                <div class="deck-side deck-side-right">
-                    <span class="deck-side-label">
-                        Explore<br />all cards
-                        <span class="small-arrow">↓</span>
-                    </span>
-                    <button class="deck-circle-btn" id="exploreBtn" aria-label="Explore all cards">
-                        <svg viewBox="0 0 24 24">
-                            <rect x="3" y="3" width="7" height="7" rx="1" />
-                            <rect x="14" y="3" width="7" height="7" rx="1" />
-                            <rect x="3" y="14" width="7" height="7" rx="1" />
-                            <rect x="14" y="14" width="7" height="7" rx="1" />
-                        </svg>
-                    </button>
-                </div>
+      <path
+        d="M42 320 C 68 328, 92 320, 108 300"
+        stroke="#a48f68"
+        stroke-width="1.4"
+        stroke-linecap="round"
+      />
 
-            </div>
-        </section>
+      <ellipse
+        cx="98"
+        cy="56"
+        rx="8"
+        ry="3.6"
+        fill="#7d6a4b"
+        opacity="0.5"
+        transform="rotate(-28 98 56)"
+      />
 
-        <!-- ===== FEATURED CARD ===== -->
-        <section class="featured-section" id="featuredSection">
-            <div class="featured-card-wrap" id="featuredCardWrap">
-                <div class="featured-card-content" id="featuredContent">
-                    <div class="featured-number" id="featuredNumber">01</div>
-                    <div class="featured-divider"></div>
-                    <div class="featured-title" id="featuredTitle">PAUSE</div>
-                    <div class="featured-body" id="featuredBody">
-                        You don't always have to keep moving.<br />
-                        Sometimes the most important thing<br />
-                        you can do is stop.<br />
-                        Nothing needs to happen right now.
-                    </div>
-                </div>
-            </div>
+      <ellipse
+        cx="102"
+        cy="116"
+        rx="8"
+        ry="3.6"
+        fill="#7d6a4b"
+        opacity="0.5"
+        transform="rotate(-18 102 116)"
+      />
 
-            <div class="featured-nav">
-                <button class="featured-nav-btn" id="prevCardBtn" aria-label="Previous card">←</button>
-                <button class="featured-nav-btn" id="nextCardBtn" aria-label="Next card">→</button>
-            </div>
+      <ellipse
+        cx="114"
+        cy="210"
+        rx="8"
+        ry="3.6"
+        fill="#7d6a4b"
+        opacity="0.45"
+        transform="rotate(-12 114 210)"
+      />
 
-            <div class="featured-bookmark">
-                <span class="icon">♡</span>
-                <span>Keep this reminder</span>
-            </div>
-        </section>
+      <ellipse
+        cx="106"
+        cy="298"
+        rx="8"
+        ry="3.6"
+        fill="#7d6a4b"
+        opacity="0.45"
+        transform="rotate(-20 106 298)"
+      />
 
-        <!-- ===== COLLECTION ===== -->
-        <section class="collection-section" id="collectionSection">
-            <div class="collection-header">
-                <span class="collection-title">Your collection — ten pauses</span>
-            </div>
+    </svg>
 
-            <div class="collection-scroll" id="collectionScroll">
-                <!-- Cards will be injected by JS -->
-            </div>
-        </section>
 
-        <!-- ===== FOOTER ===== -->
-        <footer class="footer">
-            <span class="footer-left">♡ You made time for yourself. That matters.</span>
-            <span class="footer-center">✦</span>
-            <span class="footer-right">Come back anytime.</span>
-        </footer>
+    <!-- ==========================================
+         RIGHT VASE
+    ========================================== -->
+
+    <svg
+      class="vase-right"
+      viewBox="0 0 260 420"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+
+      <path
+        d="M120 40 C 150 80, 165 110, 150 150 C 200 140, 230 160, 235 210"
+        stroke="#9c8760"
+        stroke-width="1.8"
+        stroke-linecap="round"
+      />
+
+      <path
+        d="M110 30 C 100 70, 90 100, 105 150"
+        stroke="#9c8760"
+        stroke-width="1.8"
+        stroke-linecap="round"
+      />
+
+      <path
+        d="M118 45 C 128 90, 118 130, 132 160"
+        stroke="#9c8760"
+        stroke-width="1.4"
+        stroke-linecap="round"
+      />
+
+      <ellipse
+        cx="150"
+        cy="150"
+        rx="7"
+        ry="3.2"
+        fill="#7d6a4b"
+        opacity="0.45"
+        transform="rotate(20 150 150)"
+      />
+
+      <ellipse
+        cx="232"
+        cy="208"
+        rx="7"
+        ry="3.2"
+        fill="#7d6a4b"
+        opacity="0.45"
+        transform="rotate(-10 232 208)"
+      />
+
+      <ellipse
+        cx="104"
+        cy="148"
+        rx="7"
+        ry="3.2"
+        fill="#7d6a4b"
+        opacity="0.45"
+        transform="rotate(-30 104 148)"
+      />
+
+      <path
+        d="M70 190 C 70 170, 90 158, 120 158 C 150 158, 170 170, 170 190 L 178 320 C 178 350, 150 372, 120 372 C 90 372, 62 350, 62 320 Z"
+        fill="url(#vaseSheen)"
+      />
+
+      <ellipse
+        cx="120"
+        cy="190"
+        rx="50"
+        ry="10"
+        fill="#8a6f4d"
+      />
+
+      <defs>
+
+        <linearGradient
+          id="vaseSheen"
+          x1="62"
+          y1="158"
+          x2="178"
+          y2="372"
+          gradientUnits="userSpaceOnUse"
+        >
+
+          <stop
+            offset="0"
+            stop-color="#b08a5c"
+          />
+
+          <stop
+            offset="0.5"
+            stop-color="#8f7148"
+          />
+
+          <stop
+            offset="1"
+            stop-color="#6b5638"
+          />
+
+        </linearGradient>
+
+      </defs>
+
+    </svg>
+
+
+    <!-- ==========================================
+         CANDLE
+    ========================================== -->
+
+    <div class="candle-prop">
+
+      <svg
+        viewBox="0 0 120 90"
+        width="100%"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+
+        <defs>
+
+          <radialGradient
+            id="glow"
+            cx="50%"
+            cy="35%"
+            r="55%"
+          >
+
+            <stop
+              offset="0"
+              stop-color="#f0c987"
+              stop-opacity="0.32"
+            />
+
+            <stop
+              offset="1"
+              stop-color="#f0c987"
+              stop-opacity="0"
+            />
+
+          </radialGradient>
+
+
+          <linearGradient
+            id="bowlG"
+            x1="0"
+            y1="0"
+            x2="0"
+            y2="1"
+          >
+
+            <stop
+              offset="0"
+              stop-color="#b3986c"
+            />
+
+            <stop
+              offset="1"
+              stop-color="#8a7250"
+            />
+
+          </linearGradient>
+
+        </defs>
+
+
+        <circle
+          cx="60"
+          cy="34"
+          r="30"
+          fill="url(#glow)"
+        />
+
+        <ellipse
+          cx="60"
+          cy="66"
+          rx="34"
+          ry="9"
+          fill="#7d6a4b"
+        />
+
+        <path
+          d="M28 60 C 28 78, 44 84, 60 84 C 76 84, 92 78, 92 60 L 88 52 C 88 66, 76 72, 60 72 C 44 72, 32 66, 32 52 Z"
+          fill="url(#bowlG)"
+        />
+
+        <ellipse
+          cx="60"
+          cy="52"
+          rx="30"
+          ry="8"
+          fill="#a4895f"
+        />
+
+
+        <g class="flame">
+
+          <path
+            d="M60 22 C 66 30, 66 38, 60 44 C 54 38, 54 30, 60 22 Z"
+            fill="#eec27f"
+          />
+
+          <path
+            d="M60 30 C 63 34, 63 39, 60 43 C 57 39, 57 34, 60 30 Z"
+            fill="#fdf1d6"
+          />
+
+        </g>
+
+      </svg>
 
     </div>
 
-    <script>
-        // ===== DATA =====
-        const cards = [{
-            id: 0,
-            number: '01',
-            title: 'PAUSE',
-            body: `You don't always have to keep moving.\nSometimes the most important thing\nyou can do is stop.\nNothing needs to happen right now.`
-        }, {
-            id: 1,
-            number: '02',
-            title: 'BREATHE',
-            body: `Before you act, before you speak,\nbefore you react — breathe.\nLet the air fill you with patience\nand release what you don't need.`
-        }, {
-            id: 2,
-            number: '03',
-            title: 'RELEASE',
-            body: `You don't have to carry everything.\nLet go of what isn't yours to hold.\nMake space for what truly matters.`
-        }, {
-            id: 3,
-            number: '04',
-            title: 'RETURN',
-            body: `Come back to yourself.\nYou are not lost — you are simply\nremembering who you are.`
-        }, {
-            id: 4,
-            number: '05',
-            title: 'REST',
-            body: `Stillness is not weakness.\nRest is not laziness.\nIt is how you replenish your light.`
-        }, {
-            id: 5,
-            number: '06',
-            title: 'NOTICE',
-            body: `Notice the quiet.\nNotice the warmth.\nNotice the small beautiful things\nthat are always here.`
-        }, {
-            id: 6,
-            number: '07',
-            title: 'SOFTEN',
-            body: `Softness is not fragility.\nIt is your strength in its most\nelegant form. Let yourself soften.`
-        }, {
-            id: 7,
-            number: '08',
-            title: 'RECEIVE',
-            body: `You are worthy of good things.\nReceive kindness, receive love,\nreceive the peace you deserve.`
-        }, {
-            id: 8,
-            number: '09',
-            title: 'STILL',
-            body: `In the stillness you find clarity.\nIn the silence you find truth.\nBe still and know.`
-        }, {
-            id: 9,
-            number: '10',
-            title: 'RETURN TO YOURSELF',
-            body: `After all the noise, the motion,\nthe giving — return to yourself.\nYou are always here, waiting.`
-        }];
 
-        // Symbols for collection cards
-        const symbols = ['✦', '○', '◈', '△', '◇', '♢', '♡', '☾', '✧', '✦'];
+    <!-- ==========================================
+         HEADER
+    ========================================== -->
 
-        // ===== STATE =====
-        let currentIndex = 0;
-        const totalCards = cards.length;
+    <header>
 
-        // ===== DOM REFS =====
-        const featuredNumber = document.getElementById('featuredNumber');
-        const featuredTitle = document.getElementById('featuredTitle');
-        const featuredBody = document.getElementById('featuredBody');
-        const featuredContent = document.getElementById('featuredContent');
-        const featuredCardWrap = document.getElementById('featuredCardWrap');
-        const collectionScroll = document.getElementById('collectionScroll');
-        const prevBtn = document.getElementById('prevCardBtn');
-        const nextBtn = document.getElementById('nextCardBtn');
-        const shuffleBtn = document.getElementById('shuffleBtn');
-        const exploreBtn = document.getElementById('exploreBtn');
-        const openDeckBtn = document.getElementById('openDeckBtn');
-        const deckStack = document.getElementById('deckStack');
+      <div style="width:20px;"></div>
 
-        // ===== RENDER FEATURED CARD =====
-        function renderFeatured(index) {
-            const card = cards[index];
-            featuredNumber.textContent = card.number;
-            featuredTitle.textContent = card.title;
-            featuredBody.textContent = card.body;
 
-            // Animate content change
-            featuredContent.style.opacity = '0';
-            featuredContent.style.transform = 'translateY(10px)';
-            setTimeout(() => {
-                featuredContent.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
-                featuredContent.style.opacity = '1';
-                featuredContent.style.transform = 'translateY(0)';
-            }, 20);
+      <div class="logo-wrap">
 
-            // Update collection active state
-            document.querySelectorAll('.collection-card').forEach((el, i) => {
-                el.classList.toggle('active', i === index);
-            });
+        <span class="logo">
+          L I M I N A L &nbsp; L I G H T
+        </span>
 
-            // Scroll collection card into view
-            const cardsEls = document.querySelectorAll('.collection-card');
-            if (cardsEls[index]) {
-                cardsEls[index].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-            }
 
-            currentIndex = index;
+        <svg
+          class="mark"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+
+          <path
+            d="M10 0 C10.5 6, 14 9.5, 20 10 C14 10.5, 10.5 14, 10 20 C9.5 14, 6 10.5, 0 10 C6 9.5, 9.5 6, 10 0Z"
+            fill="#a3835a"
+            opacity="0.85"
+          />
+
+        </svg>
+
+      </div>
+
+
+      <button
+        class="exit-btn"
+        type="button"
+      >
+        Exit experience
+      </button>
+
+    </header>
+
+
+    <!-- ==========================================
+         HERO
+    ========================================== -->
+
+    <section class="hero">
+
+      <h1 class="headline">
+        A moment<br>
+        <em>for yourself.</em>
+      </h1>
+
+
+      <div class="rule"></div>
+
+
+      <p class="subhead">
+        A collection of ten pauses<br>
+        to keep with you.
+      </p>
+
+
+      <a
+        class="cta-pill"
+        href="#deck"
+      >
+        Open your deck
+      </a>
+
+
+      <div class="choose-hint">
+
+        <span>Choose a card</span>
+
+        <svg
+          viewBox="0 0 12 12"
+          fill="none"
+        >
+
+          <path
+            d="M6 1v9M2 6l4 4 4-4"
+            stroke="#a3835a"
+            stroke-width="1"
+          />
+
+        </svg>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         DECK
+    ========================================== -->
+
+    <section
+      class="deck-section"
+      id="deck"
+    >
+
+
+      <!-- LEFT CONTROL -->
+
+      <div class="side-control">
+
+        <span class="label">
+          Draw<br>
+          random
+        </span>
+
+
+        <svg
+          class="down"
+          viewBox="0 0 12 12"
+          fill="none"
+        >
+
+          <path
+            d="M6 1v9M2 6l4 4 4-4"
+            stroke="#a3835a"
+            stroke-width="1"
+          />
+
+        </svg>
+
+
+        <button
+          class="circle-btn"
+          id="shuffleBtn"
+          aria-label="Draw a random card"
+          type="button"
+        >
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+
+            <path
+              d="M3 6h3.5l8 12H18M3 18h3.5l3-4.5M14.5 6H18M18 6l-3-3M18 6l-3 3M18 18l-3-3M18 18l-3 3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.3"
+            />
+
+          </svg>
+
+        </button>
+
+      </div>
+
+
+      <!-- CARD DECK -->
+
+      <div
+        class="deck"
+        id="cardDeck"
+        aria-label="Liminal Light card deck"
+      >
+
+
+        <div class="card-base c4">
+
+          <div class="grain"></div>
+
+          <div class="pores"></div>
+
+        </div>
+
+
+        <div class="card-base c3">
+
+          <div class="grain"></div>
+
+          <div class="pores"></div>
+
+        </div>
+
+
+        <div class="card-base c2">
+
+          <div class="grain"></div>
+
+          <div class="pores"></div>
+
+        </div>
+
+
+        <div class="card-base c1">
+
+          <div class="grain"></div>
+
+          <div class="pores"></div>
+
+
+          <svg
+            class="spark"
+            viewBox="0 0 20 20"
+            fill="none"
+            style="position:relative;"
+          >
+
+            <path
+              d="M10 0 C10.5 6, 14 9.5, 20 10 C14 10.5, 10.5 14, 10 20 C9.5 14, 6 10.5, 0 10 C6 9.5, 9.5 6, 10 0Z"
+              fill="#a3835a"
+              opacity="0.8"
+            />
+
+          </svg>
+
+
+          <span
+            class="wordmark"
+            style="position:relative;"
+          >
+            L I M I N A L &nbsp; L I G H T
+          </span>
+
+
+          <div
+            class="dash"
+            style="position:relative;"
+          ></div>
+
+
+          <span
+            class="tagline"
+            style="position:relative;"
+          >
+            A moment for yourself
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- RIGHT CONTROL -->
+
+      <div class="side-control">
+
+        <span class="label">
+          Explore<br>
+          all cards
+        </span>
+
+
+        <svg
+          class="down"
+          viewBox="0 0 12 12"
+          fill="none"
+        >
+
+          <path
+            d="M6 1v9M2 6l4 4 4-4"
+            stroke="#a3835a"
+            stroke-width="1"
+          />
+
+        </svg>
+
+
+        <button
+          class="circle-btn"
+          id="exploreBtn"
+          aria-label="Explore all cards"
+          type="button"
+        >
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+
+            <rect
+              x="3.5"
+              y="3.5"
+              width="6.5"
+              height="6.5"
+              stroke-width="1.3"
+            />
+
+            <rect
+              x="14"
+              y="3.5"
+              width="6.5"
+              height="6.5"
+              stroke-width="1.3"
+            />
+
+            <rect
+              x="3.5"
+              y="14"
+              width="6.5"
+              height="6.5"
+              stroke-width="1.3"
+            />
+
+            <rect
+              x="14"
+              y="14"
+              width="6.5"
+              height="6.5"
+              stroke-width="1.3"
+            />
+
+          </svg>
+
+        </button>
+
+      </div>
+
+
+    </section>
+
+
+    <!-- ==========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
+
+      <div class="foot-item">
+
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#8a7250"
+          stroke-width="1.3"
+        >
+
+          <path
+            d="M12 20s-7-4.4-9.5-9A5.5 5.5 0 0112 6a5.5 5.5 0 019.5 5c-2.5 4.6-9.5 9-9.5 9Z"
+          />
+
+        </svg>
+
+        <span>
+          You made time for yourself. That matters.
+        </span>
+
+      </div>
+
+
+      <div class="foot-center">
+
+        <svg
+          class="foot-star"
+          viewBox="0 0 20 20"
+          fill="none"
+        >
+
+          <path
+            d="M10 0 C10.5 6, 14 9.5, 20 10 C14 10.5, 10.5 14, 10 20 C9.5 14, 6 10.5, 0 10 C6 9.5, 9.5 6, 10 0Z"
+            fill="#a3835a"
+          />
+
+        </svg>
+
+      </div>
+
+
+      <div class="foot-item foot-right">
+
+        <span>
+          Come back anytime.
+        </span>
+
+      </div>
+
+    </footer>
+
+
+  </div>
+
+
+  <script>
+
+    /* ==========================================
+       SIMPLE DECK INTERACTIONS
+    ========================================== */
+
+
+    const deck = document.getElementById('cardDeck');
+
+
+    const shuffleBtn = document.getElementById('shuffleBtn');
+
+
+    const exploreBtn = document.getElementById('exploreBtn');
+
+
+    shuffleBtn.addEventListener('click', () => {
+
+      deck.animate(
+
+        [
+
+          {
+            transform:'rotate(0deg) scale(1)'
+          },
+
+          {
+            transform:'rotate(-2deg) translateX(-8px) scale(1.02)'
+          },
+
+          {
+            transform:'rotate(2deg) translateX(8px) scale(1.02)'
+          },
+
+          {
+            transform:'rotate(0deg) scale(1)'
+          }
+
+        ],
+
+        {
+
+          duration:700,
+
+          easing:'cubic-bezier(.2,.7,.2,1)'
+
         }
 
-        // ===== BUILD COLLECTION =====
-        function buildCollection() {
-            collectionScroll.innerHTML = '';
-            cards.forEach((card, i) => {
-                const div = document.createElement('div');
-                div.className = 'collection-card' + (i === currentIndex ? ' active' : '');
-                div.innerHTML = `
-              <span class="card-symbol">${symbols[i % symbols.length]}</span>
-              <span class="card-number">${card.number}</span>
-              <span class="card-label">${card.title}</span>
-            `;
-                div.dataset.index = i;
-                div.addEventListener('click', () => {
-                    renderFeatured(i);
-                });
-                collectionScroll.appendChild(div);
-            });
+      );
+
+    });
+
+
+    deck.addEventListener('click', () => {
+
+      deck.animate(
+
+        [
+
+          {
+            transform:'translateY(0)'
+          },
+
+          {
+            transform:'translateY(-10px)'
+          },
+
+          {
+            transform:'translateY(0)'
+          }
+
+        ],
+
+        {
+
+          duration:600,
+
+          easing:'cubic-bezier(.2,.7,.2,1)'
+
         }
 
-        // ===== NAVIGATION =====
-        function prevCard() {
-            const newIndex = (currentIndex - 1 + totalCards) % totalCards;
-            renderFeatured(newIndex);
+      );
+
+    });
+
+
+    exploreBtn.addEventListener('click', () => {
+
+      deck.animate(
+
+        [
+
+          {
+            transform:'scale(1)'
+          },
+
+          {
+            transform:'scale(1.035)'
+          },
+
+          {
+            transform:'scale(1)'
+          }
+
+        ],
+
+        {
+
+          duration:700,
+
+          easing:'ease-in-out'
+
         }
 
-        function nextCard() {
-            const newIndex = (currentIndex + 1) % totalCards;
-            renderFeatured(newIndex);
-        }
+      );
 
-        // ===== SHUFFLE =====
-        function shuffleDeck() {
-            // Add shuffling animation
-            deckStack.classList.add('shuffling');
-            setTimeout(() => {
-                deckStack.classList.remove('shuffling');
-            }, 700);
+    });
 
-            // Pick a random card
-            const randomIndex = Math.floor(Math.random() * totalCards);
-            renderFeatured(randomIndex);
+  </script>
 
-            // Visual feedback on deck cards
-            const deckCards = deckStack.querySelectorAll('.deck-card');
-            deckCards.forEach((card, i) => {
-                const delay = i * 40;
-                setTimeout(() => {
-                    card.style.transition = 'transform 0.3s ease';
-                    card.style.transform =
-                        `translateX(${(Math.random() - 0.5) * 10}px) translateY(${(Math.random() - 0.5) * 8}px) rotateZ(${(Math.random() - 0.5) * 4}deg)`;
-                    setTimeout(() => {
-                        card.style.transform = '';
-                    }, 400);
-                }, delay);
-            });
-        }
-
-        // ===== EXPLORE (scroll to collection) =====
-        function exploreAll() {
-            document.getElementById('collectionSection').scrollIntoView({
-                behavior: 'smooth',
-                block: 'start',
-            });
-            // Highlight the collection
-            const title = document.querySelector('.collection-title');
-            title.style.opacity = '0.7';
-            setTimeout(() => {
-                title.style.transition = 'opacity 0.8s ease';
-                title.style.opacity = '0.3';
-            }, 1200);
-        }
-
-        // ===== OPEN DECK (scroll to deck section) =====
-        function openDeck() {
-            document.getElementById('deckSection').scrollIntoView({
-                behavior: 'smooth',
-                block: 'center',
-            });
-            // Animate the deck
-            deckStack.style.transition = 'transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
-            deckStack.style.transform = 'scale(1.04)';
-            setTimeout(() => {
-                deckStack.style.transform = 'scale(1)';
-            }, 600);
-
-            // Flash the top card
-            const topCard = deckStack.querySelector('.deck-card-top');
-            if (topCard) {
-                topCard.style.transition = 'box-shadow 0.4s ease';
-                topCard.style.boxShadow = '0 0 60px rgba(180, 150, 120, 0.15)';
-                setTimeout(() => {
-                    topCard.style.boxShadow = '';
-                }, 700);
-            }
-        }
-
-        // ===== KEYBOARD SUPPORT =====
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') prevCard();
-            if (e.key === 'ArrowRight') nextCard();
-            if (e.key === ' ' || e.key === 'Space') {
-                e.preventDefault();
-                shuffleDeck();
-            }
-        });
-
-        // ===== INIT =====
-        buildCollection();
-        renderFeatured(0);
-
-        // ===== EVENT LISTENERS =====
-        prevBtn.addEventListener('click', prevCard);
-        nextBtn.addEventListener('click', nextCard);
-        shuffleBtn.addEventListener('click', shuffleDeck);
-        exploreBtn.addEventListener('click', exploreAll);
-        openDeckBtn.addEventListener('click', openDeck);
-
-        // Touch support for deck
-        let touchStartX = 0;
-        let touchEndX = 0;
-        const featuredWrap = document.getElementById('featuredCardWrap');
-        featuredWrap.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        });
-        featuredWrap.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            const diff = touchStartX - touchEndX;
-            if (Math.abs(diff) > 30) {
-                if (diff > 0) nextCard();
-                else prevCard();
-            }
-        });
-
-        // Also allow swipe on the deck stack
-        deckStack.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        });
-        deckStack.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            const diff = touchStartX - touchEndX;
-            if (Math.abs(diff) > 30) {
-                if (diff > 0) nextCard();
-                else prevCard();
-            }
-        });
-
-        // Click on deck stack to shuffle
-        deckStack.addEventListener('click', shuffleDeck);
-
-        // ===== SMOOTH SCROLL FOR COLLECTION =====
-        // Auto-scroll collection to show all cards hint
-        setTimeout(() => {
-            const scroll = document.getElementById('collectionScroll');
-            if (scroll.scrollWidth > scroll.clientWidth) {
-                // subtle scroll hint
-                let pos = 0;
-                const step = () => {
-                    pos += 0.5;
-                    if (pos > scroll.scrollWidth - scroll.clientWidth) pos = 0;
-                    scroll.scrollTo({ left: pos, behavior: 'smooth' });
-                    setTimeout(step, 3000);
-                };
-                // start after a delay
-                setTimeout(step, 2000);
-            }
-        }, 1500);
-
-        // ===== RESPONSIVE: adjust deck card count =====
-        function adjustDeckCards() {
-            const cards = deckStack.querySelectorAll('.deck-card');
-            const count = window.innerWidth < 480 ? 4 : 5;
-            cards.forEach((card, i) => {
-                if (i >= count) {
-                    card.style.display = 'none';
-                } else {
-                    card.style.display = 'flex';
-                }
-            });
-        }
-        adjustDeckCards();
-        window.addEventListener('resize', adjustDeckCards);
-
-        console.log('✦ Liminal Light — A moment for yourself ✦');
-        console.log('Use arrow keys ← → to navigate, Space to shuffle.');
-    </script>
 
 </body>
 </html>
+```
