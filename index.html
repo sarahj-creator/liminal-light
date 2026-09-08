@@ -1,15 +1,26 @@
+```
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QB5TKBZ7FZ"></script>
+<!-- Google Analytics is loaded only after the visitor gives analytics consent.
+     Consent is managed by the cookie banner at the bottom of this page. -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-QB5TKBZ7FZ');
+  function loadAnalytics(){
+    if (window.__llAnalyticsLoaded) return;
+    window.__llAnalyticsLoaded = true;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-QB5TKBZ7FZ';
+    document.head.appendChild(s);
+    gtag('js', new Date());
+    gtag('config', 'G-QB5TKBZ7FZ', { 'anonymize_ip': true });
+  }
+  if (localStorage.getItem('ll_cookie_analytics') === 'granted') {
+    loadAnalytics();
+  }
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -121,93 +132,9 @@ body {
   border-color: var(--light-gold);
 }
 
-/* BURGER MENU (mobile) */
-
-.nav-burger {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  width: 32px;
-  height: 32px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 200;
-  padding: 0;
-}
-
-.nav-burger span {
-  display: block;
-  width: 24px;
-  height: 1px;
-  background: var(--warm-white);
-  transition: transform 0.3s ease, opacity 0.3s ease, background 0.3s ease;
-}
-
-.nav-burger.is-open span:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
-}
-
-.nav-burger.is-open span:nth-child(2) {
-  opacity: 0;
-}
-
-.nav-burger.is-open span:nth-child(3) {
-  transform: translateY(-6px) rotate(-45deg);
-}
-
-.mobile-menu {
-  position: fixed;
-  inset: 0;
-  z-index: 150;
-  background: var(--shadow);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2.2rem;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-8px);
-  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0s linear 0.35s;
-}
-
-.mobile-menu.is-open {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0s linear 0s;
-}
-
-.mobile-menu a {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.4rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--stone);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.mobile-menu a:hover {
-  color: var(--warm-white);
-}
-
-.mobile-menu .nav-call {
-  margin-top: 0.5rem;
-}
-
-body.menu-open {
-  overflow: hidden;
-}
-
 @media (max-width: 760px) {
   .nav-links { display: none; }
-  .nav-call { display: none; }
   .nav { padding: 1.1rem 1.5rem; }
-  .nav-burger { display: flex; }
 }
 
 /* OPENING */
@@ -1448,6 +1375,118 @@ hr.divider {
   }
 }
 
+
+/* LEGAL FOOTER + COOKIE CONSENT */
+.legal-footer {
+  background: #120d0a;
+  border-top: 1px solid rgba(221,209,194,0.18);
+  padding: 3rem 2rem 2rem;
+  text-align: center;
+}
+.legal-footer .legal-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem;
+  color: var(--warm-white);
+  margin-bottom: 1rem;
+}
+.legal-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: .7rem 1.4rem;
+  margin: 1rem auto 1.5rem;
+  max-width: 900px;
+}
+.legal-links a, .cookie-link {
+  color: var(--stone);
+  font-size: .7rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.legal-links a:hover, .cookie-link:hover { color: var(--light-gold); }
+.legal-footer .legal-small {
+  color: rgba(221,209,194,.68);
+  font-size: .68rem;
+  line-height: 1.7;
+  max-width: 760px;
+  margin: .4rem auto;
+}
+.cookie-banner {
+  position: fixed;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 9999;
+  background: #241812;
+  border: 1px solid rgba(232,196,104,.45);
+  box-shadow: 0 12px 40px rgba(0,0,0,.45);
+  padding: 1.1rem 1.2rem;
+  display: none;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.cookie-banner.is-visible { display: flex; }
+.cookie-banner p {
+  margin: 0;
+  color: var(--warm-white);
+  font-size: .78rem;
+  line-height: 1.6;
+  max-width: 760px;
+}
+.cookie-actions { display:flex; gap:.5rem; flex-wrap:wrap; }
+.cookie-actions button {
+  border: 1px solid rgba(232,196,104,.65);
+  background: transparent;
+  color: var(--warm-white);
+  padding: .65rem .9rem;
+  font-family: inherit;
+  font-size: .68rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.cookie-actions .accept {
+  background: var(--deep-amber);
+  color: #1a120d;
+  border-color: var(--deep-amber);
+}
+.cookie-settings {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(0,0,0,.72);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:1rem;
+}
+.cookie-settings.is-visible { display:flex; }
+.cookie-panel {
+  background:#241812;
+  border:1px solid rgba(232,196,104,.4);
+  max-width:560px;
+  width:100%;
+  padding:1.5rem;
+}
+.cookie-panel h2 {
+  font-family:'Cormorant Garamond',serif;
+  color:var(--warm-white);
+  font-size:2rem;
+  margin-bottom:.7rem;
+}
+.cookie-panel p { color:var(--stone); line-height:1.6; font-size:.82rem; }
+.cookie-choice {
+  display:flex; justify-content:space-between; gap:1rem;
+  padding:1rem 0; border-top:1px solid rgba(221,209,194,.12);
+}
+.cookie-choice strong { color:var(--warm-white); font-size:.82rem; }
+.cookie-choice span { color:var(--stone); font-size:.72rem; line-height:1.5; }
+@media (max-width:760px) {
+  .cookie-banner { left:.5rem; right:.5rem; bottom:.5rem; }
+}
 </style>
 </head>
 
@@ -1466,22 +1505,7 @@ hr.divider {
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="tel:+12462590091" class="nav-call">246 259 0091</a>
-  <button type="button" class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
 </nav>
-
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#therapist">About</a>
-  <a href="#motivations">Who It's For</a>
-  <a href="#services">Treatments</a>
-  <a href="/lounge/">Lounge</a>
-  <a href="#booking">Book</a>
-  <a href="#contact">Contact</a>
-  <a href="tel:+12462590091" class="nav-call">246 259 0091</a>
-</div>
 
 <!-- OPENING -->
 
@@ -2119,6 +2143,11 @@ hr.divider {
       <p class="form-note">
         Choosing either option opens your email or WhatsApp app with your request pre-filled — nothing is sent automatically until you press send there. Online booking via Fresha is coming soon.
       </p>
+      <p class="form-note">
+        Please avoid entering sensitive medical information in the notes field. By sending your request,
+        you acknowledge our <a href="/privacy-policy.html">Privacy Policy</a> and
+        <a href="/terms-and-conditions.html">Terms &amp; Conditions</a>.
+      </p>
 
     </form>
 
@@ -2182,6 +2211,58 @@ hr.divider {
 
 </section>
 
+
+<!-- LEGAL / BUSINESS FOOTER -->
+<footer class="legal-footer">
+  <div class="legal-brand">Liminal Light</div>
+  <div class="legal-links" aria-label="Legal information">
+    <a href="/privacy-policy.html">Privacy Policy</a>
+    <a href="/cookie-policy.html">Cookie Policy</a>
+    <a href="/terms-and-conditions.html">Terms &amp; Conditions</a>
+    <a href="/refund-cancellation-policy.html">Refund &amp; Cancellation Policy</a>
+    <a href="/wellness-disclaimer.html">Wellness Disclaimer</a>
+    <a href="/accessibility.html">Accessibility</a><a href="/business-information.html">Business Information</a><a href="#" id="manageCookiesLink">Cookie Settings</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <p class="legal-small">Liminal Light Wellness — massage and wellness services in Barbados.</p>
+  <p class="legal-small">Email: <a class="cookie-link" href="mailto:info_liminallight@proton.me">info_liminallight@proton.me</a> · Phone / WhatsApp: <a class="cookie-link" href="tel:+12462590091">+1 246 259 0091</a></p>
+  <p class="legal-small">Please replace the business-name/address placeholders in the legal pages with your registered legal business details before launch.</p>
+  <p class="legal-small">© 2026 Liminal Light. All rights reserved.</p>
+</footer>
+
+<!-- COOKIE CONSENT -->
+<div id="cookieBanner" class="cookie-banner" role="dialog" aria-label="Cookie preferences">
+  <p>
+    We use necessary technologies to operate this website. With your permission, we also use
+    Google Analytics to understand how visitors use the site. Analytics is optional.
+    <a class="cookie-link" href="/cookie-policy.html">Learn more</a>.
+  </p>
+  <div class="cookie-actions">
+    <button type="button" id="cookieReject">Reject analytics</button>
+    <button type="button" id="cookieSettings">Manage choices</button>
+    <button type="button" class="accept" id="cookieAccept">Accept analytics</button>
+  </div>
+</div>
+
+<div id="cookieSettingsModal" class="cookie-settings" role="dialog" aria-modal="true" aria-labelledby="cookieSettingsTitle">
+  <div class="cookie-panel">
+    <h2 id="cookieSettingsTitle">Cookie settings</h2>
+    <p>Choose whether Liminal Light may use optional analytics cookies/technologies.</p>
+    <div class="cookie-choice">
+      <div><strong>Necessary</strong><br><span>Required for core site functions and your cookie choice.</span></div>
+      <strong>Always on</strong>
+    </div>
+    <div class="cookie-choice">
+      <div><strong>Analytics</strong><br><span>Google Analytics helps us understand site usage. Optional.</span></div>
+      <label><input type="checkbox" id="analyticsChoice"> Allow</label>
+    </div>
+    <div class="cookie-actions" style="margin-top:1rem;">
+      <button type="button" id="cookieSave">Save choices</button>
+      <button type="button" class="accept" id="cookieSaveAccept">Accept analytics</button>
+    </div>
+  </div>
+</div>
+
 <script>
 
 const observer = new IntersectionObserver((entries) => {
@@ -2207,43 +2288,6 @@ const observer = new IntersectionObserver((entries) => {
 document
   .querySelectorAll('.fade-up')
   .forEach(el => observer.observe(el));
-
-/* BURGER MENU TOGGLE */
-
-const navBurger = document.getElementById('navBurger');
-const mobileMenu = document.getElementById('mobileMenu');
-
-function closeMobileMenu() {
-  navBurger.classList.remove('is-open');
-  mobileMenu.classList.remove('is-open');
-  navBurger.setAttribute('aria-expanded', 'false');
-  navBurger.setAttribute('aria-label', 'Open menu');
-  document.body.classList.remove('menu-open');
-}
-
-function openMobileMenu() {
-  navBurger.classList.add('is-open');
-  mobileMenu.classList.add('is-open');
-  navBurger.setAttribute('aria-expanded', 'true');
-  navBurger.setAttribute('aria-label', 'Close menu');
-  document.body.classList.add('menu-open');
-}
-
-navBurger.addEventListener('click', function () {
-  if (mobileMenu.classList.contains('is-open')) {
-    closeMobileMenu();
-  } else {
-    openMobileMenu();
-  }
-});
-
-mobileMenu.querySelectorAll('a').forEach(function (link) {
-  link.addEventListener('click', closeMobileMenu);
-});
-
-document.addEventListener('keydown', function (e) {
-  if (e.key === 'Escape') closeMobileMenu();
-});
 
 /* PRICING TOGGLE + STYLE TOGGLE — drives both the Services price table and the booking form */
 
@@ -2385,10 +2429,63 @@ document.getElementById('whatsappRequestBtn').addEventListener('click', function
   const msg = buildRequestMessage();
   if (!msg) return;
   const text = encodeURIComponent(msg);
-  window.open('https://wa.me/12462590091?text=' + text, '_blank');
+  window.open('htt
+  const manageCookiesLink = document.getElementById('manageCookiesLink');
+  if (manageCookiesLink) {
+    manageCookiesLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('analyticsChoice').checked =
+        localStorage.getItem('ll_cookie_analytics') === 'granted';
+      document.getElementById('cookieSettingsModal').classList.add('is-visible');
+    });
+  }
+
+ps://wa.me/12462590091?text=' + text, '_blank');
 });
+
+
+/* COOKIE CONSENT */
+(function () {
+  const banner = document.getElementById('cookieBanner');
+  const modal = document.getElementById('cookieSettingsModal');
+  const choice = document.getElementById('analyticsChoice');
+
+  function getChoice() {
+    return localStorage.getItem('ll_cookie_analytics');
+  }
+
+  function showBannerIfNeeded() {
+    if (!getChoice()) banner.classList.add('is-visible');
+  }
+
+  function setAnalytics(value) {
+    localStorage.setItem('ll_cookie_analytics', value ? 'granted' : 'denied');
+    banner.classList.remove('is-visible');
+    modal.classList.remove('is-visible');
+    if (value && typeof loadAnalytics === 'function') loadAnalytics();
+  }
+
+  document.getElementById('cookieAccept').addEventListener('click', () => setAnalytics(true));
+  document.getElementById('cookieReject').addEventListener('click', () => setAnalytics(false));
+
+  document.getElementById('cookieSettings').addEventListener('click', function () {
+    choice.checked = getChoice() === 'granted';
+    modal.classList.add('is-visible');
+  });
+
+  document.getElementById('cookieSave').addEventListener('click', function () {
+    setAnalytics(choice.checked);
+  });
+
+  document.getElementById('cookieSaveAccept').addEventListener('click', function () {
+    setAnalytics(true);
+  });
+
+  showBannerIfNeeded();
+})();
 
 </script>
 
 </body>
 </html>
+```
