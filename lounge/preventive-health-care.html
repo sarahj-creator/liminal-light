@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QB5TKBZ7FZ"></script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QB5TKBZ7FZ');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Massage as Preventive Health Care — an article from the Liminal Light Lounge.">
+
+  <title>Massage as Preventive Health Care | Liminal Light Lounge</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+
+  <style>
+
+    :root {
+      --stone: #DDD1C2;
+      --warm-white: #F5EEE6;
+      --deep-amber: #D4A843;
+      --shadow: #1A120D;
+      --mocha: #2B1B14;
+      --bronze: #6A4A33;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--shadow);
+      color: var(--warm-white);
+      font-family: Jost, sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+
+    /* NAVIGATION */
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 1.3rem 2.5rem;
+
+      background: rgba(26, 18, 13, .92);
+      backdrop-filter: blur(12px);
+
+      border-bottom: 1px solid rgba(106, 74, 51, .35);
+    }
+
+    .brand {
+      font-family: "Cormorant Garamond", serif;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--warm-white);
+      text-decoration: none;
+    }
+
+    .back {
+      font-size: .65rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--stone);
+      text-decoration: none;
+    }
+
+    .back:hover {
+      color: var(--deep-amber);
+    }
+
+
+    /* IMAGE HERO */
+
+    .image-hero {
+      width: 100%;
+      padding-top: 80px;
+      background: var(--mocha);
+    }
+
+    .image-hero img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+
+    /* ARTICLE */
+
+    .article {
+      max-width: 760px;
+      margin: auto;
+      padding: 5rem 2rem 7rem;
+    }
+
+
+    /* ARTICLE HEADER */
+
+    .article-title {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+
+    .category {
+      font-size: .65rem;
+      letter-spacing: .45em;
+      text-transform: uppercase;
+      color: var(--deep-amber);
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 300;
+
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+
+      line-height: 1.05;
+      letter-spacing: .01em;
+
+      margin-bottom: 1.5rem;
+    }
+
+    .reading-time {
+      font-size: .65rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--stone);
+    }
+
+
+    /* ARTICLE TEXT */
+
+    .article p {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.4rem;
+      line-height: 1.75;
+      color: var(--warm-white);
+      margin-bottom: 2rem;
+    }
+
+    .article h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 300;
+
+      font-size: clamp(2rem, 4vw, 3.2rem);
+
+      line-height: 1.15;
+
+      margin-top: 5rem;
+      margin-bottom: 2rem;
+    }
+
+
+    /* QUOTE */
+
+    blockquote {
+      margin: 4rem 0;
+
+      padding: 2rem 2.5rem;
+
+      border-left: 1px solid var(--deep-amber);
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size: 2rem;
+
+      font-style: italic;
+
+      line-height: 1.4;
+
+      color: var(--stone);
+    }
+
+
+    /* ENDING */
+
+    .article-ending {
+      text-align: center;
+      padding: 6rem 2rem;
+      background: var(--mocha);
+    }
+
+    .article-ending p {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--stone);
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .lounge-button {
+      display: inline-block;
+
+      margin-top: 3rem;
+
+      padding: 1rem 1.6rem;
+
+      border: 1px solid rgba(212, 168, 67, .7);
+
+      color: var(--warm-white);
+
+      text-decoration: none;
+
+      font-size: .65rem;
+
+      letter-spacing: .25em;
+
+      text-transform: uppercase;
+    }
+
+    .lounge-button:hover {
+      background: var(--deep-amber);
+      color: var(--shadow);
+    }
+
+
+    /* MOBILE */
+
+    @media (max-width: 760px) {
+
+      nav {
+        padding: 1.1rem 1.5rem;
+      }
+
+      .brand {
+        font-size: .75rem;
+      }
+
+      .back {
+        font-size: .55rem;
+      }
+
+      .article {
+        padding: 4rem 1.5rem 5rem;
+      }
+
+      .article-title {
+        margin-bottom: 4rem;
+      }
+
+      .article p {
+        font-size: 1.25rem;
+      }
+
+      blockquote {
+        font-size: 1.6rem;
+        padding: 1.5rem;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+  <a class="brand" href="index.html">
+    Liminal Light Lounge
+  </a>
+
+  <a class="back" href="index.html">
+    ← Back to Lounge
+  </a>
+
+</nav>
+
+
+<!-- FULL IMAGE -->
+
+<section class="image-hero">
+
+  <img
+    src="images/preventive-health-care.png"
+    alt="Massage as preventive health care"
+  >
+
+</section>
+
+
+<!-- ARTICLE -->
+
+<main class="article">
+
+
+  <!-- TITLE -->
+
+  <div class="article-title">
+
+    <div class="category">
+      Article
+    </div>
+
+    <h1>
+      Massage as Preventive Health Care
+    </h1>
+
+    <div class="reading-time">
+      4 Min Read
+    </div>
+
+  </div>
+
+
+  <!-- OPENING -->
+
+  <p>
+    Massage as preventive health care is an approach most people never consider — they book a session only after something goes wrong. The neck is locked, the back is screaming, the headache has been there for three days. That's the reactive model, and while it's a common cultural default, it's also exactly backward.
+  </p>
+
+  <p>
+    The body doesn't work like a car that runs fine until it breaks down. It accumulates. Tension layers over tension. Chronic stress can alter how the nervous system regulates itself, shifting the body's baseline in ways that feel normal right up until they don't. The logic of preventive health care, applied to massage, is the same logic that drives regular exercise, quality sleep, and consistent nutrition: consistency creates the outcome, not the emergency session. A single session after months of neglect can produce a temporary improvement, but monthly or bi-weekly sessions are a strategy — one with a meaningful difference in outcomes over time.
+  </p>
+
+  <p>
+    At Liminal Light, this is the foundation everything is built on. Every treatment exists inside a liminal space — the in-between, where an issue arrives, is worked through, and leaves as something changed. That space only does its job when it's visited regularly, not summoned in an emergency. Sessions are shaped around what a client is actually carrying, whether that's the sleeplessness that won't lift, the hormonal shifts that quietly reroute the whole body, or the wear that builds from pushing hard in training. That model only makes sense if bodywork is something you do before the crisis, not because of it.
+  </p>
+
+
+  <!-- FIX-IT MINDSET -->
+
+  <h2>
+    The Fix-It Mindset That's Keeping Your Body Stuck
+  </h2>
+
+  <p>
+    Nobody waits until they're exhausted to start sleeping regularly. Nobody waits until they're malnourished to eat. Yet with massage, many people treat it the way they treat prescription medication: take it when symptoms appear, stop when they clear up. The logic feels reasonable on the surface. In practice, it means the body only ever gets attention after patterns have already calcified into pain.
+  </p>
+
+  <p>
+    This isn't a character flaw. It's a cultural default. In a system that treats health care as reactive by design, bodywork as prevention is a genuinely unfamiliar idea.
+  </p>
+
+  <p>
+    Preventive massage is regular, intentional bodywork designed to interrupt patterns before they become clinical problems. That means addressing chronic tension buildup before it restricts movement, managing stress load before it tips into burnout, and maintaining circulation and tissue health as an ongoing practice rather than a corrective measure. This is distinct from maintenance massage, which typically refers to post-injury upkeep, and from purely relaxation-focused work. The preventive model is deliberate and ongoing. It's scheduled around the body's patterns, not around the next crisis.
+  </p>
+
+  <p>
+    For the people Liminal Light works with most, that pattern usually shows up in one of three ways: sleep that won't come easily, hormonal changes quietly reshaping energy and rest, or a body under real physical load from training, hiking, or daily strain. Different starting points, same principle — catch the pattern in the liminal space before it becomes the problem.
+  </p>
+
+
+  <!-- BEFORE YOU BOOK -->
+
+  <h2>
+    What to Know Before You Book
+  </h2>
+
+  <p>
+    Massage is low-risk for most people, but it isn't universal, and a good practice will always ask before it assumes. Certain conditions call for extra caution or a green light from a doctor first — active blood clots, bleeding disorders or blood thinners, active cancer treatment near bone or radiation sites, a high-risk or early pregnancy, recent surgery or an unhealed fracture, active infection, severe osteoporosis, or unmanaged heart conditions. None of these take massage permanently off the table. They mean the conversation with your therapist beforehand needs to be complete and honest — a proper intake protects you, and it's a normal, expected part of booking, not a red flag.
+  </p>
+
+
+  <!-- COST -->
+
+  <h2>
+    What It Actually Costs You
+  </h2>
+
+  <p>
+    Regular massage is a real expense, and it's worth being honest about that rather than glossing over it. What's worth weighing against the sticker price is what the reactive alternative tends to cost over time — chronic pain that eventually needs a specialist, tension that turns into an injury, sleep debt that starts affecting work and everything else. A monthly session adds up over a year, and it's still a modest number next to what years of a reactive approach usually runs. Some clients find that a package or membership brings the per-session cost down meaningfully once they commit to a regular rhythm — worth asking about wherever you book.
+  </p>
+
+
+  <!-- QUOTE -->
+
+  <blockquote>
+    One session is a temporary improvement. A sustained practice is something else entirely.
+  </blockquote>
+
+
+  <!-- CLOSING -->
+
+  <h2>
+    Your Body Is a System, Not a Problem to Solve
+  </h2>
+
+  <p>
+    Treating massage as preventive health care isn't a radical idea. It's just an unfamiliar one in a culture that waits for symptoms. The evidence for stress reduction, tension prevention, and physiological recovery is solid enough to build a practice around. The evidence for immune and cardiovascular outcomes is promising and still developing — worth knowing clearly rather than glossing over.
+  </p>
+
+  <p>
+    What's clear is that the body responds to consistency. Occasional intervention produces temporary relief. Showing up regularly — before the pattern becomes pain, before the system that's been holding you together finally gives way — produces something different. It's care, given proactively, in the space between issue and resolution, before the body has to ask loudly.
+  </p>
+
+  <p>
+    Reach out to Liminal Light to book a session. Start from where you are.
+  </p>
+
+
+</main>
+
+
+<!-- ENDING -->
+
+<section class="article-ending">
+
+
+  <a class="lounge-button" href="index.html">
+    ← Back to the Lounge
+  </a>
+
+</section>
+
+
+</body>
+</html>
