@@ -874,6 +874,61 @@ hr.divider {
   cursor: not-allowed;
 }
 
+.price-was {
+  display: block;
+  font-size: 0.8em;
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.service-price s {
+  opacity: 0.55;
+  margin-right: 0.35em;
+}
+
+.form-part {
+  border: 1px solid rgba(212,168,67,0.35);
+  padding: 2.5rem 2rem 2rem;
+  margin-top: 2.5rem;
+  background: rgba(245,238,230,0.02);
+}
+
+.form-part-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #D4A843;
+  margin-bottom: 0.4rem;
+}
+
+.form-part-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.9rem;
+  margin-bottom: 1rem;
+}
+
+.form-part-note {
+  font-size: 0.8rem;
+  color: rgba(245,238,230,0.6);
+  margin-top: 1.5rem;
+  line-height: 1.7;
+}
+
+.form-part-or {
+  text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(245,238,230,0.6);
+  margin-top: 2rem;
+}
+
+@media (max-width: 600px) {
+  .form-part { padding: 2rem 1.1rem 1.5rem; }
+}
+
 .price-group.focused-group {
   grid-column: 1 / -1;
 }
@@ -1954,58 +2009,9 @@ hr.divider {
 
       <div class="price-groups">
 
-        <div class="price-group">
-          <h3 class="price-group-title">Solo Massage <span class="intro-badge">Introductory Rate</span></h3>
-          <ul class="price-list">
-            <li class="price-row">
-              <span>30 min</span>
-              <span class="price-duo">
-                <span class="price-option"><span class="price-option-label">Swedish</span><span>$115 BBD</span></span>
-                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$125 BBD</span></span>
-              </span>
-            </li>
-            <li class="price-row">
-              <span>45 min</span>
-              <span class="price-duo">
-                <span class="price-option"><span class="price-option-label">Swedish</span><span>$160 BBD</span></span>
-                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$172 BBD</span></span>
-              </span>
-            </li>
-            <li class="price-row">
-              <span>60 min</span>
-              <span class="price-duo">
-                <span class="price-option"><span class="price-option-label">Swedish</span><span>$190 BBD</span></span>
-                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$205 BBD</span></span>
-              </span>
-            </li>
-            <li class="price-row">
-              <span>90 min</span>
-              <span class="price-duo">
-                <span class="price-option"><span class="price-option-label">Swedish</span><span>$255 BBD</span></span>
-                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$275 BBD</span></span>
-              </span>
-            </li>
-            <li class="price-row">
-              <span>120 min</span>
-              <span class="price-duo">
-                <span class="price-option"><span class="price-option-label">Swedish</span><span>$310 BBD</span></span>
-                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$335 BBD</span></span>
-              </span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="price-group pending">
-          <h3 class="price-group-title">Couples Massage <span class="coming-soon-badge">Coming Soon</span></h3>
-          <ul class="price-list">
-            <li class="price-row"><span>60 min</span><span>$345 BBD</span></li>
-            <li class="price-row"><span>90 min</span><span>$460 BBD</span></li>
-          </ul>
-        </div>
-
         <div class="price-group focused-group">
           <h3 class="price-group-title">Taster &amp; Focused Sessions</h3>
-          <p class="price-group-note">One area of the body, worked properly. Choose from: Head, head &amp; face, hands &amp; feet, or back, neck &amp; shoulders.</p>
+          <p class="price-group-note">One area of the body, worked properly. Choose from: head &amp; face, neck &amp; shoulders, full back, lower back &amp; hips, legs &amp; feet, or arms &amp; hands.</p>
           <ul class="price-list">
             <li class="price-row">
               <span class="price-row-name">Taster Session<small>Tasters are held at the Home Studio in St James.</small></span>
@@ -2026,14 +2032,65 @@ hr.divider {
                 <span class="price-option"><span class="price-option-label">60 min</span><span>$190 BBD</span></span>
               </span>
             </li>
+          </ul>
+        </div>
+
+        <div class="price-group">
+          <h3 class="price-group-title">Solo Massage <span class="intro-badge">Introductory Rate</span></h3>
+          <p class="price-group-note">Standard rates shown crossed out. Introductory rates apply to the first 20 full-body massage clients.</p>
+          <ul class="price-list">
             <li class="price-row">
-              <span class="price-row-name">Add-on<small>15 minutes of head, face, hands or feet, added to a full-body massage</small></span>
+              <span>30 min</span>
+              <span class="price-duo">
+                <span class="price-option"><span class="price-option-label">Swedish</span><span class="price-was">$135</span><span>$115 BBD</span></span>
+                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span class="price-was">$145</span><span>$125 BBD</span></span>
+              </span>
+            </li>
+            <li class="price-row">
+              <span>45 min</span>
+              <span class="price-duo">
+                <span class="price-option"><span class="price-option-label">Swedish</span><span class="price-was">$180</span><span>$160 BBD</span></span>
+                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span class="price-was">$195</span><span>$172 BBD</span></span>
+              </span>
+            </li>
+            <li class="price-row">
+              <span>60 min</span>
+              <span class="price-duo">
+                <span class="price-option"><span class="price-option-label">Swedish</span><span class="price-was">$215</span><span>$190 BBD</span></span>
+                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span class="price-was">$230</span><span>$205 BBD</span></span>
+              </span>
+            </li>
+            <li class="price-row">
+              <span>90 min</span>
+              <span class="price-duo">
+                <span class="price-option"><span class="price-option-label">Swedish</span><span class="price-was">$285</span><span>$255 BBD</span></span>
+                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span class="price-was">$305</span><span>$275 BBD</span></span>
+              </span>
+            </li>
+            <li class="price-row">
+              <span>120 min</span>
+              <span class="price-duo">
+                <span class="price-option"><span class="price-option-label">Swedish</span><span class="price-was">$350</span><span>$310 BBD</span></span>
+                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span class="price-was">$370</span><span>$335 BBD</span></span>
+              </span>
+            </li>
+            <li class="price-row">
+              <span class="price-row-name">Add-on<small>15 minutes of head &amp; face, neck &amp; shoulders, or legs &amp; feet, added to a full-body massage</small></span>
               <span class="price-duo">
                 <span class="price-option"><span class="price-option-label">+15 min</span><span>$40 BBD</span></span>
               </span>
             </li>
           </ul>
         </div>
+
+        <div class="price-group pending">
+          <h3 class="price-group-title">Couples Massage <span class="coming-soon-badge">Coming Soon</span></h3>
+          <ul class="price-list">
+            <li class="price-row"><span>60 min</span><span>$345 BBD</span></li>
+            <li class="price-row"><span>90 min</span><span>$460 BBD</span></li>
+          </ul>
+        </div>
+
 
       </div>
 
@@ -2049,61 +2106,12 @@ hr.divider {
 
       <div class="price-groups">
 
-        <div class="price-group">
-          <h3 class="price-group-title">Solo Massage <span class="intro-badge">Introductory Rate</span></h3>
-          <ul class="price-list">
-            <li class="price-row">
-              <span>30 min</span>
-              <span class="price-duo">
-                <span class="price-option"><span class="price-option-label">Swedish</span><span>$105 BBD</span></span>
-                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$115 BBD</span></span>
-              </span>
-            </li>
-            <li class="price-row">
-              <span>45 min</span>
-              <span class="price-duo">
-                <span class="price-option"><span class="price-option-label">Swedish</span><span>$145 BBD</span></span>
-                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$157 BBD</span></span>
-              </span>
-            </li>
-            <li class="price-row">
-              <span>60 min</span>
-              <span class="price-duo">
-                <span class="price-option"><span class="price-option-label">Swedish</span><span>$170 BBD</span></span>
-                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$185 BBD</span></span>
-              </span>
-            </li>
-            <li class="price-row">
-              <span>90 min</span>
-              <span class="price-duo">
-                <span class="price-option"><span class="price-option-label">Swedish</span><span>$230 BBD</span></span>
-                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$250 BBD</span></span>
-              </span>
-            </li>
-            <li class="price-row">
-              <span>120 min</span>
-              <span class="price-duo">
-                <span class="price-option"><span class="price-option-label">Swedish</span><span>$280 BBD</span></span>
-                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span>$305 BBD</span></span>
-              </span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="price-group pending">
-          <h3 class="price-group-title">Couples Massage <span class="coming-soon-badge">Coming Soon</span></h3>
-          <ul class="price-list">
-            <li class="price-row"><span>60 min</span><span>$310 BBD</span></li>
-            <li class="price-row"><span>90 min</span><span>$410 BBD</span></li>
-          </ul>
-        </div>
-
         <div class="price-group focused-group">
           <h3 class="price-group-title">Taster &amp; Focused Sessions</h3>
-          <p class="price-group-note">One area of the body, worked properly. Choose from: Head, head &amp; face, hands &amp; feet, or back, neck &amp; shoulders.</p>
+          <p class="price-group-note">One area of the body, worked properly. Choose from: head &amp; face, neck &amp; shoulders, full back, lower back &amp; hips, legs &amp; feet, or arms &amp; hands.</p>
           <ul class="price-list">
             <li class="price-row">
-              <span class="price-row-name">Taster Session<small>A first taste of my work. Includes $20 off a full-body massage of 60 minutes or longer, booked within 30 days.</small></span>
+              <span class="price-row-name">Taster Session<small>A first taste of my work. Includes $20 off standard rates on a full-body massage of 60 minutes or longer, booked within 30 days.</small></span>
               <span class="price-duo">
                 <span class="price-option"><span class="price-option-label">20 min</span><span>$55 BBD</span></span>
               </span>
@@ -2121,14 +2129,65 @@ hr.divider {
                 <span class="price-option"><span class="price-option-label">60 min</span><span>$170 BBD</span></span>
               </span>
             </li>
+          </ul>
+        </div>
+
+        <div class="price-group">
+          <h3 class="price-group-title">Solo Massage <span class="intro-badge">Introductory Rate</span></h3>
+          <p class="price-group-note">Standard rates shown crossed out. Introductory rates apply to the first 20 full-body massage clients.</p>
+          <ul class="price-list">
             <li class="price-row">
-              <span class="price-row-name">Add-on<small>15 minutes of head, face, hands or feet, added to a full-body massage</small></span>
+              <span>30 min</span>
+              <span class="price-duo">
+                <span class="price-option"><span class="price-option-label">Swedish</span><span class="price-was">$120</span><span>$105 BBD</span></span>
+                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span class="price-was">$130</span><span>$115 BBD</span></span>
+              </span>
+            </li>
+            <li class="price-row">
+              <span>45 min</span>
+              <span class="price-duo">
+                <span class="price-option"><span class="price-option-label">Swedish</span><span class="price-was">$160</span><span>$145 BBD</span></span>
+                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span class="price-was">$175</span><span>$157 BBD</span></span>
+              </span>
+            </li>
+            <li class="price-row">
+              <span>60 min</span>
+              <span class="price-duo">
+                <span class="price-option"><span class="price-option-label">Swedish</span><span class="price-was">$185</span><span>$170 BBD</span></span>
+                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span class="price-was">$195</span><span>$185 BBD</span></span>
+              </span>
+            </li>
+            <li class="price-row">
+              <span>90 min</span>
+              <span class="price-duo">
+                <span class="price-option"><span class="price-option-label">Swedish</span><span class="price-was">$250</span><span>$230 BBD</span></span>
+                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span class="price-was">$265</span><span>$250 BBD</span></span>
+              </span>
+            </li>
+            <li class="price-row">
+              <span>120 min</span>
+              <span class="price-duo">
+                <span class="price-option"><span class="price-option-label">Swedish</span><span class="price-was">$310</span><span>$280 BBD</span></span>
+                <span class="price-option"><span class="price-option-label">Deep Tissue</span><span class="price-was">$330</span><span>$305 BBD</span></span>
+              </span>
+            </li>
+            <li class="price-row">
+              <span class="price-row-name">Add-on<small>15 minutes of head &amp; face, neck &amp; shoulders, or legs &amp; feet, added to a full-body massage</small></span>
               <span class="price-duo">
                 <span class="price-option"><span class="price-option-label">+15 min</span><span>$40 BBD</span></span>
               </span>
             </li>
           </ul>
         </div>
+
+        <div class="price-group pending">
+          <h3 class="price-group-title">Couples Massage <span class="coming-soon-badge">Coming Soon</span></h3>
+          <ul class="price-list">
+            <li class="price-row"><span>60 min</span><span>$310 BBD</span></li>
+            <li class="price-row"><span>90 min</span><span>$410 BBD</span></li>
+          </ul>
+        </div>
+
 
       </div>
 
@@ -2139,7 +2198,7 @@ hr.divider {
     </div>
 
     <p class="intro-note fade-up">
-      Introductory pricing available for the first 20 clients. Taster and focused session prices are standard rates. Deep Tissue reflects a small premium for the additional pressure and technique the treatment requires.
+      Introductory rates are for the first 20 clients booking a full-body massage directly. Taster clients receive $20 off standard rates instead. Taster and focused session prices are fixed. Deep Tissue reflects a small premium for the additional pressure and technique the treatment requires.
     </p>
 
   </div>
@@ -2162,7 +2221,7 @@ hr.divider {
     </h2>
 
     <p class="body-text fade-up">
-      Choose your setting and preferred style below, then select a full-body massage, a taster or focused session, or both and share a few details. We'll confirm your appointment by email or WhatsApp within 24 hours.
+      Choose your setting, then start with a taster or focused session, book a full-body massage, or both, and share a few details. We'll confirm your appointment by email or WhatsApp within 24 hours.
     </p>
 
     <div class="pricing-toggle fade-up" id="bookingSettingToggle">
@@ -2170,10 +2229,76 @@ hr.divider {
       <button type="button" class="toggle-btn" data-setting="studio" data-setting-label="Home Studio — treatment at Liminal Light studio, St James">Home Studio</button>
     </div>
 
-    <p class="area-note" style="margin-top:2rem;">Preferred Style</p>
+    <form id="requestForm" class="fade-up">
+
+      <div class="form-part">
+        <p class="form-part-label">Part A</p>
+        <h3 class="form-part-title">Taster or Focused Session</h3>
+        <p class="waitlist-note">
+        One area of the body, worked properly. The 20-minute taster is held at the Home Studio. Taster clients get $20 off standard rates on a full-body massage of 60 minutes or longer, booked within 30 days.
+      </p>
+
+        <div class="checkbox-grid">
+        <label class="checkbox-item">
+          <input type="checkbox" name="focused" data-duration="Taster Session — 20 min" data-mobile-price="" data-studio-price="55" data-studio-only="true" data-needs-area="true">
+          <span class="checkbox-label"><span class="service-name">Taster Session — 20 min</span><span class="service-price">$ BBD</span></span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="focused" data-duration="Focused Session — 30 min" data-mobile-price="105" data-studio-price="85" data-needs-area="true">
+          <span class="checkbox-label"><span class="service-name">Focused Session — 30 min</span><span class="service-price">$105 BBD</span></span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="focused" data-duration="Focused Session — 45 min" data-mobile-price="145" data-studio-price="120" data-needs-area="true">
+          <span class="checkbox-label"><span class="service-name">Focused Session — 45 min</span><span class="service-price">$145 BBD</span></span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="focused" data-duration="Sleep Ritual — 60 min" data-mobile-price="190" data-studio-price="170">
+          <span class="checkbox-label"><span class="service-name">Sleep Ritual — 60 min</span><span class="service-price">$190 BBD</span></span>
+        </label>
+      </div>
+
+        <p class="area-note">Choose your focus area</p>
+
+        <div class="checkbox-grid" id="focusAreaGrid">
+        <label class="checkbox-item">
+          <input type="radio" name="focusArea" value="Head &amp; Face">
+          <span class="checkbox-label"><span class="service-name">Head &amp; Face</span></span>
+        </label>
+        <label class="checkbox-item">
+          <input type="radio" name="focusArea" value="Neck &amp; Shoulders">
+          <span class="checkbox-label"><span class="service-name">Neck &amp; Shoulders</span></span>
+        </label>
+        <label class="checkbox-item">
+          <input type="radio" name="focusArea" value="Full Back">
+          <span class="checkbox-label"><span class="service-name">Full Back</span></span>
+        </label>
+        <label class="checkbox-item">
+          <input type="radio" name="focusArea" value="Lower Back &amp; Hips">
+          <span class="checkbox-label"><span class="service-name">Lower Back &amp; Hips</span></span>
+        </label>
+        <label class="checkbox-item">
+          <input type="radio" name="focusArea" value="Legs &amp; Feet">
+          <span class="checkbox-label"><span class="service-name">Legs &amp; Feet</span></span>
+        </label>
+        <label class="checkbox-item">
+          <input type="radio" name="focusArea" value="Arms &amp; Hands">
+          <span class="checkbox-label"><span class="service-name">Arms &amp; Hands</span></span>
+        </label>
+      </div>
+
+        <p class="form-part-note">No style or duration to choose. The length is built into each session, and pressure is adjusted to you on the day.</p>
+      </div>
+
+      <p class="form-part-or">Book Part A, Part B, or both.</p>
+
+      <div class="form-part">
+        <p class="form-part-label">Part B</p>
+        <h3 class="form-part-title">Full-Body Massage</h3>
+
+        <p class="area-note" style="margin-top:2rem;">Preferred Style</p>
 
     <p class="style-note">
-      Choose a style if you already know what suits you, or leave it to your therapist to recommend on arrival based on how you're feeling that day. Deep Tissue carries a small premium over Swedish, reflected in the treatment prices below once selected.
+      <strong>For full-body massage only.</strong> Choose a style if you already know what suits you, or leave it to your therapist to recommend on arrival based on how you're feeling that day. Deep Tissue carries a small premium over Swedish, reflected in the treatment prices below once selected.
     </p>
 
     <div class="checkbox-grid" id="styleToggle">
@@ -2208,14 +2333,14 @@ hr.divider {
       </p>
     </div>
 
-    <p class="area-note" style="margin-top:2.5rem;">Full-Body Massage</p>
+        <p class="area-note" style="margin-top:2.5rem;">Full-body massage length</p>
 
-    <form id="requestForm" class="fade-up">
-
-      <div class="checkbox-grid">
+        <div class="checkbox-grid">
         <label class="checkbox-item">
           <input type="checkbox" name="service" data-duration="30-min Massage"
                  data-mobile-price="115" data-studio-price="105"
+                 data-mobile-std="135" data-studio-std="120"
+                 data-mobile-std-deep="145" data-studio-std-deep="130" data-minutes="30"
                  data-mobile-price-deep="125" data-studio-price-deep="115">
           <span class="checkbox-label"><span class="service-name">30-min Massage</span><span class="service-price">$115 BBD</span></span>
         </label>
@@ -2223,6 +2348,8 @@ hr.divider {
         <label class="checkbox-item">
           <input type="checkbox" name="service" data-duration="45-min Massage"
                  data-mobile-price="160" data-studio-price="145"
+                 data-mobile-std="180" data-studio-std="160"
+                 data-mobile-std-deep="195" data-studio-std-deep="175" data-minutes="45"
                  data-mobile-price-deep="172" data-studio-price-deep="157">
           <span class="checkbox-label"><span class="service-name">45-min Massage</span><span class="service-price">$160 BBD</span></span>
         </label>
@@ -2230,6 +2357,8 @@ hr.divider {
         <label class="checkbox-item">
           <input type="checkbox" name="service" data-duration="60-min Massage"
                  data-mobile-price="190" data-studio-price="170"
+                 data-mobile-std="215" data-studio-std="185"
+                 data-mobile-std-deep="230" data-studio-std-deep="195" data-minutes="60"
                  data-mobile-price-deep="205" data-studio-price-deep="185">
           <span class="checkbox-label"><span class="service-name">60-min Massage</span><span class="service-price">$190 BBD</span></span>
         </label>
@@ -2237,6 +2366,8 @@ hr.divider {
         <label class="checkbox-item">
           <input type="checkbox" name="service" data-duration="90-min Massage"
                  data-mobile-price="255" data-studio-price="230"
+                 data-mobile-std="285" data-studio-std="250"
+                 data-mobile-std-deep="305" data-studio-std-deep="265" data-minutes="90"
                  data-mobile-price-deep="275" data-studio-price-deep="250">
           <span class="checkbox-label"><span class="service-name">90-min Massage</span><span class="service-price">$255 BBD</span></span>
         </label>
@@ -2244,60 +2375,21 @@ hr.divider {
         <label class="checkbox-item">
           <input type="checkbox" name="service" data-duration="120-min Massage"
                  data-mobile-price="310" data-studio-price="280"
+                 data-mobile-std="350" data-studio-std="310"
+                 data-mobile-std-deep="370" data-studio-std-deep="330" data-minutes="120"
                  data-mobile-price-deep="335" data-studio-price-deep="305">
           <span class="checkbox-label"><span class="service-name">120-min Massage</span><span class="service-price">$310 BBD</span></span>
         </label>
       </div>
 
-      <div class="waitlist-heading">
-        <h3>Taster &amp; Focused Sessions</h3>
-      </div>
-
-      <p class="waitlist-note">
-        One area of the body, worked properly. The 20-minute taster is held at the Home Studio and includes $20 off a full-body massage of 60 minutes or longer, booked within 30 days. The discount applies to whichever rate is current when you book.
-      </p>
-
-      <div class="checkbox-grid">
+        <div class="checkbox-grid" style="margin-top:1rem;">
         <label class="checkbox-item">
-          <input type="checkbox" name="focused" data-duration="Taster Session — 20 min" data-mobile-price="" data-studio-price="55" data-studio-only="true" data-needs-area="true">
-          <span class="checkbox-label"><span class="service-name">Taster Session — 20 min</span><span class="service-price">$ BBD</span></span>
-        </label>
-        <label class="checkbox-item">
-          <input type="checkbox" name="focused" data-duration="Focused Session — 30 min" data-mobile-price="105" data-studio-price="85" data-needs-area="true">
-          <span class="checkbox-label"><span class="service-name">Focused Session — 30 min</span><span class="service-price">$105 BBD</span></span>
-        </label>
-        <label class="checkbox-item">
-          <input type="checkbox" name="focused" data-duration="Focused Session — 45 min" data-mobile-price="145" data-studio-price="120" data-needs-area="true">
-          <span class="checkbox-label"><span class="service-name">Focused Session — 45 min</span><span class="service-price">$145 BBD</span></span>
-        </label>
-        <label class="checkbox-item">
-          <input type="checkbox" name="focused" data-duration="Sleep Ritual — 60 min" data-mobile-price="190" data-studio-price="170">
-          <span class="checkbox-label"><span class="service-name">Sleep Ritual — 60 min</span><span class="service-price">$190 BBD</span></span>
+          <input type="checkbox" name="tasterCredit" id="tasterCredit">
+          <span class="checkbox-label"><span class="service-name">I&#39;ve had a taster in the last 30 days</span><span class="service-desc">Use my $20 credit: $20 off standard rates on a 60-minute or longer full-body massage</span></span>
         </label>
       </div>
 
-      <p class="area-note">Focus Area (for taster and focused sessions)</p>
-
-      <div class="checkbox-grid" id="focusAreaGrid">
-        <label class="checkbox-item">
-          <input type="radio" name="focusArea" value="Head">
-          <span class="checkbox-label"><span class="service-name">Head</span></span>
-        </label>
-        <label class="checkbox-item">
-          <input type="radio" name="focusArea" value="Head &amp; Face">
-          <span class="checkbox-label"><span class="service-name">Head &amp; Face</span></span>
-        </label>
-        <label class="checkbox-item">
-          <input type="radio" name="focusArea" value="Hands &amp; Feet">
-          <span class="checkbox-label"><span class="service-name">Hands &amp; Feet</span></span>
-        </label>
-        <label class="checkbox-item">
-          <input type="radio" name="focusArea" value="Back, Neck &amp; Shoulders">
-          <span class="checkbox-label"><span class="service-name">Back, Neck &amp; Shoulders</span></span>
-        </label>
-      </div>
-
-      <div class="waitlist-heading">
+        <div class="waitlist-heading">
         <h3>Add-ons</h3>
       </div>
 
@@ -2307,17 +2399,18 @@ hr.divider {
 
       <div class="checkbox-grid">
         <label class="checkbox-item">
-          <input type="checkbox" name="addon" data-duration="Add-on: Head (+15 min)" data-mobile-price="40" data-studio-price="40">
-          <span class="checkbox-label"><span class="service-name">Add-on: Head (+15 min)</span><span class="service-price">$40 BBD</span></span>
+          <input type="checkbox" name="addon" data-duration="Add-on: Neck &amp; Shoulders (+15 min)" data-mobile-price="40" data-studio-price="40">
+          <span class="checkbox-label"><span class="service-name">Add-on: Neck &amp; Shoulders (+15 min)</span><span class="service-price">$40 BBD</span></span>
         </label>
         <label class="checkbox-item">
           <input type="checkbox" name="addon" data-duration="Add-on: Head &amp; Face (+15 min)" data-mobile-price="40" data-studio-price="40">
           <span class="checkbox-label"><span class="service-name">Add-on: Head &amp; Face (+15 min)</span><span class="service-price">$40 BBD</span></span>
         </label>
         <label class="checkbox-item">
-          <input type="checkbox" name="addon" data-duration="Add-on: Hands &amp; Feet (+15 min)" data-mobile-price="40" data-studio-price="40">
-          <span class="checkbox-label"><span class="service-name">Add-on: Hands &amp; Feet (+15 min)</span><span class="service-price">$40 BBD</span></span>
+          <input type="checkbox" name="addon" data-duration="Add-on: Legs &amp; Feet (+15 min)" data-mobile-price="40" data-studio-price="40">
+          <span class="checkbox-label"><span class="service-name">Add-on: Legs &amp; Feet (+15 min)</span><span class="service-price">$40 BBD</span></span>
         </label>
+      </div>
       </div>
 
       <div class="waitlist-heading">
@@ -2574,13 +2667,37 @@ function priceFor(input) {
   return currentStyleKey === 'deep-tissue' ? input.dataset.mobilePriceDeep : input.dataset.mobilePrice;
 }
 
+function stdFor(input) {
+  if (currentSetting === 'studio') {
+    return currentStyleKey === 'deep-tissue' ? input.dataset.studioStdDeep : input.dataset.studioStd;
+  }
+  return currentStyleKey === 'deep-tissue' ? input.dataset.mobileStdDeep : input.dataset.mobileStd;
+}
+
+function usingTasterCredit() {
+  const el = document.getElementById('tasterCredit');
+  return !!(el && el.checked);
+}
+
+// returns { price, note } for a full-body duration
+function fullBodyQuote(input) {
+  const std = parseInt(stdFor(input), 10);
+  if (usingTasterCredit()) {
+    if (parseInt(input.dataset.minutes, 10) >= 60) {
+      return { price: std - 20, std: std, note: 'standard $' + std + ' less $20 taster credit' };
+    }
+    return { price: std, std: std, note: 'standard rate' };
+  }
+  return { price: parseInt(priceFor(input), 10), std: std, note: 'introductory rate; standard $' + std };
+}
+
 function refreshBookingPrices() {
   // priced duration checkboxes (style-aware)
   document.querySelectorAll('input[name="service"][data-mobile-price]').forEach(function (input) {
-    const price = priceFor(input);
+    const q = fullBodyQuote(input);
     const priceLabel = input.closest('.checkbox-item').querySelector('.service-price');
-    if (priceLabel && price) {
-      priceLabel.textContent = '$' + price + ' BBD';
+    if (priceLabel && q.price) {
+      priceLabel.innerHTML = (q.price !== q.std ? '<s>$' + q.std + '</s>' : '') + '$' + q.price + ' BBD';
     }
   });
 
@@ -2639,6 +2756,7 @@ document.querySelectorAll('input[name="style"]').forEach(function (radio) {
 });
 
 refreshBookingPrices();
+document.getElementById('tasterCredit').addEventListener('change', refreshBookingPrices);
 
 /* BOOKING FORM LOGIC */
 
@@ -2690,27 +2808,27 @@ function buildRequestMessage() {
       price = currentSetting === 'studio' ? input.dataset.studioPrice : input.dataset.mobilePrice;
       return input.dataset.duration + ' — est. $' + price + ' BBD';
     }
-    price = priceFor(input);
-    return input.dataset.duration + ' — $' + price + ' BBD';
+    const q = fullBodyQuote(input);
+    return input.dataset.duration + ' — $' + q.price + ' BBD (' + q.note + ')';
   }
 
   let msg = 'New Massage Request — Liminal Light\n\n';
 
   msg += 'Preferred Setting: ' + currentSettingLabel + '\n';
 
-  if (styleChoice) {
+  if (styleChoice && checked.length > 0) {
     msg += 'Preferred Style: ' + styleChoice.value + '\n';
-  }
-
-  if (checked.length > 0) {
-    msg += '\nFull-body massage:\n';
-    checked.forEach(input => { msg += '- ' + lineFor(input, false) + '\n'; });
   }
 
   if (focused.length > 0) {
     msg += '\nTaster / focused session(s):\n';
     focused.forEach(input => { msg += '- ' + flatLine(input) + '\n'; });
     if (areaChoice) msg += 'Focus area: ' + areaChoice.value + '\n';
+  }
+
+  if (checked.length > 0) {
+    msg += '\nFull-body massage' + (usingTasterCredit() ? ' (using $20 taster credit)' : '') + ':\n';
+    checked.forEach(input => { msg += '- ' + lineFor(input, false) + '\n'; });
   }
 
   if (addons.length > 0) {
