@@ -2728,7 +2728,10 @@ const observer = new IntersectionObserver((entries) => {
   });
 
 }, {
-  threshold: 0.15
+  // Trigger as soon as any part of an element is on screen (minus a small bottom margin).
+  // A ratio threshold (e.g. 0.15) never fires for very tall blocks like the booking form on phones.
+  threshold: 0,
+  rootMargin: '0px 0px -10% 0px'
 });
 
 document
