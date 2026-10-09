@@ -2231,186 +2231,211 @@ hr.divider {
 
     <form id="requestForm" class="fade-up">
 
+      <div class="disclaimer-box">
+        <p>
+          <strong>A note on Deep Tissue:</strong> this style may not be suitable if you are pregnant, have certain injuries, or have a blood pressure condition. If any of this applies to you, please select "Not Sure" or mention it in the notes below so we can discuss the safest option with you before your session.
+        </p>
+      </div>
+
+      <!-- PART A -->
       <div class="form-part">
         <p class="form-part-label">Part A</p>
         <h3 class="form-part-title">Taster or Focused Session</h3>
         <p class="waitlist-note">
-        One area of the body, worked properly. The 20-minute taster is held at the Home Studio. Taster clients get $20 off standard rates on a full-body massage of 60 minutes or longer, booked within 30 days.
-      </p>
+          One area of the body, worked properly. Same price whichever style you choose.
+        </p>
 
+        <p class="area-note">Step 1 — Session length</p>
+        <div class="checkbox-grid" data-single-select>
+          <label class="checkbox-item">
+            <input type="checkbox" name="focused" data-duration="Taster Session — 20 min" data-mobile-price="" data-studio-price="55" data-studio-only="true">
+            <span class="checkbox-label"><span class="service-name">Taster Session — 20 min</span><span class="service-desc">Home Studio only</span><span class="service-price">$55 BBD</span></span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="focused" data-duration="Focused Session — 30 min" data-mobile-price="105" data-studio-price="85">
+            <span class="checkbox-label"><span class="service-name">Focused Session — 30 min</span><span class="service-price">$105 BBD</span></span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="focused" data-duration="Focused Session — 45 min" data-mobile-price="145" data-studio-price="120">
+            <span class="checkbox-label"><span class="service-name">Focused Session — 45 min</span><span class="service-price">$145 BBD</span></span>
+          </label>
+        </div>
+
+        <p class="area-note">Step 2 — Style</p>
         <div class="checkbox-grid">
-        <label class="checkbox-item">
-          <input type="checkbox" name="focused" data-duration="Taster Session — 20 min" data-mobile-price="" data-studio-price="55" data-studio-only="true" data-needs-area="true">
-          <span class="checkbox-label"><span class="service-name">Taster Session — 20 min</span><span class="service-price">$ BBD</span></span>
-        </label>
-        <label class="checkbox-item">
-          <input type="checkbox" name="focused" data-duration="Focused Session — 30 min" data-mobile-price="105" data-studio-price="85" data-needs-area="true">
-          <span class="checkbox-label"><span class="service-name">Focused Session — 30 min</span><span class="service-price">$105 BBD</span></span>
-        </label>
-        <label class="checkbox-item">
-          <input type="checkbox" name="focused" data-duration="Focused Session — 45 min" data-mobile-price="145" data-studio-price="120" data-needs-area="true">
-          <span class="checkbox-label"><span class="service-name">Focused Session — 45 min</span><span class="service-price">$145 BBD</span></span>
-        </label>
-        <label class="checkbox-item">
-          <input type="checkbox" name="focused" data-duration="Sleep Ritual — 60 min" data-mobile-price="190" data-studio-price="170">
-          <span class="checkbox-label"><span class="service-name">Sleep Ritual — 60 min</span><span class="service-price">$190 BBD</span></span>
-        </label>
-      </div>
+          <label class="checkbox-item">
+            <input type="radio" name="styleA" value="Swedish / Therapeutic Relaxation" checked>
+            <span class="checkbox-label">
+              <span class="service-name">Swedish / Therapeutic Relaxation</span>
+              <span class="service-desc">Lighter, flowing pressure to ease tension and calm the nervous system.</span>
+            </span>
+          </label>
+          <label class="checkbox-item">
+            <input type="radio" name="styleA" value="Deep Tissue">
+            <span class="checkbox-label">
+              <span class="service-name">Deep Tissue</span>
+              <span class="service-desc">Firmer, targeted pressure for chronic tightness, muscle-specific work, or post-training recovery.</span>
+            </span>
+          </label>
+          <label class="checkbox-item">
+            <input type="radio" name="styleA" value="Not sure — recommend on arrival">
+            <span class="checkbox-label">
+              <span class="service-name">Not Sure</span>
+              <span class="service-desc">Let your therapist assess and recommend the best approach on the day.</span>
+            </span>
+          </label>
+        </div>
 
-        <p class="area-note">Choose your focus area</p>
-
+        <p class="area-note">Step 3 — Focus area</p>
         <div class="checkbox-grid" id="focusAreaGrid">
-        <label class="checkbox-item">
-          <input type="radio" name="focusArea" value="Head &amp; Face">
-          <span class="checkbox-label"><span class="service-name">Head &amp; Face</span></span>
-        </label>
-        <label class="checkbox-item">
-          <input type="radio" name="focusArea" value="Neck &amp; Shoulders">
-          <span class="checkbox-label"><span class="service-name">Neck &amp; Shoulders</span></span>
-        </label>
-        <label class="checkbox-item">
-          <input type="radio" name="focusArea" value="Full Back">
-          <span class="checkbox-label"><span class="service-name">Full Back</span></span>
-        </label>
-        <label class="checkbox-item">
-          <input type="radio" name="focusArea" value="Lower Back &amp; Hips">
-          <span class="checkbox-label"><span class="service-name">Lower Back &amp; Hips</span></span>
-        </label>
-        <label class="checkbox-item">
-          <input type="radio" name="focusArea" value="Legs &amp; Feet">
-          <span class="checkbox-label"><span class="service-name">Legs &amp; Feet</span></span>
-        </label>
-        <label class="checkbox-item">
-          <input type="radio" name="focusArea" value="Arms &amp; Hands">
-          <span class="checkbox-label"><span class="service-name">Arms &amp; Hands</span></span>
-        </label>
-      </div>
+          <label class="checkbox-item">
+            <input type="radio" name="focusArea" value="Head &amp; Face">
+            <span class="checkbox-label"><span class="service-name">Head &amp; Face</span></span>
+          </label>
+          <label class="checkbox-item">
+            <input type="radio" name="focusArea" value="Neck &amp; Shoulders">
+            <span class="checkbox-label"><span class="service-name">Neck &amp; Shoulders</span></span>
+          </label>
+          <label class="checkbox-item">
+            <input type="radio" name="focusArea" value="Full Back">
+            <span class="checkbox-label"><span class="service-name">Full Back</span></span>
+          </label>
+          <label class="checkbox-item">
+            <input type="radio" name="focusArea" value="Lower Back &amp; Hips">
+            <span class="checkbox-label"><span class="service-name">Lower Back &amp; Hips</span></span>
+          </label>
+          <label class="checkbox-item">
+            <input type="radio" name="focusArea" value="Legs &amp; Feet">
+            <span class="checkbox-label"><span class="service-name">Legs &amp; Feet</span></span>
+          </label>
+          <label class="checkbox-item">
+            <input type="radio" name="focusArea" value="Arms &amp; Hands">
+            <span class="checkbox-label"><span class="service-name">Arms &amp; Hands</span></span>
+          </label>
+        </div>
 
-        <p class="form-part-note">No style or duration to choose. The length is built into each session, and pressure is adjusted to you on the day.</p>
+        <p class="form-part-note">Had a taster? You get $20 off standard rates on a full-body massage of 60 minutes or longer, booked within 30 days. Claim it in Part B, Step 4.</p>
       </div>
 
       <p class="form-part-or">Book Part A, Part B, or both.</p>
 
+      <!-- PART B -->
       <div class="form-part">
         <p class="form-part-label">Part B</p>
         <h3 class="form-part-title">Full-Body Massage</h3>
+        <p class="waitlist-note">
+          Your whole body, at your chosen length. Deep Tissue carries a small premium over Swedish, shown in the prices once selected.
+        </p>
 
-        <p class="area-note" style="margin-top:2rem;">Preferred Style</p>
+        <p class="area-note">Step 1 — Session length</p>
+        <p class="form-part-note" style="margin-top:0.6rem;">Introductory rates shown. The standard rate is struck through.</p>
+        <div class="checkbox-grid" data-single-select>
+          <label class="checkbox-item">
+            <input type="checkbox" name="service" data-duration="30-min Massage"
+                   data-mobile-price="115" data-studio-price="105"
+                   data-mobile-std="135" data-studio-std="120"
+                   data-mobile-std-deep="145" data-studio-std-deep="130" data-minutes="30"
+                   data-mobile-price-deep="125" data-studio-price-deep="115">
+            <span class="checkbox-label"><span class="service-name">30-min Massage</span><span class="service-price">$115 BBD</span></span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="service" data-duration="45-min Massage"
+                   data-mobile-price="160" data-studio-price="145"
+                   data-mobile-std="180" data-studio-std="160"
+                   data-mobile-std-deep="195" data-studio-std-deep="175" data-minutes="45"
+                   data-mobile-price-deep="172" data-studio-price-deep="157">
+            <span class="checkbox-label"><span class="service-name">45-min Massage</span><span class="service-price">$160 BBD</span></span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="service" data-duration="60-min Massage"
+                   data-mobile-price="190" data-studio-price="170"
+                   data-mobile-std="215" data-studio-std="185"
+                   data-mobile-std-deep="230" data-studio-std-deep="195" data-minutes="60"
+                   data-mobile-price-deep="205" data-studio-price-deep="185">
+            <span class="checkbox-label"><span class="service-name">60-min Massage</span><span class="service-price">$190 BBD</span></span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="service" data-duration="90-min Massage"
+                   data-mobile-price="255" data-studio-price="230"
+                   data-mobile-std="285" data-studio-std="250"
+                   data-mobile-std-deep="305" data-studio-std-deep="265" data-minutes="90"
+                   data-mobile-price-deep="275" data-studio-price-deep="250">
+            <span class="checkbox-label"><span class="service-name">90-min Massage</span><span class="service-price">$255 BBD</span></span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="service" data-duration="120-min Massage"
+                   data-mobile-price="310" data-studio-price="280"
+                   data-mobile-std="350" data-studio-std="310"
+                   data-mobile-std-deep="370" data-studio-std-deep="330" data-minutes="120"
+                   data-mobile-price-deep="335" data-studio-price-deep="305">
+            <span class="checkbox-label"><span class="service-name">120-min Massage</span><span class="service-price">$310 BBD</span></span>
+          </label>
+        </div>
 
-    <p class="style-note">
-      <strong>For full-body massage only.</strong> Choose a style if you already know what suits you, or leave it to your therapist to recommend on arrival based on how you're feeling that day. Deep Tissue carries a small premium over Swedish, reflected in the treatment prices below once selected.
-    </p>
+        <p class="area-note">Step 2 — Style</p>
+        <div class="checkbox-grid" id="styleToggle">
+          <label class="checkbox-item">
+            <input type="radio" name="style" value="Swedish / Therapeutic Relaxation" data-style-key="swedish" checked>
+            <span class="checkbox-label">
+              <span class="service-name">Swedish / Therapeutic Relaxation</span>
+              <span class="service-desc">Lighter, flowing pressure to ease tension and calm the nervous system.</span>
+            </span>
+          </label>
+          <label class="checkbox-item">
+            <input type="radio" name="style" value="Deep Tissue" data-style-key="deep-tissue">
+            <span class="checkbox-label">
+              <span class="service-name">Deep Tissue</span>
+              <span class="service-desc">Firmer, targeted pressure for chronic tightness, muscle-specific work, or post-training recovery.</span>
+            </span>
+          </label>
+          <label class="checkbox-item">
+            <input type="radio" name="style" value="Not sure — recommend on arrival" data-style-key="swedish">
+            <span class="checkbox-label">
+              <span class="service-name">Not Sure</span>
+              <span class="service-desc">Let your therapist assess and recommend the best approach on the day. Priced as Swedish; adjusted with you on arrival if Deep Tissue suits better.</span>
+            </span>
+          </label>
+        </div>
 
-    <div class="checkbox-grid" id="styleToggle">
-      <label class="checkbox-item">
-        <input type="radio" name="style" value="Swedish / Therapeutic Relaxation" data-style-key="swedish" checked>
-        <span class="checkbox-label">
-          <span class="service-name">Swedish / Therapeutic Relaxation</span>
-          <span class="service-desc">Lighter, flowing pressure to ease tension and calm the nervous system.</span>
-        </span>
-      </label>
-
-      <label class="checkbox-item">
-        <input type="radio" name="style" value="Deep Tissue" data-style-key="deep-tissue">
-        <span class="checkbox-label">
-          <span class="service-name">Deep Tissue</span>
-          <span class="service-desc">Firmer, targeted pressure for chronic tightness, muscle-specific work, or post-training recovery.</span>
-        </span>
-      </label>
-
-      <label class="checkbox-item">
-        <input type="radio" name="style" value="Not sure — recommend on arrival" data-style-key="swedish">
-        <span class="checkbox-label">
-          <span class="service-name">Not Sure</span>
-          <span class="service-desc">Let your therapist assess and recommend the best approach on the day. Priced as Swedish; adjusted with you on arrival if Deep Tissue suits better.</span>
-        </span>
-      </label>
-    </div>
-
-    <div class="disclaimer-box">
-      <p>
-        <strong>A note on Deep Tissue:</strong> this style may not be suitable if you are pregnant, have certain injuries, or have a blood pressure condition. If any of this applies to you, please select "Not Sure" or mention it in the notes below so we can discuss the safest option with you before your session.
-      </p>
-    </div>
-
-        <p class="area-note" style="margin-top:2.5rem;">Full-body massage length</p>
-
+        <p class="area-note">Step 3 — Add extra focus (optional)</p>
+        <p class="form-part-note" style="margin-top:0.6rem;">Add 15 minutes of focused work on one area.</p>
         <div class="checkbox-grid">
-        <label class="checkbox-item">
-          <input type="checkbox" name="service" data-duration="30-min Massage"
-                 data-mobile-price="115" data-studio-price="105"
-                 data-mobile-std="135" data-studio-std="120"
-                 data-mobile-std-deep="145" data-studio-std-deep="130" data-minutes="30"
-                 data-mobile-price-deep="125" data-studio-price-deep="115">
-          <span class="checkbox-label"><span class="service-name">30-min Massage</span><span class="service-price">$115 BBD</span></span>
-        </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="addon" data-duration="Add-on: Neck &amp; Shoulders (+15 min)" data-mobile-price="40" data-studio-price="40">
+            <span class="checkbox-label"><span class="service-name">Neck &amp; Shoulders (+15 min)</span><span class="service-price">$40 BBD</span></span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="addon" data-duration="Add-on: Head &amp; Face (+15 min)" data-mobile-price="40" data-studio-price="40">
+            <span class="checkbox-label"><span class="service-name">Head &amp; Face (+15 min)</span><span class="service-price">$40 BBD</span></span>
+          </label>
+          <label class="checkbox-item">
+            <input type="checkbox" name="addon" data-duration="Add-on: Legs &amp; Feet (+15 min)" data-mobile-price="40" data-studio-price="40">
+            <span class="checkbox-label"><span class="service-name">Legs &amp; Feet (+15 min)</span><span class="service-price">$40 BBD</span></span>
+          </label>
+        </div>
 
-        <label class="checkbox-item">
-          <input type="checkbox" name="service" data-duration="45-min Massage"
-                 data-mobile-price="160" data-studio-price="145"
-                 data-mobile-std="180" data-studio-std="160"
-                 data-mobile-std-deep="195" data-studio-std-deep="175" data-minutes="45"
-                 data-mobile-price-deep="172" data-studio-price-deep="157">
-          <span class="checkbox-label"><span class="service-name">45-min Massage</span><span class="service-price">$160 BBD</span></span>
-        </label>
-
-        <label class="checkbox-item">
-          <input type="checkbox" name="service" data-duration="60-min Massage"
-                 data-mobile-price="190" data-studio-price="170"
-                 data-mobile-std="215" data-studio-std="185"
-                 data-mobile-std-deep="230" data-studio-std-deep="195" data-minutes="60"
-                 data-mobile-price-deep="205" data-studio-price-deep="185">
-          <span class="checkbox-label"><span class="service-name">60-min Massage</span><span class="service-price">$190 BBD</span></span>
-        </label>
-
-        <label class="checkbox-item">
-          <input type="checkbox" name="service" data-duration="90-min Massage"
-                 data-mobile-price="255" data-studio-price="230"
-                 data-mobile-std="285" data-studio-std="250"
-                 data-mobile-std-deep="305" data-studio-std-deep="265" data-minutes="90"
-                 data-mobile-price-deep="275" data-studio-price-deep="250">
-          <span class="checkbox-label"><span class="service-name">90-min Massage</span><span class="service-price">$255 BBD</span></span>
-        </label>
-
-        <label class="checkbox-item">
-          <input type="checkbox" name="service" data-duration="120-min Massage"
-                 data-mobile-price="310" data-studio-price="280"
-                 data-mobile-std="350" data-studio-std="310"
-                 data-mobile-std-deep="370" data-studio-std-deep="330" data-minutes="120"
-                 data-mobile-price-deep="335" data-studio-price-deep="305">
-          <span class="checkbox-label"><span class="service-name">120-min Massage</span><span class="service-price">$310 BBD</span></span>
-        </label>
+        <p class="area-note">Step 4 — Taster credit</p>
+        <div class="checkbox-grid">
+          <label class="checkbox-item">
+            <input type="checkbox" name="tasterCredit" id="tasterCredit">
+            <span class="checkbox-label"><span class="service-name">I&#39;ve had a taster in the last 30 days</span><span class="service-desc">Use my $20 credit: $20 off standard rates on a 60-minute or longer full-body massage</span></span>
+          </label>
+        </div>
       </div>
 
-        <div class="checkbox-grid" style="margin-top:1rem;">
-        <label class="checkbox-item">
-          <input type="checkbox" name="tasterCredit" id="tasterCredit">
-          <span class="checkbox-label"><span class="service-name">I&#39;ve had a taster in the last 30 days</span><span class="service-desc">Use my $20 credit: $20 off standard rates on a 60-minute or longer full-body massage</span></span>
-        </label>
-      </div>
-
-        <div class="waitlist-heading">
-        <h3>Add-ons</h3>
-      </div>
-
-      <p class="waitlist-note">
-        Add 15 minutes of focused work to a full-body massage selected above.
-      </p>
-
-      <div class="checkbox-grid">
-        <label class="checkbox-item">
-          <input type="checkbox" name="addon" data-duration="Add-on: Neck &amp; Shoulders (+15 min)" data-mobile-price="40" data-studio-price="40">
-          <span class="checkbox-label"><span class="service-name">Add-on: Neck &amp; Shoulders (+15 min)</span><span class="service-price">$40 BBD</span></span>
-        </label>
-        <label class="checkbox-item">
-          <input type="checkbox" name="addon" data-duration="Add-on: Head &amp; Face (+15 min)" data-mobile-price="40" data-studio-price="40">
-          <span class="checkbox-label"><span class="service-name">Add-on: Head &amp; Face (+15 min)</span><span class="service-price">$40 BBD</span></span>
-        </label>
-        <label class="checkbox-item">
-          <input type="checkbox" name="addon" data-duration="Add-on: Legs &amp; Feet (+15 min)" data-mobile-price="40" data-studio-price="40">
-          <span class="checkbox-label"><span class="service-name">Add-on: Legs &amp; Feet (+15 min)</span><span class="service-price">$40 BBD</span></span>
-        </label>
-      </div>
+      <!-- SIGNATURE RITUAL -->
+      <div class="form-part">
+        <p class="form-part-label">Signature Ritual</p>
+        <h3 class="form-part-title">Sleep Ritual</h3>
+        <p class="waitlist-note">
+          Head, face, hands and feet in one unhurried 60-minute session. Book it on its own or alongside Part A or B.
+        </p>
+        <div class="checkbox-grid">
+          <label class="checkbox-item">
+            <input type="checkbox" name="ritual" data-duration="Sleep Ritual — 60 min" data-mobile-price="190" data-studio-price="170">
+            <span class="checkbox-label"><span class="service-name">Sleep Ritual — 60 min</span><span class="service-price">$190 BBD</span></span>
+          </label>
+        </div>
       </div>
 
       <div class="waitlist-heading">
@@ -2702,7 +2727,7 @@ function refreshBookingPrices() {
   });
 
   // focused treatments and add-ons (setting-aware only, same price for any style)
-  document.querySelectorAll('input[name="focused"], input[name="addon"]').forEach(function (input) {
+  document.querySelectorAll('input[name="focused"], input[name="addon"], input[name="ritual"]').forEach(function (input) {
     const item = input.closest('.checkbox-item');
     const priceLabel = item.querySelector('.service-price');
     const unavailable = input.dataset.studioOnly === 'true' && currentSetting !== 'studio';
@@ -2711,7 +2736,7 @@ function refreshBookingPrices() {
     if (unavailable) input.checked = false;
     if (priceLabel) {
       const price = currentSetting === 'studio' ? input.dataset.studioPrice : input.dataset.mobilePrice;
-      priceLabel.textContent = unavailable ? 'Home Studio only' : '$' + price + ' BBD';
+      priceLabel.textContent = unavailable ? 'Switch to Home Studio' : '$' + price + ' BBD';
     }
   });
 
@@ -2758,6 +2783,16 @@ document.querySelectorAll('input[name="style"]').forEach(function (radio) {
 refreshBookingPrices();
 document.getElementById('tasterCredit').addEventListener('change', refreshBookingPrices);
 
+/* One session length per part: ticking one unticks the others (and clicking again clears it) */
+document.querySelectorAll('[data-single-select]').forEach(function (group) {
+  group.addEventListener('change', function (e) {
+    if (e.target.type !== 'checkbox' || !e.target.checked) return;
+    group.querySelectorAll('input[type="checkbox"]').forEach(function (other) {
+      if (other !== e.target) other.checked = false;
+    });
+  });
+});
+
 /* BOOKING FORM LOGIC */
 
 function buildRequestMessage() {
@@ -2768,6 +2803,8 @@ function buildRequestMessage() {
   const addons = Array.from(document.querySelectorAll('input[name="addon"]:checked'));
   const areaChoice = document.querySelector('input[name="focusArea"]:checked');
   const styleChoice = document.querySelector('input[name="style"]:checked');
+  const styleChoiceA = document.querySelector('input[name="styleA"]:checked');
+  const rituals = Array.from(document.querySelectorAll('input[name="ritual"]:checked'));
 
   const name = document.getElementById('clientName').value.trim();
   const phone = document.getElementById('clientPhone').value.trim();
@@ -2777,12 +2814,12 @@ function buildRequestMessage() {
   const time = document.getElementById('clientTime').value;
   const notes = document.getElementById('clientNotes').value.trim();
 
-  if (checked.length === 0 && focused.length === 0 && waitlisted.length === 0) {
+  if (checked.length === 0 && focused.length === 0 && rituals.length === 0 && waitlisted.length === 0) {
     alert('Please select at least one treatment or waitlist option.');
     return null;
   }
 
-  if (focused.some(i => i.dataset.needsArea === 'true') && !areaChoice) {
+  if (focused.length > 0 && !areaChoice) {
     alert('Please choose a focus area for your taster or focused session.');
     return null;
   }
@@ -2816,19 +2853,22 @@ function buildRequestMessage() {
 
   msg += 'Preferred Setting: ' + currentSettingLabel + '\n';
 
-  if (styleChoice && checked.length > 0) {
-    msg += 'Preferred Style: ' + styleChoice.value + '\n';
-  }
-
   if (focused.length > 0) {
-    msg += '\nTaster / focused session(s):\n';
+    msg += '\nPart A — Taster / focused session:\n';
     focused.forEach(input => { msg += '- ' + flatLine(input) + '\n'; });
+    if (styleChoiceA) msg += 'Style: ' + styleChoiceA.value + '\n';
     if (areaChoice) msg += 'Focus area: ' + areaChoice.value + '\n';
   }
 
   if (checked.length > 0) {
-    msg += '\nFull-body massage' + (usingTasterCredit() ? ' (using $20 taster credit)' : '') + ':\n';
+    msg += '\nPart B — Full-body massage' + (usingTasterCredit() ? ' (using $20 taster credit)' : '') + ':\n';
     checked.forEach(input => { msg += '- ' + lineFor(input, false) + '\n'; });
+    if (styleChoice) msg += 'Style: ' + styleChoice.value + '\n';
+  }
+
+  if (rituals.length > 0) {
+    msg += '\nSignature ritual:\n';
+    rituals.forEach(input => { msg += '- ' + flatLine(input) + '\n'; });
   }
 
   if (addons.length > 0) {
