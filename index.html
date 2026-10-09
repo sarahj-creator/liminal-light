@@ -1642,6 +1642,60 @@ hr.divider {
 @media (max-width:760px) {
   .cookie-banner { left:.5rem; right:.5rem; bottom:.5rem; }
 }
+
+/* IMAGE BREAKS — full-width scenic pauses between sections (stock placeholders, swap for own photos later) */
+.image-break {
+  position: relative;
+  height: clamp(260px, 55vh, 540px);
+  overflow: hidden;
+  background: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.image-break img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.85) brightness(0.85);
+}
+.image-break::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--shadow) 0%, rgba(26,18,13,0.25) 22%, rgba(26,18,13,0.25) 78%, var(--shadow) 100%);
+}
+.image-break-line {
+  position: relative;
+  z-index: 1;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  color: var(--warm-white);
+  text-align: center;
+  padding: 0 1.5rem;
+  text-shadow: 0 2px 18px rgba(0,0,0,0.55);
+}
+
+/* SECTION FIGURES — single image inside a text section */
+.section-figure {
+  margin: 2.5rem 0 2.75rem;
+}
+.section-figure img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border: 1px solid rgba(212,168,67,0.25);
+  filter: saturate(0.88);
+  background: #241812;
+}
+.section-figure.is-wide img { aspect-ratio: 21 / 9; }
+@media (max-width: 600px) {
+  .section-figure.is-wide img { aspect-ratio: 3 / 2; }
+}
 </style>
 </head>
 
@@ -1736,6 +1790,12 @@ hr.divider {
 
 </section>
 
+<!-- IMAGE BREAK (stock placeholder — replace with own photo) -->
+<div class="image-break">
+  <img src="https://images.unsplash.com/photo-1463134836706-8bcc60f7d78b?auto=format&fit=crop&w=2000&q=70" alt="Soft ripples on dark water catching warm evening light" loading="lazy">
+  <p class="image-break-line fade-up">Breathe out.</p>
+</div>
+
 <!-- HOW YOU'LL FEEL -->
 
 <section class="feeling-section">
@@ -1806,6 +1866,11 @@ hr.divider {
       transition <em>intentionally.</em>
     </h2>
 
+    <!-- Stock placeholder — replace with own photo -->
+    <figure class="section-figure fade-up">
+      <img src="https://images.unsplash.com/photo-1529420705456-5c7e04dd043d?auto=format&fit=crop&w=1400&q=70" alt="Long-exposure view of a quiet beach, the water smoothed to mist" loading="lazy">
+    </figure>
+
     <p class="body-text fade-up">
       Modern life asks us to move constantly, from work to family, from responsibilities to endless notifications. Rarely are we given space to transition intentionally.
     </p>
@@ -1864,6 +1929,11 @@ hr.divider {
 
     <p class="therapist-intro fade-up">I'm Sarah, the person behind Liminal Light.</p>
 
+    <!-- Stock placeholder — replace with own photo -->
+    <figure class="section-figure fade-up">
+      <img src="https://images.unsplash.com/photo-1757689314932-bec6e9c39e51?auto=format&fit=crop&w=1400&q=70" alt="Hands massaging a forearm with gentle pressure" loading="lazy">
+    </figure>
+
     <p class="body-text fade-up">
       My relationship with massage began long before I ever considered it a profession. As a child, my mum would often tell me that I was good with my hands and ask me to work on the knots in her shoulders. I was only eight or nine years old, but I remember being fascinated by what happened in those moments — feeling the tension beneath my hands, working through it, and hearing the relief as each knot began to release.
     </p>
@@ -1903,6 +1973,12 @@ hr.divider {
     <p class="therapist-signoff fade-up">— Sarah</p>
   </div>
 </section>
+
+<!-- IMAGE BREAK (stock placeholder — replace with own photo) -->
+<div class="image-break">
+  <img src="https://images.unsplash.com/photo-1444044205806-38f3ed106c10?auto=format&fit=crop&w=2000&q=70" alt="Calm sea beneath golden clouds" loading="lazy">
+  <p class="image-break-line fade-up">Somewhere to land.</p>
+</div>
 
 <!-- WHO THIS IS FOR -->
 
@@ -1975,6 +2051,11 @@ hr.divider {
     <p class="body-text fade-up">
       Every treatment is fully customisable to your needs, whether you're here for sleep, for hormonal balance, or for recovery after training. All prices in BBD.
     </p>
+
+    <!-- Stock placeholder — replace with own photo -->
+    <figure class="section-figure is-wide fade-up">
+      <img src="https://images.unsplash.com/photo-1737064295113-48299903f612?auto=format&fit=crop&w=1400&q=70" alt="A bottle of massage oil beside a folded white towel" loading="lazy">
+    </figure>
 
     <p class="area-note fade-up">Choose Your Setting</p>
 
@@ -2204,6 +2285,12 @@ hr.divider {
   </div>
 
 </section>
+
+<!-- IMAGE BREAK (stock placeholder — replace with own photo) -->
+<div class="image-break">
+  <img src="https://images.unsplash.com/photo-1569154107747-fb00e3b3430d?auto=format&fit=crop&w=2000&q=70" alt="Calm sea at golden hour" loading="lazy">
+  <p class="image-break-line fade-up">When you're ready.</p>
+</div>
 
 <!-- BOOKING FORM -->
 
