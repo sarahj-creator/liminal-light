@@ -2092,7 +2092,7 @@ hr.divider {
 
         <div class="price-group focused-group">
           <h3 class="price-group-title">Taster &amp; Focused Sessions</h3>
-          <p class="price-group-note">One area of the body, worked properly. Choose from: head &amp; face, neck &amp; shoulders, full back, lower back &amp; hips, legs &amp; feet, or arms &amp; hands.</p>
+          <p class="price-group-note">Choose the areas you want worked: head &amp; face, neck &amp; shoulders, full back, lower back &amp; hips, legs &amp; feet, or arms &amp; hands. 30 min covers one area, 45 min up to two (for example, neck &amp; shoulders plus full back). For more areas, book a full-body massage and tell me where to focus.</p>
           <ul class="price-list">
             <li class="price-row">
               <span class="price-row-name">Taster Session<small>Tasters are held at the Home Studio in St James.</small></span>
@@ -2101,7 +2101,7 @@ hr.divider {
               </span>
             </li>
             <li class="price-row">
-              <span class="price-row-name">Focused Session<small>Priced below full body, with time to go deeper on one area</small></span>
+              <span class="price-row-name">Focused Session<small>Time to go deeper on the areas that need it most</small></span>
               <span class="price-duo">
                 <span class="price-option"><span class="price-option-label">30 min</span><span>$105 BBD</span></span>
                 <span class="price-option"><span class="price-option-label">45 min</span><span>$145 BBD</span></span>
@@ -2189,7 +2189,7 @@ hr.divider {
 
         <div class="price-group focused-group">
           <h3 class="price-group-title">Taster &amp; Focused Sessions</h3>
-          <p class="price-group-note">One area of the body, worked properly. Choose from: head &amp; face, neck &amp; shoulders, full back, lower back &amp; hips, legs &amp; feet, or arms &amp; hands.</p>
+          <p class="price-group-note">Choose the areas you want worked: head &amp; face, neck &amp; shoulders, full back, lower back &amp; hips, legs &amp; feet, or arms &amp; hands. 30 min covers one area, 45 min up to two (for example, neck &amp; shoulders plus full back). For more areas, book a full-body massage and tell me where to focus.</p>
           <ul class="price-list">
             <li class="price-row">
               <span class="price-row-name">Taster Session<small>A first taste of my work. Includes $20 off standard rates on a full-body massage of 60 minutes or longer, booked within 30 days.</small></span>
@@ -2198,7 +2198,7 @@ hr.divider {
               </span>
             </li>
             <li class="price-row">
-              <span class="price-row-name">Focused Session<small>Priced below full body, with time to go deeper on one area</small></span>
+              <span class="price-row-name">Focused Session<small>Time to go deeper on the areas that need it most</small></span>
               <span class="price-duo">
                 <span class="price-option"><span class="price-option-label">30 min</span><span>$85 BBD</span></span>
                 <span class="price-option"><span class="price-option-label">45 min</span><span>$120 BBD</span></span>
@@ -2329,22 +2329,22 @@ hr.divider {
         <p class="form-part-label">Part A</p>
         <h3 class="form-part-title">Taster or Focused Session</h3>
         <p class="waitlist-note">
-          One area of the body, worked properly. Same price whichever style you choose.
+          Choose the areas you want worked. Same price whichever style you choose.
         </p>
 
         <p class="area-note">Step 1 — Session length</p>
         <div class="checkbox-grid" data-single-select>
           <label class="checkbox-item">
-            <input type="checkbox" name="focused" data-duration="Taster Session — 20 min" data-mobile-price="" data-studio-price="55" data-studio-only="true">
-            <span class="checkbox-label"><span class="service-name">Taster Session — 20 min</span><span class="service-desc">Home Studio only</span><span class="service-price">$55 BBD</span></span>
+            <input type="checkbox" name="focused" data-duration="Taster Session — 20 min" data-mobile-price="" data-studio-price="55" data-studio-only="true" data-max-areas="1">
+            <span class="checkbox-label"><span class="service-name">Taster Session — 20 min</span><span class="service-desc">Home Studio only · 1 area</span><span class="service-price">$55 BBD</span></span>
           </label>
           <label class="checkbox-item">
-            <input type="checkbox" name="focused" data-duration="Focused Session — 30 min" data-mobile-price="105" data-studio-price="85">
-            <span class="checkbox-label"><span class="service-name">Focused Session — 30 min</span><span class="service-price">$105 BBD</span></span>
+            <input type="checkbox" name="focused" data-duration="Focused Session — 30 min" data-mobile-price="105" data-studio-price="85" data-max-areas="1">
+            <span class="checkbox-label"><span class="service-name">Focused Session — 30 min</span><span class="service-desc">1 area</span><span class="service-price">$105 BBD</span></span>
           </label>
           <label class="checkbox-item">
-            <input type="checkbox" name="focused" data-duration="Focused Session — 45 min" data-mobile-price="145" data-studio-price="120">
-            <span class="checkbox-label"><span class="service-name">Focused Session — 45 min</span><span class="service-price">$145 BBD</span></span>
+            <input type="checkbox" name="focused" data-duration="Focused Session — 45 min" data-mobile-price="145" data-studio-price="120" data-max-areas="2">
+            <span class="checkbox-label"><span class="service-name">Focused Session — 45 min</span><span class="service-desc">Up to 2 areas</span><span class="service-price">$145 BBD</span></span>
           </label>
         </div>
 
@@ -2373,34 +2373,36 @@ hr.divider {
           </label>
         </div>
 
-        <p class="area-note">Step 3 — Focus area</p>
+        <p class="area-note">Step 3 — Focus areas</p>
+        <p class="form-part-note" id="focusAreaHint" style="margin-top:0.6rem;">Choose a session length first, then pick your areas.</p>
         <div class="checkbox-grid" id="focusAreaGrid">
           <label class="checkbox-item">
-            <input type="radio" name="focusArea" value="Head &amp; Face">
+            <input type="checkbox" name="focusArea" value="Head &amp; Face">
             <span class="checkbox-label"><span class="service-name">Head &amp; Face</span></span>
           </label>
           <label class="checkbox-item">
-            <input type="radio" name="focusArea" value="Neck &amp; Shoulders">
+            <input type="checkbox" name="focusArea" value="Neck &amp; Shoulders">
             <span class="checkbox-label"><span class="service-name">Neck &amp; Shoulders</span></span>
           </label>
           <label class="checkbox-item">
-            <input type="radio" name="focusArea" value="Full Back">
+            <input type="checkbox" name="focusArea" value="Full Back">
             <span class="checkbox-label"><span class="service-name">Full Back</span></span>
           </label>
           <label class="checkbox-item">
-            <input type="radio" name="focusArea" value="Lower Back &amp; Hips">
+            <input type="checkbox" name="focusArea" value="Lower Back &amp; Hips">
             <span class="checkbox-label"><span class="service-name">Lower Back &amp; Hips</span></span>
           </label>
           <label class="checkbox-item">
-            <input type="radio" name="focusArea" value="Legs &amp; Feet">
+            <input type="checkbox" name="focusArea" value="Legs &amp; Feet">
             <span class="checkbox-label"><span class="service-name">Legs &amp; Feet</span></span>
           </label>
           <label class="checkbox-item">
-            <input type="radio" name="focusArea" value="Arms &amp; Hands">
+            <input type="checkbox" name="focusArea" value="Arms &amp; Hands">
             <span class="checkbox-label"><span class="service-name">Arms &amp; Hands</span></span>
           </label>
         </div>
 
+        <p class="form-part-note">Want more than two areas, or a full hour? Book a full-body massage in Part B and tell me in the notes where to focus.</p>
         <p class="form-part-note">Had a taster? You get $20 off standard rates on a full-body massage of 60 minutes or longer, booked within 30 days. Claim it in Part B, Step 4.</p>
       </div>
 
@@ -2830,6 +2832,8 @@ function refreshBookingPrices() {
     }
   });
 
+  if (typeof refreshFocusAreas === 'function') refreshFocusAreas();
+
   // waitlist items (setting-aware only, no style split yet — couples pricing TBD)
   document.querySelectorAll('input[name="waitlist"][data-mobile-price]').forEach(function (input) {
     const price = currentSetting === 'studio' ? input.dataset.studioPrice : input.dataset.mobilePrice;
@@ -2883,6 +2887,41 @@ document.querySelectorAll('[data-single-select]').forEach(function (group) {
   });
 });
 
+/* Focus areas: limit how many can be ticked based on the session length */
+function maxFocusAreas() {
+  const len = document.querySelector('input[name="focused"]:checked');
+  return len ? parseInt(len.dataset.maxAreas || '1', 10) : 0;
+}
+
+function refreshFocusAreas() {
+  const max = maxFocusAreas();
+  const boxes = Array.from(document.querySelectorAll('input[name="focusArea"]'));
+  let ticked = boxes.filter(b => b.checked);
+  // if the length was shortened, drop the most recently listed extras
+  if (max > 0 && ticked.length > max) {
+    ticked.slice(max).forEach(b => { b.checked = false; });
+    ticked = ticked.slice(0, max);
+  }
+  const full = max > 0 && ticked.length >= max;
+  boxes.forEach(function (b) {
+    const lock = full && !b.checked;
+    b.disabled = lock;
+    b.closest('.checkbox-item').classList.toggle('is-disabled', lock);
+  });
+  const hint = document.getElementById('focusAreaHint');
+  if (hint) {
+    if (max === 0) hint.textContent = 'Choose a session length first, then pick your areas.';
+    else if (max === 1) hint.textContent = 'Choose 1 area for this session.';
+    else hint.textContent = 'Choose up to ' + max + ' areas for this session (' + ticked.length + ' of ' + max + ' selected).';
+  }
+}
+
+document.querySelectorAll('input[name="focused"], input[name="focusArea"]').forEach(function (input) {
+  // deferred so the one-length-at-a-time rule has already unticked the other lengths
+  input.addEventListener('change', function () { setTimeout(refreshFocusAreas, 0); });
+});
+refreshFocusAreas();
+
 /* BOOKING FORM LOGIC */
 
 function buildRequestMessage() {
@@ -2891,7 +2930,7 @@ function buildRequestMessage() {
   const waitlisted = Array.from(document.querySelectorAll('input[name="waitlist"]:checked'));
   const focused = Array.from(document.querySelectorAll('input[name="focused"]:checked'));
   const addons = Array.from(document.querySelectorAll('input[name="addon"]:checked'));
-  const areaChoice = document.querySelector('input[name="focusArea"]:checked');
+  const areaChoices = Array.from(document.querySelectorAll('input[name="focusArea"]:checked')).map(b => b.value.replace(/&amp;/g, '&'));
   const styleChoice = document.querySelector('input[name="style"]:checked');
   const styleChoiceA = document.querySelector('input[name="styleA"]:checked');
   const rituals = Array.from(document.querySelectorAll('input[name="ritual"]:checked'));
@@ -2909,8 +2948,13 @@ function buildRequestMessage() {
     return null;
   }
 
-  if (focused.length > 0 && !areaChoice) {
-    alert('Please choose a focus area for your taster or focused session.');
+  if (focused.length > 0 && areaChoices.length === 0) {
+    alert('Please choose at least one focus area for your taster or focused session.');
+    return null;
+  }
+
+  if (focused.length > 0 && areaChoices.length > maxFocusAreas()) {
+    alert('That session length covers up to ' + maxFocusAreas() + ' area(s). Please choose fewer areas or a longer session.');
     return null;
   }
 
@@ -2947,7 +2991,7 @@ function buildRequestMessage() {
     msg += '\nPart A — Taster / focused session:\n';
     focused.forEach(input => { msg += '- ' + flatLine(input) + '\n'; });
     if (styleChoiceA) msg += 'Style: ' + styleChoiceA.value + '\n';
-    if (areaChoice) msg += 'Focus area: ' + areaChoice.value + '\n';
+    if (areaChoices.length) msg += 'Focus area' + (areaChoices.length > 1 ? 's' : '') + ': ' + areaChoices.join(', ') + '\n';
   }
 
   if (checked.length > 0) {
