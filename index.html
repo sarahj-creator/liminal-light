@@ -1109,6 +1109,57 @@ hr.divider {
   letter-spacing: 0.05em;
 }
 
+/* SETMORE BOOK NOW */
+.setmore-book {
+  margin: 2.5rem 0 3rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  border: 1px solid rgba(106,74,51,0.45);
+  background: rgba(212,168,67,0.05);
+}
+
+.setmore-book-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--light-gold);
+  margin-bottom: 1.2rem;
+}
+
+.anywhere-book-now-button {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  padding: 1rem 2.6rem;
+  cursor: pointer;
+  border: 1px solid var(--deep-amber);
+  background: var(--deep-amber);
+  color: var(--shadow);
+  border-radius: 0;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.anywhere-book-now-button:hover,
+.anywhere-book-now-button:focus-visible {
+  background: var(--light-gold);
+  border-color: var(--light-gold);
+  outline: none;
+}
+
+.setmore-book-note {
+  margin-top: 1.2rem;
+  font-size: 0.78rem;
+  line-height: 1.7;
+  color: rgba(245,238,230,0.68);
+}
+
+@media (max-width: 600px) {
+  .setmore-book { padding: 1.6rem 1rem; }
+  .anywhere-book-now-button { width: 100%; padding: 1.05rem 1rem; }
+}
+
 /* BOOKING FORM */
 
 .booking {
@@ -2368,6 +2419,20 @@ hr.divider {
       Choose your setting, then start with a taster or focused session, book a full-body massage, or both, and share a few details. I'll confirm your appointment by email or WhatsApp within 24 hours.
     </p>
 
+    <div class="setmore-book fade-up">
+      <p class="setmore-book-label">Book online</p>
+      <button
+        id="Anywhere_button_iframe"
+        class="anywhere-book-now-button"
+        data-booking-url="https://liminallight.setmore.com"
+        data-new-tab="false">
+        Book now
+      </button>
+      <p class="setmore-book-note">
+        Choose a time that suits you and book instantly. Prefer to send a request instead? Use the form below.
+      </p>
+    </div>
+
     <div class="pricing-toggle fade-up" id="bookingSettingToggle">
       <button type="button" class="toggle-btn is-active" data-setting="studio" data-setting-label="Home Studio — treatment at Liminal Light studio, St James">Home Studio</button>
       <button type="button" class="toggle-btn" data-setting="mobile" data-setting-label="Mobile — treatment at client's location">Mobile</button>
@@ -3103,6 +3168,8 @@ if (manageCookiesLink) {
 })();
 
 </script>
+
+<script id="anywhere_book_now_script" src="https://assets.setmore.com/integration/book-now/live/v1/anywhere-book-now.js"></script>
 
 </body>
 </html>
